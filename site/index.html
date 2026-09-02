@@ -1,13 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
+<html lang="en"><head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Cybersecurity Portfolio</title>
-  <meta
-    name="description"
-    content="Cybersecurity portfolio featuring SIEM, network security, incident response, system hardening, vulnerability assessment, and security research."
-  >
+  <meta name="description" content="Cybersecurity portfolio featuring SIEM, network security, incident response, system hardening, vulnerability assessment, and security research.">
 
   <style>
     :root {
@@ -821,12 +817,180 @@
       }
     }
 
+
+    /* Visual text editor */
+    .visual-editor-toolbar {
+      position: fixed;
+      right: 18px;
+      bottom: 18px;
+      z-index: 10000;
+      display: none;
+      align-items: center;
+      gap: 8px;
+      padding: 8px;
+      border: 1px solid rgba(94, 160, 255, 0.22);
+      border-radius: 12px;
+      background: rgba(7, 17, 31, 0.92);
+      box-shadow: 0 16px 45px rgba(0, 0, 0, 0.35);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+    }
+
+    .visual-editor-toolbar.visible { display: flex; }
+
+    .visual-editor-toolbar button {
+      min-height: 38px;
+      padding: 0.65rem 0.85rem;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: var(--card);
+      color: var(--text);
+      font: inherit;
+      font-size: 0.82rem;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .visual-editor-toolbar button.primary {
+      border-color: var(--accent);
+      background: var(--accent);
+      color: #fff;
+    }
+
+    .visual-editor-hint {
+      position: fixed;
+      left: 50%;
+      bottom: 22px;
+      z-index: 9999;
+      display: none;
+      transform: translateX(-50%);
+      padding: 0.65rem 0.9rem;
+      border: 1px solid rgba(94, 160, 255, 0.20);
+      border-radius: 999px;
+      background: rgba(7, 17, 31, 0.90);
+      color: var(--muted);
+      font-size: 0.8rem;
+      pointer-events: none;
+    }
+
+    .visual-editor-hint.visible { display: block; }
+
+    body.visual-editing #staging-content [contenteditable="true"] {
+      cursor: text;
+      outline: 1px dashed transparent;
+      outline-offset: 5px;
+      border-radius: 4px;
+    }
+
+    body.visual-editing #staging-content [contenteditable="true"]:hover,
+    body.visual-editing #staging-content [contenteditable="true"]:focus {
+      outline-color: rgba(94, 160, 255, 0.48);
+      background: rgba(47, 125, 246, 0.06);
+    }
+
+    @media (max-width: 640px) {
+      .visual-editor-toolbar {
+        right: 10px;
+        bottom: 10px;
+        left: 10px;
+        justify-content: center;
+      }
+
+      .visual-editor-hint { display: none !important; }
+    }
+
+
+    /* Resume section */
+    .resume-panel {
+      overflow: hidden;
+      background:
+        linear-gradient(
+          145deg,
+          rgba(255, 255, 255, 0.022),
+          transparent 42%
+        ),
+        var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+    }
+
+    .resume-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.5rem;
+      padding: 1.5rem 1.6rem;
+      border-bottom: 1px solid var(--border);
+      background: rgba(7, 17, 31, 0.55);
+    }
+
+    .resume-header h3 {
+      margin-bottom: 0.2rem;
+      font-size: 1.1rem;
+    }
+
+    .resume-header p {
+      color: var(--muted);
+      font-size: 0.88rem;
+    }
+
+    .resume-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.7rem;
+      flex-shrink: 0;
+    }
+
+    .resume-preview {
+      min-height: 720px;
+      background: #07111f;
+    }
+
+    .resume-preview iframe {
+      display: block;
+      width: 100%;
+      min-height: 720px;
+      border: 0;
+      background: #fff;
+    }
+
+    .resume-fallback {
+      padding: 1rem 1.6rem 1.4rem;
+      color: var(--muted);
+      font-size: 0.85rem;
+      border-top: 1px solid var(--border);
+    }
+
+    .resume-fallback code {
+      color: var(--accent-blue);
+    }
+
+    @media (max-width: 700px) {
+      .resume-header {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .resume-actions {
+        width: 100%;
+      }
+
+      .resume-actions .button {
+        flex: 1;
+      }
+
+      .resume-preview,
+      .resume-preview iframe {
+        min-height: 560px;
+      }
+    }
+
 </style>
 </head>
 
-<body>
+<body class="">
 
-  <div id="staging-gate" class="staging-gate">
+  <div id="staging-gate" class="staging-gate fade-out" style="display: none;">
     <div class="ambient-orb one"></div>
     <div class="ambient-orb two"></div>
     <div class="ambient-orb three"></div>
@@ -842,13 +1006,7 @@
       </p>
 
       <div class="staging-gate-form">
-        <input
-          type="password"
-          id="staging-password"
-          placeholder="Password"
-          aria-label="Password"
-          onkeydown="if (event.key === 'Enter') checkStagingPassword()"
-        >
+        <input type="password" id="staging-password" placeholder="Password" aria-label="Password" onkeydown="if (event.key === 'Enter') checkStagingPassword()">
         <button type="button" onclick="checkStagingPassword()">Enter</button>
       </div>
 
@@ -857,7 +1015,7 @@
     </div>
   </div>
 
-  <div id="staging-content" style="display:none;">
+  <div id="staging-content" style="display: block;" class="revealed">
 <header>
     <div class="container">
       <nav>
@@ -868,6 +1026,7 @@
         <ul class="nav-links">
           <li><a href="#about">About</a></li>
           <li><a href="#skills">Skills</a></li>
+          <li><a href="#resume">Resume</a></li>
           <li><a href="#project">Featured Project</a></li>
           <li><a href="#repository">Repository</a></li>
         </ul>
@@ -887,7 +1046,7 @@
 
           <h1>
             Building skills to
-            <span class="accent">detect, analyze & defend.</span>
+            <span class="accent">detect, analyze &amp; defend.</span>
           </h1>
 
           <p class="hero-copy">
@@ -898,19 +1057,11 @@
           </p>
 
           <div class="hero-actions">
-            <a
-              class="button"
-              href="https://github.com/jpeduzzii/cybersecurity-portfolio"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
+            <a class="button" href="https://github.com/jpeduzzii/cybersecurity-portfolio" target="_blank" rel="noopener noreferrer">
               View GitHub Repository
             </a>
 
-            <a
-              class="button secondary"
-              href="#project"
-            >
+            <a class="button secondary" href="#project">
               Featured Project
             </a>
           </div>
@@ -925,7 +1076,7 @@
 
           <div class="terminal-body">
             <p><span class="prompt">$</span> whoami</p>
-            <p>cybersecurity_student</p>
+            <p>jack_peduzzi</p>
 
             <br>
 
@@ -939,13 +1090,11 @@
 
             <p><span class="prompt">$</span> certification --status</p>
             <p>
-              CompTIA Security+
-              <span class="prompt">[COMPLETE]</span>
-            </p>
+              CompTIA Security+<br>PCEP-03-02</p>
 
             <br>
 
-            <p class="terminal-muted">// always learning</p>
+            <p class="terminal-muted"><br></p>
           </div>
         </div>
 
@@ -966,27 +1115,11 @@
         <div class="about-grid">
 
           <div class="about-text">
-            <p>
-              My background is in cybersecurity, with experience across
-              security monitoring, network reconnaissance, vulnerability
-              assessment, Linux and Windows security, penetration testing
-              fundamentals, and incident response.
-            </p>
+            <p>As a current Cybersecurity analyst working for TekSystems, I have been able to showcase the skills that I built throughout college.</p>
 
-            <p>
-              I'm especially interested in blue-team security and SOC work:
-              understanding what is happening across a network, recognizing
-              suspicious activity, investigating alerts, and improving the
-              security posture of systems before an incident becomes a larger
-              problem.
-            </p>
+            <p>I worked as the Blue Team Lead for the Center for Intelligence, Research, and Training (CIRAT) at Mercyhurst University. In this role, I led seven different analysts by overseeing the operational and information security environment in the lab space. I've written critical documentation, triaged alerts, led meetings, and developed employee training modules.</p>
 
-            <p>
-              Through coursework, labs, independent practice, and my
-              cybersecurity bootcamp, I've worked with tools including Wazuh,
-              Nmap, Kali Linux, Wireshark, Burp Suite, SearchSploit, AIDE,
-              vulnerability scanners, Windows, Linux, and Hyper-V.
-            </p>
+            <p>During my Junior year of school, I was an Information Security Intern at CNB Bank. In this role, I focused heavily on sensitive data remediation, investigating phishing emails, meeting with upper management, and shadowed other employees.</p>
 
             <p>
               My goal is to continue strengthening my detection, incident
@@ -1042,7 +1175,7 @@
         <div class="skills-grid">
 
           <article class="skill-card">
-            <h3>Security Operations & Blue Team</h3>
+            <h3>Security Operations &amp; Blue Team</h3>
             <div class="tags">
               <span class="tag">Wazuh</span>
               <span class="tag">SIEM Analysis</span>
@@ -1062,13 +1195,13 @@
               <span class="tag">Service Enumeration</span>
               <span class="tag">Packet Analysis</span>
               <span class="tag">SMB</span>
-              <span class="tag">FTP</span>
-              <span class="tag">HTTP / IIS</span>
+              <span class="tag">Firewalls</span>
+              <span class="tag">Web Application Security</span>
             </div>
           </article>
 
           <article class="skill-card">
-            <h3>Systems & Hardening</h3>
+            <h3>Systems &amp; Hardening</h3>
             <div class="tags">
               <span class="tag">Linux</span>
               <span class="tag">Windows</span>
@@ -1082,7 +1215,7 @@
           </article>
 
           <article class="skill-card">
-            <h3>Offensive Security & Assessment</h3>
+            <h3>Offensive Security &amp; Assessment</h3>
             <div class="tags">
               <span class="tag">Kali Linux</span>
               <span class="tag">Nmap</span>
@@ -1095,7 +1228,7 @@
           </article>
 
           <article class="skill-card">
-            <h3>Web, TLS & Services</h3>
+            <h3>Web, TLS &amp; Services</h3>
             <div class="tags">
               <span class="tag">TLS</span>
               <span class="tag">Certificates</span>
@@ -1107,14 +1240,14 @@
           </article>
 
           <article class="skill-card">
-            <h3>Currently Developing</h3>
+            <h3>Digital Forensics</h3>
             <div class="tags">
-              <span class="tag">Detection Engineering</span>
-              <span class="tag">Advanced DFIR</span>
+              <span class="tag">Autopsy</span>
+              <span class="tag">DFIR</span>
               <span class="tag">Web Application Security</span>
               <span class="tag">Firewall Administration</span>
-              <span class="tag">IDS / IPS</span>
-              <span class="tag">Malware Analysis</span>
+              <span class="tag"><br></span>
+              <span class="tag">FTKImager</span>
             </div>
           </article>
 
@@ -1139,7 +1272,7 @@
           </div>
 
           <h3>
-            Wazuh SIEM & Security Monitoring
+            Wazuh SIEM &amp; Security Monitoring
           </h3>
 
           <p>
@@ -1165,12 +1298,7 @@
             <span class="tag">Blue Team</span>
           </div>
 
-          <a
-            class="button"
-            href="https://github.com/jpeduzzii/cybersecurity-portfolio/tree/main/soc-tools"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+          <a class="button" href="https://github.com/jpeduzzii/cybersecurity-portfolio/tree/main/soc-tools" target="_blank" rel="noopener noreferrer">
             Explore SOC Work
           </a>
         </article>
@@ -1203,11 +1331,61 @@
       </div>
     </section>
 
-    <section id="repository">
+    
+    <section id="resume">
       <div class="container">
 
         <div class="section-label">
-          05 / Repository
+          05 / Resume
+        </div>
+
+        <h2 class="section-title">
+          Resume.
+        </h2>
+
+        <p class="section-intro">
+          A quick look at my education, experience, certifications, and technical background.
+        </p>
+
+        <div class="resume-panel">
+          <div class="resume-header">
+            <div>
+              <h3>Jack Peduzzi — Resume</h3>
+              <p>PDF resume</p>
+            </div>
+
+            <div class="resume-actions">
+              <a class="button secondary" href="resume.pdf" target="_blank" rel="noopener noreferrer">
+                Open Resume
+              </a>
+
+              <a class="button" href="resume.pdf" download>
+                Download PDF
+              </a>
+            </div>
+          </div>
+
+          <div class="resume-preview">
+            <iframe
+              src="resume.pdf#view=FitH"
+              title="Jack Peduzzi Resume"
+              loading="lazy">
+            </iframe>
+          </div>
+
+          <p class="resume-fallback">
+            Put your resume PDF in the same <code>site</code> folder as this page and name it <code>resume.pdf</code>.
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+<section id="repository">
+      <div class="container">
+
+        <div class="section-label">
+          06 / Repository
         </div>
 
         <h2 class="section-title">
@@ -1221,12 +1399,7 @@
 
         <div class="repo-grid">
 
-          <a
-            class="repo-card"
-            href="https://github.com/jpeduzzii/cybersecurity-portfolio/tree/main/soc-tools"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+          <a class="repo-card" href="https://github.com/jpeduzzii/cybersecurity-portfolio/tree/main/soc-tools" target="_blank" rel="noopener noreferrer">
             <div>
               <h3>SOC Tools</h3>
               <p>
@@ -1236,12 +1409,7 @@
             <span class="repo-link">Open folder →</span>
           </a>
 
-          <a
-            class="repo-card"
-            href="https://github.com/jpeduzzii/cybersecurity-portfolio/tree/main/grc"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+          <a class="repo-card" href="https://github.com/jpeduzzii/cybersecurity-portfolio/tree/main/grc" target="_blank" rel="noopener noreferrer">
             <div>
               <h3>GRC</h3>
               <p>
@@ -1251,12 +1419,7 @@
             <span class="repo-link">Open folder →</span>
           </a>
 
-          <a
-            class="repo-card"
-            href="https://github.com/jpeduzzii/cybersecurity-portfolio/tree/main/red-teaming"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+          <a class="repo-card" href="https://github.com/jpeduzzii/cybersecurity-portfolio/tree/main/red-teaming" target="_blank" rel="noopener noreferrer">
             <div>
               <h3>Red Teaming</h3>
               <p>
@@ -1266,12 +1429,7 @@
             <span class="repo-link">Open folder →</span>
           </a>
 
-          <a
-            class="repo-card"
-            href="https://github.com/jpeduzzii/cybersecurity-portfolio/tree/main/tls-audits"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+          <a class="repo-card" href="https://github.com/jpeduzzii/cybersecurity-portfolio/tree/main/tls-audits" target="_blank" rel="noopener noreferrer">
             <div>
               <h3>TLS Audits</h3>
               <p>
@@ -1281,12 +1439,7 @@
             <span class="repo-link">Open folder →</span>
           </a>
 
-          <a
-            class="repo-card"
-            href="https://github.com/jpeduzzii/cybersecurity-portfolio/tree/main/malware-analysis"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+          <a class="repo-card" href="https://github.com/jpeduzzii/cybersecurity-portfolio/tree/main/malware-analysis" target="_blank" rel="noopener noreferrer">
             <div>
               <h3>Malware Analysis</h3>
               <p>
@@ -1296,14 +1449,9 @@
             <span class="repo-link">Open folder →</span>
           </a>
 
-          <a
-            class="repo-card"
-            href="https://github.com/jpeduzzii/cybersecurity-portfolio/tree/main/research-and-writeups"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+          <a class="repo-card" href="https://github.com/jpeduzzii/cybersecurity-portfolio/tree/main/research-and-writeups" target="_blank" rel="noopener noreferrer">
             <div>
-              <h3>Research & Write-Ups</h3>
+              <h3>Research &amp; Write-Ups</h3>
               <p>
                 Technical research, cybersecurity analysis, and documentation.
               </p>
@@ -1311,14 +1459,9 @@
             <span class="repo-link">Open folder →</span>
           </a>
 
-          <a
-            class="repo-card"
-            href="https://github.com/jpeduzzii/cybersecurity-portfolio/tree/main/certifications-and-skills"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+          <a class="repo-card" href="https://github.com/jpeduzzii/cybersecurity-portfolio/tree/main/certifications-and-skills" target="_blank" rel="noopener noreferrer">
             <div>
-              <h3>Certifications & Skills</h3>
+              <h3>Certifications &amp; Skills</h3>
               <p>
                 Certification progress and hands-on cybersecurity skill tracking.
               </p>
@@ -1326,12 +1469,7 @@
             <span class="repo-link">Open folder →</span>
           </a>
 
-          <a
-            class="repo-card"
-            href="https://github.com/jpeduzzii/cybersecurity-portfolio/tree/main/presentations"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+          <a class="repo-card" href="https://github.com/jpeduzzii/cybersecurity-portfolio/tree/main/presentations" target="_blank" rel="noopener noreferrer">
             <div>
               <h3>Presentations</h3>
               <p>
@@ -1341,12 +1479,7 @@
             <span class="repo-link">Open folder →</span>
           </a>
 
-          <a
-            class="repo-card"
-            href="https://github.com/jpeduzzii/cybersecurity-portfolio"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+          <a class="repo-card" href="https://github.com/jpeduzzii/cybersecurity-portfolio" target="_blank" rel="noopener noreferrer">
             <div>
               <h3>Full Repository</h3>
               <p>
@@ -1365,20 +1498,25 @@
   <footer>
     <div class="container">
       <p>
-        Built with plain HTML & CSS • Hosted with GitHub Pages
+        Built with plain HTML &amp; CSS • Hosted with GitHub Pages
       </p>
 
       <p>
-        <a
-          href="https://github.com/jpeduzzii/cybersecurity-portfolio"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
+        <a href="https://github.com/jpeduzzii/cybersecurity-portfolio" target="_blank" rel="noopener noreferrer">
           github.com/jpeduzzii/cybersecurity-portfolio
         </a>
       </p>
     </div>
   </footer>
+  </div>
+
+  <div id="visual-editor-toolbar" class="visual-editor-toolbar visible" data-editor-ui="true">
+    <button id="toggle-edit-mode" type="button" class="primary">Edit Page</button>
+    <button id="download-edited-html" type="button">Save HTML</button>
+  </div>
+
+  <div id="visual-editor-hint" class="visual-editor-hint" data-editor-ui="true">
+    Click any text to edit it
   </div>
 
   <script>
@@ -1418,7 +1556,94 @@
       content.style.display = 'block';
       content.classList.add('revealed');
     }
-  </script>
+  
+    // Visual editor controls
+    const editorToolbar = document.getElementById('visual-editor-toolbar');
+    const editButton = document.getElementById('toggle-edit-mode');
+    const saveButton = document.getElementById('download-edited-html');
+    const editorHint = document.getElementById('visual-editor-hint');
+    let visualEditMode = false;
 
-</body>
-</html>
+    function getEditableElements() {
+      return document.querySelectorAll(
+        '#staging-content h1, #staging-content h2, #staging-content h3, ' +
+        '#staging-content h4, #staging-content p, #staging-content li, ' +
+        '#staging-content .eyebrow, #staging-content .section-label, ' +
+        '#staging-content .tag, #staging-content .badge'
+      );
+    }
+
+    function setVisualEditMode(enabled) {
+      visualEditMode = enabled;
+      document.body.classList.toggle('visual-editing', enabled);
+
+      getEditableElements().forEach((el) => {
+        if (enabled) {
+          el.setAttribute('contenteditable', 'true');
+          el.setAttribute('spellcheck', 'true');
+        } else {
+          el.removeAttribute('contenteditable');
+          el.removeAttribute('spellcheck');
+        }
+      });
+
+      editButton.textContent = enabled ? 'Done Editing' : 'Edit Page';
+      editButton.classList.toggle('primary', !enabled);
+      editorHint.classList.toggle('visible', enabled);
+    }
+
+    editButton.addEventListener('click', () => {
+      setVisualEditMode(!visualEditMode);
+    });
+
+    saveButton.addEventListener('click', () => {
+      const clone = document.documentElement.cloneNode(true);
+
+      clone.querySelectorAll('[contenteditable]').forEach((el) => {
+        el.removeAttribute('contenteditable');
+        el.removeAttribute('spellcheck');
+      });
+
+      const clonedBody = clone.querySelector('body');
+      if (clonedBody) clonedBody.classList.remove('visual-editing');
+
+      const clonedHint = clone.querySelector('#visual-editor-hint');
+      if (clonedHint) clonedHint.classList.remove('visible');
+
+      const clonedEditButton = clone.querySelector('#toggle-edit-mode');
+      if (clonedEditButton) {
+        clonedEditButton.textContent = 'Edit Page';
+        clonedEditButton.classList.add('primary');
+      }
+
+      const exportedHtml = '<!DOCTYPE html>\n' + clone.outerHTML;
+      const blob = new Blob([exportedHtml], { type: 'text/html;charset=utf-8' });
+      const url = URL.createObjectURL(blob);
+      const link = document.createElement('a');
+
+      link.href = url;
+      link.download = 'index.html';
+      document.body.appendChild(link);
+      link.click();
+      link.remove();
+      setTimeout(() => URL.revokeObjectURL(url), 1000);
+    });
+
+    function showEditorToolbar() {
+      editorToolbar.classList.add('visible');
+    }
+
+    if (sessionStorage.getItem('stagingAccess') === 'granted') {
+      showEditorToolbar();
+    }
+
+    const originalEnterStagingSite = enterStagingSite;
+    enterStagingSite = function() {
+      originalEnterStagingSite();
+      setTimeout(showEditorToolbar, 650);
+    };
+
+</script>
+
+
+</body></html>
