@@ -3,28 +3,32 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
   <title>Cybersecurity Portfolio</title>
-
   <meta
     name="description"
-    content="Cybersecurity portfolio focused on security operations, SIEM analysis, incident response, network security, vulnerability assessment, and system hardening."
+    content="Cybersecurity portfolio featuring SIEM, network security, incident response, system hardening, vulnerability assessment, and security research."
   >
 
   <style>
     :root {
-      --ink: #0d1b2a;
-      --ink-soft: #405064;
-      --paper: #f4f6f8;
-      --paper-2: #ffffff;
-      --line: #d7dde4;
-      --blue: #163a5f;
-      --blue-2: #245b8f;
-      --max: 1180px;
+      --bg: #040914;
+      --bg-soft: #07111f;
+      --card: #0b1626;
+      --card-light: #10233a;
+      --border: #1d3550;
+      --text: #eef5ff;
+      --muted: #9fb0c4;
+      --accent: #2f7df6;
+      --accent-soft: rgba(47, 125, 246, 0.14);
+      --accent-blue: #5ea0ff;
+      --max-width: 1120px;
+      --radius: 18px;
     }
 
     * {
       box-sizing: border-box;
+      margin: 0;
+      padding: 0;
     }
 
     html {
@@ -32,1036 +36,1387 @@
     }
 
     body {
-      margin: 0;
-      background: var(--paper);
-      color: var(--ink);
-      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-      line-height: 1.55;
+      font-family:
+        Inter,
+        ui-sans-serif,
+        system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
+
+      background:
+        radial-gradient(
+          circle at 85% 10%,
+          rgba(47, 125, 246, 0.10),
+          transparent 28%
+        ),
+        radial-gradient(
+          circle at 10% 35%,
+          rgba(94, 160, 255, 0.07),
+          transparent 25%
+        ),
+        var(--bg);
+
+      color: var(--text);
+      line-height: 1.7;
     }
 
     a {
       color: inherit;
+      text-decoration: none;
     }
 
-    h1,
-    .section-index h2,
-    .featured h3 {
-      font-family: Georgia, "Times New Roman", serif;
-    }
-
-    .site-name {
-      font-family: Georgia, "Times New Roman", serif;
-    }
-
-    .wrap {
-      width: min(calc(100% - 40px), var(--max));
+    .container {
+      width: min(92%, var(--max-width));
       margin: 0 auto;
     }
 
-    .site-header {
-      background: var(--paper);
-      border-bottom: 1px solid var(--line);
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(4, 9, 20, 0.90);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
     }
 
-    .site-header .wrap {
-      height: 72px;
+    nav {
+      min-height: 72px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 28px;
+      gap: 2rem;
     }
 
-    .site-name {
-      font-size: 0.95rem;
-      font-weight: 700;
-      letter-spacing: 0.02em;
-      text-decoration: none;
+    .logo {
+      font-weight: 800;
+      letter-spacing: 0.04em;
     }
 
-    .site-nav {
+    .logo span {
+      color: var(--accent);
+    }
+
+    .nav-links {
+      list-style: none;
       display: flex;
-      gap: 24px;
-      flex-wrap: wrap;
+      align-items: center;
+      gap: 1.5rem;
     }
 
-    .site-nav a {
-      color: var(--ink-soft);
-      text-decoration: none;
-      font-size: 0.9rem;
+    .nav-links a {
+      color: var(--muted);
+      font-size: 0.95rem;
+      transition:
+        color 0.2s ease,
+        transform 0.2s ease;
     }
 
-    .site-nav a:hover {
-      color: var(--blue-2);
+    .nav-links a:hover {
+      color: var(--accent);
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.85rem 1.2rem;
+      border-radius: 10px;
+      border: 1px solid var(--accent);
+      background: var(--accent);
+      color: #f7fbff;
+      font-weight: 700;
+      font-size: 0.95rem;
+      transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease,
+        background 0.2s ease;
+    }
+
+    .button:hover {
+      transform: translateY(-2px);
+      box-shadow:
+        0 10px 30px rgba(47, 125, 246, 0.18);
+    }
+
+    .button.secondary {
+      background: transparent;
+      color: var(--text);
+      border-color: var(--border);
+    }
+
+    .button.secondary:hover {
+      border-color: var(--accent);
+      color: var(--accent);
     }
 
     .hero {
-      padding: 96px 0 88px;
-      background: var(--paper-2);
-      border-bottom: 1px solid var(--line);
-    }
-
-    .hero-grid {
+      min-height: 78vh;
       display: grid;
-      grid-template-columns: 1.4fr 0.6fr;
-      gap: 72px;
-      align-items: end;
+      grid-template-columns: 1.25fr 0.75fr;
+      align-items: center;
+      gap: 4rem;
+      padding: 6rem 0;
     }
 
-    .hero-kicker {
-      margin: 0 0 18px;
-      color: var(--blue-2);
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.55rem;
+      color: var(--accent);
+      font-size: 0.85rem;
+      font-weight: 800;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      margin-bottom: 1.2rem;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow:
+        0 0 12px rgba(47, 125, 246, 0.85);
+    }
+
+    h1 {
+      font-size: clamp(2.8rem, 6vw, 5.7rem);
+      line-height: 0.98;
+      letter-spacing: -0.055em;
+      max-width: 850px;
+      margin-bottom: 1.5rem;
+    }
+
+    h1 .accent {
+      color: var(--accent);
+    }
+
+    .hero-copy {
+      max-width: 720px;
+      color: var(--muted);
+      font-size: 1.1rem;
+      margin-bottom: 2rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+    }
+
+    .terminal {
+      overflow: hidden;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: #050b14;
+      box-shadow:
+        0 30px 70px rgba(0, 0, 0, 0.3);
+    }
+
+    .terminal-header {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.9rem 1rem;
+      background: #0a1423;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: #2c4058;
+    }
+
+    .terminal-body {
+      padding: 1.5rem;
+      font-family:
+        "Cascadia Code",
+        "SFMono-Regular",
+        Consolas,
+        monospace;
+      font-size: 0.88rem;
+      color: #c9d8ea;
+    }
+
+    .terminal-body p {
+      margin-bottom: 0.6rem;
+    }
+
+    .prompt {
+      color: var(--accent);
+    }
+
+    .terminal-muted {
+      color: #72869d;
+    }
+
+    section {
+      padding: 5.5rem 0;
+    }
+
+    .section-label {
+      color: var(--accent);
+      font-size: 0.8rem;
+      font-weight: 800;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      margin-bottom: 0.7rem;
+    }
+
+    .section-title {
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      line-height: 1.1;
+      letter-spacing: -0.035em;
+      margin-bottom: 1rem;
+    }
+
+    .section-intro {
+      max-width: 700px;
+      color: var(--muted);
+      margin-bottom: 2.5rem;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1.3fr 0.7fr;
+      gap: 3rem;
+    }
+
+    .about-text p {
+      color: var(--muted);
+      margin-bottom: 1.2rem;
+    }
+
+    .stats {
+      display: grid;
+      gap: 1rem;
+    }
+
+    .stat {
+      padding: 1.4rem;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+    }
+
+    .stat strong {
+      display: block;
+      color: var(--accent);
+      font-size: 1.4rem;
+      margin-bottom: 0.2rem;
+    }
+
+    .stat span {
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.2rem;
+    }
+
+    .skill-card {
+      padding: 1.7rem;
+      background:
+        linear-gradient(
+          145deg,
+          rgba(255, 255, 255, 0.025),
+          transparent
+        ),
+        var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      transition:
+        transform 0.2s ease,
+        border-color 0.2s ease;
+    }
+
+    .skill-card:hover {
+      transform: translateY(-3px);
+      border-color: rgba(47, 125, 246, 0.55);
+    }
+
+    .skill-card h3 {
+      margin-bottom: 1rem;
+      font-size: 1.1rem;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.55rem;
+    }
+
+    .tag {
+      padding: 0.4rem 0.7rem;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      border: 1px solid rgba(47, 125, 246, 0.18);
+      color: #cfe2ff;
       font-size: 0.82rem;
+    }
+
+    .featured {
+      position: relative;
+      overflow: hidden;
+      padding: 2.5rem;
+      border: 1px solid rgba(47, 125, 246, 0.34);
+      border-radius: 24px;
+      background:
+        radial-gradient(
+          circle at 90% 20%,
+          rgba(47, 125, 246, 0.14),
+          transparent 30%
+        ),
+        var(--card);
+    }
+
+    .featured::after {
+      content: "SIEM";
+      position: absolute;
+      right: -1rem;
+      bottom: -3rem;
+      font-size: 9rem;
+      font-weight: 900;
+      letter-spacing: -0.08em;
+      color: rgba(255, 255, 255, 0.025);
+      pointer-events: none;
+    }
+
+    .featured-badge {
+      display: inline-block;
+      padding: 0.35rem 0.7rem;
+      border-radius: 7px;
+      background: var(--accent);
+      color: #f7fbff;
+      font-weight: 800;
+      font-size: 0.72rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+    }
+
+    .featured h3 {
+      position: relative;
+      z-index: 1;
+      font-size: clamp(1.7rem, 4vw, 2.8rem);
+      margin-bottom: 1rem;
+    }
+
+    .featured p {
+      position: relative;
+      z-index: 1;
+      max-width: 760px;
+      color: var(--muted);
+      margin-bottom: 1.5rem;
+    }
+
+    .project-details {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      margin-bottom: 1.7rem;
+    }
+
+    .repo-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+    }
+
+    .repo-card {
+      min-height: 150px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 1.35rem;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      transition:
+        transform 0.2s ease,
+        border-color 0.2s ease,
+        background 0.2s ease;
+    }
+
+    .repo-card:hover {
+      transform: translateY(-3px);
+      border-color: var(--accent);
+      background: var(--card-light);
+    }
+
+    .repo-card h3 {
+      font-size: 1rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .repo-card p {
+      color: var(--muted);
+      font-size: 0.87rem;
+    }
+
+    .repo-link {
+      color: var(--accent);
+      font-size: 0.84rem;
       font-weight: 700;
+      margin-top: 1rem;
+    }
+
+    .cert {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 2rem;
+      padding: 1.6rem 1.8rem;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+    }
+
+    .cert h3 {
+      margin-bottom: 0.25rem;
+    }
+
+    .cert p {
+      color: var(--muted);
+    }
+
+    .cert-status {
+      flex-shrink: 0;
+      padding: 0.45rem 0.85rem;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: var(--accent);
+      font-size: 0.82rem;
+      font-weight: 800;
+    }
+
+    footer {
+      padding: 3rem 0;
+      border-top: 1px solid var(--border);
+      color: var(--muted);
+      text-align: center;
+      font-size: 0.9rem;
+    }
+
+    footer a {
+      color: var(--accent);
+    }
+
+    @media (max-width: 850px) {
+      .hero,
+      .about-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        min-height: auto;
+        padding: 5rem 0;
+      }
+
+      .skills-grid,
+      .repo-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .terminal {
+        max-width: 600px;
+      }
+    }
+
+    @media (max-width: 650px) {
+      nav {
+        min-height: 64px;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      section {
+        padding: 4rem 0;
+      }
+
+      .featured {
+        padding: 1.6rem;
+      }
+
+      .cert {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+    }
+  
+    /* Staging preview gate */
+    .staging-gate {
+      min-height: 100vh;
+      position: relative;
+      overflow: hidden;
+      display: grid;
+      place-items: center;
+      padding: 2rem;
+      isolation: isolate;
+      background:
+        radial-gradient(circle at 50% 115%, rgba(47, 125, 246, 0.13), transparent 42%),
+        var(--bg);
+    }
+
+    .ambient-orb {
+      position: absolute;
+      z-index: -1;
+      border-radius: 999px;
+      pointer-events: none;
+      filter: blur(65px);
+      opacity: 0.42;
+      will-change: transform;
+    }
+
+    .ambient-orb.one {
+      width: 360px;
+      height: 360px;
+      top: -90px;
+      left: -80px;
+      background: rgba(47, 125, 246, 0.36);
+      animation: drift-one 14s ease-in-out infinite alternate;
+    }
+
+    .ambient-orb.two {
+      width: 440px;
+      height: 440px;
+      right: -150px;
+      top: 18%;
+      background: rgba(94, 160, 255, 0.24);
+      animation: drift-two 17s ease-in-out infinite alternate;
+    }
+
+    .ambient-orb.three {
+      width: 300px;
+      height: 300px;
+      bottom: -110px;
+      left: 28%;
+      background: rgba(20, 67, 135, 0.45);
+      animation: drift-three 19s ease-in-out infinite alternate;
+    }
+
+    .ambient-orb.four {
+      width: 210px;
+      height: 210px;
+      top: 22%;
+      left: 54%;
+      background: rgba(85, 125, 195, 0.18);
+      filter: blur(48px);
+      animation: drift-four 12s ease-in-out infinite alternate;
+    }
+
+    @keyframes drift-one {
+      from { transform: translate3d(0, 0, 0) scale(1); }
+      to   { transform: translate3d(85px, 65px, 0) scale(1.12); }
+    }
+
+    @keyframes drift-two {
+      from { transform: translate3d(0, 0, 0) scale(1); }
+      to   { transform: translate3d(-90px, 75px, 0) scale(0.92); }
+    }
+
+    @keyframes drift-three {
+      from { transform: translate3d(0, 0, 0) scale(1); }
+      to   { transform: translate3d(55px, -70px, 0) scale(1.08); }
+    }
+
+    @keyframes drift-four {
+      from { transform: translate3d(0, 0, 0); }
+      to   { transform: translate3d(-55px, 50px, 0); }
+    }
+
+    .staging-gate-card {
+      width: min(100%, 460px);
+      padding: 2.25rem;
+      position: relative;
+      overflow: hidden;
+      background: rgba(11, 22, 38, 0.78);
+      border: 1px solid rgba(94, 160, 255, 0.20);
+      border-radius: 18px;
+      box-shadow:
+        0 24px 80px rgba(0, 0, 0, 0.34),
+        inset 0 1px 0 rgba(255, 255, 255, 0.035);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+    }
+
+    .staging-gate-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background: linear-gradient(
+        135deg,
+        rgba(255, 255, 255, 0.035),
+        transparent 38%
+      );
+    }
+
+    .staging-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.55rem;
+      margin-bottom: 1.1rem;
+      color: var(--accent-blue);
+      font-size: 0.78rem;
+      font-weight: 800;
       letter-spacing: 0.12em;
       text-transform: uppercase;
     }
 
-    h1 {
-      margin: 0;
-      max-width: 830px;
-      font-size: clamp(3.2rem, 7vw, 6.8rem);
-      line-height: 0.95;
-      letter-spacing: -0.055em;
-      font-weight: 600;
+    .staging-badge::before {
+      content: "";
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 12px rgba(47, 125, 246, 0.75);
     }
 
-    .hero-intro {
-      margin: 28px 0 0;
-      max-width: 760px;
-      color: var(--ink-soft);
-      font-size: 1.1rem;
+    .staging-gate-card h2 {
+      position: relative;
+      margin-bottom: 0.75rem;
+      color: var(--text);
+      font-size: 2rem;
+      line-height: 1.15;
+      letter-spacing: -0.03em;
     }
 
-    .hero-links {
-      display: flex;
-      gap: 12px;
-      flex-wrap: wrap;
-      margin-top: 30px;
-    }
-
-    .text-link {
-      display: inline-flex;
-      align-items: center;
-      min-height: 42px;
-      padding: 0 16px;
-      border: 1px solid var(--ink);
-      text-decoration: none;
-      font-size: 0.9rem;
-      font-weight: 700;
-    }
-
-    .text-link.primary {
-      background: var(--ink);
-      color: white;
-    }
-
-    .text-link:hover {
-      border-color: var(--blue-2);
-      color: var(--blue-2);
-    }
-
-    .text-link.primary:hover {
-      background: var(--blue);
-      border-color: var(--blue);
-      color: white;
-    }
-
-    .hero-aside {
-      border-left: 1px solid var(--line);
-      padding-left: 28px;
-    }
-
-    .hero-aside dl {
-      margin: 0;
-    }
-
-    .hero-aside div {
-      padding: 14px 0;
-      border-bottom: 1px solid var(--line);
-    }
-
-    .hero-aside div:first-child {
-      padding-top: 0;
-    }
-
-    .hero-aside div:last-child {
-      border-bottom: 0;
-    }
-
-    .hero-aside dt {
-      margin-bottom: 3px;
-      color: var(--ink-soft);
-      font-size: 0.74rem;
-      text-transform: uppercase;
-      letter-spacing: 0.09em;
-    }
-
-    .hero-aside dd {
-      margin: 0;
+    .staging-gate-card > p {
+      position: relative;
+      margin-bottom: 1.5rem;
+      color: var(--muted);
       font-size: 0.98rem;
-      font-weight: 700;
+      line-height: 1.7;
     }
 
-    section {
-      padding: 84px 0;
-      border-bottom: 1px solid var(--line);
-    }
-
-    .section-grid {
-      display: grid;
-      grid-template-columns: 220px 1fr;
-      gap: 64px;
-    }
-
-    .section-index {
-      position: sticky;
-      top: 24px;
-      align-self: start;
-    }
-
-    .section-index span {
-      display: block;
-      color: var(--blue-2);
-      font-size: 0.76rem;
-      font-weight: 700;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-    }
-
-    .section-index h2 {
-      margin: 8px 0 0;
-      font-size: 1.2rem;
-      font-weight: 700;
-    }
-
-    .section-body {
-      max-width: 860px;
-    }
-
-    .section-body > p:first-child {
-      margin-top: 0;
-    }
-
-    .lead {
-      font-size: 1.25rem;
-      line-height: 1.5;
-      color: var(--ink);
-      max-width: 760px;
-    }
-
-    .muted {
-      color: var(--ink-soft);
-    }
-
-    .about-columns {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 40px;
-      margin-top: 34px;
-    }
-
-    .about-columns p {
-      margin: 0;
-      color: var(--ink-soft);
-    }
-
-    .skills-list {
-      margin-top: 14px;
-      border-top: 1px solid var(--line);
-    }
-
-    .skill-row {
-      display: grid;
-      grid-template-columns: 220px 1fr;
-      gap: 28px;
-      padding: 20px 0;
-      border-bottom: 1px solid var(--line);
-    }
-
-    .skill-row h3 {
-      margin: 0;
-      font-size: 0.98rem;
-    }
-
-    .skill-row p {
-      margin: 0;
-      color: var(--ink-soft);
-    }
-
-    .featured {
-      margin-top: 18px;
-    }
-
-    .featured-topline {
+    .staging-gate-form {
+      position: relative;
       display: flex;
-      justify-content: space-between;
-      gap: 20px;
-      padding-bottom: 14px;
-      border-bottom: 1px solid var(--line);
-      color: var(--ink-soft);
-      font-size: 0.85rem;
+      gap: 0.7rem;
     }
 
-    .featured h3 {
-      margin: 28px 0 14px;
-      font-size: clamp(2rem, 4vw, 3.6rem);
-      line-height: 1.05;
-      letter-spacing: -0.035em;
-      font-weight: 600;
-    }
-
-    .featured p {
-      max-width: 760px;
-      margin: 0 0 18px;
-      color: var(--ink-soft);
-    }
-
-    .featured-tools {
-      margin: 24px 0 0;
-      padding: 18px 0;
-      border-top: 1px solid var(--line);
-      border-bottom: 1px solid var(--line);
-      color: var(--ink-soft);
-      font-size: 0.92rem;
-    }
-
-    .featured-tools strong {
-      color: var(--ink);
-    }
-
-    .featured-link {
-      display: inline-block;
-      margin-top: 22px;
-      color: var(--blue-2);
-      font-weight: 700;
-      text-decoration: none;
-    }
-
-    .featured-link:hover {
-      text-decoration: underline;
-    }
-
-    .repo-list {
-      border-top: 1px solid var(--line);
-    }
-
-    .repo-item {
-      display: grid;
-      grid-template-columns: 48px 1fr auto;
-      gap: 18px;
-      align-items: center;
-      padding: 20px 0;
-      border-bottom: 1px solid var(--line);
-      text-decoration: none;
-    }
-
-    .repo-item:hover .repo-name {
-      color: var(--blue-2);
-    }
-
-    .repo-num {
-      color: var(--ink-soft);
-      font-size: 0.82rem;
-    }
-
-    .repo-name {
-      font-size: 1rem;
-      font-weight: 700;
-    }
-
-    .repo-desc {
-      display: block;
-      margin-top: 3px;
-      color: var(--ink-soft);
-      font-size: 0.88rem;
-      font-weight: 400;
-    }
-
-    .repo-arrow {
-      color: var(--ink-soft);
-      font-size: 1.05rem;
-    }
-
-    .cert-line {
-      display: grid;
-      grid-template-columns: 1fr auto;
-      gap: 24px;
-      align-items: center;
-      padding: 24px 0;
-      border-top: 1px solid var(--line);
-      border-bottom: 1px solid var(--line);
-    }
-
-    .cert-line h3 {
-      margin: 0;
-      font-size: 1.08rem;
-    }
-
-    .cert-line p {
-      margin: 4px 0 0;
-      color: var(--ink-soft);
-      font-size: 0.9rem;
-    }
-
-    .cert-status {
-      color: var(--blue-2);
-      font-size: 0.82rem;
-      font-weight: 700;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-    }
-
-    footer {
-      padding: 34px 0 46px;
-      color: var(--ink-soft);
-      font-size: 0.86rem;
-      background: var(--paper-2);
-    }
-
-    .footer-grid {
-      display: flex;
-      justify-content: space-between;
-      gap: 20px;
-      flex-wrap: wrap;
-    }
-
-    footer a {
-      text-decoration: none;
-      color: var(--ink);
-    }
-
-    footer a:hover {
-      color: var(--blue-2);
-    }
-
-    @media (max-width: 900px) {
-      .hero-grid,
-      .section-grid,
-      .about-columns {
-        grid-template-columns: 1fr;
-      }
-
-      .hero-grid {
-        gap: 48px;
-      }
-
-      .hero-aside {
-        border-left: 0;
-        border-top: 1px solid var(--line);
-        padding: 24px 0 0;
-      }
-
-      .section-grid {
-        gap: 28px;
-      }
-
-      .section-index {
-        position: static;
-      }
-
-      .skill-row {
-        grid-template-columns: 1fr;
-        gap: 6px;
-      }
-    }
-
-    @media (max-width: 640px) {
-      .site-header .wrap {
-        height: auto;
-        padding: 18px 0;
-        align-items: flex-start;
-        flex-direction: column;
-      }
-
-      .site-nav {
-        gap: 14px;
-      }
-
-      .hero {
-        padding: 64px 0 58px;
-      }
-
-      h1 {
-        font-size: 3rem;
-      }
-
-      section {
-        padding: 60px 0;
-      }
-
-      .repo-item {
-        grid-template-columns: 38px 1fr;
-      }
-
-      .repo-arrow {
-        display: none;
-      }
-
-      .cert-line {
-        grid-template-columns: 1fr;
-      }
-    }
-  
-    .gate {
-      min-height: 100vh;
-      display: grid;
-      place-items: center;
-      padding: 32px 20px;
-      background: var(--paper);
-    }
-
-    .gate-card {
-      width: min(100%, 420px);
-      padding: 34px;
-      background: var(--paper-2);
-      border: 1px solid var(--line);
-    }
-
-    .gate-label {
-      margin: 0 0 10px;
-      color: var(--blue-2);
-      font-size: 0.76rem;
-      font-weight: 700;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-    }
-
-    .gate-card h1 {
-      margin: 0 0 14px;
-      font-size: 2.2rem;
-      line-height: 1.05;
-      letter-spacing: -0.035em;
-    }
-
-    .gate-card > p:not(.gate-label):not(.gate-error) {
-      margin: 0 0 22px;
-      color: var(--ink-soft);
-    }
-
-    .gate-form {
-      display: flex;
-      gap: 10px;
-    }
-
-    .gate-form input {
+    .staging-gate-form input {
       flex: 1;
       min-width: 0;
-      padding: 11px 12px;
-      border: 1px solid var(--line);
-      background: #fff;
-      color: var(--ink);
+      padding: 0.85rem 0.95rem;
+      border: 1px solid var(--border);
+      border-radius: 9px;
+      background: rgba(4, 9, 20, 0.72);
+      color: var(--text);
       font: inherit;
+      transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease,
+        background 0.2s ease;
     }
 
-    .gate-form input:focus {
-      outline: 2px solid var(--blue-2);
-      outline-offset: 1px;
+    .staging-gate-form input::placeholder {
+      color: #6f839b;
     }
 
-    .gate-form button {
-      padding: 11px 16px;
-      border: 1px solid var(--ink);
-      background: var(--ink);
-      color: #fff;
+    .staging-gate-form input:focus {
+      outline: none;
+      border-color: rgba(47, 125, 246, 0.7);
+      background: rgba(4, 9, 20, 0.92);
+      box-shadow: 0 0 0 3px rgba(47, 125, 246, 0.12);
+    }
+
+    .staging-gate-form button {
+      padding: 0.85rem 1.05rem;
+      border: 1px solid var(--accent);
+      border-radius: 9px;
+      background: var(--accent);
+      color: #f7fbff;
       font: inherit;
       font-weight: 700;
       cursor: pointer;
+      transition:
+        transform 0.2s ease,
+        background 0.2s ease,
+        box-shadow 0.2s ease;
     }
 
-    .gate-form button:hover {
-      background: var(--blue);
-      border-color: var(--blue);
+    .staging-gate-form button:hover {
+      transform: translateY(-1px);
+      background: var(--accent-blue);
+      box-shadow: 0 8px 24px rgba(47, 125, 246, 0.18);
     }
 
-    .gate-error {
+    #staging-error {
       display: none;
-      margin: 14px 0 0;
-      color: #b42318;
+      margin-top: 1rem;
+      margin-bottom: 0;
+      color: #ff8c8c;
       font-size: 0.9rem;
     }
 
+    .staging-note {
+      margin-top: 1.35rem !important;
+      margin-bottom: 0 !important;
+      color: #72869d !important;
+      font-size: 0.8rem !important;
+    }
+
+    #staging-content {
+      opacity: 0;
+      filter: blur(10px);
+      transform: translateY(8px);
+      transition:
+        opacity 650ms ease,
+        filter 700ms ease,
+        transform 700ms ease;
+    }
+
+    #staging-content.revealed {
+      opacity: 1;
+      filter: blur(0);
+      transform: translateY(0);
+    }
+
+    .staging-gate.fade-out {
+      pointer-events: none;
+      animation: staging-fade-out 650ms ease forwards;
+    }
+
+    @keyframes staging-fade-out {
+      to {
+        opacity: 0;
+        filter: blur(10px);
+        transform: scale(1.015);
+      }
+    }
+
     @media (max-width: 520px) {
-      .gate-form {
+      .staging-gate-form {
         flex-direction: column;
+      }
+
+      .staging-gate-card {
+        padding: 1.75rem;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .ambient-orb {
+        animation: none;
+      }
+
+      #staging-content,
+      .staging-gate {
+        transition: none;
+        animation: none;
       }
     }
 
 </style>
 </head>
 
-
 <body>
 
-  <div id="gate" class="gate">
-    <div class="gate-card">
-      <p class="gate-label">Staging Preview</p>
-      <h1>Work in progress</h1>
-      <p>This is a private preview of the site. Enter the password to continue.</p>
+  <div id="staging-gate" class="staging-gate">
+    <div class="ambient-orb one"></div>
+    <div class="ambient-orb two"></div>
+    <div class="ambient-orb three"></div>
+    <div class="ambient-orb four"></div>
 
-      <div class="gate-form">
+    <div class="staging-gate-card">
+      <div class="staging-badge">Staging Preview</div>
+
+      <h2>Work in progress</h2>
+
+      <p>
+        This is the preview version of the site. Enter the password to continue.
+      </p>
+
+      <div class="staging-gate-form">
         <input
           type="password"
-          id="pw"
+          id="staging-password"
           placeholder="Password"
           aria-label="Password"
-          onkeydown="if (event.key === 'Enter') checkPw()"
+          onkeydown="if (event.key === 'Enter') checkStagingPassword()"
         >
-        <button type="button" onclick="checkPw()">Enter</button>
+        <button type="button" onclick="checkStagingPassword()">Enter</button>
       </div>
 
-      <p id="err" class="gate-error">Incorrect password.</p>
+      <p id="staging-error">That password isn’t right.</p>
+      <p class="staging-note">Changes here may not be ready for the live site yet.</p>
     </div>
   </div>
 
-  <div id="content" style="display:none;">
-<header class="site-header">
-    <div class="wrap">
-      <a class="site-name" href="#top">Cybersecurity Portfolio</a>
+  <div id="staging-content" style="display:none;">
+<header>
+    <div class="container">
+      <nav>
+        <a class="logo" href="#top">
+          CYBER<span>//</span>PORTFOLIO
+        </a>
 
-      <nav class="site-nav" aria-label="Primary navigation">
-        <a href="#about">About</a>
-        <a href="#skills">Skills</a>
-        <a href="#project">Featured Project</a>
-        <a href="#work">Work</a>
+        <ul class="nav-links">
+          <li><a href="#about">About</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#project">Featured Project</a></li>
+          <li><a href="#repository">Repository</a></li>
+        </ul>
       </nav>
     </div>
   </header>
 
   <main id="top">
 
-    <section class="hero">
-      <div class="wrap hero-grid">
+    <div class="container">
+      <div class="hero">
 
         <div>
-          <p class="hero-kicker">Cybersecurity / Security Operations</p>
+          <div class="eyebrow">
+            Security+ Certified
+          </div>
 
           <h1>
-            A look at what I’ve been working on in cybersecurity.
+            Building skills to
+            <span class="accent">detect, analyze & defend.</span>
           </h1>
 
-          <p class="hero-intro">
-            I’m a cybersecurity graduate currently going through a bootcamp
-            and continuing to build my hands-on experience. I’m most interested
-            in SOC and blue-team work, especially SIEM, incident response,
-            network security, and system hardening.
+          <p class="hero-copy">
+            Hello! My name is Jack Peduzzi. I'm a cybersecurity professional focused on
+            security operations, SIEM analysis, network security, incident
+            response, and system hardening. This portfolio documents the
+            hands-on work I have done in the past and what I am learning now.
           </p>
 
-          <div class="hero-links">
+          <div class="hero-actions">
             <a
-              class="text-link primary"
+              class="button"
               href="https://github.com/jpeduzzii/cybersecurity-portfolio"
               target="_blank"
               rel="noopener noreferrer"
             >
-              View GitHub
+              View GitHub Repository
             </a>
 
-            <a class="text-link" href="#work">
-              Browse portfolio
+            <a
+              class="button secondary"
+              href="#project"
+            >
+              Featured Project
             </a>
           </div>
         </div>
 
-        <aside class="hero-aside">
-          <dl>
-            <div>
-              <dt>Certification</dt>
-              <dd>CompTIA Security+</dd>
-            </div>
+        <div class="terminal">
+          <div class="terminal-header">
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+          </div>
 
-            <div>
-              <dt>SIEM</dt>
-              <dd>Wazuh · 9+ months</dd>
-            </div>
+          <div class="terminal-body">
+            <p><span class="prompt">$</span> whoami</p>
+            <p>cybersecurity_student</p>
 
-            <div>
-              <dt>Education</dt>
-              <dd>Cybersecurity degree · 3.84 GPA</dd>
-            </div>
+            <br>
 
-            <div>
-              <dt>Academic distinction</dt>
-              <dd>Magna Cum Laude · Honors Scholar</dd>
-            </div>
-          </dl>
-        </aside>
+            <p><span class="prompt">$</span> cat focus.txt</p>
+            <p>SOC Operations</p>
+            <p>SIEM Analysis</p>
+            <p>Incident Response</p>
+            <p>Network Security</p>
+
+            <br>
+
+            <p><span class="prompt">$</span> certification --status</p>
+            <p>
+              CompTIA Security+
+              <span class="prompt">[COMPLETE]</span>
+            </p>
+
+            <br>
+
+            <p class="terminal-muted">// always learning</p>
+          </div>
+        </div>
 
       </div>
-    </section>
+    </div>
 
     <section id="about">
-      <div class="wrap section-grid">
+      <div class="container">
 
-        <div class="section-index">
-          <span>01</span>
-          <h2>About</h2>
+        <div class="section-label">
+          01 / About
         </div>
 
-        <div class="section-body">
-          <p class="lead">
-            The part of cybersecurity I like most is the investigation side of
-            it. I like looking at an alert or a system, figuring out what
-            happened, and understanding why it happened instead of just seeing
-            that something was flagged.
-          </p>
+        <h2 class="section-title">
+          Security-minded. Hands-on. Always learning.
+        </h2>
 
-          <div class="about-columns">
+        <div class="about-grid">
+
+          <div class="about-text">
             <p>
-              Most of my hands-on work has been with SIEM monitoring, Nmap,
-              Wireshark, Linux and Windows security, vulnerability scanning,
-              incident response, and penetration testing labs.
+              My background is in cybersecurity, with experience across
+              security monitoring, network reconnaissance, vulnerability
+              assessment, Linux and Windows security, penetration testing
+              fundamentals, and incident response.
             </p>
 
             <p>
-              I made this portfolio to keep track of the work I’ve done and to
-              show what I actually know how to do. I’ll keep adding to it as I
-              work through more labs, projects, and certifications.
+              I'm especially interested in blue-team security and SOC work:
+              understanding what is happening across a network, recognizing
+              suspicious activity, investigating alerts, and improving the
+              security posture of systems before an incident becomes a larger
+              problem.
+            </p>
+
+            <p>
+              Through coursework, labs, independent practice, and my
+              cybersecurity bootcamp, I've worked with tools including Wazuh,
+              Nmap, Kali Linux, Wireshark, Burp Suite, SearchSploit, AIDE,
+              vulnerability scanners, Windows, Linux, and Hyper-V.
+            </p>
+
+            <p>
+              My goal is to continue strengthening my detection, incident
+              response, network analysis, system hardening, and defensive
+              security skills while building a portfolio that demonstrates
+              what I can actually do.
             </p>
           </div>
-        </div>
 
+          <div class="stats">
+            <div class="stat">
+              <strong>Security+</strong>
+              <span>CompTIA certified</span>
+            </div>
+
+            <div class="stat">
+              <strong>9+ Months</strong>
+              <span>Hands-on SIEM experience with Wazuh</span>
+            </div>
+
+            <div class="stat">
+              <strong>3.84 GPA</strong>
+              <span>Cybersecurity degree</span>
+            </div>
+
+            <div class="stat">
+              <strong>Magna Cum Laude</strong>
+              <span>Honors Scholar</span>
+            </div>
+          </div>
+
+        </div>
       </div>
     </section>
 
     <section id="skills">
-      <div class="wrap section-grid">
+      <div class="container">
 
-        <div class="section-index">
-          <span>02</span>
-          <h2>Skills</h2>
+        <div class="section-label">
+          02 / Skills
         </div>
 
-        <div class="section-body">
+        <h2 class="section-title">
+          Skills at a glance.
+        </h2>
 
-          <div class="skills-list">
+        <p class="section-intro">
+          My strongest areas are SIEM analysis, reconnaissance, security
+          monitoring, penetration testing fundamentals, and incident response.
+          I continue to build depth across defensive and offensive security.
+        </p>
 
-            <div class="skill-row">
-              <h3>Security Operations</h3>
-              <p>
-                Wazuh, SIEM analysis, security monitoring, alert investigation,
-                incident response, DFIR fundamentals
-              </p>
+        <div class="skills-grid">
+
+          <article class="skill-card">
+            <h3>Security Operations & Blue Team</h3>
+            <div class="tags">
+              <span class="tag">Wazuh</span>
+              <span class="tag">SIEM Analysis</span>
+              <span class="tag">Security Monitoring</span>
+              <span class="tag">Incident Response</span>
+              <span class="tag">Alert Investigation</span>
+              <span class="tag">DFIR Fundamentals</span>
             </div>
+          </article>
 
-            <div class="skill-row">
-              <h3>Network Security</h3>
-              <p>
-                Nmap, Wireshark, port scanning, service enumeration, packet
-                analysis, SMB, FTP, HTTP/IIS
-              </p>
+          <article class="skill-card">
+            <h3>Network Security</h3>
+            <div class="tags">
+              <span class="tag">Nmap</span>
+              <span class="tag">Wireshark</span>
+              <span class="tag">Port Scanning</span>
+              <span class="tag">Service Enumeration</span>
+              <span class="tag">Packet Analysis</span>
+              <span class="tag">SMB</span>
+              <span class="tag">FTP</span>
+              <span class="tag">HTTP / IIS</span>
             </div>
+          </article>
 
-            <div class="skill-row">
-              <h3>Systems & Hardening</h3>
-              <p>
-                Linux, Windows, Hyper-V, sudoers, SUID/SGID, permissions,
-                AIDE, file integrity monitoring
-              </p>
+          <article class="skill-card">
+            <h3>Systems & Hardening</h3>
+            <div class="tags">
+              <span class="tag">Linux</span>
+              <span class="tag">Windows</span>
+              <span class="tag">Hyper-V</span>
+              <span class="tag">sudoers</span>
+              <span class="tag">SUID / SGID</span>
+              <span class="tag">File Permissions</span>
+              <span class="tag">AIDE</span>
+              <span class="tag">File Integrity Monitoring</span>
             </div>
+          </article>
 
-            <div class="skill-row">
-              <h3>Security Assessment</h3>
-              <p>
-                Kali Linux, Burp Suite, SearchSploit, vulnerability scanning,
-                reconnaissance, penetration testing fundamentals
-              </p>
+          <article class="skill-card">
+            <h3>Offensive Security & Assessment</h3>
+            <div class="tags">
+              <span class="tag">Kali Linux</span>
+              <span class="tag">Nmap</span>
+              <span class="tag">Burp Suite</span>
+              <span class="tag">SearchSploit</span>
+              <span class="tag">Vulnerability Scanning</span>
+              <span class="tag">Reconnaissance</span>
+              <span class="tag">Penetration Testing</span>
             </div>
+          </article>
 
-            <div class="skill-row">
-              <h3>Web & TLS</h3>
-              <p>
-                TLS certificates, self-signed certificate analysis, Microsoft
-                IIS, web enumeration
-              </p>
+          <article class="skill-card">
+            <h3>Web, TLS & Services</h3>
+            <div class="tags">
+              <span class="tag">TLS</span>
+              <span class="tag">Certificates</span>
+              <span class="tag">Self-Signed Certificates</span>
+              <span class="tag">Microsoft IIS</span>
+              <span class="tag">Web Enumeration</span>
+              <span class="tag">Burp Suite</span>
             </div>
+          </article>
 
-            <div class="skill-row">
-              <h3>Still Learning</h3>
-              <p>
-                Detection engineering, advanced DFIR, web application security,
-                firewall administration, IDS/IPS, malware analysis
-              </p>
+          <article class="skill-card">
+            <h3>Currently Developing</h3>
+            <div class="tags">
+              <span class="tag">Detection Engineering</span>
+              <span class="tag">Advanced DFIR</span>
+              <span class="tag">Web Application Security</span>
+              <span class="tag">Firewall Administration</span>
+              <span class="tag">IDS / IPS</span>
+              <span class="tag">Malware Analysis</span>
             </div>
-
-          </div>
+          </article>
 
         </div>
-
       </div>
     </section>
 
     <section id="project">
-      <div class="wrap section-grid">
+      <div class="container">
 
-        <div class="section-index">
-          <span>03</span>
-          <h2>Featured Project</h2>
+        <div class="section-label">
+          03 / Featured Work
         </div>
 
-        <div class="section-body featured">
+        <h2 class="section-title">
+          Featured project.
+        </h2>
 
-          <div class="featured-topline">
-            <span>Security Operations</span>
-            <span>Wazuh SIEM</span>
+        <article class="featured">
+          <div class="featured-badge">
+            Blue Team
           </div>
 
           <h3>
-            Getting hands-on with Wazuh.
+            Wazuh SIEM & Security Monitoring
           </h3>
 
           <p>
-            Wazuh is the security tool I’ve spent the most time with. I’ve been
-            using it for more than nine months to look through alerts, review
-            events, and get more comfortable figuring out what is actually
-            happening on a system.
+            One of my strongest hands-on areas is working with Wazuh as a
+            security information and event management platform. I've spent
+            more than nine months building experience with SIEM monitoring,
+            reviewing security events, investigating alerts, and developing
+            the analytical mindset required for SOC and incident-response work.
           </p>
 
           <p>
-            It’s also one of the reasons I became more interested in SOC work.
-            I enjoy taking an alert, digging into it, and trying to piece
-            together what happened rather than just stopping at the alert itself.
+            This work has helped me connect network activity, endpoint events,
+            vulnerabilities, and system behavior instead of looking at
+            security tools in isolation.
           </p>
 
-          <div class="featured-tools">
-            <strong>Tools and concepts:</strong>
-            Wazuh, SIEM, alert investigation, incident response, security
-            monitoring, endpoint telemetry
+          <div class="project-details">
+            <span class="tag">Wazuh</span>
+            <span class="tag">SIEM</span>
+            <span class="tag">Alert Analysis</span>
+            <span class="tag">Incident Response</span>
+            <span class="tag">Security Monitoring</span>
+            <span class="tag">Blue Team</span>
           </div>
 
           <a
-            class="featured-link"
+            class="button"
             href="https://github.com/jpeduzzii/cybersecurity-portfolio/tree/main/soc-tools"
             target="_blank"
             rel="noopener noreferrer"
           >
-            View SOC work on GitHub →
+            Explore SOC Work
           </a>
-
-        </div>
+        </article>
 
       </div>
     </section>
 
     <section>
-      <div class="wrap section-grid">
+      <div class="container">
 
-        <div class="section-index">
-          <span>04</span>
-          <h2>Certification</h2>
+        <div class="section-label">
+          04 / Certification
         </div>
 
-        <div class="section-body">
-          <div class="cert-line">
-            <div>
-              <h3>CompTIA Security+</h3>
-              <p>Completed August 2026</p>
-            </div>
+        <h2 class="section-title">
+          Certification.
+        </h2>
 
-            <div class="cert-status">
-              Certified
-            </div>
+        <div class="cert">
+          <div>
+            <h3>CompTIA Security+</h3>
+            <p>Certified on April 14th, 2026</p>
+          </div>
+
+          <div class="cert-status">
+            CERTIFIED
           </div>
         </div>
 
       </div>
     </section>
 
-    <section id="work">
-      <div class="wrap section-grid">
+    <section id="repository">
+      <div class="container">
 
-        <div class="section-index">
-          <span>05</span>
-          <h2>Portfolio</h2>
+        <div class="section-label">
+          05 / Repository
         </div>
 
-        <div class="section-body">
+        <h2 class="section-title">
+          Explore my work.
+        </h2>
 
-          <div class="repo-list">
+        <p class="section-intro">
+          My GitHub repository is organized by cybersecurity domain so that
+          labs, documentation, write-ups, and projects are easy to explore.
+        </p>
 
-            <a
-              class="repo-item"
-              href="https://github.com/jpeduzzii/cybersecurity-portfolio/tree/main/soc-tools"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <span class="repo-num">01</span>
+        <div class="repo-grid">
 
-              <span class="repo-name">
-                SOC Tools
-                <span class="repo-desc">
-                  My SIEM, monitoring, and blue-team labs.
-                </span>
-              </span>
+          <a
+            class="repo-card"
+            href="https://github.com/jpeduzzii/cybersecurity-portfolio/tree/main/soc-tools"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <div>
+              <h3>SOC Tools</h3>
+              <p>
+                SIEM, detection, monitoring, and security operations work.
+              </p>
+            </div>
+            <span class="repo-link">Open folder →</span>
+          </a>
 
-              <span class="repo-arrow">↗</span>
-            </a>
+          <a
+            class="repo-card"
+            href="https://github.com/jpeduzzii/cybersecurity-portfolio/tree/main/grc"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <div>
+              <h3>GRC</h3>
+              <p>
+                Governance, risk, compliance, controls, and framework work.
+              </p>
+            </div>
+            <span class="repo-link">Open folder →</span>
+          </a>
 
-            <a
-              class="repo-item"
-              href="https://github.com/jpeduzzii/cybersecurity-portfolio/tree/main/grc"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <span class="repo-num">02</span>
+          <a
+            class="repo-card"
+            href="https://github.com/jpeduzzii/cybersecurity-portfolio/tree/main/red-teaming"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <div>
+              <h3>Red Teaming</h3>
+              <p>
+                Reconnaissance, enumeration, assessment, and offensive labs.
+              </p>
+            </div>
+            <span class="repo-link">Open folder →</span>
+          </a>
 
-              <span class="repo-name">
-                GRC
-                <span class="repo-desc">
-                  Risk, controls, frameworks, and compliance work.
-                </span>
-              </span>
+          <a
+            class="repo-card"
+            href="https://github.com/jpeduzzii/cybersecurity-portfolio/tree/main/tls-audits"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <div>
+              <h3>TLS Audits</h3>
+              <p>
+                TLS configuration, certificate analysis, and security reviews.
+              </p>
+            </div>
+            <span class="repo-link">Open folder →</span>
+          </a>
 
-              <span class="repo-arrow">↗</span>
-            </a>
+          <a
+            class="repo-card"
+            href="https://github.com/jpeduzzii/cybersecurity-portfolio/tree/main/malware-analysis"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <div>
+              <h3>Malware Analysis</h3>
+              <p>
+                Developing malware-analysis knowledge and documentation.
+              </p>
+            </div>
+            <span class="repo-link">Open folder →</span>
+          </a>
 
-            <a
-              class="repo-item"
-              href="https://github.com/jpeduzzii/cybersecurity-portfolio/tree/main/red-teaming"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <span class="repo-num">03</span>
+          <a
+            class="repo-card"
+            href="https://github.com/jpeduzzii/cybersecurity-portfolio/tree/main/research-and-writeups"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <div>
+              <h3>Research & Write-Ups</h3>
+              <p>
+                Technical research, cybersecurity analysis, and documentation.
+              </p>
+            </div>
+            <span class="repo-link">Open folder →</span>
+          </a>
 
-              <span class="repo-name">
-                Red Teaming
-                <span class="repo-desc">
-                  Recon, enumeration, and offensive security labs.
-                </span>
-              </span>
+          <a
+            class="repo-card"
+            href="https://github.com/jpeduzzii/cybersecurity-portfolio/tree/main/certifications-and-skills"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <div>
+              <h3>Certifications & Skills</h3>
+              <p>
+                Certification progress and hands-on cybersecurity skill tracking.
+              </p>
+            </div>
+            <span class="repo-link">Open folder →</span>
+          </a>
 
-              <span class="repo-arrow">↗</span>
-            </a>
+          <a
+            class="repo-card"
+            href="https://github.com/jpeduzzii/cybersecurity-portfolio/tree/main/presentations"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <div>
+              <h3>Presentations</h3>
+              <p>
+                Cybersecurity presentations and supporting materials.
+              </p>
+            </div>
+            <span class="repo-link">Open folder →</span>
+          </a>
 
-            <a
-              class="repo-item"
-              href="https://github.com/jpeduzzii/cybersecurity-portfolio/tree/main/tls-audits"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <span class="repo-num">04</span>
-
-              <span class="repo-name">
-                TLS Audits
-                <span class="repo-desc">
-                  Certificate checks and TLS security work.
-                </span>
-              </span>
-
-              <span class="repo-arrow">↗</span>
-            </a>
-
-            <a
-              class="repo-item"
-              href="https://github.com/jpeduzzii/cybersecurity-portfolio/tree/main/malware-analysis"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <span class="repo-num">05</span>
-
-              <span class="repo-name">
-                Malware Analysis
-                <span class="repo-desc">
-                  Notes and labs as I build my malware analysis skills.
-                </span>
-              </span>
-
-              <span class="repo-arrow">↗</span>
-            </a>
-
-            <a
-              class="repo-item"
-              href="https://github.com/jpeduzzii/cybersecurity-portfolio/tree/main/research-and-writeups"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <span class="repo-num">06</span>
-
-              <span class="repo-name">
-                Research & Write-Ups
-                <span class="repo-desc">
-                  Write-ups and research on cybersecurity topics.
-                </span>
-              </span>
-
-              <span class="repo-arrow">↗</span>
-            </a>
-
-            <a
-              class="repo-item"
-              href="https://github.com/jpeduzzii/cybersecurity-portfolio/tree/main/certifications-and-skills"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <span class="repo-num">07</span>
-
-              <span class="repo-name">
-                Certifications & Skills
-                <span class="repo-desc">
-                  My certification progress and skills tracker.
-                </span>
-              </span>
-
-              <span class="repo-arrow">↗</span>
-            </a>
-
-            <a
-              class="repo-item"
-              href="https://github.com/jpeduzzii/cybersecurity-portfolio/tree/main/presentations"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <span class="repo-num">08</span>
-
-              <span class="repo-name">
-                Presentations
-                <span class="repo-desc">
-                  Cybersecurity presentations and class material.
-                </span>
-              </span>
-
-              <span class="repo-arrow">↗</span>
-            </a>
-
-          </div>
+          <a
+            class="repo-card"
+            href="https://github.com/jpeduzzii/cybersecurity-portfolio"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <div>
+              <h3>Full Repository</h3>
+              <p>
+                View the complete cybersecurity portfolio on GitHub.
+              </p>
+            </div>
+            <span class="repo-link">View GitHub →</span>
+          </a>
 
         </div>
-
       </div>
     </section>
 
   </main>
 
   <footer>
-    <div class="wrap footer-grid">
-      <span>Cybersecurity Portfolio</span>
+    <div class="container">
+      <p>
+        Built with plain HTML & CSS • Hosted with GitHub Pages
+      </p>
 
-      <a
-        href="https://github.com/jpeduzzii/cybersecurity-portfolio"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        GitHub
-      </a>
+      <p>
+        <a
+          href="https://github.com/jpeduzzii/cybersecurity-portfolio"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          github.com/jpeduzzii/cybersecurity-portfolio
+        </a>
+      </p>
     </div>
   </footer>
   </div>
 
   <script>
-    function checkPw() {
-      const entered = document.getElementById('pw').value;
+    function enterStagingSite() {
+      const gate = document.getElementById('staging-gate');
+      const content = document.getElementById('staging-content');
+
+      content.style.display = 'block';
+
+      requestAnimationFrame(() => {
+        content.classList.add('revealed');
+        gate.classList.add('fade-out');
+      });
+
+      setTimeout(() => {
+        gate.style.display = 'none';
+      }, 650);
+    }
+
+    function checkStagingPassword() {
+      const entered = document.getElementById('staging-password').value;
+      const error = document.getElementById('staging-error');
 
       if (entered === "Cyber123") {
-        document.getElementById('gate').style.display = 'none';
-        document.getElementById('content').style.display = 'block';
         sessionStorage.setItem('stagingAccess', 'granted');
+        enterStagingSite();
       } else {
-        document.getElementById('err').style.display = 'block';
+        error.style.display = 'block';
       }
     }
 
     if (sessionStorage.getItem('stagingAccess') === 'granted') {
-      document.getElementById('gate').style.display = 'none';
-      document.getElementById('content').style.display = 'block';
+      const gate = document.getElementById('staging-gate');
+      const content = document.getElementById('staging-content');
+
+      gate.style.display = 'none';
+      content.style.display = 'block';
+      content.classList.add('revealed');
     }
   </script>
 
