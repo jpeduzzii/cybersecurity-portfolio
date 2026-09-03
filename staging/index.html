@@ -3467,6 +3467,695 @@
       clip-path: none;
     }
 
+
+    /* =========================================================
+       RESTORED BLUE / CYAN THEME
+       Keeps the existing Art Deco accents and layout.
+       ========================================================= */
+    :root {
+      --bg: #060912 !important;
+      --bg-soft: #081423 !important;
+      --card: #0a1628 !important;
+      --card-light: #122942 !important;
+      --border: #16385b !important;
+      --text: #edf7ff !important;
+      --muted: #9ab3cf !important;
+      --accent: #00c2ff !important;
+      --accent-soft: rgba(0, 194, 255, 0.16) !important;
+      --accent-blue: #72f0ff !important;
+      --deco-accent: #72f0ff !important;
+      --deco-line: rgba(114, 240, 255, 0.24) !important;
+      --deco-line-soft: rgba(114, 240, 255, 0.09) !important;
+    }
+
+    body {
+      background:
+        radial-gradient(circle at 85% 10%, rgba(47, 125, 246, 0.10), transparent 28%),
+        radial-gradient(circle at 10% 35%, rgba(94, 160, 255, 0.07), transparent 25%),
+        var(--bg) !important;
+    }
+
+    header {
+      background: rgba(4, 9, 20, 0.90) !important;
+    }
+
+    .staging-gate {
+      background:
+        radial-gradient(circle at 50% 115%, rgba(47, 125, 246, 0.13), transparent 42%),
+        var(--bg) !important;
+    }
+
+    .staging-gate-card,
+    .visual-editor-toolbar {
+      border-color: rgba(94, 160, 255, 0.20) !important;
+    }
+
+    .staging-gate-card {
+      background: rgba(11, 22, 38, 0.78) !important;
+    }
+
+    .staging-gate-form input {
+      background: rgba(4, 9, 20, 0.72) !important;
+      border-color: var(--border) !important;
+      color: var(--text) !important;
+    }
+
+    .staging-gate-form input:focus {
+      border-color: rgba(47, 125, 246, 0.70) !important;
+      background: rgba(4, 9, 20, 0.92) !important;
+      box-shadow: 0 0 0 3px rgba(47, 125, 246, 0.12) !important;
+    }
+
+    .tool-logo-card,
+    .skill-card,
+    .repo-card,
+    .stat,
+    .cert,
+    .featured,
+    .resume-panel,
+    .tryhackme-copy,
+    .tryhackme-badge-wrap,
+    .contact-card,
+    .terminal {
+      border-color: var(--border) !important;
+    }
+
+    .tag {
+      background: var(--accent-soft) !important;
+      border-color: rgba(47, 125, 246, 0.18) !important;
+      color: #cfe2ff !important;
+    }
+
+    ::selection {
+      background: rgba(0, 194, 255, 0.22);
+      color: #f7fbff;
+    }
+
+
+    /* =========================================================
+       NOIR METROPOLIS / ART DECO CITYSCAPE
+       Keeps the original site layout and blue/cyan color family.
+       Inspired by angular 1930s-futurist city architecture.
+       ========================================================= */
+
+    :root {
+      --noir-0: #02050b;
+      --noir-1: #040914;
+      --noir-2: #07101d;
+      --noir-3: #0a1628;
+      --noir-steel: #14263b;
+      --noir-line: rgba(114, 240, 255, 0.20);
+      --noir-line-strong: rgba(0, 194, 255, 0.38);
+      --noir-window: #a9f7ff;
+    }
+
+    body {
+      background:
+        linear-gradient(180deg, #02050b 0%, #040914 34%, #06101d 72%, #02050b 100%) !important;
+    }
+
+    body::before {
+      opacity: 0.13 !important;
+      background:
+        linear-gradient(90deg, transparent 49.7%, rgba(114,240,255,0.05) 50%, transparent 50.3%),
+        linear-gradient(180deg, rgba(255,255,255,0.015), transparent 35%) !important;
+      background-size: 120px 100%, 100% 100% !important;
+    }
+
+    body::after,
+    .cyber-grid,
+    .cyber-aura,
+    .cyber-aura-2,
+    .cyber-scan,
+    .cyber-noise,
+    .cyber-vignette,
+    .cyber-diag,
+    .cyber-orbit,
+    .cyber-orbit-2 {
+      display: none !important;
+    }
+
+    header {
+      background: rgba(2, 5, 11, 0.94) !important;
+      border-bottom: 1px solid rgba(114,240,255,0.10) !important;
+      box-shadow: 0 12px 28px rgba(0,0,0,0.28) !important;
+    }
+
+    .logo {
+      color: #f2f7fb !important;
+      font-family: "Arial Narrow", "Franklin Gothic Medium", "Segoe UI", sans-serif !important;
+      font-weight: 900 !important;
+      letter-spacing: 0.15em !important;
+      text-transform: uppercase !important;
+      text-shadow: none !important;
+    }
+
+    .nav-links a {
+      font-family: "Arial Narrow", "Segoe UI", sans-serif !important;
+      font-size: 0.78rem !important;
+      letter-spacing: 0.10em !important;
+      text-transform: uppercase !important;
+    }
+
+    /* ---------------- HERO / SKYLINE ---------------- */
+
+    .hero {
+      min-height: 730px !important;
+      position: relative !important;
+      isolation: isolate;
+      overflow: hidden;
+      align-items: center !important;
+      padding-top: 7rem !important;
+      padding-bottom: 7rem !important;
+    }
+
+    .hero > div:not(.noir-cityscape):not(.deco-sunburst) {
+      position: relative;
+      z-index: 3;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      left: -8%;
+      right: -8%;
+      bottom: 0;
+      height: 92px;
+      z-index: 1;
+      background:
+        linear-gradient(175deg, transparent 0 44%, #02050b 45% 100%);
+      pointer-events: none;
+    }
+
+    .deco-sunburst {
+      position: absolute;
+      z-index: 0;
+      width: 660px;
+      height: 660px;
+      right: 4%;
+      top: 43%;
+      transform: translateY(-50%);
+      border-radius: 50%;
+      opacity: 0.16;
+      background:
+        repeating-conic-gradient(
+          from 0deg,
+          rgba(114,240,255,0.38) 0deg 0.7deg,
+          transparent 0.7deg 11deg
+        );
+      -webkit-mask-image: radial-gradient(circle, transparent 0 14%, #000 14% 48%, transparent 48%);
+      mask-image: radial-gradient(circle, transparent 0 14%, #000 14% 48%, transparent 48%);
+      pointer-events: none;
+    }
+
+    .noir-cityscape {
+      position: absolute;
+      z-index: 1;
+      right: -2%;
+      bottom: 38px;
+      width: 48%;
+      height: 530px;
+      pointer-events: none;
+      opacity: 0.72;
+    }
+
+    .city-building {
+      position: absolute;
+      bottom: 0;
+      display: block;
+      overflow: hidden;
+      background:
+        repeating-linear-gradient(
+          180deg,
+          transparent 0 18px,
+          rgba(169,247,255,0.18) 18px 22px,
+          transparent 22px 36px
+        ),
+        linear-gradient(90deg, #07101b, #101e31 48%, #050a12);
+      border-left: 1px solid rgba(114,240,255,0.08);
+      border-right: 1px solid rgba(255,255,255,0.025);
+      box-shadow: -18px 18px 30px rgba(0,0,0,0.32);
+    }
+
+    .city-building::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        repeating-linear-gradient(
+          90deg,
+          transparent 0 12px,
+          rgba(169,247,255,0.10) 12px 15px,
+          transparent 15px 30px
+        );
+      opacity: 0.65;
+    }
+
+    .city-building::after {
+      content: "";
+      position: absolute;
+      left: 50%;
+      top: 0;
+      width: 1px;
+      height: 100%;
+      background: rgba(114,240,255,0.07);
+    }
+
+    .city-building-1 {
+      width: 19%;
+      height: 55%;
+      left: 0;
+      clip-path: polygon(20% 0, 80% 0, 100% 15%, 100% 100%, 0 100%, 0 15%);
+    }
+
+    .city-building-2 {
+      width: 24%;
+      height: 78%;
+      left: 14%;
+      clip-path: polygon(38% 0, 62% 0, 75% 8%, 84% 8%, 84% 18%, 100% 18%, 100% 100%, 0 100%, 0 18%, 16% 18%, 16% 8%, 25% 8%);
+    }
+
+    .city-building-3 {
+      width: 27%;
+      height: 100%;
+      left: 31%;
+      background:
+        repeating-linear-gradient(180deg, transparent 0 21px, rgba(169,247,255,0.18) 21px 25px, transparent 25px 41px),
+        linear-gradient(90deg, #060c16, #12263f 46%, #050912);
+      clip-path: polygon(43% 0, 57% 0, 65% 7%, 75% 7%, 75% 14%, 89% 14%, 89% 23%, 100% 23%, 100% 100%, 0 100%, 0 23%, 11% 23%, 11% 14%, 25% 14%, 25% 7%, 35% 7%);
+    }
+
+    .city-building-4 {
+      width: 22%;
+      height: 70%;
+      left: 54%;
+      clip-path: polygon(25% 0, 75% 0, 88% 14%, 100% 14%, 100% 100%, 0 100%, 0 14%, 12% 14%);
+    }
+
+    .city-building-5 {
+      width: 19%;
+      height: 88%;
+      left: 71%;
+      clip-path: polygon(44% 0, 56% 0, 65% 10%, 82% 10%, 82% 20%, 100% 20%, 100% 100%, 0 100%, 0 20%, 18% 20%, 18% 10%, 35% 10%);
+    }
+
+    .city-building-6 {
+      width: 16%;
+      height: 48%;
+      right: 0;
+      clip-path: polygon(18% 0, 82% 0, 100% 20%, 100% 100%, 0 100%, 0 20%);
+    }
+
+    h1 {
+      max-width: 720px !important;
+      font-family: "Arial Narrow", "Franklin Gothic Medium", "Segoe UI", sans-serif !important;
+      font-size: clamp(3rem, 6.3vw, 5.8rem) !important;
+      font-weight: 900 !important;
+      line-height: 0.89 !important;
+      letter-spacing: -0.045em !important;
+      text-transform: uppercase !important;
+      text-shadow: none !important;
+    }
+
+    h1 .accent {
+      color: #72f0ff !important;
+      text-shadow: 0 0 18px rgba(0,194,255,0.10) !important;
+    }
+
+    .eyebrow {
+      letter-spacing: 0.18em !important;
+      text-shadow: none !important;
+    }
+
+    .hero-copy {
+      max-width: 650px !important;
+      color: #9ab3cf !important;
+    }
+
+    .terminal {
+      max-width: 410px;
+      margin-left: auto;
+      background:
+        linear-gradient(155deg, rgba(18,38,63,0.70), rgba(4,9,20,0.96)) !important;
+      border-color: rgba(114,240,255,0.16) !important;
+      border-radius: 0 !important;
+      clip-path: polygon(
+        0 18px,
+        18px 18px,
+        18px 0,
+        calc(100% - 18px) 0,
+        100% 18px,
+        100% 100%,
+        18px 100%,
+        18px calc(100% - 18px),
+        0 calc(100% - 18px)
+      ) !important;
+      box-shadow: -18px 22px 42px rgba(0,0,0,0.36) !important;
+    }
+
+    .terminal::before {
+      display: none !important;
+    }
+
+    .terminal-header {
+      min-height: 45px;
+      background: #040914 !important;
+      border-bottom-color: rgba(114,240,255,0.12) !important;
+    }
+
+    .terminal-header::after {
+      color: rgba(114,240,255,0.72) !important;
+    }
+
+    .dot {
+      opacity: 0.35 !important;
+      box-shadow: none !important;
+    }
+
+    /* ---------------- TYPOGRAPHY / DECO DETAILS ---------------- */
+
+    .section-label {
+      color: #72f0ff !important;
+      font-family: "Arial Narrow", "Segoe UI", sans-serif !important;
+      font-size: 0.75rem !important;
+      letter-spacing: 0.18em !important;
+      text-shadow: none !important;
+    }
+
+    .section-title {
+      font-family: "Arial Narrow", "Franklin Gothic Medium", "Segoe UI", sans-serif !important;
+      font-weight: 900 !important;
+      text-transform: uppercase !important;
+      letter-spacing: -0.025em !important;
+      text-shadow: none !important;
+    }
+
+    .section-title::after {
+      width: 140px !important;
+      height: 10px !important;
+      background:
+        linear-gradient(90deg, rgba(114,240,255,0.36), transparent) top left / 100% 1px no-repeat,
+        linear-gradient(90deg, rgba(114,240,255,0.16), transparent) center left / 70% 1px no-repeat,
+        linear-gradient(90deg, rgba(114,240,255,0.07), transparent) bottom left / 42% 1px no-repeat !important;
+    }
+
+    section {
+      position: relative;
+    }
+
+    section::before {
+      content: "";
+      position: absolute;
+      top: 1.5rem;
+      left: 0;
+      width: 28px;
+      height: 74px;
+      background:
+        linear-gradient(90deg, rgba(114,240,255,0.20), transparent) left top / 1px 100% no-repeat,
+        repeating-linear-gradient(180deg, rgba(114,240,255,0.13) 0 1px, transparent 1px 12px);
+      pointer-events: none;
+      opacity: 0.7;
+    }
+
+    section::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      width: min(720px, 76vw);
+      height: 1px;
+      transform: translateX(-50%);
+      background: linear-gradient(90deg, transparent, rgba(114,240,255,0.20), transparent) !important;
+      pointer-events: none;
+    }
+
+    /* ---------------- CARDS AS BUILDINGS / PLAQUES ---------------- */
+
+    .skill-card,
+    .repo-card,
+    .stat,
+    .cert,
+    .resume-panel,
+    .featured,
+    .tryhackme-copy,
+    .tryhackme-badge-wrap,
+    .contact-card,
+    .certificate-file-card {
+      background:
+        linear-gradient(180deg, rgba(12,28,46,0.90), rgba(4,9,20,0.96)) !important;
+      border-color: rgba(114,240,255,0.12) !important;
+      box-shadow: 0 18px 36px rgba(0,0,0,0.24) !important;
+    }
+
+    .skill-card,
+    .repo-card,
+    .stat,
+    .contact-card,
+    .certificate-file-card {
+      border-radius: 2px !important;
+      clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 10px 100%, 0 calc(100% - 10px)) !important;
+    }
+
+    .skill-card::after,
+    .repo-card::after,
+    .stat::after {
+      background: linear-gradient(90deg, transparent, rgba(114,240,255,0.045), transparent) !important;
+    }
+
+    .skill-card:hover,
+    .repo-card:hover,
+    .stat:hover,
+    .contact-card:hover {
+      border-color: rgba(114,240,255,0.28) !important;
+      box-shadow:
+        0 20px 38px rgba(0,0,0,0.30),
+        0 0 0 1px rgba(114,240,255,0.04) !important;
+    }
+
+    .stat strong {
+      color: #72f0ff !important;
+      font-family: "Arial Narrow", "Segoe UI", sans-serif !important;
+      letter-spacing: 0.02em;
+    }
+
+    .tag {
+      border-radius: 2px !important;
+      background: rgba(0,194,255,0.07) !important;
+      border-color: rgba(114,240,255,0.14) !important;
+      box-shadow: none !important;
+      color: #d9faff !important;
+      clip-path: polygon(5px 0, 100% 0, 100% calc(100% - 5px), calc(100% - 5px) 100%, 0 100%, 0 5px);
+    }
+
+    .button,
+    .text-link {
+      border-radius: 0 !important;
+      clip-path: polygon(7px 0, 100% 0, 100% calc(100% - 7px), calc(100% - 7px) 100%, 0 100%, 0 7px) !important;
+      background-image: none !important;
+      box-shadow: none !important;
+      text-transform: uppercase !important;
+      letter-spacing: 0.07em !important;
+      font-family: "Arial Narrow", "Segoe UI", sans-serif !important;
+    }
+
+    .button.secondary,
+    .text-link:not(.primary) {
+      background: rgba(4,9,20,0.74) !important;
+      border-color: rgba(114,240,255,0.18) !important;
+    }
+
+    /* Security tools become lit facade panels */
+    .security-tools-card {
+      background: transparent !important;
+      border-color: rgba(114,240,255,0.08) !important;
+    }
+
+    .tool-logo-card {
+      min-height: 150px !important;
+      border-radius: 0 !important;
+      background:
+        linear-gradient(180deg, rgba(15,34,55,0.92), rgba(4,9,20,0.96)) !important;
+      border-color: rgba(114,240,255,0.11) !important;
+      clip-path: polygon(9px 0, 100% 0, 100% 100%, 0 100%, 0 9px);
+    }
+
+    .tool-logo-frame {
+      background: #eef7fb !important;
+      border-radius: 1px !important;
+      border: 4px solid #08111e !important;
+      outline: 1px solid rgba(114,240,255,0.13);
+      box-shadow: 0 0 0 6px rgba(114,240,255,0.018) !important;
+    }
+
+    .tool-logo-name {
+      color: #dff8ff !important;
+      font-family: "Arial Narrow", "Segoe UI", sans-serif !important;
+      text-transform: uppercase !important;
+      letter-spacing: 0.08em !important;
+      font-size: 0.72rem !important;
+    }
+
+    /* TryHackMe — broad architectural panel */
+    .tryhackme-copy,
+    .tryhackme-badge-wrap {
+      border-radius: 0 !important;
+      clip-path: polygon(12px 0, 100% 0, 100% calc(100% - 12px), calc(100% - 12px) 100%, 0 100%, 0 12px) !important;
+    }
+
+    .tryhackme-mark {
+      border-radius: 1px !important;
+      clip-path: polygon(7px 0, 100% 0, 100% calc(100% - 7px), calc(100% - 7px) 100%, 0 100%, 0 7px);
+    }
+
+    /* Featured project resembles a dramatic city poster panel */
+    .featured {
+      border-radius: 0 !important;
+      clip-path: polygon(
+        0 0,
+        calc(100% - 20px) 0,
+        calc(100% - 20px) 10px,
+        calc(100% - 10px) 10px,
+        calc(100% - 10px) 20px,
+        100% 20px,
+        100% 100%,
+        0 100%
+      ) !important;
+      border-color: rgba(114,240,255,0.17) !important;
+    }
+
+    .featured::before {
+      display: none !important;
+    }
+
+    .featured::after {
+      color: rgba(114,240,255,0.025) !important;
+    }
+
+    .featured-media {
+      filter: saturate(0.55) contrast(1.10) brightness(0.65) !important;
+    }
+
+    .featured-media::before {
+      background: linear-gradient(180deg, transparent 18%, rgba(2,5,11,0.94) 100%) !important;
+    }
+
+    .featured-badge {
+      border-radius: 0 !important;
+      background: #00c2ff !important;
+      color: #02050b !important;
+      text-shadow: none !important;
+    }
+
+    /* Certification / resume */
+    .cert,
+    .resume-panel {
+      border-radius: 0 !important;
+      clip-path: polygon(10px 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%, 0 10px) !important;
+    }
+
+    .cert-badge-img {
+      outline-color: rgba(114,240,255,0.12) !important;
+      box-shadow: 0 0 0 8px rgba(2,5,11,0.7) !important;
+    }
+
+    .resume-header {
+      background: #050b14 !important;
+    }
+
+    .resume-preview {
+      background: #02050b !important;
+    }
+
+    /* Contact / repository */
+    .repo-link,
+    .certificate-file-link,
+    .editable-contact-link {
+      color: #72f0ff !important;
+    }
+
+    .contact-icon {
+      border-radius: 1px !important;
+      background: rgba(0,194,255,0.045) !important;
+    }
+
+    /* Footer becomes a narrow skyline divider */
+    footer::before {
+      width: min(520px, 70vw) !important;
+      height: 18px !important;
+      background:
+        linear-gradient(90deg, transparent, rgba(114,240,255,0.22), transparent) 50% 2px / 100% 1px no-repeat,
+        linear-gradient(90deg, transparent, rgba(114,240,255,0.09), transparent) 50% 9px / 64% 1px no-repeat,
+        linear-gradient(90deg, transparent, rgba(114,240,255,0.045), transparent) 50% 16px / 34% 1px no-repeat !important;
+    }
+
+    /* Staging gate uses the same cinematic/deco language */
+    .staging-gate {
+      background:
+        linear-gradient(180deg, rgba(2,5,11,0.96), rgba(4,9,20,1)) !important;
+    }
+
+    .staging-gate-card {
+      border-radius: 0 !important;
+      clip-path: polygon(
+        0 16px,
+        16px 16px,
+        16px 0,
+        calc(100% - 16px) 0,
+        100% 16px,
+        100% 100%,
+        16px 100%,
+        16px calc(100% - 16px),
+        0 calc(100% - 16px)
+      ) !important;
+      background:
+        linear-gradient(165deg, rgba(13,30,49,0.90), rgba(2,5,11,0.97)) !important;
+      border-color: rgba(114,240,255,0.14) !important;
+    }
+
+    .ambient-orb {
+      opacity: 0.12 !important;
+      filter: blur(110px) !important;
+    }
+
+    .staging-gate-form input,
+    .staging-gate-form button {
+      border-radius: 0 !important;
+    }
+
+    @media (max-width: 900px) {
+      .noir-cityscape {
+        width: 62%;
+        right: -15%;
+        opacity: 0.36;
+      }
+
+      .deco-sunburst {
+        right: -18%;
+        opacity: 0.10;
+      }
+    }
+
+    @media (max-width: 700px) {
+      .noir-cityscape,
+      .deco-sunburst {
+        opacity: 0.18;
+      }
+
+      .noir-cityscape {
+        width: 88%;
+        right: -30%;
+        height: 400px;
+      }
+
+      h1 {
+        font-size: clamp(2.8rem, 14vw, 4.6rem) !important;
+      }
+
+      section::before {
+        display: none;
+      }
+    }
+
 </style>
 </head>
 
@@ -3527,6 +4216,15 @@
 
     <div class="container">
       <div class="hero">
+        <div class="noir-cityscape" aria-hidden="true">
+          <span class="city-building city-building-1"></span>
+          <span class="city-building city-building-2"></span>
+          <span class="city-building city-building-3"></span>
+          <span class="city-building city-building-4"></span>
+          <span class="city-building city-building-5"></span>
+          <span class="city-building city-building-6"></span>
+        </div>
+        <div class="deco-sunburst" aria-hidden="true"></div>
 
         <div>
           <div class="eyebrow"></div>
@@ -3634,8 +4332,12 @@
 
             <div class="stat">
               <strong>Magna Cum Laude</strong>
-              <span>Honors Scholar</span>
+              <span>Graduation Distinction</span>
             </div>
+          <div class="stat">
+            <strong>Honors Scholar</strong>
+            <span>Mercyhurst University</span>
+          </div>
           </div>
 
         </div>
