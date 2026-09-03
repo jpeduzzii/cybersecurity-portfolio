@@ -1,1 +1,6986 @@
-"<h1>Coming Soon</h1>" 
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cybersecurity Portfolio</title>
+  <meta name="description" content="Cybersecurity portfolio featuring SIEM, network security, incident response, system hardening, vulnerability assessment, and security research.">
+
+  <style>
+    :root {
+      --bg: #060912;
+      --bg-soft: #081423;
+      --card: #0a1628;
+      --card-light: #122942;
+      --border: #16385b;
+      --text: #edf7ff;
+      --muted: #9ab3cf;
+      --accent: #00c2ff;
+      --accent-soft: rgba(0, 194, 255, 0.16);
+      --accent-blue: #72f0ff;
+      --max-width: 1120px;
+      --radius: 18px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family:
+        Inter,
+        ui-sans-serif,
+        system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
+
+      background:
+        radial-gradient(
+          circle at 85% 10%,
+          rgba(47, 125, 246, 0.10),
+          transparent 28%
+        ),
+        radial-gradient(
+          circle at 10% 35%,
+          rgba(94, 160, 255, 0.07),
+          transparent 25%
+        ),
+        var(--bg);
+
+      color: var(--text);
+      line-height: 1.7;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(92%, var(--max-width));
+      margin: 0 auto;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(4, 9, 20, 0.90);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    nav {
+      min-height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 2rem;
+    }
+
+    .logo {
+      font-weight: 800;
+      letter-spacing: 0.04em;
+    }
+
+    .logo span {
+      color: var(--accent);
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      font-size: 0.95rem;
+      transition:
+        color 0.2s ease,
+        transform 0.2s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--accent);
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.85rem 1.2rem;
+      border-radius: 10px;
+      border: 1px solid var(--accent);
+      background: var(--accent);
+      color: #f7fbff;
+      font-weight: 700;
+      font-size: 0.95rem;
+      transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease,
+        background 0.2s ease;
+    }
+
+    .button:hover {
+      transform: translateY(-2px);
+      box-shadow:
+        0 10px 30px rgba(47, 125, 246, 0.18);
+    }
+
+    .button.secondary {
+      background: transparent;
+      color: var(--text);
+      border-color: var(--border);
+    }
+
+    .button.secondary:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    .hero {
+      min-height: 78vh;
+      display: grid;
+      grid-template-columns: 1.25fr 0.75fr;
+      align-items: center;
+      gap: 4rem;
+      padding: 6rem 0;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.55rem;
+      color: var(--accent);
+      font-size: 0.85rem;
+      font-weight: 800;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      margin-bottom: 1.2rem;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow:
+        0 0 12px rgba(47, 125, 246, 0.85);
+    }
+
+    h1 {
+      font-size: clamp(2.8rem, 6vw, 5.7rem);
+      line-height: 0.98;
+      letter-spacing: -0.055em;
+      max-width: 850px;
+      margin-bottom: 1.5rem;
+    }
+
+    h1 .accent {
+      color: var(--accent);
+    }
+
+    .hero-copy {
+      max-width: 720px;
+      color: var(--muted);
+      font-size: 1.1rem;
+      margin-bottom: 2rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+    }
+
+    .terminal {
+      overflow: hidden;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: #050b14;
+      box-shadow:
+        0 30px 70px rgba(0, 0, 0, 0.3);
+    }
+
+    .terminal-header {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.9rem 1rem;
+      background: #0a1423;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: #2c4058;
+    }
+
+    .terminal-body {
+      padding: 1.5rem;
+      font-family:
+        "Cascadia Code",
+        "SFMono-Regular",
+        Consolas,
+        monospace;
+      font-size: 0.88rem;
+      color: #c9d8ea;
+    }
+
+    .terminal-body p {
+      margin-bottom: 0.6rem;
+    }
+
+    .prompt {
+      color: var(--accent);
+    }
+
+    .terminal-muted {
+      color: #72869d;
+    }
+
+    section {
+      padding: 5.5rem 0;
+    }
+
+    .section-label {
+      color: var(--accent);
+      font-size: 0.8rem;
+      font-weight: 800;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      margin-bottom: 0.7rem;
+    }
+
+    .section-title {
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      line-height: 1.1;
+      letter-spacing: -0.035em;
+      margin-bottom: 1rem;
+    }
+
+    .section-intro {
+      max-width: 700px;
+      color: var(--muted);
+      margin-bottom: 2.5rem;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1.3fr 0.7fr;
+      gap: 3rem;
+    }
+
+    .about-text p {
+      color: var(--muted);
+      margin-bottom: 1.2rem;
+    }
+
+    .stats {
+      display: grid;
+      gap: 1rem;
+    }
+
+    .stat {
+      padding: 1.4rem;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+    }
+
+    .stat strong {
+      display: block;
+      color: var(--accent);
+      font-size: 1.4rem;
+      margin-bottom: 0.2rem;
+    }
+
+    .stat span {
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.2rem;
+    }
+
+    .skill-card {
+      padding: 1.7rem;
+      background:
+        linear-gradient(
+          145deg,
+          rgba(255, 255, 255, 0.025),
+          transparent
+        ),
+        var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      transition:
+        transform 0.2s ease,
+        border-color 0.2s ease;
+    }
+
+    .skill-card:hover {
+      transform: translateY(-3px);
+      border-color: rgba(47, 125, 246, 0.55);
+    }
+
+    .skill-card h3 {
+      margin-bottom: 1rem;
+      font-size: 1.1rem;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.55rem;
+    }
+
+    .tag {
+      padding: 0.4rem 0.7rem;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      border: 1px solid rgba(47, 125, 246, 0.18);
+      color: #cfe2ff;
+      font-size: 0.82rem;
+    }
+
+    .featured {
+      position: relative;
+      overflow: hidden;
+      padding: 2.5rem;
+      border: 1px solid rgba(47, 125, 246, 0.34);
+      border-radius: 24px;
+      background:
+        radial-gradient(
+          circle at 90% 20%,
+          rgba(47, 125, 246, 0.14),
+          transparent 30%
+        ),
+        var(--card);
+    }
+
+    .featured::after {
+      content: "SIEM";
+      position: absolute;
+      right: -1rem;
+      bottom: -3rem;
+      font-size: 9rem;
+      font-weight: 900;
+      letter-spacing: -0.08em;
+      color: rgba(255, 255, 255, 0.025);
+      pointer-events: none;
+    }
+
+    .featured-badge {
+      display: inline-block;
+      padding: 0.35rem 0.7rem;
+      border-radius: 7px;
+      background: var(--accent);
+      color: #f7fbff;
+      font-weight: 800;
+      font-size: 0.72rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+    }
+
+    .featured h3 {
+      position: relative;
+      z-index: 1;
+      font-size: clamp(1.7rem, 4vw, 2.8rem);
+      margin-bottom: 1rem;
+    }
+
+    .featured p {
+      position: relative;
+      z-index: 1;
+      max-width: 760px;
+      color: var(--muted);
+      margin-bottom: 1.5rem;
+    }
+
+    .project-details {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      margin-bottom: 1.7rem;
+    }
+
+    .repo-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+    }
+
+    .repo-card {
+      min-height: 150px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 1.35rem;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      transition:
+        transform 0.2s ease,
+        border-color 0.2s ease,
+        background 0.2s ease;
+    }
+
+    .repo-card:hover {
+      transform: translateY(-3px);
+      border-color: var(--accent);
+      background: var(--card-light);
+    }
+
+    .repo-card h3 {
+      font-size: 1rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .repo-card p {
+      color: var(--muted);
+      font-size: 0.87rem;
+    }
+
+    .repo-link {
+      color: var(--accent);
+      font-size: 0.84rem;
+      font-weight: 700;
+      margin-top: 1rem;
+    }
+
+    .cert {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 2rem;
+      padding: 1.6rem 1.8rem;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+    }
+
+    .cert h3 {
+      margin-bottom: 0.25rem;
+    }
+
+    .cert p {
+      color: var(--muted);
+    }
+
+    .cert-status {
+      flex-shrink: 0;
+      padding: 0.45rem 0.85rem;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: var(--accent);
+      font-size: 0.82rem;
+      font-weight: 800;
+    }
+
+    footer {
+      padding: 3rem 0;
+      border-top: 1px solid var(--border);
+      color: var(--muted);
+      text-align: center;
+      font-size: 0.9rem;
+    }
+
+    footer a {
+      color: var(--accent);
+    }
+
+    @media (max-width: 850px) {
+      .hero,
+      .about-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        min-height: auto;
+        padding: 5rem 0;
+      }
+
+      .skills-grid,
+      .repo-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .terminal {
+        max-width: 600px;
+      }
+    }
+
+    @media (max-width: 650px) {
+      nav {
+        min-height: 64px;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      section {
+        padding: 4rem 0;
+      }
+
+      .featured {
+        padding: 1.6rem;
+      }
+
+      .cert {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+    }
+  
+    /* Staging preview gate */
+    .staging-gate {
+      min-height: 100vh;
+      position: relative;
+      overflow: hidden;
+      display: grid;
+      place-items: center;
+      padding: 2rem;
+      isolation: isolate;
+      background:
+        radial-gradient(circle at 50% 115%, rgba(47, 125, 246, 0.13), transparent 42%),
+        var(--bg);
+    }
+
+    .ambient-orb {
+      position: absolute;
+      z-index: -1;
+      border-radius: 999px;
+      pointer-events: none;
+      filter: blur(65px);
+      opacity: 0.42;
+      will-change: transform;
+    }
+
+    .ambient-orb.one {
+      width: 360px;
+      height: 360px;
+      top: -90px;
+      left: -80px;
+      background: rgba(47, 125, 246, 0.36);
+      animation: drift-one 14s ease-in-out infinite alternate;
+    }
+
+    .ambient-orb.two {
+      width: 440px;
+      height: 440px;
+      right: -150px;
+      top: 18%;
+      background: rgba(94, 160, 255, 0.24);
+      animation: drift-two 17s ease-in-out infinite alternate;
+    }
+
+    .ambient-orb.three {
+      width: 300px;
+      height: 300px;
+      bottom: -110px;
+      left: 28%;
+      background: rgba(20, 67, 135, 0.45);
+      animation: drift-three 19s ease-in-out infinite alternate;
+    }
+
+    .ambient-orb.four {
+      width: 210px;
+      height: 210px;
+      top: 22%;
+      left: 54%;
+      background: rgba(85, 125, 195, 0.18);
+      filter: blur(48px);
+      animation: drift-four 12s ease-in-out infinite alternate;
+    }
+
+    @keyframes drift-one {
+      from { transform: translate3d(0, 0, 0) scale(1); }
+      to   { transform: translate3d(85px, 65px, 0) scale(1.12); }
+    }
+
+    @keyframes drift-two {
+      from { transform: translate3d(0, 0, 0) scale(1); }
+      to   { transform: translate3d(-90px, 75px, 0) scale(0.92); }
+    }
+
+    @keyframes drift-three {
+      from { transform: translate3d(0, 0, 0) scale(1); }
+      to   { transform: translate3d(55px, -70px, 0) scale(1.08); }
+    }
+
+    @keyframes drift-four {
+      from { transform: translate3d(0, 0, 0); }
+      to   { transform: translate3d(-55px, 50px, 0); }
+    }
+
+    .staging-gate-card {
+      width: min(100%, 460px);
+      padding: 2.25rem;
+      position: relative;
+      overflow: hidden;
+      background: rgba(11, 22, 38, 0.78);
+      border: 1px solid rgba(94, 160, 255, 0.20);
+      border-radius: 18px;
+      box-shadow:
+        0 24px 80px rgba(0, 0, 0, 0.34),
+        inset 0 1px 0 rgba(255, 255, 255, 0.035);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+    }
+
+    .staging-gate-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background: linear-gradient(
+        135deg,
+        rgba(255, 255, 255, 0.035),
+        transparent 38%
+      );
+    }
+
+    .staging-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.55rem;
+      margin-bottom: 1.1rem;
+      color: var(--accent-blue);
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .staging-badge::before {
+      content: "";
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 12px rgba(47, 125, 246, 0.75);
+    }
+
+    .staging-gate-card h2 {
+      position: relative;
+      margin-bottom: 0.75rem;
+      color: var(--text);
+      font-size: 2rem;
+      line-height: 1.15;
+      letter-spacing: -0.03em;
+    }
+
+    .staging-gate-card > p {
+      position: relative;
+      margin-bottom: 1.5rem;
+      color: var(--muted);
+      font-size: 0.98rem;
+      line-height: 1.7;
+    }
+
+    .staging-gate-form {
+      position: relative;
+      display: flex;
+      gap: 0.7rem;
+    }
+
+    .staging-gate-form input {
+      flex: 1;
+      min-width: 0;
+      padding: 0.85rem 0.95rem;
+      border: 1px solid var(--border);
+      border-radius: 9px;
+      background: rgba(4, 9, 20, 0.72);
+      color: var(--text);
+      font: inherit;
+      transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease,
+        background 0.2s ease;
+    }
+
+    .staging-gate-form input::placeholder {
+      color: #6f839b;
+    }
+
+    .staging-gate-form input:focus {
+      outline: none;
+      border-color: rgba(47, 125, 246, 0.7);
+      background: rgba(4, 9, 20, 0.92);
+      box-shadow: 0 0 0 3px rgba(47, 125, 246, 0.12);
+    }
+
+    .staging-gate-form button {
+      padding: 0.85rem 1.05rem;
+      border: 1px solid var(--accent);
+      border-radius: 9px;
+      background: var(--accent);
+      color: #f7fbff;
+      font: inherit;
+      font-weight: 700;
+      cursor: pointer;
+      transition:
+        transform 0.2s ease,
+        background 0.2s ease,
+        box-shadow 0.2s ease;
+    }
+
+    .staging-gate-form button:hover {
+      transform: translateY(-1px);
+      background: var(--accent-blue);
+      box-shadow: 0 8px 24px rgba(47, 125, 246, 0.18);
+    }
+
+    #staging-error {
+      display: none;
+      margin-top: 1rem;
+      margin-bottom: 0;
+      color: #ff8c8c;
+      font-size: 0.9rem;
+    }
+
+    .staging-note {
+      margin-top: 1.35rem !important;
+      margin-bottom: 0 !important;
+      color: #72869d !important;
+      font-size: 0.8rem !important;
+    }
+
+    #staging-content {
+      opacity: 0;
+      filter: blur(10px);
+      transform: translateY(8px);
+      transition:
+        opacity 650ms ease,
+        filter 700ms ease,
+        transform 700ms ease;
+    }
+
+    #staging-content.revealed {
+      opacity: 1;
+      filter: blur(0);
+      transform: translateY(0);
+    }
+
+    .staging-gate.fade-out {
+      pointer-events: none;
+      animation: staging-fade-out 650ms ease forwards;
+    }
+
+    @keyframes staging-fade-out {
+      to {
+        opacity: 0;
+        filter: blur(10px);
+        transform: scale(1.015);
+      }
+    }
+
+    @media (max-width: 520px) {
+      .staging-gate-form {
+        flex-direction: column;
+      }
+
+      .staging-gate-card {
+        padding: 1.75rem;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .ambient-orb {
+        animation: none;
+      }
+
+      #staging-content,
+      .staging-gate {
+        transition: none;
+        animation: none;
+      }
+    }
+
+
+    /* Visual text editor */
+    .visual-editor-toolbar {
+      position: fixed;
+      right: 18px;
+      bottom: 18px;
+      z-index: 10000;
+      display: none;
+      align-items: center;
+      gap: 8px;
+      padding: 8px;
+      border: 1px solid rgba(94, 160, 255, 0.22);
+      border-radius: 12px;
+      background: rgba(7, 17, 31, 0.92);
+      box-shadow: 0 16px 45px rgba(0, 0, 0, 0.35);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+    }
+
+    .visual-editor-toolbar.visible { display: flex; }
+
+    .visual-editor-toolbar button {
+      min-height: 38px;
+      padding: 0.65rem 0.85rem;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: var(--card);
+      color: var(--text);
+      font: inherit;
+      font-size: 0.82rem;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .visual-editor-toolbar button.primary {
+      border-color: var(--accent);
+      background: var(--accent);
+      color: #fff;
+    }
+
+    .visual-editor-hint {
+      position: fixed;
+      left: 50%;
+      bottom: 22px;
+      z-index: 9999;
+      display: none;
+      transform: translateX(-50%);
+      padding: 0.65rem 0.9rem;
+      border: 1px solid rgba(94, 160, 255, 0.20);
+      border-radius: 999px;
+      background: rgba(7, 17, 31, 0.90);
+      color: var(--muted);
+      font-size: 0.8rem;
+      pointer-events: none;
+    }
+
+    .visual-editor-hint.visible { display: block; }
+
+    body.visual-editing #staging-content [contenteditable="true"] {
+      cursor: text;
+      outline: 1px dashed transparent;
+      outline-offset: 5px;
+      border-radius: 4px;
+    }
+
+    body.visual-editing #staging-content [contenteditable="true"]:hover,
+    body.visual-editing #staging-content [contenteditable="true"]:focus {
+      outline-color: rgba(94, 160, 255, 0.48);
+      background: rgba(47, 125, 246, 0.06);
+    }
+
+    @media (max-width: 640px) {
+      .visual-editor-toolbar {
+        right: 10px;
+        bottom: 10px;
+        left: 10px;
+        justify-content: center;
+      }
+
+      .visual-editor-hint { display: none !important; }
+    }
+
+
+    /* Resume section */
+    .resume-panel {
+      overflow: hidden;
+      background:
+        linear-gradient(
+          145deg,
+          rgba(255, 255, 255, 0.022),
+          transparent 42%
+        ),
+        var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+    }
+
+    .resume-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.5rem;
+      padding: 1.5rem 1.6rem;
+      border-bottom: 1px solid var(--border);
+      background: rgba(7, 17, 31, 0.55);
+    }
+
+    .resume-header h3 {
+      margin-bottom: 0.2rem;
+      font-size: 1.1rem;
+    }
+
+    .resume-header p {
+      color: var(--muted);
+      font-size: 0.88rem;
+    }
+
+    .resume-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.7rem;
+      flex-shrink: 0;
+    }
+
+    .resume-preview {
+      min-height: 720px;
+      background: #07111f;
+    }
+
+    .resume-preview iframe {
+      display: block;
+      width: 100%;
+      min-height: 720px;
+      border: 0;
+      background: #fff;
+    }
+
+    .resume-fallback {
+      padding: 1rem 1.6rem 1.4rem;
+      color: var(--muted);
+      font-size: 0.85rem;
+      border-top: 1px solid var(--border);
+    }
+
+    .resume-fallback code {
+      color: var(--accent-blue);
+    }
+
+    @media (max-width: 700px) {
+      .resume-header {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .resume-actions {
+        width: 100%;
+      }
+
+      .resume-actions .button {
+        flex: 1;
+      }
+
+      .resume-preview,
+      .resume-preview iframe {
+        min-height: 560px;
+      }
+    }
+
+
+    /* Futuristic / cyber treatment */
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: -2;
+      background:
+        radial-gradient(circle at 12% 18%, rgba(0, 194, 255, 0.10), transparent 24%),
+        radial-gradient(circle at 88% 12%, rgba(114, 240, 255, 0.07), transparent 26%),
+        radial-gradient(circle at 50% 115%, rgba(0, 194, 255, 0.08), transparent 32%);
+    }
+
+    body::after {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: -1;
+      opacity: 0.18;
+      background-image:
+        linear-gradient(rgba(114, 240, 255, 0.08) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(114, 240, 255, 0.07) 1px, transparent 1px);
+      background-size: 44px 44px;
+      mask-image: linear-gradient(180deg, rgba(255,255,255,0.55), rgba(255,255,255,0.10));
+      -webkit-mask-image: linear-gradient(180deg, rgba(255,255,255,0.55), rgba(255,255,255,0.10));
+    }
+
+    .logo {
+      letter-spacing: 0.08em;
+      text-shadow: 0 0 18px rgba(0, 194, 255, 0.14);
+    }
+
+    .button {
+      box-shadow: 0 0 0 1px rgba(0, 194, 255, 0.08), 0 10px 28px rgba(0, 194, 255, 0.10);
+    }
+
+    .button.secondary {
+      background: rgba(9, 20, 35, 0.45);
+    }
+
+    .button.secondary:hover {
+      box-shadow: 0 0 0 1px rgba(0, 194, 255, 0.18), 0 0 20px rgba(0, 194, 255, 0.10);
+    }
+
+    .eyebrow,
+    .section-label,
+    .featured-badge,
+    .cert-status,
+    .staging-badge {
+      text-shadow: 0 0 12px rgba(0, 194, 255, 0.25);
+    }
+
+    .terminal,
+    .resume-panel,
+    .cert,
+    .featured,
+    .staging-gate-card,
+    .visual-editor-toolbar {
+      position: relative;
+      box-shadow:
+        0 22px 55px rgba(0, 0, 0, 0.30),
+        0 0 0 1px rgba(0, 194, 255, 0.05),
+        0 0 36px rgba(0, 194, 255, 0.05);
+    }
+
+    .terminal::before,
+    .resume-panel::before,
+    .cert::before,
+    .featured::before,
+    .staging-gate-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      border-radius: inherit;
+      background: linear-gradient(135deg, rgba(114, 240, 255, 0.08), transparent 30%, transparent 60%, rgba(0, 194, 255, 0.05));
+      mix-blend-mode: screen;
+    }
+
+    .skill-card,
+    .repo-card,
+    .stat {
+      position: relative;
+      overflow: hidden;
+      background:
+        linear-gradient(145deg, rgba(255, 255, 255, 0.025), transparent 30%),
+        linear-gradient(180deg, rgba(6, 14, 24, 0.40), rgba(10, 22, 40, 0.85)),
+        var(--card);
+      box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.02),
+        0 0 0 1px rgba(0, 194, 255, 0.03);
+    }
+
+    .skill-card::after,
+    .repo-card::after,
+    .stat::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      border-radius: inherit;
+      background: linear-gradient(90deg, transparent, rgba(114, 240, 255, 0.06), transparent);
+      transform: translateX(-100%);
+      transition: transform 0.55s ease;
+    }
+
+    .skill-card:hover::after,
+    .repo-card:hover::after,
+    .stat:hover::after {
+      transform: translateX(100%);
+    }
+
+    .skill-card:hover,
+    .repo-card:hover,
+    .stat:hover,
+    .resume-panel:hover {
+      border-color: rgba(0, 194, 255, 0.42);
+      box-shadow:
+        0 0 0 1px rgba(0, 194, 255, 0.14),
+        0 0 28px rgba(0, 194, 255, 0.10);
+    }
+
+    .tag {
+      box-shadow: inset 0 0 0 1px rgba(0, 194, 255, 0.10), 0 0 16px rgba(0, 194, 255, 0.05);
+    }
+
+    .terminal-body {
+      position: relative;
+    }
+
+    .terminal-body::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      opacity: 0.08;
+      background:
+        repeating-linear-gradient(
+          180deg,
+          rgba(255,255,255,0.5) 0,
+          rgba(255,255,255,0.5) 1px,
+          transparent 1px,
+          transparent 4px
+        );
+    }
+
+    .section-title,
+    h1,
+    .featured h3 {
+      text-shadow: 0 0 24px rgba(0, 194, 255, 0.07);
+    }
+
+    .resume-preview {
+      background:
+        linear-gradient(180deg, rgba(7, 17, 31, 0.7), rgba(7, 17, 31, 0.95)),
+        radial-gradient(circle at 50% 0%, rgba(0, 194, 255, 0.08), transparent 40%);
+    }
+
+    .visual-editor-toolbar {
+      border-color: rgba(114, 240, 255, 0.22);
+    }
+
+    /* Stronger cyber styling */
+    :root {
+      --accent-2: #8e7dff;
+      --glow: rgba(0, 194, 255, 0.34);
+      --glow-soft: rgba(114, 240, 255, 0.16);
+      --panel: rgba(7, 17, 31, 0.78);
+    }
+
+    body {
+      background:
+        radial-gradient(circle at 18% 16%, rgba(0, 194, 255, 0.12), transparent 20%),
+        radial-gradient(circle at 82% 12%, rgba(142, 125, 255, 0.08), transparent 24%),
+        radial-gradient(circle at 50% 115%, rgba(0, 194, 255, 0.12), transparent 30%),
+        linear-gradient(180deg, #040814 0%, #060d1d 45%, #03060f 100%);
+    }
+
+    body::before {
+      opacity: 0.32 !important;
+      background:
+        radial-gradient(circle at 12% 18%, rgba(0, 194, 255, 0.14), transparent 26%),
+        radial-gradient(circle at 88% 12%, rgba(114, 240, 255, 0.10), transparent 28%),
+        radial-gradient(circle at 76% 78%, rgba(142, 125, 255, 0.08), transparent 24%),
+        radial-gradient(circle at 50% 115%, rgba(0, 194, 255, 0.11), transparent 36%);
+    }
+
+    body::after {
+      opacity: 0.26 !important;
+      background-image:
+        linear-gradient(rgba(114, 240, 255, 0.12) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(114, 240, 255, 0.11) 1px, transparent 1px),
+        linear-gradient(180deg, rgba(255,255,255,0.04), transparent 45%);
+      background-size: 42px 42px, 42px 42px, 100% 100%;
+      animation: grid-drift 22s linear infinite;
+    }
+
+    @keyframes grid-drift {
+      0%   { transform: translateY(0px); }
+      100% { transform: translateY(42px); }
+    }
+
+    .cyber-aura,
+    .cyber-aura-2 {
+      position: fixed;
+      inset: auto;
+      z-index: -3;
+      pointer-events: none;
+      border-radius: 999px;
+      filter: blur(90px);
+      opacity: 0.34;
+      mix-blend-mode: screen;
+    }
+
+    .cyber-aura {
+      width: 360px;
+      height: 360px;
+      left: 4%;
+      top: 18%;
+      background: rgba(0, 194, 255, 0.22);
+      animation: aura-float-1 16s ease-in-out infinite alternate;
+    }
+
+    .cyber-aura-2 {
+      width: 420px;
+      height: 420px;
+      right: 4%;
+      top: 46%;
+      background: rgba(142, 125, 255, 0.18);
+      animation: aura-float-2 20s ease-in-out infinite alternate;
+    }
+
+    @keyframes aura-float-1 {
+      from { transform: translate3d(0, 0, 0) scale(1); }
+      to   { transform: translate3d(60px, -30px, 0) scale(1.12); }
+    }
+
+    @keyframes aura-float-2 {
+      from { transform: translate3d(0, 0, 0) scale(1); }
+      to   { transform: translate3d(-70px, 40px, 0) scale(0.95); }
+    }
+
+    header {
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      background: rgba(4, 11, 22, 0.80);
+      box-shadow: 0 0 0 1px rgba(0, 194, 255, 0.05), 0 10px 30px rgba(0,0,0,0.24);
+    }
+
+    .logo,
+    .brand,
+    .site-name {
+      color: #f5fbff;
+      letter-spacing: 0.10em;
+      text-transform: uppercase;
+    }
+
+    .nav-links a,
+    .site-nav a {
+      position: relative;
+    }
+
+    .nav-links a::after,
+    .site-nav a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -7px;
+      width: 100%;
+      height: 1px;
+      transform: scaleX(0);
+      transform-origin: left;
+      background: linear-gradient(90deg, transparent, var(--accent), transparent);
+      transition: transform 0.25s ease;
+    }
+
+    .nav-links a:hover::after,
+    .site-nav a:hover::after {
+      transform: scaleX(1);
+    }
+
+    h1,
+    .section-title,
+    .featured h3,
+    .project-card h3 {
+      letter-spacing: -0.05em;
+      text-shadow:
+        0 0 24px rgba(0, 194, 255, 0.12),
+        0 0 42px rgba(0, 194, 255, 0.05);
+    }
+
+    .hero,
+    section {
+      position: relative;
+    }
+
+    .hero::after,
+    section::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: -1px;
+      height: 1px;
+      background: linear-gradient(90deg, transparent 0%, rgba(0, 194, 255, 0.45) 35%, rgba(142,125,255,0.32) 65%, transparent 100%);
+      pointer-events: none;
+    }
+
+    .button,
+    .text-link {
+      position: relative;
+      overflow: hidden;
+      border-radius: 11px !important;
+      background-image: linear-gradient(135deg, rgba(0, 194, 255, 0.18), rgba(114, 240, 255, 0.08));
+      box-shadow:
+        0 0 0 1px rgba(0, 194, 255, 0.15),
+        0 0 24px rgba(0, 194, 255, 0.12),
+        inset 0 1px 0 rgba(255,255,255,0.06);
+    }
+
+    .button::before,
+    .text-link::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      transform: translateX(-100%);
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.18), transparent);
+      transition: transform 0.55s ease;
+    }
+
+    .button:hover::before,
+    .text-link:hover::before {
+      transform: translateX(100%);
+    }
+
+    .button.secondary,
+    .text-link:not(.primary) {
+      background: rgba(8, 20, 35, 0.56) !important;
+      border-color: rgba(0, 194, 255, 0.18) !important;
+    }
+
+    .terminal,
+    .summary-card,
+    .project-card,
+    .featured,
+    .cert,
+    .resume-panel,
+    .staging-gate-card,
+    .visual-editor-toolbar,
+    .skill-card,
+    .repo-card,
+    .repo-item,
+    .fact,
+    .stat {
+      background:
+        linear-gradient(180deg, rgba(9, 22, 39, 0.95), rgba(6, 14, 26, 0.82)) !important;
+      border: 1px solid rgba(0, 194, 255, 0.16) !important;
+      box-shadow:
+        0 0 0 1px rgba(0, 194, 255, 0.04),
+        0 20px 55px rgba(0, 0, 0, 0.32),
+        0 0 40px rgba(0, 194, 255, 0.07) !important;
+      clip-path: polygon(0 0, calc(100% - 14px) 0, 100% 14px, 100% 100%, 14px 100%, 0 calc(100% - 14px));
+    }
+
+    .terminal::before,
+    .summary-card::before,
+    .project-card::before,
+    .featured::before,
+    .cert::before,
+    .resume-panel::before,
+    .staging-gate-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background:
+        linear-gradient(135deg, rgba(114, 240, 255, 0.08), transparent 28%),
+        linear-gradient(315deg, rgba(142, 125, 255, 0.05), transparent 32%);
+    }
+
+    .terminal-header,
+    .resume-header {
+      background: rgba(6, 17, 30, 0.78) !important;
+      border-bottom: 1px solid rgba(0, 194, 255, 0.12) !important;
+    }
+
+    .tag,
+    .label,
+    .featured-badge,
+    .cert-status,
+    .staging-badge {
+      border-color: rgba(0, 194, 255, 0.22) !important;
+      background: rgba(0, 194, 255, 0.10) !important;
+      color: #d9faff !important;
+      box-shadow: 0 0 14px rgba(0, 194, 255, 0.08);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .skills-table,
+    .skills-table th,
+    .skills-table td {
+      border-color: rgba(0, 194, 255, 0.12) !important;
+    }
+
+    .skills-table,
+    .skills-table tbody,
+    .skills-table thead {
+      background: rgba(7, 17, 31, 0.72) !important;
+    }
+
+    .skills-table th {
+      background: rgba(9, 24, 41, 0.95) !important;
+      color: var(--accent-blue) !important;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-size: 0.78rem !important;
+    }
+
+    .repo-card:hover,
+    .repo-item:hover,
+    .skill-card:hover,
+    .fact:hover,
+    .stat:hover {
+      transform: translateY(-3px);
+      box-shadow:
+        0 0 0 1px rgba(0, 194, 255, 0.18),
+        0 0 32px rgba(0, 194, 255, 0.12),
+        0 24px 60px rgba(0, 0, 0, 0.36) !important;
+    }
+
+    .terminal-body {
+      font-family: "Cascadia Code", "Consolas", monospace !important;
+      color: #d8f8ff !important;
+      text-shadow: 0 0 12px rgba(0, 194, 255, 0.05);
+    }
+
+    .prompt {
+      color: var(--accent-blue) !important;
+      text-shadow: 0 0 14px rgba(114, 240, 255, 0.25);
+    }
+
+    .hero-copy,
+    .section-intro,
+    .about-text p,
+    .about-copy p,
+    .featured p,
+    .project-card p,
+    .repo-card p,
+    .repo-desc,
+    .stat span,
+    .fact span,
+    .summary-item dt,
+    .resume-fallback,
+    .staging-note,
+    .staging-gate-card > p {
+      color: #9bb3cf !important;
+    }
+
+    .resume-preview {
+      border-top: 1px solid rgba(0, 194, 255, 0.10);
+      background:
+        linear-gradient(180deg, rgba(7, 17, 31, 0.84), rgba(4, 10, 18, 0.98)),
+        radial-gradient(circle at 50% -10%, rgba(0, 194, 255, 0.10), transparent 40%);
+    }
+
+    .resume-preview iframe {
+      box-shadow: inset 0 0 0 1px rgba(0, 194, 255, 0.06);
+    }
+
+    .staging-gate {
+      background:
+        radial-gradient(circle at 10% 20%, rgba(0, 194, 255, 0.14), transparent 24%),
+        radial-gradient(circle at 88% 18%, rgba(142, 125, 255, 0.08), transparent 26%),
+        linear-gradient(180deg, #050a14 0%, #07111f 100%) !important;
+    }
+
+    .staging-gate-card {
+      backdrop-filter: blur(22px) saturate(115%);
+      -webkit-backdrop-filter: blur(22px) saturate(115%);
+    }
+
+    .staging-gate-form input {
+      background: rgba(4, 10, 18, 0.88) !important;
+      border-color: rgba(0, 194, 255, 0.14) !important;
+      box-shadow: inset 0 0 14px rgba(0, 194, 255, 0.05);
+    }
+
+    .staging-gate-form button {
+      box-shadow: 0 0 18px rgba(0, 194, 255, 0.12);
+    }
+
+    .ambient-orb.one,
+    .ambient-orb.two,
+    .ambient-orb.three,
+    .ambient-orb.four {
+      filter: blur(90px) !important;
+      opacity: 0.56 !important;
+    }
+
+    .visual-editor-toolbar {
+      border-color: rgba(0, 194, 255, 0.16) !important;
+      background: rgba(7, 17, 31, 0.82) !important;
+    }
+
+    .visual-editor-hint {
+      background: rgba(7, 17, 31, 0.88) !important;
+      border-color: rgba(0, 194, 255, 0.16) !important;
+    }
+
+    .dot {
+      background: rgba(114, 240, 255, 0.38) !important;
+      box-shadow: 0 0 10px rgba(114, 240, 255, 0.22);
+    }
+
+    /* MAX CYBER UPGRADE */
+    :root {
+      --hot-accent: #00e7ff;
+      --hot-accent-2: #8a6dff;
+      --hot-accent-3: #18f7c9;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      position: relative;
+      background:
+        radial-gradient(circle at 10% 8%, rgba(0, 231, 255, 0.14), transparent 18%),
+        radial-gradient(circle at 88% 12%, rgba(138, 109, 255, 0.10), transparent 20%),
+        radial-gradient(circle at 18% 78%, rgba(24, 247, 201, 0.08), transparent 18%),
+        radial-gradient(circle at 80% 72%, rgba(0, 231, 255, 0.08), transparent 22%),
+        linear-gradient(180deg, #03060d 0%, #07111e 48%, #040914 100%) !important;
+    }
+
+    .cyber-grid,
+    .cyber-scan,
+    .cyber-noise,
+    .cyber-vignette,
+    .cyber-diag {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+    }
+
+    .cyber-grid {
+      z-index: -6;
+      opacity: 0.42;
+      background-image:
+        linear-gradient(rgba(114, 240, 255, 0.10) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(114, 240, 255, 0.10) 1px, transparent 1px);
+      background-size: 46px 46px;
+      mask-image: linear-gradient(180deg, rgba(255,255,255,0.42), rgba(255,255,255,0.06));
+      -webkit-mask-image: linear-gradient(180deg, rgba(255,255,255,0.42), rgba(255,255,255,0.06));
+      animation: cyber-grid-drift 26s linear infinite;
+    }
+
+    .cyber-diag {
+      z-index: -5;
+      opacity: 0.13;
+      background:
+        repeating-linear-gradient(
+          125deg,
+          rgba(0, 231, 255, 0.18) 0px,
+          rgba(0, 231, 255, 0.18) 2px,
+          transparent 2px,
+          transparent 90px
+        );
+      animation: diag-drift 18s linear infinite;
+    }
+
+    .cyber-noise {
+      z-index: -4;
+      opacity: 0.06;
+      background-image:
+        radial-gradient(circle at 20% 20%, rgba(255,255,255,0.9) 0.4px, transparent 0.6px),
+        radial-gradient(circle at 70% 35%, rgba(255,255,255,0.8) 0.4px, transparent 0.6px),
+        radial-gradient(circle at 35% 75%, rgba(255,255,255,0.9) 0.4px, transparent 0.6px),
+        radial-gradient(circle at 85% 60%, rgba(255,255,255,0.8) 0.4px, transparent 0.6px);
+      background-size: 130px 130px, 170px 170px, 210px 210px, 250px 250px;
+      animation: noise-float 22s linear infinite;
+    }
+
+    .cyber-scan {
+      z-index: -3;
+      opacity: 0.20;
+      background:
+        linear-gradient(
+          180deg,
+          transparent 0%,
+          rgba(0, 231, 255, 0.06) 44%,
+          rgba(0, 231, 255, 0.16) 50%,
+          rgba(0, 231, 255, 0.05) 56%,
+          transparent 100%
+        );
+      background-size: 100% 240px;
+      animation: scan-pass 8s linear infinite;
+    }
+
+    .cyber-vignette {
+      z-index: -2;
+      background:
+        radial-gradient(circle at center, transparent 46%, rgba(0, 0, 0, 0.26) 100%);
+    }
+
+    .cyber-orbit,
+    .cyber-orbit-2 {
+      position: fixed;
+      border-radius: 50%;
+      border: 1px solid rgba(114, 240, 255, 0.08);
+      pointer-events: none;
+      z-index: -5;
+      box-shadow:
+        inset 0 0 20px rgba(0, 231, 255, 0.03),
+        0 0 28px rgba(0, 231, 255, 0.04);
+    }
+
+    .cyber-orbit {
+      width: 540px;
+      height: 540px;
+      top: 8%;
+      right: -120px;
+      animation: orbit-spin 24s linear infinite;
+    }
+
+    .cyber-orbit-2 {
+      width: 380px;
+      height: 380px;
+      bottom: 8%;
+      left: -80px;
+      animation: orbit-spin-rev 19s linear infinite;
+      border-color: rgba(138, 109, 255, 0.08);
+    }
+
+    .cyber-orbit::before,
+    .cyber-orbit-2::before {
+      content: "";
+      position: absolute;
+      width: 12px;
+      height: 12px;
+      top: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      border-radius: 50%;
+      background: var(--hot-accent);
+      box-shadow: 0 0 20px rgba(0, 231, 255, 0.55);
+    }
+
+    .cyber-orbit-2::before {
+      background: var(--hot-accent-2);
+      box-shadow: 0 0 20px rgba(138, 109, 255, 0.55);
+    }
+
+    @keyframes cyber-grid-drift {
+      0% { transform: translateY(0); }
+      100% { transform: translateY(46px); }
+    }
+
+    @keyframes diag-drift {
+      0% { transform: translateX(0) translateY(0); }
+      100% { transform: translateX(80px) translateY(-40px); }
+    }
+
+    @keyframes noise-float {
+      0% { transform: translate3d(0,0,0); }
+      100% { transform: translate3d(-40px,20px,0); }
+    }
+
+    @keyframes scan-pass {
+      0% { background-position: 0 -240px; }
+      100% { background-position: 0 100vh; }
+    }
+
+    @keyframes orbit-spin {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+
+    @keyframes orbit-spin-rev {
+      from { transform: rotate(360deg); }
+      to { transform: rotate(0deg); }
+    }
+
+    header {
+      border-bottom: 1px solid rgba(0, 231, 255, 0.12) !important;
+      box-shadow:
+        0 0 0 1px rgba(0, 231, 255, 0.04),
+        0 15px 40px rgba(0, 0, 0, 0.30),
+        0 0 30px rgba(0, 231, 255, 0.05) !important;
+    }
+
+    header::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: -1px;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(0,231,255,0.55), rgba(138,109,255,0.35), transparent);
+      pointer-events: none;
+    }
+
+    .logo,
+    .site-name,
+    .brand {
+      position: relative;
+      text-shadow:
+        0 0 18px rgba(0, 231, 255, 0.18),
+        0 0 34px rgba(0, 231, 255, 0.06) !important;
+    }
+
+    .logo span {
+      color: var(--hot-accent-2) !important;
+      text-shadow: 0 0 16px rgba(138, 109, 255, 0.35);
+    }
+
+    .nav-links a,
+    .site-nav a {
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-size: 0.8rem !important;
+    }
+
+    .nav-links a:hover,
+    .site-nav a:hover {
+      color: #eafcff !important;
+      text-shadow: 0 0 12px rgba(0, 231, 255, 0.22);
+    }
+
+    main {
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero::before,
+    section::before {
+      content: "";
+      position: absolute;
+      top: 12px;
+      right: min(4vw, 48px);
+      width: 120px;
+      height: 1px;
+      background: linear-gradient(90deg, rgba(0,231,255,0), rgba(0,231,255,0.75));
+      opacity: 0.55;
+      pointer-events: none;
+    }
+
+    .hero::after,
+    section::after {
+      height: 2px !important;
+      background: linear-gradient(90deg, transparent 0%, rgba(0, 231, 255, 0.65) 30%, rgba(24,247,201,0.4) 50%, rgba(138,109,255,0.45) 70%, transparent 100%) !important;
+      box-shadow: 0 0 16px rgba(0, 231, 255, 0.12);
+    }
+
+    h1,
+    .section-title,
+    .featured h3,
+    .project-card h3 {
+      position: relative;
+      text-transform: uppercase;
+      letter-spacing: -0.04em !important;
+      color: #f6fdff !important;
+      text-shadow:
+        0 0 22px rgba(0, 231, 255, 0.14),
+        0 0 40px rgba(0, 231, 255, 0.06) !important;
+    }
+
+    .section-label,
+    .featured-badge,
+    .staging-badge,
+    .cert-status,
+    .eyebrow {
+      position: relative;
+      padding-left: 18px !important;
+      letter-spacing: 0.13em !important;
+    }
+
+    .section-label::before,
+    .featured-badge::before,
+    .staging-badge::before,
+    .cert-status::before,
+    .eyebrow::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 50%;
+      width: 10px;
+      height: 1px;
+      background: var(--hot-accent);
+      transform: translateY(-50%);
+      box-shadow: 0 0 12px rgba(0,231,255,0.45);
+    }
+
+    .summary-card,
+    .project-card,
+    .featured,
+    .resume-panel,
+    .staging-gate-card,
+    .visual-editor-toolbar,
+    .fact,
+    .repo-card,
+    .repo-item,
+    .skill-card,
+    .cert,
+    .stat,
+    .terminal {
+      position: relative;
+      overflow: hidden;
+      border-color: rgba(0, 231, 255, 0.18) !important;
+      background:
+        linear-gradient(180deg, rgba(10, 24, 42, 0.94), rgba(4, 13, 24, 0.88)) !important;
+      box-shadow:
+        0 0 0 1px rgba(0, 231, 255, 0.04),
+        0 22px 60px rgba(0, 0, 0, 0.34),
+        0 0 36px rgba(0, 231, 255, 0.08) !important;
+      clip-path: polygon(0 0, calc(100% - 16px) 0, 100% 16px, 100% 100%, 16px 100%, 0 calc(100% - 16px));
+    }
+
+    .summary-card::after,
+    .project-card::after,
+    .featured::after,
+    .resume-panel::after,
+    .staging-gate-card::after,
+    .fact::after,
+    .repo-card::after,
+    .repo-item::after,
+    .skill-card::after,
+    .cert::after,
+    .stat::after,
+    .terminal::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background:
+        linear-gradient(90deg, transparent, rgba(0,231,255,0.08), transparent);
+      transform: translateX(-100%);
+      animation: hud-sweep 6.5s linear infinite;
+    }
+
+    @keyframes hud-sweep {
+      0%, 18% { transform: translateX(-100%); }
+      32% { transform: translateX(100%); }
+      100% { transform: translateX(100%); }
+    }
+
+    .summary-card::before,
+    .project-card::before,
+    .featured::before,
+    .resume-panel::before,
+    .staging-gate-card::before,
+    .fact::before,
+    .repo-card::before,
+    .repo-item::before,
+    .skill-card::before,
+    .cert::before,
+    .stat::before,
+    .terminal::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background:
+        linear-gradient(135deg, rgba(114,240,255,0.10), transparent 26%),
+        linear-gradient(315deg, rgba(138,109,255,0.06), transparent 30%);
+    }
+
+    .summary-card .corner,
+    .project-card .corner,
+    .featured .corner,
+    .resume-panel .corner,
+    .staging-gate-card .corner {
+      display: none;
+    }
+
+    .button,
+    .text-link {
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      border-radius: 10px !important;
+      border-color: rgba(0, 231, 255, 0.28) !important;
+      background:
+        linear-gradient(135deg, rgba(0, 231, 255, 0.20), rgba(138, 109, 255, 0.12)) !important;
+      box-shadow:
+        0 0 0 1px rgba(0, 231, 255, 0.12),
+        0 0 22px rgba(0, 231, 255, 0.14),
+        inset 0 1px 0 rgba(255,255,255,0.06) !important;
+    }
+
+    .button.secondary,
+    .text-link:not(.primary) {
+      background:
+        linear-gradient(135deg, rgba(8, 19, 34, 0.78), rgba(11, 24, 41, 0.62)) !important;
+    }
+
+    .button:hover,
+    .text-link:hover {
+      transform: translateY(-2px) !important;
+      box-shadow:
+        0 0 0 1px rgba(0, 231, 255, 0.18),
+        0 0 34px rgba(0, 231, 255, 0.18),
+        inset 0 1px 0 rgba(255,255,255,0.08) !important;
+    }
+
+    .button::after,
+    .text-link::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.16), transparent);
+      transform: translateX(-120%);
+      transition: transform 0.55s ease;
+    }
+
+    .button:hover::after,
+    .text-link:hover::after {
+      transform: translateX(120%);
+    }
+
+    .hero-actions,
+    .project-links,
+    .resume-actions {
+      gap: 0.9rem !important;
+    }
+
+    .skills-table,
+    .skills-table thead,
+    .skills-table tbody {
+      background: rgba(7, 17, 31, 0.86) !important;
+    }
+
+    .skills-table th {
+      background: rgba(9, 26, 44, 0.95) !important;
+      color: #d9fcff !important;
+      text-transform: uppercase;
+      letter-spacing: 0.10em;
+    }
+
+    .skills-table tr:hover td {
+      background: rgba(0, 231, 255, 0.035);
+    }
+
+    .tag,
+    .label,
+    .featured-badge,
+    .cert-status,
+    .staging-badge {
+      text-transform: uppercase;
+      letter-spacing: 0.12em !important;
+      background: rgba(0, 231, 255, 0.10) !important;
+      border-color: rgba(0, 231, 255, 0.20) !important;
+      box-shadow:
+        0 0 14px rgba(0, 231, 255, 0.08),
+        inset 0 0 0 1px rgba(255,255,255,0.03);
+    }
+
+    .repo-card:hover,
+    .repo-item:hover,
+    .skill-card:hover,
+    .fact:hover,
+    .stat:hover,
+    .resume-panel:hover,
+    .featured:hover {
+      border-color: rgba(0, 231, 255, 0.34) !important;
+      box-shadow:
+        0 0 0 1px rgba(0, 231, 255, 0.16),
+        0 0 42px rgba(0, 231, 255, 0.14),
+        0 28px 68px rgba(0, 0, 0, 0.38) !important;
+      transform: translateY(-3px);
+    }
+
+    .terminal-body {
+      font-family: "Cascadia Code", "JetBrains Mono", "Consolas", monospace !important;
+      line-height: 1.75 !important;
+    }
+
+    .terminal-body::after {
+      opacity: 0.14 !important;
+    }
+
+    .prompt {
+      color: #d8fbff !important;
+      text-shadow:
+        0 0 10px rgba(0,231,255,0.25),
+        0 0 18px rgba(0,231,255,0.12) !important;
+    }
+
+    .resume-header,
+    .terminal-header {
+      border-bottom: 1px solid rgba(0, 231, 255, 0.12) !important;
+      background:
+        linear-gradient(180deg, rgba(4, 16, 28, 0.95), rgba(8, 20, 35, 0.72)) !important;
+    }
+
+    .resume-preview {
+      background:
+        linear-gradient(180deg, rgba(7, 17, 31, 0.9), rgba(4, 10, 18, 0.98)),
+        radial-gradient(circle at 50% -20%, rgba(0, 231, 255, 0.16), transparent 38%) !important;
+    }
+
+    .resume-preview iframe {
+      filter: drop-shadow(0 0 18px rgba(0, 231, 255, 0.06));
+    }
+
+    .staging-gate {
+      background:
+        radial-gradient(circle at 12% 18%, rgba(0, 231, 255, 0.18), transparent 24%),
+        radial-gradient(circle at 84% 16%, rgba(138, 109, 255, 0.14), transparent 22%),
+        radial-gradient(circle at 50% 110%, rgba(24, 247, 201, 0.10), transparent 28%),
+        linear-gradient(180deg, #040813 0%, #07111f 100%) !important;
+    }
+
+    .staging-gate-card {
+      backdrop-filter: blur(26px) saturate(130%) !important;
+      -webkit-backdrop-filter: blur(26px) saturate(130%) !important;
+    }
+
+    .staging-gate-card h2 {
+      text-transform: uppercase;
+      letter-spacing: -0.03em;
+      text-shadow: 0 0 22px rgba(0, 231, 255, 0.12);
+    }
+
+    .staging-gate-form input {
+      border-color: rgba(0, 231, 255, 0.18) !important;
+      background: rgba(4, 10, 18, 0.92) !important;
+      box-shadow:
+        inset 0 0 18px rgba(0, 231, 255, 0.05),
+        0 0 0 1px rgba(0, 231, 255, 0.02);
+    }
+
+    .staging-gate-form input:focus {
+      box-shadow:
+        inset 0 0 18px rgba(0, 231, 255, 0.07),
+        0 0 0 3px rgba(0, 231, 255, 0.12) !important;
+    }
+
+    .visual-editor-toolbar {
+      backdrop-filter: blur(18px) saturate(125%);
+      -webkit-backdrop-filter: blur(18px) saturate(125%);
+    }
+
+    .visual-editor-toolbar button {
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .visual-editor-hint {
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .ambient-orb.one,
+    .ambient-orb.two,
+    .ambient-orb.three,
+    .ambient-orb.four,
+    .cyber-aura,
+    .cyber-aura-2 {
+      filter: blur(100px) !important;
+      opacity: 0.64 !important;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .cyber-grid,
+      .cyber-scan,
+      .cyber-noise,
+      .cyber-diag,
+      .cyber-orbit,
+      .cyber-orbit-2,
+      .summary-card::after,
+      .project-card::after,
+      .featured::after,
+      .resume-panel::after,
+      .staging-gate-card::after,
+      .fact::after,
+      .repo-card::after,
+      .repo-item::after,
+      .skill-card::after,
+      .cert::after,
+      .stat::after,
+      .terminal::after {
+        animation: none !important;
+      }
+    }
+
+    /* Cyber photography */
+    .featured-media {
+      position: relative;
+      height: 280px;
+      margin: -2.5rem -2.5rem 2rem;
+      overflow: hidden;
+      border-bottom: 1px solid rgba(0, 231, 255, 0.18);
+      background: #06101d;
+    }
+
+    .featured-media img {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: cover;
+      object-position: center;
+      filter:
+        saturate(0.78)
+        contrast(1.12)
+        brightness(0.68)
+        hue-rotate(155deg);
+      transform: scale(1.035);
+      transition:
+        transform 1.2s ease,
+        filter 0.7s ease;
+    }
+
+    .featured:hover .featured-media img {
+      transform: scale(1.07);
+      filter:
+        saturate(0.95)
+        contrast(1.15)
+        brightness(0.78)
+        hue-rotate(155deg);
+    }
+
+    .featured-media::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      pointer-events: none;
+      background:
+        linear-gradient(90deg, rgba(3, 8, 16, 0.55), transparent 55%),
+        linear-gradient(180deg, transparent 25%, rgba(6, 14, 26, 0.92) 100%);
+    }
+
+    .featured-media::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: 2;
+      pointer-events: none;
+      opacity: 0.16;
+      background:
+        repeating-linear-gradient(
+          180deg,
+          rgba(160, 245, 255, 0.4) 0,
+          rgba(160, 245, 255, 0.4) 1px,
+          transparent 1px,
+          transparent 5px
+        );
+    }
+
+    .featured-media-label {
+      position: absolute;
+      left: 1.5rem;
+      bottom: 1.25rem;
+      z-index: 3;
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
+      color: #dffcff;
+      font-family: "Cascadia Code", "Consolas", monospace;
+      font-size: 0.74rem;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      text-shadow: 0 0 14px rgba(0, 231, 255, 0.3);
+    }
+
+    .featured-media-label::before {
+      content: "";
+      width: 26px;
+      height: 1px;
+      background: var(--hot-accent);
+      box-shadow: 0 0 12px rgba(0, 231, 255, 0.55);
+    }
+
+    .cert-showcase {
+      display: grid;
+      grid-template-columns: minmax(0, 0.86fr) minmax(330px, 1.14fr);
+      gap: 1.25rem;
+      align-items: stretch;
+    }
+
+    .cert-showcase .cert {
+      height: 100%;
+      min-height: 260px;
+      align-content: center;
+      flex-wrap: wrap;
+    }
+
+    .cert-photo {
+      position: relative;
+      min-height: 260px;
+      overflow: hidden;
+      border: 1px solid rgba(0, 231, 255, 0.18);
+      background: #050d18;
+      clip-path: polygon(0 0, calc(100% - 16px) 0, 100% 16px, 100% 100%, 16px 100%, 0 calc(100% - 16px));
+      box-shadow:
+        0 0 0 1px rgba(0, 231, 255, 0.04),
+        0 22px 60px rgba(0, 0, 0, 0.34),
+        0 0 38px rgba(0, 231, 255, 0.08);
+    }
+
+    .cert-photo img {
+      width: 100%;
+      height: 100%;
+      min-height: 260px;
+      display: block;
+      object-fit: cover;
+      object-position: center;
+      filter:
+        saturate(0.72)
+        contrast(1.15)
+        brightness(0.72)
+        hue-rotate(145deg);
+      transform: scale(1.04);
+      transition:
+        transform 0.9s ease,
+        filter 0.6s ease;
+    }
+
+    .cert-photo:hover img {
+      transform: scale(1.085);
+      filter:
+        saturate(0.9)
+        contrast(1.17)
+        brightness(0.8)
+        hue-rotate(145deg);
+    }
+
+    .cert-photo::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      pointer-events: none;
+      background:
+        radial-gradient(circle at 82% 20%, rgba(0, 231, 255, 0.18), transparent 25%),
+        linear-gradient(90deg, rgba(4, 10, 18, 0.76), rgba(4, 10, 18, 0.14) 72%),
+        linear-gradient(180deg, transparent 45%, rgba(4, 10, 18, 0.9) 100%);
+    }
+
+    .cert-photo::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: 2;
+      pointer-events: none;
+      opacity: 0.16;
+      background:
+        repeating-linear-gradient(
+          180deg,
+          rgba(160, 245, 255, 0.35) 0,
+          rgba(160, 245, 255, 0.35) 1px,
+          transparent 1px,
+          transparent 5px
+        );
+    }
+
+    .cert-photo-overlay {
+      position: absolute;
+      z-index: 3;
+      left: 1.35rem;
+      right: 1.35rem;
+      bottom: 1.25rem;
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .cert-photo-kicker {
+      display: block;
+      margin-bottom: 0.35rem;
+      color: var(--hot-accent);
+      font-family: "Cascadia Code", "Consolas", monospace;
+      font-size: 0.68rem;
+      font-weight: 800;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+      text-shadow: 0 0 14px rgba(0, 231, 255, 0.28);
+    }
+
+    .cert-photo-title {
+      color: #f4fdff;
+      font-size: 1.15rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      text-shadow: 0 2px 15px rgba(0, 0, 0, 0.7);
+    }
+
+    .cert-photo-code {
+      flex-shrink: 0;
+      padding: 0.42rem 0.58rem;
+      border: 1px solid rgba(0, 231, 255, 0.24);
+      background: rgba(4, 12, 22, 0.78);
+      color: #c8faff;
+      font-family: "Cascadia Code", "Consolas", monospace;
+      font-size: 0.66rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+    }
+
+    @media (max-width: 820px) {
+      .cert-showcase {
+        grid-template-columns: 1fr;
+      }
+
+      .cert-showcase .cert,
+      .cert-photo,
+      .cert-photo img {
+        min-height: 230px;
+      }
+    }
+
+    @media (max-width: 650px) {
+      .featured-media {
+        height: 220px;
+        margin: -1.6rem -1.6rem 1.5rem;
+      }
+
+      .cert-photo-overlay {
+        left: 1rem;
+        right: 1rem;
+        bottom: 1rem;
+      }
+
+      .cert-photo-code {
+        display: none;
+      }
+    }
+
+
+    /* Balanced futuristic styling — cleaner and more professional */
+    body {
+      background:
+        radial-gradient(circle at 12% 12%, rgba(0, 194, 255, 0.08), transparent 22%),
+        radial-gradient(circle at 88% 14%, rgba(94, 160, 255, 0.05), transparent 24%),
+        linear-gradient(180deg, #050914 0%, #07111f 48%, #040914 100%) !important;
+    }
+
+    body::before {
+      opacity: 0.16 !important;
+    }
+
+    body::after {
+      opacity: 0.10 !important;
+      animation: none !important;
+      background-size: 52px 52px !important;
+    }
+
+    .cyber-grid {
+      opacity: 0.10 !important;
+      animation: none !important;
+      background-size: 52px 52px !important;
+    }
+
+    .cyber-aura,
+    .cyber-aura-2 {
+      opacity: 0.18 !important;
+      filter: blur(120px) !important;
+      animation-duration: 28s !important;
+    }
+
+    header {
+      background: rgba(4, 9, 20, 0.88) !important;
+      border-bottom: 1px solid rgba(94, 160, 255, 0.09) !important;
+      box-shadow: 0 8px 28px rgba(0, 0, 0, 0.18) !important;
+    }
+
+    header::after {
+      opacity: 0.28;
+    }
+
+    .logo,
+    .site-name,
+    .brand {
+      text-shadow: none !important;
+      letter-spacing: 0.06em !important;
+    }
+
+    .nav-links a,
+    .site-nav a {
+      text-transform: none !important;
+      letter-spacing: normal !important;
+      font-size: 0.92rem !important;
+    }
+
+    h1,
+    .section-title,
+    .featured h3,
+    .project-card h3 {
+      text-transform: none !important;
+      text-shadow: none !important;
+      letter-spacing: -0.04em !important;
+    }
+
+    .section-label,
+    .featured-badge,
+    .staging-badge,
+    .cert-status,
+    .eyebrow {
+      text-shadow: none !important;
+      letter-spacing: 0.11em !important;
+    }
+
+    .hero::before,
+    section::before {
+      opacity: 0.18 !important;
+    }
+
+    .hero::after,
+    section::after {
+      height: 1px !important;
+      opacity: 0.34;
+      box-shadow: none !important;
+    }
+
+    .summary-card,
+    .project-card,
+    .featured,
+    .resume-panel,
+    .staging-gate-card,
+    .visual-editor-toolbar,
+    .fact,
+    .repo-card,
+    .repo-item,
+    .skill-card,
+    .cert,
+    .stat,
+    .terminal {
+      border-color: rgba(94, 160, 255, 0.17) !important;
+      background:
+        linear-gradient(180deg, rgba(10, 22, 38, 0.94), rgba(7, 16, 29, 0.90)) !important;
+      box-shadow:
+        0 18px 45px rgba(0, 0, 0, 0.24),
+        0 0 0 1px rgba(94, 160, 255, 0.025) !important;
+      clip-path: none !important;
+      border-radius: var(--radius) !important;
+    }
+
+    .summary-card::after,
+    .project-card::after,
+    .featured::after,
+    .resume-panel::after,
+    .staging-gate-card::after,
+    .fact::after,
+    .repo-card::after,
+    .repo-item::after,
+    .skill-card::after,
+    .cert::after,
+    .stat::after,
+    .terminal::after {
+      animation: none !important;
+      opacity: 0 !important;
+    }
+
+    .summary-card::before,
+    .project-card::before,
+    .featured::before,
+    .resume-panel::before,
+    .staging-gate-card::before,
+    .fact::before,
+    .repo-card::before,
+    .repo-item::before,
+    .skill-card::before,
+    .cert::before,
+    .stat::before,
+    .terminal::before {
+      opacity: 0.42;
+    }
+
+    .button,
+    .text-link {
+      text-transform: none !important;
+      letter-spacing: normal !important;
+      border-color: rgba(0, 194, 255, 0.25) !important;
+      background: var(--accent) !important;
+      box-shadow: 0 8px 22px rgba(0, 194, 255, 0.10) !important;
+    }
+
+    .button.secondary,
+    .text-link:not(.primary) {
+      background: rgba(8, 20, 35, 0.54) !important;
+      box-shadow: none !important;
+    }
+
+    .button:hover,
+    .text-link:hover {
+      box-shadow: 0 10px 26px rgba(0, 194, 255, 0.14) !important;
+    }
+
+    .button::after,
+    .text-link::after,
+    .button::before,
+    .text-link::before {
+      display: none !important;
+    }
+
+    .tag,
+    .label,
+    .featured-badge,
+    .cert-status,
+    .staging-badge {
+      text-transform: none !important;
+      letter-spacing: normal !important;
+      background: rgba(0, 194, 255, 0.085) !important;
+      border-color: rgba(0, 194, 255, 0.14) !important;
+      box-shadow: none !important;
+    }
+
+    .repo-card:hover,
+    .repo-item:hover,
+    .skill-card:hover,
+    .fact:hover,
+    .stat:hover,
+    .resume-panel:hover,
+    .featured:hover {
+      transform: translateY(-2px) !important;
+      border-color: rgba(0, 194, 255, 0.30) !important;
+      box-shadow:
+        0 20px 48px rgba(0, 0, 0, 0.28),
+        0 0 24px rgba(0, 194, 255, 0.045) !important;
+    }
+
+    .terminal-body {
+      text-shadow: none !important;
+    }
+
+    .prompt {
+      text-shadow: none !important;
+    }
+
+    .featured-media {
+      height: 245px !important;
+      border-bottom-color: rgba(94, 160, 255, 0.12) !important;
+    }
+
+    .featured-media img {
+      filter:
+        saturate(0.72)
+        contrast(1.06)
+        brightness(0.72)
+        hue-rotate(150deg) !important;
+    }
+
+    .featured-media::after,
+    .cert-photo::after {
+      opacity: 0.055 !important;
+    }
+
+    .featured-media-label {
+      text-shadow: none !important;
+      letter-spacing: 0.09em !important;
+    }
+
+    .cert-showcase {
+      grid-template-columns: minmax(0, 1fr) minmax(310px, 0.92fr) !important;
+      gap: 1rem !important;
+    }
+
+    .cert {
+      min-height: 250px !important;
+      padding: 1.7rem !important;
+    }
+
+    .cert-main {
+      display: flex;
+      align-items: center;
+      gap: 1.3rem;
+      min-width: 0;
+    }
+
+    .cert-badge-img {
+      width: 118px;
+      height: 118px;
+      flex: 0 0 118px;
+      object-fit: contain;
+      padding: 8px;
+      border-radius: 16px;
+      background: #ffffff;
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      box-shadow: 0 10px 28px rgba(0, 0, 0, 0.22);
+    }
+
+    .cert-copy {
+      min-width: 0;
+    }
+
+    .cert-copy h3 {
+      font-size: 1.35rem;
+      margin-bottom: 0.35rem;
+    }
+
+    .cert-copy p {
+      margin-bottom: 0.75rem;
+    }
+
+    .cert-status {
+      display: inline-flex;
+      width: fit-content;
+    }
+
+    .cert-photo {
+      clip-path: none !important;
+      border-radius: var(--radius) !important;
+      border-color: rgba(94, 160, 255, 0.14) !important;
+      box-shadow: 0 18px 45px rgba(0, 0, 0, 0.24) !important;
+    }
+
+    .cert-photo img {
+      filter:
+        saturate(0.64)
+        contrast(1.08)
+        brightness(0.70)
+        hue-rotate(145deg) !important;
+    }
+
+    .cert-photo-kicker,
+    .cert-photo-code {
+      text-shadow: none !important;
+    }
+
+    .cert-photo-code {
+      border-color: rgba(94, 160, 255, 0.18) !important;
+      background: rgba(4, 12, 22, 0.70) !important;
+    }
+
+    .staging-gate {
+      background:
+        radial-gradient(circle at 18% 20%, rgba(0, 194, 255, 0.10), transparent 28%),
+        radial-gradient(circle at 82% 18%, rgba(94, 160, 255, 0.06), transparent 28%),
+        linear-gradient(180deg, #050a14 0%, #07111f 100%) !important;
+    }
+
+    .staging-gate-card {
+      backdrop-filter: blur(18px) !important;
+      -webkit-backdrop-filter: blur(18px) !important;
+    }
+
+    .staging-gate-card h2 {
+      text-transform: none !important;
+      text-shadow: none !important;
+    }
+
+    .visual-editor-toolbar button,
+    .visual-editor-hint {
+      text-transform: none !important;
+      letter-spacing: normal !important;
+    }
+
+    @media (max-width: 760px) {
+      .cert-main {
+        align-items: flex-start;
+      }
+
+      .cert-badge-img {
+        width: 92px;
+        height: 92px;
+        flex-basis: 92px;
+      }
+    }
+
+    @media (max-width: 520px) {
+      .cert-main {
+        flex-direction: column;
+      }
+    }
+
+
+    /* Uploaded certification files */
+    .certificate-files-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1rem;
+    }
+
+    .certificate-file-card {
+      min-height: 210px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 1.4rem;
+      background:
+        linear-gradient(180deg, rgba(10, 22, 38, 0.92), rgba(7, 16, 29, 0.90));
+      border: 1px solid rgba(94, 160, 255, 0.16);
+      border-radius: var(--radius);
+      transition:
+        transform 0.2s ease,
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+    }
+
+    .certificate-file-card:hover {
+      transform: translateY(-2px);
+      border-color: rgba(0, 194, 255, 0.30);
+      box-shadow: 0 18px 42px rgba(0, 0, 0, 0.24);
+    }
+
+    .certificate-file-icon {
+      width: 44px;
+      height: 44px;
+      display: grid;
+      place-items: center;
+      margin-bottom: 1rem;
+      border: 1px solid rgba(0, 194, 255, 0.18);
+      border-radius: 10px;
+      background: rgba(0, 194, 255, 0.08);
+      color: var(--accent-blue);
+      font-family: "Cascadia Code", "Consolas", monospace;
+      font-size: 0.72rem;
+      font-weight: 800;
+    }
+
+    .certificate-file-card h3 {
+      margin-bottom: 0.4rem;
+      font-size: 1rem;
+    }
+
+    .certificate-file-card p {
+      color: var(--muted);
+      font-size: 0.86rem;
+      line-height: 1.55;
+    }
+
+    .certificate-file-link {
+      display: inline-flex;
+      margin-top: 1.2rem;
+      color: var(--accent);
+      font-size: 0.84rem;
+      font-weight: 700;
+    }
+
+    .certificate-file-placeholder {
+      border-style: dashed;
+      background: rgba(7, 16, 29, 0.55);
+    }
+
+    .certificate-file-placeholder code {
+      color: var(--accent-blue);
+      font-size: 0.8rem;
+    }
+
+    @media (max-width: 850px) {
+      .certificate-files-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+
+    /* Delete skill/tag pills while using the visual editor */
+    body.visual-editing #staging-content .tag {
+      position: relative;
+      padding-right: 1.9rem;
+    }
+
+    .tag-delete-button {
+      display: none;
+      position: absolute;
+      top: 50%;
+      right: 0.35rem;
+      width: 18px;
+      height: 18px;
+      align-items: center;
+      justify-content: center;
+      transform: translateY(-50%);
+      border: 0;
+      border-radius: 50%;
+      background: rgba(255, 90, 110, 0.14);
+      color: #ff9aaa;
+      font: inherit;
+      font-size: 0.78rem;
+      font-weight: 800;
+      line-height: 1;
+      cursor: pointer;
+    }
+
+    body.visual-editing #staging-content .tag .tag-delete-button {
+      display: inline-flex;
+    }
+
+    .tag-delete-button:hover {
+      background: rgba(255, 90, 110, 0.28);
+      color: #ffd4dc;
+    }
+
+    body.visual-editing #staging-content .tag:hover {
+      outline-color: rgba(255, 110, 125, 0.45);
+    }
+
+
+    /* Skills with tool icons */
+    .security-tools-card {
+      grid-column: 1 / -1;
+      padding: 1.9rem;
+    }
+
+    .skill-card-heading {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 1rem;
+      margin-bottom: 1.1rem;
+    }
+
+    .skill-card-kicker {
+      margin-bottom: 0.25rem;
+      color: var(--accent);
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 0.11em;
+      text-transform: uppercase;
+    }
+
+    .skill-card-count {
+      flex-shrink: 0;
+      padding: 0.35rem 0.65rem;
+      border: 1px solid rgba(0, 194, 255, 0.14);
+      border-radius: 999px;
+      background: rgba(0, 194, 255, 0.06);
+      color: var(--muted);
+      font-size: 0.75rem;
+    }
+
+    .tool-tags {
+      gap: 0.7rem;
+    }
+
+    .tool-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.52rem;
+      min-height: 42px;
+      padding: 0.5rem 0.8rem;
+      background:
+        linear-gradient(180deg, rgba(0, 194, 255, 0.09), rgba(0, 194, 255, 0.04));
+    }
+
+    .tool-icon {
+      width: 23px;
+      height: 23px;
+      flex: 0 0 23px;
+      display: grid;
+      place-items: center;
+      color: var(--accent-blue);
+      pointer-events: none;
+      user-select: none;
+    }
+
+    .tool-icon svg,
+    .contact-icon svg {
+      width: 100%;
+      height: 100%;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 1.7;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    body.visual-editing .tool-tag {
+      padding-right: 2rem;
+    }
+
+    /* TryHackMe */
+    .tryhackme-panel {
+      display: grid;
+      grid-template-columns: minmax(0, 1.05fr) minmax(300px, 0.95fr);
+      gap: 1rem;
+      align-items: stretch;
+    }
+
+    .tryhackme-copy,
+    .tryhackme-badge-wrap {
+      min-width: 0;
+      padding: 1.8rem;
+      border: 1px solid rgba(94, 160, 255, 0.16);
+      border-radius: var(--radius);
+      background:
+        linear-gradient(180deg, rgba(10, 22, 38, 0.94), rgba(7, 16, 29, 0.90));
+      box-shadow: 0 18px 45px rgba(0, 0, 0, 0.20);
+    }
+
+    .tryhackme-copy {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .tryhackme-brand-row {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1.2rem;
+    }
+
+    .tryhackme-mark {
+      width: 64px;
+      height: 64px;
+      flex: 0 0 64px;
+      display: grid;
+      place-items: center;
+      border: 1px solid rgba(255, 90, 105, 0.24);
+      border-radius: 16px;
+      background: rgba(255, 55, 75, 0.08);
+      color: #ff8795;
+      font-family: "Cascadia Code", "Consolas", monospace;
+      font-size: 0.86rem;
+      font-weight: 900;
+      letter-spacing: 0.06em;
+    }
+
+    .tryhackme-label {
+      display: block;
+      margin-bottom: 0.18rem;
+      color: var(--muted);
+      font-size: 0.74rem;
+      font-weight: 700;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+    }
+
+    .tryhackme-brand-row h3 {
+      font-size: 1.5rem;
+      letter-spacing: -0.025em;
+    }
+
+    .tryhackme-copy > p {
+      max-width: 650px;
+      color: var(--muted);
+      margin-bottom: 1.4rem;
+    }
+
+    .tryhackme-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+    }
+
+    .tryhackme-badge-wrap {
+      position: relative;
+      display: grid;
+      align-content: center;
+      min-height: 250px;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 80% 10%, rgba(0, 194, 255, 0.08), transparent 30%),
+        linear-gradient(180deg, rgba(8, 20, 35, 0.94), rgba(5, 13, 25, 0.96));
+    }
+
+    .tryhackme-badge-label {
+      margin-bottom: 1rem;
+      color: var(--muted);
+      font-size: 0.74rem;
+      font-weight: 800;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+    }
+
+    .tryhackme-badge {
+      display: block;
+      width: 100%;
+      max-width: 430px;
+      margin: 0 auto;
+      border-radius: 10px;
+    }
+
+    .tryhackme-badge-fallback {
+      display: none;
+      min-height: 120px;
+      place-items: center;
+      align-content: center;
+      gap: 0.25rem;
+      border: 1px dashed rgba(0, 194, 255, 0.18);
+      border-radius: 12px;
+      color: var(--text);
+      text-align: center;
+    }
+
+    .tryhackme-badge-fallback span {
+      color: var(--muted);
+      font-size: 0.86rem;
+    }
+
+    .tryhackme-badge-wrap.badge-unavailable .tryhackme-badge {
+      display: none;
+    }
+
+    .tryhackme-badge-wrap.badge-unavailable .tryhackme-badge-fallback {
+      display: grid;
+    }
+
+    /* Contact */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1rem;
+    }
+
+    .contact-card {
+      position: relative;
+      min-height: 170px;
+      display: grid;
+      grid-template-columns: auto minmax(0, 1fr) auto;
+      align-items: center;
+      gap: 1rem;
+      padding: 1.35rem;
+      border: 1px solid rgba(94, 160, 255, 0.16);
+      border-radius: var(--radius);
+      background:
+        linear-gradient(180deg, rgba(10, 22, 38, 0.94), rgba(7, 16, 29, 0.90));
+      transition:
+        transform 0.2s ease,
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+    }
+
+    a.contact-card:hover {
+      transform: translateY(-2px);
+      border-color: rgba(0, 194, 255, 0.30);
+      box-shadow: 0 18px 42px rgba(0, 0, 0, 0.24);
+    }
+
+    .contact-icon {
+      width: 48px;
+      height: 48px;
+      flex: 0 0 48px;
+      display: grid;
+      place-items: center;
+      padding: 11px;
+      border: 1px solid rgba(0, 194, 255, 0.16);
+      border-radius: 13px;
+      background: rgba(0, 194, 255, 0.07);
+      color: var(--accent-blue);
+    }
+
+    .contact-icon-thm {
+      padding: 0;
+      border-color: rgba(255, 90, 105, 0.20);
+      background: rgba(255, 55, 75, 0.07);
+      color: #ff8795;
+      font-family: "Cascadia Code", "Consolas", monospace;
+      font-size: 0.7rem;
+      font-weight: 900;
+    }
+
+    .contact-kicker {
+      display: block;
+      margin-bottom: 0.2rem;
+      color: var(--muted);
+      font-size: 0.7rem;
+      font-weight: 800;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+    }
+
+    .contact-card h3 {
+      margin-bottom: 0.2rem;
+      font-size: 1.05rem;
+    }
+
+    .contact-card p,
+    .editable-contact-link {
+      overflow-wrap: anywhere;
+      color: var(--muted);
+      font-size: 0.84rem;
+    }
+
+    .editable-contact-link {
+      text-decoration: none;
+    }
+
+    body.visual-editing .editable-contact-link {
+      cursor: text;
+      outline: 1px dashed rgba(0, 194, 255, 0.42);
+      outline-offset: 4px;
+      border-radius: 3px;
+    }
+
+    .contact-arrow {
+      align-self: start;
+      color: var(--accent);
+      font-size: 1rem;
+    }
+
+    .contact-edit-note {
+      margin-top: 1rem;
+      color: #72869d;
+      font-size: 0.78rem;
+    }
+
+    body:not(.visual-editing) .contact-edit-note {
+      display: none;
+    }
+
+    @media (max-width: 900px) {
+      .tryhackme-panel,
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .security-tools-card {
+        grid-column: auto;
+      }
+    }
+
+    @media (max-width: 520px) {
+      .skill-card-heading {
+        flex-direction: column;
+      }
+
+      .tryhackme-copy,
+      .tryhackme-badge-wrap {
+        padding: 1.35rem;
+      }
+
+      .tryhackme-mark {
+        width: 54px;
+        height: 54px;
+        flex-basis: 54px;
+      }
+
+      .contact-card {
+        grid-template-columns: auto minmax(0, 1fr);
+      }
+
+      .contact-arrow {
+        display: none;
+      }
+    }
+
+
+    /* Actual security-tool logos */
+    .tool-logo-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 0.85rem;
+    }
+
+    .tool-logo-card {
+      position: relative;
+      min-height: 138px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.7rem;
+      padding: 0.9rem 0.8rem 0.75rem;
+      border-radius: 14px;
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.035), rgba(0, 194, 255, 0.035)),
+        rgba(5, 14, 26, 0.72);
+      border: 1px solid rgba(94, 160, 255, 0.16);
+      transition:
+        transform 0.2s ease,
+        border-color 0.2s ease,
+        background 0.2s ease,
+        box-shadow 0.2s ease;
+    }
+
+    .tool-logo-card:hover {
+      transform: translateY(-2px);
+      border-color: rgba(0, 194, 255, 0.32);
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.045), rgba(0, 194, 255, 0.055)),
+        rgba(7, 18, 32, 0.82);
+      box-shadow: 0 14px 30px rgba(0, 0, 0, 0.22);
+    }
+
+    .tool-logo-frame {
+      width: 100%;
+      height: 78px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.65rem;
+      border-radius: 10px;
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(238, 246, 252, 0.96));
+      overflow: hidden;
+    }
+
+    .tool-logo-frame img {
+      display: block;
+      max-width: 100%;
+      max-height: 58px;
+      width: auto;
+      height: auto;
+      object-fit: contain;
+    }
+
+    .tool-logo-card:nth-child(4) .tool-logo-frame img,
+    .tool-logo-card:nth-child(5) .tool-logo-frame img {
+      max-height: 64px;
+    }
+
+    .tool-logo-card:nth-child(6) .tool-logo-frame img {
+      max-height: 54px;
+    }
+
+    .tool-logo-card:nth-child(7) .tool-logo-frame img {
+      max-width: 92%;
+      max-height: 50px;
+    }
+
+    .tool-logo-name {
+      color: #dcecff;
+      font-size: 0.86rem;
+      font-weight: 750;
+      text-align: center;
+    }
+
+    body.visual-editing .tool-logo-card {
+      padding-right: 0.8rem;
+    }
+
+    body.visual-editing .tool-logo-card .tag-delete-button {
+      top: 0.48rem;
+      right: 0.48rem;
+      transform: none;
+      z-index: 3;
+      background: rgba(255, 80, 100, 0.16);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+    }
+
+    @media (max-width: 980px) {
+      .tool-logo-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 720px) {
+      .tool-logo-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 420px) {
+      .tool-logo-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .tool-logo-card {
+        min-height: 126px;
+      }
+
+      .tool-logo-frame {
+        height: 72px;
+      }
+    }
+
+
+    /* Security+ section after removing the decorative photo */
+    .cert-showcase {
+      display: block !important;
+    }
+
+    .cert-showcase .cert {
+      width: 100%;
+      min-height: 0 !important;
+    }
+
+
+    /* Keep the visual-editor delete controls perfectly centered */
+    .tag-delete-button,
+    body.visual-editing .tool-logo-card .tag-delete-button {
+      display: none;
+      box-sizing: border-box;
+      width: 20px !important;
+      height: 20px !important;
+      padding: 0 !important;
+      align-items: center !important;
+      justify-content: center !important;
+      text-align: center !important;
+      line-height: 20px !important;
+      font-family: Arial, sans-serif !important;
+      font-size: 15px !important;
+      font-weight: 700 !important;
+    }
+
+    body.visual-editing #staging-content .tag .tag-delete-button {
+      display: inline-flex !important;
+    }
+
+    body.visual-editing .tool-logo-card .tag-delete-button {
+      top: 0.48rem !important;
+      right: 0.48rem !important;
+      transform: none !important;
+    }
+
+
+    /* =========================================================
+       SUBTLE ART DECO ACCENTS
+       Original pre-Deco layout is preserved.
+       Only typography, borders, dividers, and small geometric details change.
+       ========================================================= */
+
+    :root {
+      --deco-accent: #5ea0ff;
+      --deco-line: rgba(94, 160, 255, 0.24);
+      --deco-line-soft: rgba(94, 160, 255, 0.09);
+    }
+
+    /* Display typography: restrained Deco influence */
+    h1,
+    .section-title,
+    .featured h3,
+    .cert-copy h3,
+    .tryhackme-brand-row h3 {
+      font-family: Georgia, "Times New Roman", serif;
+      letter-spacing: 0.015em;
+    }
+
+    /* Small Deco diamonds in section labels */
+    .section-label,
+    .eyebrow {
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .section-label::before,
+    .eyebrow::before {
+      content: "◇";
+      display: inline-block;
+      width: auto;
+      height: auto;
+      margin-right: 0.42rem;
+      background: none;
+      box-shadow: none;
+      color: var(--deco-accent);
+      font-size: 0.58rem;
+      vertical-align: middle;
+    }
+
+    /* Short geometric divider under section titles */
+    .section-title::after {
+      content: "";
+      display: block;
+      width: 92px;
+      height: 8px;
+      margin-top: 0.75rem;
+      background:
+        linear-gradient(90deg, var(--deco-line), transparent) top left / 100% 1px no-repeat,
+        linear-gradient(90deg, var(--deco-line-soft), transparent) bottom left / 62% 1px no-repeat;
+    }
+
+    /* Preserve the original card layout; only sharpen the corners slightly */
+    .skill-card,
+    .featured,
+    .cert,
+    .resume-panel,
+    .repo-card,
+    .certificate-file-card,
+    .tryhackme-copy,
+    .tryhackme-badge-wrap,
+    .contact-card,
+    .terminal,
+    .staging-gate-card {
+      border-color: rgba(94, 160, 255, 0.16);
+    }
+
+    .skill-card,
+    .repo-card,
+    .certificate-file-card,
+    .contact-card {
+      border-radius: 8px;
+    }
+
+    /* Tiny stepped-corner motif without changing dimensions */
+    .featured,
+    .cert,
+    .resume-panel,
+    .tryhackme-copy,
+    .tryhackme-badge-wrap,
+    .terminal,
+    .staging-gate-card {
+      clip-path: polygon(
+        8px 0,
+        100% 0,
+        100% calc(100% - 8px),
+        calc(100% - 8px) 100%,
+        0 100%,
+        0 8px
+      );
+    }
+
+    /* Keep buttons in their original locations; just give them a Deco edge */
+    .button,
+    .text-link {
+      clip-path: polygon(
+        6px 0,
+        100% 0,
+        100% calc(100% - 6px),
+        calc(100% - 6px) 100%,
+        0 100%,
+        0 6px
+      );
+    }
+
+    /* Security tool tiles: retain original grid/size */
+    .tool-logo-card {
+      border-radius: 8px;
+    }
+
+    .tool-logo-frame {
+      border-radius: 6px;
+    }
+
+    /* One subtle Deco treatment on the certification badge */
+    .cert-badge-img {
+      outline: 1px solid rgba(94, 160, 255, 0.13);
+      outline-offset: 6px;
+    }
+
+    /* Terminal header gets a small plaque-like title */
+    .terminal-header {
+      position: relative;
+    }
+
+    .terminal-header::after {
+      content: "◆  SYSTEM PROFILE  ◆";
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      color: rgba(94, 160, 255, 0.60);
+      font-size: 0.62rem;
+      font-weight: 800;
+      letter-spacing: 0.14em;
+      white-space: nowrap;
+      pointer-events: none;
+    }
+
+    .terminal-header .dot {
+      opacity: 0.55;
+    }
+
+    /* Header/nav stays in the original position */
+    .logo {
+      letter-spacing: 0.08em;
+    }
+
+    .nav-links a {
+      letter-spacing: 0.035em;
+    }
+
+    /* Light Deco divider above footer */
+    footer {
+      position: relative;
+    }
+
+    footer::before {
+      content: "";
+      display: block;
+      width: min(340px, 60vw);
+      height: 8px;
+      margin: 0 auto 1.6rem;
+      background:
+        linear-gradient(90deg, transparent, var(--deco-line), transparent) top center / 100% 1px no-repeat,
+        linear-gradient(90deg, transparent, var(--deco-line-soft), transparent) bottom center / 56% 1px no-repeat;
+    }
+
+    /* Password screen: same original composition, just a small Deco accent */
+    .staging-gate-card::after {
+      content: "◇";
+      position: absolute;
+      top: 1rem;
+      left: 50%;
+      transform: translateX(-50%);
+      color: rgba(94, 160, 255, 0.56);
+      font-size: 0.65rem;
+      pointer-events: none;
+    }
+
+    /* Do not interfere with live editor delete buttons */
+    body.visual-editing .tag-delete-button {
+      clip-path: none;
+    }
+
+
+    /* =========================================================
+       RESTORED BLUE / CYAN THEME
+       Keeps the existing Art Deco accents and layout.
+       ========================================================= */
+    :root {
+      --bg: #060912 !important;
+      --bg-soft: #081423 !important;
+      --card: #0a1628 !important;
+      --card-light: #122942 !important;
+      --border: #16385b !important;
+      --text: #edf7ff !important;
+      --muted: #9ab3cf !important;
+      --accent: #00c2ff !important;
+      --accent-soft: rgba(0, 194, 255, 0.16) !important;
+      --accent-blue: #72f0ff !important;
+      --deco-accent: #72f0ff !important;
+      --deco-line: rgba(114, 240, 255, 0.24) !important;
+      --deco-line-soft: rgba(114, 240, 255, 0.09) !important;
+    }
+
+    body {
+      background:
+        radial-gradient(circle at 85% 10%, rgba(47, 125, 246, 0.10), transparent 28%),
+        radial-gradient(circle at 10% 35%, rgba(94, 160, 255, 0.07), transparent 25%),
+        var(--bg) !important;
+    }
+
+    header {
+      background: rgba(4, 9, 20, 0.90) !important;
+    }
+
+    .staging-gate {
+      background:
+        radial-gradient(circle at 50% 115%, rgba(47, 125, 246, 0.13), transparent 42%),
+        var(--bg) !important;
+    }
+
+    .staging-gate-card,
+    .visual-editor-toolbar {
+      border-color: rgba(94, 160, 255, 0.20) !important;
+    }
+
+    .staging-gate-card {
+      background: rgba(11, 22, 38, 0.78) !important;
+    }
+
+    .staging-gate-form input {
+      background: rgba(4, 9, 20, 0.72) !important;
+      border-color: var(--border) !important;
+      color: var(--text) !important;
+    }
+
+    .staging-gate-form input:focus {
+      border-color: rgba(47, 125, 246, 0.70) !important;
+      background: rgba(4, 9, 20, 0.92) !important;
+      box-shadow: 0 0 0 3px rgba(47, 125, 246, 0.12) !important;
+    }
+
+    .tool-logo-card,
+    .skill-card,
+    .repo-card,
+    .stat,
+    .cert,
+    .featured,
+    .resume-panel,
+    .tryhackme-copy,
+    .tryhackme-badge-wrap,
+    .contact-card,
+    .terminal {
+      border-color: var(--border) !important;
+    }
+
+    .tag {
+      background: var(--accent-soft) !important;
+      border-color: rgba(47, 125, 246, 0.18) !important;
+      color: #cfe2ff !important;
+    }
+
+    ::selection {
+      background: rgba(0, 194, 255, 0.22);
+      color: #f7fbff;
+    }
+
+
+    /* =========================================================
+       NOIR METROPOLIS / ART DECO CITYSCAPE
+       Keeps the original site layout and blue/cyan color family.
+       Inspired by angular 1930s-futurist city architecture.
+       ========================================================= */
+
+    :root {
+      --noir-0: #02050b;
+      --noir-1: #040914;
+      --noir-2: #07101d;
+      --noir-3: #0a1628;
+      --noir-steel: #14263b;
+      --noir-line: rgba(114, 240, 255, 0.20);
+      --noir-line-strong: rgba(0, 194, 255, 0.38);
+      --noir-window: #a9f7ff;
+    }
+
+    body {
+      background:
+        linear-gradient(180deg, #02050b 0%, #040914 34%, #06101d 72%, #02050b 100%) !important;
+    }
+
+    body::before {
+      opacity: 0.13 !important;
+      background:
+        linear-gradient(90deg, transparent 49.7%, rgba(114,240,255,0.05) 50%, transparent 50.3%),
+        linear-gradient(180deg, rgba(255,255,255,0.015), transparent 35%) !important;
+      background-size: 120px 100%, 100% 100% !important;
+    }
+
+    body::after,
+    .cyber-grid,
+    .cyber-aura,
+    .cyber-aura-2,
+    .cyber-scan,
+    .cyber-noise,
+    .cyber-vignette,
+    .cyber-diag,
+    .cyber-orbit,
+    .cyber-orbit-2 {
+      display: none !important;
+    }
+
+    header {
+      background: rgba(2, 5, 11, 0.94) !important;
+      border-bottom: 1px solid rgba(114,240,255,0.10) !important;
+      box-shadow: 0 12px 28px rgba(0,0,0,0.28) !important;
+    }
+
+    .logo {
+      color: #f2f7fb !important;
+      font-family: "Arial Narrow", "Franklin Gothic Medium", "Segoe UI", sans-serif !important;
+      font-weight: 900 !important;
+      letter-spacing: 0.15em !important;
+      text-transform: uppercase !important;
+      text-shadow: none !important;
+    }
+
+    .nav-links a {
+      font-family: "Arial Narrow", "Segoe UI", sans-serif !important;
+      font-size: 0.78rem !important;
+      letter-spacing: 0.10em !important;
+      text-transform: uppercase !important;
+    }
+
+    /* ---------------- HERO / SKYLINE ---------------- */
+
+    .hero {
+      min-height: 730px !important;
+      position: relative !important;
+      isolation: isolate;
+      overflow: hidden;
+      align-items: center !important;
+      padding-top: 7rem !important;
+      padding-bottom: 7rem !important;
+    }
+
+    .hero > div:not(.noir-cityscape):not(.deco-sunburst) {
+      position: relative;
+      z-index: 3;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      left: -8%;
+      right: -8%;
+      bottom: 0;
+      height: 92px;
+      z-index: 1;
+      background:
+        linear-gradient(175deg, transparent 0 44%, #02050b 45% 100%);
+      pointer-events: none;
+    }
+
+    .deco-sunburst {
+      position: absolute;
+      z-index: 0;
+      width: 660px;
+      height: 660px;
+      right: 4%;
+      top: 43%;
+      transform: translateY(-50%);
+      border-radius: 50%;
+      opacity: 0.16;
+      background:
+        repeating-conic-gradient(
+          from 0deg,
+          rgba(114,240,255,0.38) 0deg 0.7deg,
+          transparent 0.7deg 11deg
+        );
+      -webkit-mask-image: radial-gradient(circle, transparent 0 14%, #000 14% 48%, transparent 48%);
+      mask-image: radial-gradient(circle, transparent 0 14%, #000 14% 48%, transparent 48%);
+      pointer-events: none;
+    }
+
+    .noir-cityscape {
+      position: absolute;
+      z-index: 1;
+      right: -2%;
+      bottom: 38px;
+      width: 48%;
+      height: 530px;
+      pointer-events: none;
+      opacity: 0.72;
+    }
+
+    .city-building {
+      position: absolute;
+      bottom: 0;
+      display: block;
+      overflow: hidden;
+      background:
+        repeating-linear-gradient(
+          180deg,
+          transparent 0 18px,
+          rgba(169,247,255,0.18) 18px 22px,
+          transparent 22px 36px
+        ),
+        linear-gradient(90deg, #07101b, #101e31 48%, #050a12);
+      border-left: 1px solid rgba(114,240,255,0.08);
+      border-right: 1px solid rgba(255,255,255,0.025);
+      box-shadow: -18px 18px 30px rgba(0,0,0,0.32);
+    }
+
+    .city-building::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        repeating-linear-gradient(
+          90deg,
+          transparent 0 12px,
+          rgba(169,247,255,0.10) 12px 15px,
+          transparent 15px 30px
+        );
+      opacity: 0.65;
+    }
+
+    .city-building::after {
+      content: "";
+      position: absolute;
+      left: 50%;
+      top: 0;
+      width: 1px;
+      height: 100%;
+      background: rgba(114,240,255,0.07);
+    }
+
+    .city-building-1 {
+      width: 19%;
+      height: 55%;
+      left: 0;
+      clip-path: polygon(20% 0, 80% 0, 100% 15%, 100% 100%, 0 100%, 0 15%);
+    }
+
+    .city-building-2 {
+      width: 24%;
+      height: 78%;
+      left: 14%;
+      clip-path: polygon(38% 0, 62% 0, 75% 8%, 84% 8%, 84% 18%, 100% 18%, 100% 100%, 0 100%, 0 18%, 16% 18%, 16% 8%, 25% 8%);
+    }
+
+    .city-building-3 {
+      width: 27%;
+      height: 100%;
+      left: 31%;
+      background:
+        repeating-linear-gradient(180deg, transparent 0 21px, rgba(169,247,255,0.18) 21px 25px, transparent 25px 41px),
+        linear-gradient(90deg, #060c16, #12263f 46%, #050912);
+      clip-path: polygon(43% 0, 57% 0, 65% 7%, 75% 7%, 75% 14%, 89% 14%, 89% 23%, 100% 23%, 100% 100%, 0 100%, 0 23%, 11% 23%, 11% 14%, 25% 14%, 25% 7%, 35% 7%);
+    }
+
+    .city-building-4 {
+      width: 22%;
+      height: 70%;
+      left: 54%;
+      clip-path: polygon(25% 0, 75% 0, 88% 14%, 100% 14%, 100% 100%, 0 100%, 0 14%, 12% 14%);
+    }
+
+    .city-building-5 {
+      width: 19%;
+      height: 88%;
+      left: 71%;
+      clip-path: polygon(44% 0, 56% 0, 65% 10%, 82% 10%, 82% 20%, 100% 20%, 100% 100%, 0 100%, 0 20%, 18% 20%, 18% 10%, 35% 10%);
+    }
+
+    .city-building-6 {
+      width: 16%;
+      height: 48%;
+      right: 0;
+      clip-path: polygon(18% 0, 82% 0, 100% 20%, 100% 100%, 0 100%, 0 20%);
+    }
+
+    h1 {
+      max-width: 720px !important;
+      font-family: "Arial Narrow", "Franklin Gothic Medium", "Segoe UI", sans-serif !important;
+      font-size: clamp(3rem, 6.3vw, 5.8rem) !important;
+      font-weight: 900 !important;
+      line-height: 0.89 !important;
+      letter-spacing: -0.045em !important;
+      text-transform: uppercase !important;
+      text-shadow: none !important;
+    }
+
+    h1 .accent {
+      color: #72f0ff !important;
+      text-shadow: 0 0 18px rgba(0,194,255,0.10) !important;
+    }
+
+    .eyebrow {
+      letter-spacing: 0.18em !important;
+      text-shadow: none !important;
+    }
+
+    .hero-copy {
+      max-width: 650px !important;
+      color: #9ab3cf !important;
+    }
+
+    .terminal {
+      max-width: 410px;
+      margin-left: auto;
+      background:
+        linear-gradient(155deg, rgba(18,38,63,0.70), rgba(4,9,20,0.96)) !important;
+      border-color: rgba(114,240,255,0.16) !important;
+      border-radius: 0 !important;
+      clip-path: polygon(
+        0 18px,
+        18px 18px,
+        18px 0,
+        calc(100% - 18px) 0,
+        100% 18px,
+        100% 100%,
+        18px 100%,
+        18px calc(100% - 18px),
+        0 calc(100% - 18px)
+      ) !important;
+      box-shadow: -18px 22px 42px rgba(0,0,0,0.36) !important;
+    }
+
+    .terminal::before {
+      display: none !important;
+    }
+
+    .terminal-header {
+      min-height: 45px;
+      background: #040914 !important;
+      border-bottom-color: rgba(114,240,255,0.12) !important;
+    }
+
+    .terminal-header::after {
+      color: rgba(114,240,255,0.72) !important;
+    }
+
+    .dot {
+      opacity: 0.35 !important;
+      box-shadow: none !important;
+    }
+
+    /* ---------------- TYPOGRAPHY / DECO DETAILS ---------------- */
+
+    .section-label {
+      color: #72f0ff !important;
+      font-family: "Arial Narrow", "Segoe UI", sans-serif !important;
+      font-size: 0.75rem !important;
+      letter-spacing: 0.18em !important;
+      text-shadow: none !important;
+    }
+
+    .section-title {
+      font-family: "Arial Narrow", "Franklin Gothic Medium", "Segoe UI", sans-serif !important;
+      font-weight: 900 !important;
+      text-transform: uppercase !important;
+      letter-spacing: -0.025em !important;
+      text-shadow: none !important;
+    }
+
+    .section-title::after {
+      width: 140px !important;
+      height: 10px !important;
+      background:
+        linear-gradient(90deg, rgba(114,240,255,0.36), transparent) top left / 100% 1px no-repeat,
+        linear-gradient(90deg, rgba(114,240,255,0.16), transparent) center left / 70% 1px no-repeat,
+        linear-gradient(90deg, rgba(114,240,255,0.07), transparent) bottom left / 42% 1px no-repeat !important;
+    }
+
+    section {
+      position: relative;
+    }
+
+    section::before {
+      content: "";
+      position: absolute;
+      top: 1.5rem;
+      left: 0;
+      width: 28px;
+      height: 74px;
+      background:
+        linear-gradient(90deg, rgba(114,240,255,0.20), transparent) left top / 1px 100% no-repeat,
+        repeating-linear-gradient(180deg, rgba(114,240,255,0.13) 0 1px, transparent 1px 12px);
+      pointer-events: none;
+      opacity: 0.7;
+    }
+
+    section::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      width: min(720px, 76vw);
+      height: 1px;
+      transform: translateX(-50%);
+      background: linear-gradient(90deg, transparent, rgba(114,240,255,0.20), transparent) !important;
+      pointer-events: none;
+    }
+
+    /* ---------------- CARDS AS BUILDINGS / PLAQUES ---------------- */
+
+    .skill-card,
+    .repo-card,
+    .stat,
+    .cert,
+    .resume-panel,
+    .featured,
+    .tryhackme-copy,
+    .tryhackme-badge-wrap,
+    .contact-card,
+    .certificate-file-card {
+      background:
+        linear-gradient(180deg, rgba(12,28,46,0.90), rgba(4,9,20,0.96)) !important;
+      border-color: rgba(114,240,255,0.12) !important;
+      box-shadow: 0 18px 36px rgba(0,0,0,0.24) !important;
+    }
+
+    .skill-card,
+    .repo-card,
+    .stat,
+    .contact-card,
+    .certificate-file-card {
+      border-radius: 2px !important;
+      clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 10px 100%, 0 calc(100% - 10px)) !important;
+    }
+
+    .skill-card::after,
+    .repo-card::after,
+    .stat::after {
+      background: linear-gradient(90deg, transparent, rgba(114,240,255,0.045), transparent) !important;
+    }
+
+    .skill-card:hover,
+    .repo-card:hover,
+    .stat:hover,
+    .contact-card:hover {
+      border-color: rgba(114,240,255,0.28) !important;
+      box-shadow:
+        0 20px 38px rgba(0,0,0,0.30),
+        0 0 0 1px rgba(114,240,255,0.04) !important;
+    }
+
+    .stat strong {
+      color: #72f0ff !important;
+      font-family: "Arial Narrow", "Segoe UI", sans-serif !important;
+      letter-spacing: 0.02em;
+    }
+
+    .tag {
+      border-radius: 2px !important;
+      background: rgba(0,194,255,0.07) !important;
+      border-color: rgba(114,240,255,0.14) !important;
+      box-shadow: none !important;
+      color: #d9faff !important;
+      clip-path: polygon(5px 0, 100% 0, 100% calc(100% - 5px), calc(100% - 5px) 100%, 0 100%, 0 5px);
+    }
+
+    .button,
+    .text-link {
+      border-radius: 0 !important;
+      clip-path: polygon(7px 0, 100% 0, 100% calc(100% - 7px), calc(100% - 7px) 100%, 0 100%, 0 7px) !important;
+      background-image: none !important;
+      box-shadow: none !important;
+      text-transform: uppercase !important;
+      letter-spacing: 0.07em !important;
+      font-family: "Arial Narrow", "Segoe UI", sans-serif !important;
+    }
+
+    .button.secondary,
+    .text-link:not(.primary) {
+      background: rgba(4,9,20,0.74) !important;
+      border-color: rgba(114,240,255,0.18) !important;
+    }
+
+    /* Security tools become lit facade panels */
+    .security-tools-card {
+      background: transparent !important;
+      border-color: rgba(114,240,255,0.08) !important;
+    }
+
+    .tool-logo-card {
+      min-height: 150px !important;
+      border-radius: 0 !important;
+      background:
+        linear-gradient(180deg, rgba(15,34,55,0.92), rgba(4,9,20,0.96)) !important;
+      border-color: rgba(114,240,255,0.11) !important;
+      clip-path: polygon(9px 0, 100% 0, 100% 100%, 0 100%, 0 9px);
+    }
+
+    .tool-logo-frame {
+      background: #eef7fb !important;
+      border-radius: 1px !important;
+      border: 4px solid #08111e !important;
+      outline: 1px solid rgba(114,240,255,0.13);
+      box-shadow: 0 0 0 6px rgba(114,240,255,0.018) !important;
+    }
+
+    .tool-logo-name {
+      color: #dff8ff !important;
+      font-family: "Arial Narrow", "Segoe UI", sans-serif !important;
+      text-transform: uppercase !important;
+      letter-spacing: 0.08em !important;
+      font-size: 0.72rem !important;
+    }
+
+    /* TryHackMe — broad architectural panel */
+    .tryhackme-copy,
+    .tryhackme-badge-wrap {
+      border-radius: 0 !important;
+      clip-path: polygon(12px 0, 100% 0, 100% calc(100% - 12px), calc(100% - 12px) 100%, 0 100%, 0 12px) !important;
+    }
+
+    .tryhackme-mark {
+      border-radius: 1px !important;
+      clip-path: polygon(7px 0, 100% 0, 100% calc(100% - 7px), calc(100% - 7px) 100%, 0 100%, 0 7px);
+    }
+
+    /* Featured project resembles a dramatic city poster panel */
+    .featured {
+      border-radius: 0 !important;
+      clip-path: polygon(
+        0 0,
+        calc(100% - 20px) 0,
+        calc(100% - 20px) 10px,
+        calc(100% - 10px) 10px,
+        calc(100% - 10px) 20px,
+        100% 20px,
+        100% 100%,
+        0 100%
+      ) !important;
+      border-color: rgba(114,240,255,0.17) !important;
+    }
+
+    .featured::before {
+      display: none !important;
+    }
+
+    .featured::after {
+      color: rgba(114,240,255,0.025) !important;
+    }
+
+    .featured-media {
+      filter: saturate(0.55) contrast(1.10) brightness(0.65) !important;
+    }
+
+    .featured-media::before {
+      background: linear-gradient(180deg, transparent 18%, rgba(2,5,11,0.94) 100%) !important;
+    }
+
+    .featured-badge {
+      border-radius: 0 !important;
+      background: #00c2ff !important;
+      color: #02050b !important;
+      text-shadow: none !important;
+    }
+
+    /* Certification / resume */
+    .cert,
+    .resume-panel {
+      border-radius: 0 !important;
+      clip-path: polygon(10px 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%, 0 10px) !important;
+    }
+
+    .cert-badge-img {
+      outline-color: rgba(114,240,255,0.12) !important;
+      box-shadow: 0 0 0 8px rgba(2,5,11,0.7) !important;
+    }
+
+    .resume-header {
+      background: #050b14 !important;
+    }
+
+    .resume-preview {
+      background: #02050b !important;
+    }
+
+    /* Contact / repository */
+    .repo-link,
+    .certificate-file-link,
+    .editable-contact-link {
+      color: #72f0ff !important;
+    }
+
+    .contact-icon {
+      border-radius: 1px !important;
+      background: rgba(0,194,255,0.045) !important;
+    }
+
+    /* Footer becomes a narrow skyline divider */
+    footer::before {
+      width: min(520px, 70vw) !important;
+      height: 18px !important;
+      background:
+        linear-gradient(90deg, transparent, rgba(114,240,255,0.22), transparent) 50% 2px / 100% 1px no-repeat,
+        linear-gradient(90deg, transparent, rgba(114,240,255,0.09), transparent) 50% 9px / 64% 1px no-repeat,
+        linear-gradient(90deg, transparent, rgba(114,240,255,0.045), transparent) 50% 16px / 34% 1px no-repeat !important;
+    }
+
+    /* Staging gate uses the same cinematic/deco language */
+    .staging-gate {
+      background:
+        linear-gradient(180deg, rgba(2,5,11,0.96), rgba(4,9,20,1)) !important;
+    }
+
+    .staging-gate-card {
+      border-radius: 0 !important;
+      clip-path: polygon(
+        0 16px,
+        16px 16px,
+        16px 0,
+        calc(100% - 16px) 0,
+        100% 16px,
+        100% 100%,
+        16px 100%,
+        16px calc(100% - 16px),
+        0 calc(100% - 16px)
+      ) !important;
+      background:
+        linear-gradient(165deg, rgba(13,30,49,0.90), rgba(2,5,11,0.97)) !important;
+      border-color: rgba(114,240,255,0.14) !important;
+    }
+
+    .ambient-orb {
+      opacity: 0.12 !important;
+      filter: blur(110px) !important;
+    }
+
+    .staging-gate-form input,
+    .staging-gate-form button {
+      border-radius: 0 !important;
+    }
+
+    @media (max-width: 900px) {
+      .noir-cityscape {
+        width: 62%;
+        right: -15%;
+        opacity: 0.36;
+      }
+
+      .deco-sunburst {
+        right: -18%;
+        opacity: 0.10;
+      }
+    }
+
+    @media (max-width: 700px) {
+      .noir-cityscape,
+      .deco-sunburst {
+        opacity: 0.18;
+      }
+
+      .noir-cityscape {
+        width: 88%;
+        right: -30%;
+        height: 400px;
+      }
+
+      h1 {
+        font-size: clamp(2.8rem, 14vw, 4.6rem) !important;
+      }
+
+      section::before {
+        display: none;
+      }
+    }
+
+
+    /* =========================================================
+       NOIR DECO — COLOR DEPTH PASS
+       Keeps the original blue/cyan identity, but adds richer steel,
+       midnight, ice-blue, and restrained violet-blue accents.
+       ========================================================= */
+
+    :root {
+      --night-black: #010308;
+      --midnight: #030812;
+      --deep-navy: #07111f;
+      --steel-blue: #10253b;
+      --steel-blue-2: #17344f;
+      --ice-blue: #c9f8ff;
+      --cyan-bright: #00d8ff;
+      --cyan-soft: #72f0ff;
+      --blue-electric: #2f7df6;
+      --blue-violet: #5367c8;
+      --window-cool: #d8fbff;
+      --window-blue: #8ae8ff;
+    }
+
+    body {
+      background:
+        radial-gradient(circle at 18% 16%, rgba(47,125,246,0.11), transparent 22%),
+        radial-gradient(circle at 82% 14%, rgba(83,103,200,0.08), transparent 24%),
+        linear-gradient(180deg, #010308 0%, #030812 32%, #07111f 68%, #010308 100%) !important;
+    }
+
+    body::before {
+      opacity: 0.16 !important;
+      background:
+        linear-gradient(90deg, transparent 49.75%, rgba(114,240,255,0.055) 50%, transparent 50.25%),
+        linear-gradient(180deg, rgba(255,255,255,0.015), transparent 35%) !important;
+      background-size: 116px 100%, 100% 100% !important;
+    }
+
+    header {
+      background: rgba(1,3,8,0.95) !important;
+      border-bottom-color: rgba(114,240,255,0.13) !important;
+    }
+
+    .logo span,
+    .eyebrow,
+    .section-label,
+    .repo-link,
+    .certificate-file-link,
+    .editable-contact-link,
+    .prompt {
+      color: var(--cyan-soft) !important;
+    }
+
+    h1 .accent {
+      color: var(--cyan-bright) !important;
+      text-shadow:
+        0 0 12px rgba(0,216,255,0.10),
+        0 0 30px rgba(47,125,246,0.07) !important;
+    }
+
+    /* Richer skyline color separation */
+    .noir-cityscape {
+      opacity: 0.84 !important;
+      filter: saturate(1.08);
+    }
+
+    .city-building {
+      background:
+        repeating-linear-gradient(
+          180deg,
+          transparent 0 18px,
+          rgba(201,248,255,0.22) 18px 22px,
+          transparent 22px 36px
+        ),
+        linear-gradient(90deg, #040913, #10253b 48%, #03070e) !important;
+      border-left-color: rgba(114,240,255,0.11) !important;
+      box-shadow:
+        -18px 18px 30px rgba(0,0,0,0.36),
+        inset 1px 0 0 rgba(138,232,255,0.035) !important;
+    }
+
+    .city-building:nth-child(2),
+    .city-building:nth-child(5) {
+      background:
+        repeating-linear-gradient(
+          180deg,
+          transparent 0 20px,
+          rgba(138,232,255,0.20) 20px 24px,
+          transparent 24px 39px
+        ),
+        linear-gradient(90deg, #060b15, #17344f 50%, #040810) !important;
+    }
+
+    .city-building:nth-child(3) {
+      background:
+        repeating-linear-gradient(
+          180deg,
+          transparent 0 21px,
+          rgba(201,248,255,0.24) 21px 25px,
+          transparent 25px 41px
+        ),
+        linear-gradient(90deg, #050a12, #1a3955 46%, #040810) !important;
+      box-shadow:
+        -22px 18px 34px rgba(0,0,0,0.38),
+        0 0 34px rgba(47,125,246,0.035) !important;
+    }
+
+    .city-building::before {
+      background:
+        repeating-linear-gradient(
+          90deg,
+          transparent 0 12px,
+          rgba(216,251,255,0.13) 12px 15px,
+          transparent 15px 30px
+        ) !important;
+    }
+
+    .city-building:nth-child(4)::before,
+    .city-building:nth-child(6)::before {
+      background:
+        repeating-linear-gradient(
+          90deg,
+          transparent 0 13px,
+          rgba(138,232,255,0.11) 13px 16px,
+          transparent 16px 31px
+        ) !important;
+    }
+
+    .deco-sunburst {
+      opacity: 0.20 !important;
+      background:
+        repeating-conic-gradient(
+          from 0deg,
+          rgba(114,240,255,0.40) 0deg 0.7deg,
+          transparent 0.7deg 11deg
+        ) !important;
+      filter: drop-shadow(0 0 24px rgba(47,125,246,0.04));
+    }
+
+    /* Panels: more tonal separation without getting neon */
+    .terminal,
+    .skill-card,
+    .repo-card,
+    .stat,
+    .cert,
+    .resume-panel,
+    .featured,
+    .tryhackme-copy,
+    .tryhackme-badge-wrap,
+    .contact-card,
+    .certificate-file-card,
+    .staging-gate-card {
+      background:
+        linear-gradient(180deg, rgba(14,31,49,0.96), rgba(3,8,18,0.98)) !important;
+      border-color: rgba(114,240,255,0.15) !important;
+    }
+
+    .skill-card:nth-child(even),
+    .repo-card:nth-child(even),
+    .contact-card:nth-child(even) {
+      background:
+        linear-gradient(180deg, rgba(18,38,59,0.94), rgba(4,9,19,0.98)) !important;
+    }
+
+    .skill-card:hover,
+    .repo-card:hover,
+    .stat:hover,
+    .contact-card:hover {
+      border-color: rgba(0,216,255,0.31) !important;
+      background:
+        linear-gradient(180deg, rgba(19,43,66,0.98), rgba(4,10,21,0.99)) !important;
+      box-shadow:
+        0 20px 38px rgba(0,0,0,0.34),
+        0 0 24px rgba(47,125,246,0.055) !important;
+    }
+
+    /* Skill chips use a few shades, still within the same color family */
+    .tag {
+      background: rgba(0,194,255,0.065) !important;
+      border-color: rgba(114,240,255,0.14) !important;
+      color: #dffaff !important;
+    }
+
+    .tag:nth-child(3n+2) {
+      background: rgba(47,125,246,0.08) !important;
+      border-color: rgba(83,103,200,0.15) !important;
+      color: #d9e6ff !important;
+    }
+
+    .tag:nth-child(3n) {
+      background: rgba(114,240,255,0.045) !important;
+      color: #e7fbff !important;
+    }
+
+    /* Security logos feel like illuminated signs */
+    .tool-logo-card {
+      background:
+        linear-gradient(180deg, rgba(17,37,57,0.96), rgba(3,8,17,0.99)) !important;
+    }
+
+    .tool-logo-card:nth-child(2n) {
+      background:
+        linear-gradient(180deg, rgba(20,42,65,0.96), rgba(4,9,19,0.99)) !important;
+    }
+
+    .tool-logo-card:hover {
+      border-color: rgba(0,216,255,0.30) !important;
+      box-shadow: 0 0 24px rgba(47,125,246,0.055) !important;
+    }
+
+    .tool-logo-frame {
+      background:
+        linear-gradient(180deg, #f6fdff, #e4f4f8) !important;
+      outline-color: rgba(114,240,255,0.16) !important;
+    }
+
+    /* Featured project gets the strongest controlled color moment */
+    .featured {
+      background:
+        linear-gradient(180deg, rgba(13,31,50,0.98), rgba(3,8,17,0.99)) !important;
+      border-color: rgba(0,216,255,0.19) !important;
+    }
+
+    .featured-media {
+      filter: saturate(0.72) contrast(1.10) brightness(0.72) hue-rotate(-4deg) !important;
+    }
+
+    .featured-media::before {
+      background:
+        linear-gradient(180deg, rgba(3,8,17,0.02) 15%, rgba(3,8,17,0.95) 100%) !important;
+    }
+
+    .featured-badge {
+      background: var(--cyan-bright) !important;
+      color: #010308 !important;
+      box-shadow: 0 0 18px rgba(0,216,255,0.08) !important;
+    }
+
+    /* TryHackMe: keep its red identity subtle, integrated with blue */
+    .tryhackme-mark {
+      background:
+        linear-gradient(180deg, rgba(255,80,96,0.10), rgba(8,14,24,0.80)) !important;
+      border-color: rgba(255,105,120,0.22) !important;
+      color: #ff9aa7 !important;
+      box-shadow: 0 0 18px rgba(255,80,96,0.035);
+    }
+
+    .tryhackme-badge-wrap {
+      background:
+        linear-gradient(180deg, rgba(10,25,40,0.98), rgba(3,8,17,0.99)) !important;
+    }
+
+    /* Security+ badge section: brighter, prestigious, but still blue */
+    .cert {
+      background:
+        linear-gradient(180deg, rgba(16,36,57,0.96), rgba(4,9,18,0.99)) !important;
+    }
+
+    .cert-badge-img {
+      outline-color: rgba(114,240,255,0.16) !important;
+      box-shadow:
+        0 0 0 8px rgba(2,5,11,0.75),
+        0 0 24px rgba(47,125,246,0.05) !important;
+    }
+
+    .cert-status {
+      background: rgba(0,216,255,0.07) !important;
+      border-color: rgba(114,240,255,0.15) !important;
+      color: var(--cyan-soft) !important;
+    }
+
+    /* Contact icons each get a tiny tonal variation */
+    .contact-card:nth-child(1) .contact-icon {
+      color: var(--cyan-soft) !important;
+    }
+
+    .contact-card:nth-child(2) .contact-icon {
+      color: #9fb0ff !important;
+      border-color: rgba(83,103,200,0.16) !important;
+      background: rgba(83,103,200,0.05) !important;
+    }
+
+    .contact-card:nth-child(3) .contact-icon {
+      color: #bdeeff !important;
+    }
+
+    /* Buttons: primary is bright cyan, secondary stays dark */
+    .button:not(.secondary),
+    .text-link.primary {
+      background: linear-gradient(180deg, #00d8ff, #00a9d8) !important;
+      border-color: rgba(114,240,255,0.28) !important;
+      color: #010308 !important;
+      box-shadow:
+        inset 0 1px 0 rgba(255,255,255,0.22),
+        0 0 18px rgba(0,216,255,0.07) !important;
+    }
+
+    .button:not(.secondary):hover,
+    .text-link.primary:hover {
+      background: linear-gradient(180deg, #22e2ff, #00b7e8) !important;
+      box-shadow: 0 0 22px rgba(0,216,255,0.10) !important;
+    }
+
+    .button.secondary,
+    .text-link:not(.primary) {
+      background:
+        linear-gradient(180deg, rgba(13,30,48,0.88), rgba(4,9,18,0.96)) !important;
+      border-color: rgba(114,240,255,0.16) !important;
+      color: #edf9ff !important;
+    }
+
+    /* Password screen becomes a stronger cinematic entrance */
+    .staging-gate {
+      background:
+        radial-gradient(circle at 50% 15%, rgba(47,125,246,0.11), transparent 25%),
+        linear-gradient(180deg, #010308 0%, #030812 100%) !important;
+    }
+
+    .staging-gate-card {
+      background:
+        linear-gradient(165deg, rgba(15,34,54,0.94), rgba(2,6,13,0.99)) !important;
+      border-color: rgba(114,240,255,0.17) !important;
+      box-shadow:
+        0 28px 70px rgba(0,0,0,0.48),
+        0 0 36px rgba(47,125,246,0.045) !important;
+    }
+
+    .staging-gate-form input {
+      background: rgba(1,3,8,0.88) !important;
+      border-color: rgba(114,240,255,0.15) !important;
+    }
+
+    .staging-gate-form input:focus {
+      border-color: rgba(0,216,255,0.38) !important;
+      box-shadow: 0 0 0 3px rgba(0,216,255,0.055) !important;
+    }
+
+    ::selection {
+      background: rgba(0,216,255,0.24);
+      color: #f7fdff;
+    }
+
+
+    /* =========================================================
+       CLEAN BLACK / BLUE VARIETY PASS
+       Clearer contrast between black, navy, steel-blue and cyan.
+       Deliberately flatter and less gradient-heavy.
+       ========================================================= */
+
+    :root {
+      --clean-black: #010205;
+      --clean-black-2: #03060a;
+      --clean-navy: #06101b;
+      --clean-navy-2: #091827;
+      --clean-steel: #0d2235;
+      --clean-steel-2: #12314a;
+      --clean-cyan: #00cfff;
+      --clean-ice: #8deaff;
+      --clean-line: rgba(141, 234, 255, 0.16);
+    }
+
+    body {
+      background: var(--clean-black) !important;
+    }
+
+    body::before {
+      opacity: 0.045 !important;
+      background:
+        linear-gradient(rgba(141,234,255,0.045) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(141,234,255,0.045) 1px, transparent 1px) !important;
+      background-size: 72px 72px !important;
+    }
+
+    header {
+      background: rgba(1, 2, 5, 0.96) !important;
+      border-bottom-color: rgba(141,234,255,0.10) !important;
+    }
+
+    /* Give sections distinct, flat tonal bands instead of all sharing one look */
+    #about,
+    #project,
+    #certificate-files,
+    #contact {
+      background: var(--clean-black) !important;
+    }
+
+    #skills,
+    #certifications,
+    #repository {
+      background: var(--clean-black-2) !important;
+    }
+
+    #tryhackme,
+    #resume {
+      background: var(--clean-navy) !important;
+    }
+
+    section::after {
+      background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(141,234,255,0.14),
+        transparent
+      ) !important;
+    }
+
+    /* Hero: deep black foreground + cooler blue skyline */
+    .hero {
+      background: transparent !important;
+    }
+
+    .deco-sunburst {
+      opacity: 0.12 !important;
+    }
+
+    .noir-cityscape {
+      opacity: 0.78 !important;
+    }
+
+    .city-building {
+      background:
+        repeating-linear-gradient(
+          180deg,
+          transparent 0 18px,
+          rgba(141,234,255,0.18) 18px 21px,
+          transparent 21px 36px
+        ),
+        #091827 !important;
+      border-left-color: rgba(141,234,255,0.08) !important;
+      box-shadow: -18px 18px 28px rgba(0,0,0,0.34) !important;
+    }
+
+    .city-building:nth-child(2),
+    .city-building:nth-child(5) {
+      background:
+        repeating-linear-gradient(
+          180deg,
+          transparent 0 20px,
+          rgba(141,234,255,0.16) 20px 23px,
+          transparent 23px 39px
+        ),
+        #0d2235 !important;
+    }
+
+    .city-building:nth-child(3) {
+      background:
+        repeating-linear-gradient(
+          180deg,
+          transparent 0 21px,
+          rgba(201,248,255,0.20) 21px 24px,
+          transparent 24px 41px
+        ),
+        #12314a !important;
+    }
+
+    .city-building:nth-child(4),
+    .city-building:nth-child(6) {
+      background:
+        repeating-linear-gradient(
+          180deg,
+          transparent 0 19px,
+          rgba(141,234,255,0.13) 19px 22px,
+          transparent 22px 38px
+        ),
+        #06101b !important;
+    }
+
+    /* Primary panels are darker; secondary panels are visibly bluer */
+    .terminal,
+    .featured,
+    .cert,
+    .resume-panel,
+    .tryhackme-copy,
+    .tryhackme-badge-wrap,
+    .staging-gate-card {
+      background: var(--clean-navy) !important;
+      border-color: rgba(141,234,255,0.14) !important;
+      box-shadow: 0 18px 40px rgba(0,0,0,0.28) !important;
+    }
+
+    .skill-card,
+    .repo-card,
+    .stat,
+    .contact-card,
+    .certificate-file-card {
+      background: var(--clean-black-2) !important;
+      border-color: rgba(141,234,255,0.11) !important;
+      box-shadow: 0 12px 28px rgba(0,0,0,0.22) !important;
+    }
+
+    .skill-card:nth-child(even),
+    .repo-card:nth-child(3n+2),
+    .stat:nth-child(even),
+    .contact-card:nth-child(even),
+    .certificate-file-card:nth-child(even) {
+      background: var(--clean-navy-2) !important;
+    }
+
+    .skill-card:nth-child(3n),
+    .repo-card:nth-child(3n),
+    .contact-card:nth-child(3n) {
+      background: var(--clean-steel) !important;
+    }
+
+    .skill-card:hover,
+    .repo-card:hover,
+    .stat:hover,
+    .contact-card:hover,
+    .certificate-file-card:hover {
+      background: var(--clean-steel) !important;
+      border-color: rgba(141,234,255,0.26) !important;
+      box-shadow: 0 16px 32px rgba(0,0,0,0.28) !important;
+    }
+
+    /* Security tools: clean 4x2 grid with four distinct dark-blue tones */
+    .tool-logo-grid {
+      grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+      gap: 0.8rem !important;
+    }
+
+    .tool-logo-card {
+      min-height: 148px !important;
+      background: var(--clean-black-2) !important;
+      border-color: rgba(141,234,255,0.11) !important;
+      box-shadow: none !important;
+    }
+
+    .tool-logo-card:nth-child(4n+2) {
+      background: var(--clean-navy) !important;
+    }
+
+    .tool-logo-card:nth-child(4n+3) {
+      background: var(--clean-navy-2) !important;
+    }
+
+    .tool-logo-card:nth-child(4n) {
+      background: var(--clean-steel) !important;
+    }
+
+    .tool-logo-card:hover {
+      background: var(--clean-steel-2) !important;
+      border-color: rgba(141,234,255,0.28) !important;
+      transform: translateY(-2px) !important;
+      box-shadow: none !important;
+    }
+
+    .tool-logo-frame {
+      background: #eef7fb !important;
+      border-color: #06101b !important;
+      outline-color: rgba(141,234,255,0.12) !important;
+    }
+
+    .tool-logo-name {
+      color: #e4f8ff !important;
+    }
+
+    /* Keep chips clean and mostly uniform; variety comes from panels, not clutter */
+    .tag {
+      background: rgba(0,207,255,0.055) !important;
+      border-color: rgba(141,234,255,0.12) !important;
+      color: #dff8ff !important;
+      box-shadow: none !important;
+    }
+
+    .tag:nth-child(3n+2),
+    .tag:nth-child(3n) {
+      background: rgba(0,207,255,0.055) !important;
+      border-color: rgba(141,234,255,0.12) !important;
+      color: #dff8ff !important;
+    }
+
+    /* Accent usage: bright cyan is reserved for important elements */
+    h1 .accent,
+    .featured-badge,
+    .logo span {
+      color: var(--clean-cyan) !important;
+    }
+
+    .section-label,
+    .eyebrow,
+    .prompt,
+    .repo-link,
+    .certificate-file-link,
+    .editable-contact-link {
+      color: var(--clean-ice) !important;
+    }
+
+    .featured-badge {
+      background: var(--clean-cyan) !important;
+      color: var(--clean-black) !important;
+    }
+
+    /* Buttons: one strong cyan primary; dark secondary */
+    .button:not(.secondary),
+    .text-link.primary {
+      background: var(--clean-cyan) !important;
+      color: var(--clean-black) !important;
+      border-color: var(--clean-cyan) !important;
+      box-shadow: none !important;
+    }
+
+    .button:not(.secondary):hover,
+    .text-link.primary:hover {
+      background: #35ddff !important;
+      box-shadow: none !important;
+    }
+
+    .button.secondary,
+    .text-link:not(.primary) {
+      background: var(--clean-black-2) !important;
+      color: #edfaff !important;
+      border-color: rgba(141,234,255,0.16) !important;
+      box-shadow: none !important;
+    }
+
+    .button.secondary:hover,
+    .text-link:not(.primary):hover {
+      background: var(--clean-navy-2) !important;
+      border-color: rgba(141,234,255,0.30) !important;
+    }
+
+    /* TryHackMe keeps its own small red identifier without fighting the palette */
+    .tryhackme-mark {
+      background: #12080b !important;
+      border-color: rgba(255,110,124,0.18) !important;
+      color: #ff9aa7 !important;
+      box-shadow: none !important;
+    }
+
+    /* Certification feels brighter than surrounding areas */
+    .cert {
+      background: var(--clean-navy-2) !important;
+    }
+
+    .cert-badge-img {
+      box-shadow:
+        0 0 0 7px var(--clean-black),
+        0 0 0 8px rgba(141,234,255,0.12) !important;
+    }
+
+    /* Contact icons get restrained differentiation */
+    .contact-card:nth-child(1) .contact-icon {
+      color: #8deaff !important;
+      background: #06101b !important;
+    }
+
+    .contact-card:nth-child(2) .contact-icon {
+      color: #b3c8ff !important;
+      background: #0a1020 !important;
+      border-color: rgba(118,140,220,0.13) !important;
+    }
+
+    .contact-card:nth-child(3) .contact-icon {
+      color: #d6f7ff !important;
+      background: #091827 !important;
+    }
+
+    /* Password screen: very black, one blue card */
+    .staging-gate {
+      background: var(--clean-black) !important;
+    }
+
+    .staging-gate-card {
+      background: var(--clean-navy) !important;
+    }
+
+    .ambient-orb {
+      opacity: 0.08 !important;
+    }
+
+    @media (max-width: 900px) {
+      .tool-logo-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .tool-logo-grid {
+        grid-template-columns: 1fr !important;
+      }
+    }
+
+
+    /* Metasploit wordmark fit */
+    .metasploit-tool .tool-logo-frame {
+      padding: 0.55rem !important;
+    }
+
+    .metasploit-tool .tool-logo-frame img {
+      max-width: 100% !important;
+      max-height: 54px !important;
+      object-fit: contain !important;
+    }
+
+
+    /* =========================================================
+       TOOL PAIRING + MATCHED STAT COLORS
+       Pairs:
+       1-2 Wazuh/Wireshark
+       3-4 Burp Suite/Nmap
+       5-6 DirBuster/REMnux
+       7-8 KnowBe4/Metasploit
+       ========================================================= */
+
+    /* Match all achievement/stat blocks */
+    .stats .stat,
+    .stats .stat:nth-child(even),
+    .stats .stat:nth-child(odd),
+    .stats .stat:nth-child(3n),
+    .stats .stat:nth-child(3n+2) {
+      background: #08131f !important;
+      border-color: rgba(141,234,255,0.12) !important;
+    }
+
+    .stats .stat:hover,
+    .stats .stat:nth-child(even):hover,
+    .stats .stat:nth-child(odd):hover {
+      background: #0c1b2a !important;
+      border-color: rgba(141,234,255,0.24) !important;
+    }
+
+    /* Pair the tool cards visually */
+    .tool-logo-card:nth-child(1),
+    .tool-logo-card:nth-child(2) {
+      background: #050d16 !important;
+    }
+
+    .tool-logo-card:nth-child(3),
+    .tool-logo-card:nth-child(4) {
+      background: #08131f !important;
+    }
+
+    .tool-logo-card:nth-child(5),
+    .tool-logo-card:nth-child(6) {
+      background: #0b1825 !important;
+    }
+
+    .tool-logo-card:nth-child(7),
+    .tool-logo-card:nth-child(8) {
+      background: #0e1d2d !important;
+    }
+
+    .tool-logo-card:nth-child(1):hover,
+    .tool-logo-card:nth-child(2):hover {
+      background: #0c1a27 !important;
+    }
+
+    .tool-logo-card:nth-child(3):hover,
+    .tool-logo-card:nth-child(4):hover {
+      background: #0f2030 !important;
+    }
+
+    .tool-logo-card:nth-child(5):hover,
+    .tool-logo-card:nth-child(6):hover {
+      background: #122536 !important;
+    }
+
+    .tool-logo-card:nth-child(7):hover,
+    .tool-logo-card:nth-child(8):hover {
+      background: #15293b !important;
+    }
+
+    .tool-logo-card {
+      border-color: rgba(141,234,255,0.12) !important;
+    }
+
+    .tool-logo-grid {
+      grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+    }
+
+    /* Burp logo fix */
+    .burp-tool .tool-logo-frame,
+    .metasploit-tool .tool-logo-frame {
+      padding: 0.58rem !important;
+    }
+
+    .burp-tool .tool-logo-frame img {
+      max-width: 100% !important;
+      max-height: 52px !important;
+      object-fit: contain !important;
+    }
+
+    .metasploit-tool .tool-logo-frame img {
+      max-width: 100% !important;
+      max-height: 52px !important;
+      object-fit: contain !important;
+    }
+
+    @media (max-width: 900px) {
+      .tool-logo-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .tool-logo-grid {
+        grid-template-columns: 1fr !important;
+      }
+    }
+
+
+    /* Restore stat/achievement blocks to the original darker navy look */
+    .stats .stat,
+    .stats .stat:nth-child(even),
+    .stats .stat:nth-child(odd),
+    .stats .stat:nth-child(3n),
+    .stats .stat:nth-child(3n+2) {
+      background: linear-gradient(180deg, rgba(6,16,27,0.98), rgba(3,8,18,0.99)) !important;
+      border-color: rgba(114,240,255,0.14) !important;
+      box-shadow: 0 12px 28px rgba(0,0,0,0.22) !important;
+    }
+
+    .stats .stat:hover,
+    .stats .stat:nth-child(even):hover,
+    .stats .stat:nth-child(odd):hover {
+      background: linear-gradient(180deg, rgba(10,24,39,0.98), rgba(4,10,21,0.99)) !important;
+      border-color: rgba(114,240,255,0.24) !important;
+      box-shadow: 0 16px 32px rgba(0,0,0,0.28) !important;
+    }
+
+    .stats .stat strong {
+      color: #72f0ff !important;
+    }
+
+    .stats .stat span {
+      color: #9ab3cf !important;
+    }
+
+
+    /* System Profile window controls: red, yellow, green */
+    .terminal-header .dot:nth-child(1) {
+      background: #ff5f57 !important;
+      border-color: rgba(0,0,0,0.18) !important;
+      opacity: 1 !important;
+      box-shadow: 0 0 8px rgba(255,95,87,0.22) !important;
+    }
+
+    .terminal-header .dot:nth-child(2) {
+      background: #febc2e !important;
+      border-color: rgba(0,0,0,0.18) !important;
+      opacity: 1 !important;
+      box-shadow: 0 0 8px rgba(254,188,46,0.20) !important;
+    }
+
+    .terminal-header .dot:nth-child(3) {
+      background: #28c840 !important;
+      border-color: rgba(0,0,0,0.18) !important;
+      opacity: 1 !important;
+      box-shadow: 0 0 8px rgba(40,200,64,0.20) !important;
+    }
+
+
+    /* =========================================================
+       SECURITY TOOL ICON FIX
+       One consistent icon source + guaranteed fallbacks.
+       ========================================================= */
+
+    .fixed-tool-icons {
+      grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+      gap: 0.8rem !important;
+    }
+
+    .fixed-tool-icons .tool-logo-card {
+      min-height: 150px !important;
+      padding: 1rem 0.8rem !important;
+      border-color: rgba(141,234,255,0.12) !important;
+    }
+
+    /* Matching colors by pair */
+    .fixed-tool-icons [data-tool-pair="monitoring"] {
+      background: #050d16 !important;
+    }
+
+    .fixed-tool-icons [data-tool-pair="testing"] {
+      background: #08131f !important;
+    }
+
+    .fixed-tool-icons [data-tool-pair="analysis"] {
+      background: #0b1825 !important;
+    }
+
+    .fixed-tool-icons [data-tool-pair="awareness"] {
+      background: #0e1d2d !important;
+    }
+
+    .fixed-tool-icons .tool-logo-frame {
+      position: relative !important;
+      width: 78px !important;
+      height: 78px !important;
+      display: grid !important;
+      place-items: center !important;
+      margin: 0 auto !important;
+      padding: 0.75rem !important;
+      overflow: hidden !important;
+      background: #f3f8fb !important;
+      border: 4px solid #06101b !important;
+      outline: 1px solid rgba(141,234,255,0.13) !important;
+      border-radius: 9px !important;
+      box-shadow: none !important;
+      clip-path: none !important;
+    }
+
+    .fixed-tool-icons .tool-logo-frame img {
+      position: relative !important;
+      z-index: 2 !important;
+      display: block !important;
+      width: 54px !important;
+      height: 54px !important;
+      max-width: 54px !important;
+      max-height: 54px !important;
+      object-fit: contain !important;
+      border-radius: 5px;
+    }
+
+    .fixed-tool-icons .tool-logo-fallback {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      display: grid;
+      place-items: center;
+      color: #0a2032;
+      font-family: "Arial Narrow", "Segoe UI", sans-serif;
+      font-size: 0.88rem;
+      font-weight: 900;
+      letter-spacing: 0.03em;
+    }
+
+    .fixed-tool-icons .tool-logo-frame:not(.fallback-visible) img + * {
+      display: none;
+    }
+
+    .fixed-tool-icons .dirbuster-fallback {
+      position: static !important;
+      width: 52px;
+      height: 52px;
+      color: #0a2032;
+    }
+
+    .fixed-tool-icons .dirbuster-fallback svg {
+      width: 52px;
+      height: 52px;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 4;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .fixed-tool-icons .tool-logo-name {
+      margin-top: 0.8rem !important;
+      color: #e4f8ff !important;
+      font-family: "Arial Narrow", "Segoe UI", sans-serif !important;
+      font-size: 0.74rem !important;
+      font-weight: 800 !important;
+      letter-spacing: 0.07em !important;
+      text-transform: uppercase !important;
+      text-align: center !important;
+    }
+
+    .fixed-tool-icons .tool-logo-card:hover {
+      border-color: rgba(141,234,255,0.28) !important;
+      transform: translateY(-2px) !important;
+      box-shadow: none !important;
+    }
+
+    @media (max-width: 900px) {
+      .fixed-tool-icons {
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .fixed-tool-icons {
+        grid-template-columns: 1fr !important;
+      }
+    }
+
+
+    /* Make every repository card use the exact same visual treatment */
+    .repo-grid .repo-card,
+    .repo-grid .repo-card:nth-child(odd),
+    .repo-grid .repo-card:nth-child(even),
+    .repo-grid .repo-card:nth-child(3n),
+    .repo-grid .repo-card:nth-child(3n+2) {
+      background: #0e2235 !important;
+      border-color: rgba(141, 234, 255, 0.13) !important;
+      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.22) !important;
+    }
+
+    .repo-grid .repo-card:hover,
+    .repo-grid .repo-card:nth-child(odd):hover,
+    .repo-grid .repo-card:nth-child(even):hover,
+    .repo-grid .repo-card:nth-child(3n):hover,
+    .repo-grid .repo-card:nth-child(3n+2):hover {
+      background: #132c42 !important;
+      border-color: rgba(141, 234, 255, 0.27) !important;
+      box-shadow: 0 16px 32px rgba(0, 0, 0, 0.28) !important;
+    }
+
+
+    /* =========================================================
+       RESTORED SKILLS + CONSISTENT TOOL ICON SIZING
+       ========================================================= */
+
+    .security-tools-card {
+      grid-column: 1 / -1 !important;
+    }
+
+    .fixed-tool-icons {
+      grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+      gap: 0.85rem !important;
+    }
+
+    .fixed-tool-icons .tool-logo-card {
+      min-height: 152px !important;
+      padding: 1rem 0.8rem !important;
+      display: flex !important;
+      flex-direction: column !important;
+      align-items: center !important;
+      justify-content: center !important;
+      gap: 0.72rem !important;
+    }
+
+    .fixed-tool-icons .tool-logo-frame {
+      position: relative !important;
+      width: 82px !important;
+      height: 82px !important;
+      min-width: 82px !important;
+      min-height: 82px !important;
+      display: grid !important;
+      place-items: center !important;
+      padding: 0 !important;
+      margin: 0 auto !important;
+      overflow: hidden !important;
+      background: #f4f8fa !important;
+      border: 4px solid #06101b !important;
+      outline: 1px solid rgba(141,234,255,0.13) !important;
+      border-radius: 8px !important;
+      clip-path: none !important;
+      box-shadow: none !important;
+    }
+
+    .fixed-tool-icons .tool-logo-frame img {
+      position: relative !important;
+      z-index: 2 !important;
+      display: block !important;
+      width: 50px !important;
+      height: 50px !important;
+      min-width: 50px !important;
+      min-height: 50px !important;
+      max-width: 50px !important;
+      max-height: 50px !important;
+      object-fit: contain !important;
+      object-position: center !important;
+      margin: 0 !important;
+      padding: 0 !important;
+      border-radius: 4px !important;
+      transform: none !important;
+    }
+
+    /* Burp's mark is naturally narrower, so enlarge it slightly. */
+    .fixed-tool-icons img[alt="Burp Suite icon"] {
+      width: 56px !important;
+      height: 56px !important;
+      min-width: 56px !important;
+      min-height: 56px !important;
+      max-width: 56px !important;
+      max-height: 56px !important;
+    }
+
+    .fixed-tool-icons .tool-logo-fallback {
+      position: absolute !important;
+      inset: 0 !important;
+      z-index: 1 !important;
+      display: grid !important;
+      place-items: center !important;
+      color: #0a2032 !important;
+      font-family: "Arial Narrow", "Segoe UI", sans-serif !important;
+      font-size: 0.88rem !important;
+      font-weight: 900 !important;
+    }
+
+    .fixed-tool-icons .dirbuster-fallback svg {
+      width: 48px !important;
+      height: 48px !important;
+      fill: none !important;
+      stroke: currentColor !important;
+      stroke-width: 4 !important;
+      stroke-linecap: round !important;
+      stroke-linejoin: round !important;
+    }
+
+    .fixed-tool-icons .tool-logo-name {
+      margin: 0 !important;
+      min-height: 1.2rem !important;
+      color: #e4f8ff !important;
+      font-size: 0.74rem !important;
+      font-weight: 800 !important;
+      line-height: 1.2 !important;
+      letter-spacing: 0.06em !important;
+      text-align: center !important;
+      text-transform: uppercase !important;
+    }
+
+    /* Keep each pair together visually. */
+    .fixed-tool-icons [data-tool-pair="monitoring"] {
+      background: #050d16 !important;
+    }
+
+    .fixed-tool-icons [data-tool-pair="testing"] {
+      background: #08131f !important;
+    }
+
+    .fixed-tool-icons [data-tool-pair="analysis"] {
+      background: #0b1825 !important;
+    }
+
+    .fixed-tool-icons [data-tool-pair="awareness"] {
+      background: #0e1d2d !important;
+    }
+
+    @media (max-width: 900px) {
+      .fixed-tool-icons {
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .fixed-tool-icons {
+        grid-template-columns: 1fr !important;
+      }
+    }
+
+
+    /* =========================================================
+       UNIFIED BLOCK COLORS + CRISP VECTOR TOOL ICONS
+       ========================================================= */
+
+    /* Make the main content blocks the same color so the page looks cleaner. */
+    .skill-card,
+    .skill-card:nth-child(even),
+    .skill-card:nth-child(odd),
+    .repo-card,
+    .repo-card:nth-child(even),
+    .repo-card:nth-child(odd),
+    .stat,
+    .stat:nth-child(even),
+    .stat:nth-child(odd),
+    .contact-card,
+    .contact-card:nth-child(even),
+    .contact-card:nth-child(odd),
+    .certificate-file-card,
+    .certificate-file-card:nth-child(even),
+    .certificate-file-card:nth-child(odd),
+    .tool-logo-card,
+    .tool-logo-card:nth-child(even),
+    .tool-logo-card:nth-child(odd) {
+      background: #091827 !important;
+      border-color: rgba(141,234,255,0.12) !important;
+      box-shadow: 0 12px 28px rgba(0,0,0,0.22) !important;
+    }
+
+    .skill-card:hover,
+    .repo-card:hover,
+    .stat:hover,
+    .contact-card:hover,
+    .certificate-file-card:hover,
+    .tool-logo-card:hover {
+      background: #0d2235 !important;
+      border-color: rgba(141,234,255,0.24) !important;
+      box-shadow: 0 16px 32px rgba(0,0,0,0.28) !important;
+    }
+
+    /* Keep the security tool area visually unified as well. */
+    .fixed-tool-icons [data-tool-pair="monitoring"],
+    .fixed-tool-icons [data-tool-pair="testing"],
+    .fixed-tool-icons [data-tool-pair="analysis"],
+    .fixed-tool-icons [data-tool-pair="awareness"] {
+      background: #091827 !important;
+    }
+
+    .fixed-tool-icons {
+      grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+      gap: 0.85rem !important;
+    }
+
+    .fixed-tool-icons .tool-logo-card {
+      min-height: 158px !important;
+      padding: 1rem 0.8rem !important;
+      display: flex !important;
+      flex-direction: column !important;
+      align-items: center !important;
+      justify-content: center !important;
+      gap: 0.8rem !important;
+    }
+
+    .fixed-tool-icons .tool-logo-frame {
+      width: 90px !important;
+      height: 90px !important;
+      min-width: 90px !important;
+      min-height: 90px !important;
+      display: grid !important;
+      place-items: center !important;
+      padding: 0 !important;
+      margin: 0 auto !important;
+      overflow: hidden !important;
+      background: #f4f8fa !important;
+      border: 4px solid #06101b !important;
+      outline: 1px solid rgba(141,234,255,0.13) !important;
+      border-radius: 8px !important;
+      clip-path: none !important;
+      box-shadow: none !important;
+    }
+
+    .fixed-tool-icons .tool-svg {
+      width: 58px !important;
+      height: 58px !important;
+      display: block !important;
+      overflow: visible;
+      fill: none;
+      stroke-width: 4;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      shape-rendering: geometricPrecision;
+      vector-effect: non-scaling-stroke;
+    }
+
+    .fixed-tool-icons .wazuh-svg { stroke: #0b5fff; }
+    .fixed-tool-icons .wireshark-svg { stroke: #167ac6; }
+    .fixed-tool-icons .burp-svg { stroke: #ff6633; }
+    .fixed-tool-icons .nmap-svg { stroke: #24b0ff; }
+    .fixed-tool-icons .dirbuster-svg { stroke: #0f7ab8; }
+    .fixed-tool-icons .remnux-svg { stroke: #13a54a; }
+    .fixed-tool-icons .knowbe4-svg { stroke: #f58b1f; }
+    .fixed-tool-icons .metasploit-svg { stroke: #2d7de0; }
+
+    .fixed-tool-icons .tool-logo-name {
+      margin: 0 !important;
+      min-height: 1.2rem !important;
+      color: #e4f8ff !important;
+      font-size: 0.76rem !important;
+      font-weight: 800 !important;
+      line-height: 1.2 !important;
+      letter-spacing: 0.05em !important;
+      text-align: center !important;
+      text-transform: uppercase !important;
+    }
+
+    @media (max-width: 900px) {
+      .fixed-tool-icons {
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .fixed-tool-icons {
+        grid-template-columns: 1fr !important;
+      }
+    }
+
+
+    /* =========================================================
+       ACTUAL SECURITY TOOL LOGOS
+       Crisp logo assets with consistent sizing and fallback text.
+       ========================================================= */
+
+    .actual-tool-logos {
+      grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+      gap: 0.85rem !important;
+    }
+
+    .actual-tool-logos .tool-logo-card {
+      min-height: 160px !important;
+      padding: 1rem 0.85rem !important;
+      display: flex !important;
+      flex-direction: column !important;
+      align-items: center !important;
+      justify-content: center !important;
+      gap: 0.8rem !important;
+      background: #091827 !important;
+      border-color: rgba(141,234,255,0.12) !important;
+    }
+
+    .actual-tool-logos .tool-logo-frame {
+      position: relative !important;
+      width: 96px !important;
+      height: 96px !important;
+      min-width: 96px !important;
+      min-height: 96px !important;
+      display: grid !important;
+      place-items: center !important;
+      margin: 0 auto !important;
+      padding: 10px !important;
+      overflow: hidden !important;
+      background: #f4f8fa !important;
+      border: 4px solid #06101b !important;
+      outline: 1px solid rgba(141,234,255,0.13) !important;
+      border-radius: 8px !important;
+      clip-path: none !important;
+      box-shadow: none !important;
+    }
+
+    .actual-tool-logos .tool-logo-frame img {
+      position: relative !important;
+      z-index: 2 !important;
+      display: block !important;
+      width: 64px !important;
+      height: 64px !important;
+      max-width: 64px !important;
+      max-height: 64px !important;
+      object-fit: contain !important;
+      object-position: center !important;
+      image-rendering: auto !important;
+      border-radius: 0 !important;
+      background: transparent !important;
+    }
+
+    /* Wordmarks / wider logos get a little more room */
+    .actual-tool-logos .remnux-tool .tool-logo-frame img,
+    .actual-tool-logos .metasploit-tool .tool-logo-frame img,
+    .actual-tool-logos .knowbe4-tool .tool-logo-frame img {
+      width: 72px !important;
+      max-width: 72px !important;
+      height: 40px !important;
+      max-height: 40px !important;
+    }
+
+    .actual-tool-logos .burp-tool .tool-logo-frame img,
+    .actual-tool-logos .dirbuster-tool .tool-logo-frame img {
+      width: 68px !important;
+      max-width: 68px !important;
+      height: 68px !important;
+      max-height: 68px !important;
+    }
+
+    .actual-tool-logos .nmap-tool .tool-logo-frame img {
+      width: 70px !important;
+      max-width: 70px !important;
+      height: 70px !important;
+      max-height: 70px !important;
+    }
+
+    .actual-tool-logos .tool-logo-fallback {
+      position: absolute !important;
+      inset: 0 !important;
+      z-index: 1 !important;
+      display: grid !important;
+      place-items: center !important;
+      color: #0a2032 !important;
+      font-family: "Arial Narrow", "Segoe UI", sans-serif !important;
+      font-size: 0.88rem !important;
+      font-weight: 900 !important;
+      letter-spacing: 0.03em !important;
+    }
+
+    .actual-tool-logos .tool-logo-frame.fallback-visible img {
+      display: none !important;
+    }
+
+    .actual-tool-logos .tool-logo-frame:not(.fallback-visible) .tool-logo-fallback {
+      display: none !important;
+    }
+
+    .actual-tool-logos .tool-logo-name {
+      margin: 0 !important;
+      min-height: 1.2rem !important;
+      color: #e4f8ff !important;
+      font-size: 0.76rem !important;
+      font-weight: 800 !important;
+      line-height: 1.2 !important;
+      letter-spacing: 0.05em !important;
+      text-align: center !important;
+      text-transform: uppercase !important;
+    }
+
+    @media (max-width: 900px) {
+      .actual-tool-logos {
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .actual-tool-logos {
+        grid-template-columns: 1fr !important;
+      }
+    }
+
+
+    /* =========================================================
+       NO-MISSING TOOL LOGOS
+       Uses one dependable image source and a visible fallback for every tile.
+       ========================================================= */
+
+    .no-missing-logos .tool-logo-frame {
+      width: 100px !important;
+      height: 100px !important;
+      min-width: 100px !important;
+      min-height: 100px !important;
+      padding: 12px !important;
+      display: grid !important;
+      place-items: center !important;
+      background: #f4f8fa !important;
+      border: 4px solid #06101b !important;
+      border-radius: 8px !important;
+      outline: 1px solid rgba(141,234,255,0.13) !important;
+      overflow: hidden !important;
+      box-shadow: none !important;
+    }
+
+    .no-missing-logos .tool-logo-frame img {
+      width: 72px !important;
+      height: 72px !important;
+      max-width: 72px !important;
+      max-height: 72px !important;
+      display: block !important;
+      object-fit: contain !important;
+      object-position: center !important;
+      image-rendering: auto !important;
+      border-radius: 8px !important;
+    }
+
+    .no-missing-logos .tool-logo-fallback {
+      position: absolute !important;
+      inset: 0 !important;
+      z-index: 1 !important;
+      display: grid !important;
+      place-items: center !important;
+      color: #0a2032 !important;
+      font-family: "Arial Narrow", "Segoe UI", sans-serif !important;
+      font-size: 1rem !important;
+      font-weight: 900 !important;
+      letter-spacing: 0.03em !important;
+    }
+
+    .no-missing-logos .tool-logo-frame img {
+      position: relative !important;
+      z-index: 2 !important;
+    }
+
+    .no-missing-logos .tool-logo-frame:not(.fallback-visible) .tool-logo-fallback:not(.dirbuster-logo) {
+      display: none !important;
+    }
+
+    .no-missing-logos .tool-logo-frame.fallback-visible img {
+      display: none !important;
+    }
+
+    .no-missing-logos .dirbuster-frame {
+      position: relative !important;
+    }
+
+    .no-missing-logos .dirbuster-logo {
+      position: static !important;
+      width: 70px !important;
+      height: 70px !important;
+      color: #1478ad !important;
+    }
+
+    .no-missing-logos .dirbuster-logo svg {
+      width: 70px !important;
+      height: 70px !important;
+      fill: none !important;
+      stroke: currentColor !important;
+      stroke-width: 4 !important;
+      stroke-linecap: round !important;
+      stroke-linejoin: round !important;
+    }
+
+    .no-missing-logos .tool-logo-card {
+      min-height: 170px !important;
+      background: #091827 !important;
+    }
+
+    .no-missing-logos .tool-logo-name {
+      margin-top: 0.8rem !important;
+      font-size: 0.78rem !important;
+      font-weight: 800 !important;
+      letter-spacing: 0.05em !important;
+      color: #e4f8ff !important;
+    }
+
+
+    /* =========================================================
+       8 STRETCHED, NON-PIXELATED TOOL WORDMARKS
+       Vector-only logos so they stay crisp.
+       ========================================================= */
+
+    .security-tools-card {
+      grid-column: 1 / -1 !important;
+    }
+
+    .wordmark-tool-grid {
+      grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+      gap: 0.9rem !important;
+    }
+
+    .wordmark-card {
+      min-height: 168px !important;
+      padding: 1rem 0.8rem !important;
+      display: flex !important;
+      flex-direction: column !important;
+      align-items: center !important;
+      justify-content: center !important;
+      gap: 0.8rem !important;
+      background: #091827 !important;
+      border-color: rgba(141,234,255,0.12) !important;
+      box-shadow: 0 12px 28px rgba(0,0,0,0.22) !important;
+    }
+
+    .wordmark-card:hover {
+      background: #0d2235 !important;
+      border-color: rgba(141,234,255,0.24) !important;
+      box-shadow: 0 16px 32px rgba(0,0,0,0.28) !important;
+    }
+
+    .wordmark-frame {
+      width: 162px !important;
+      height: 62px !important;
+      min-width: 162px !important;
+      min-height: 62px !important;
+      display: grid !important;
+      place-items: center !important;
+      padding: 0 !important;
+      margin: 0 auto !important;
+      background: #f4f8fa !important;
+      border: 4px solid #06101b !important;
+      outline: 1px solid rgba(141,234,255,0.13) !important;
+      border-radius: 8px !important;
+      box-shadow: none !important;
+      overflow: hidden !important;
+      clip-path: none !important;
+    }
+
+    .tool-wordmark {
+      width: 148px !important;
+      height: 48px !important;
+      display: block !important;
+      overflow: visible;
+    }
+
+    .tool-wordmark .wm-icon {
+      fill: none;
+      stroke-width: 4;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      vector-effect: non-scaling-stroke;
+      shape-rendering: geometricPrecision;
+    }
+
+    .tool-wordmark text {
+      font-family: "Arial Narrow", "Segoe UI", Arial, sans-serif;
+      font-size: 27px;
+      font-weight: 800;
+      letter-spacing: 0.3px;
+      dominant-baseline: middle;
+    }
+
+    .burp-wordmark text:nth-of-type(1),
+    .burp-wordmark text:nth-of-type(2) {
+      font-size: 20px;
+      font-weight: 800;
+    }
+
+    /* Individual brand styling */
+    .wazuh-wordmark .wm-icon { stroke: #0055d4; }
+    .wazuh-wordmark text { fill: #0055d4; }
+
+    .wireshark-wordmark .wm-icon { stroke: #1b79ba; }
+    .wireshark-wordmark text { fill: #1b79ba; font-size: 24px; }
+
+    .burp-wordmark .wm-icon { stroke: #ff6633; }
+    .burp-wordmark circle { fill: #ff6633; stroke: #ff6633; }
+    .burp-wordmark text { fill: #ff6633; }
+
+    .nmap-wordmark .wm-icon { stroke: #1590d8; }
+    .nmap-wordmark text { fill: #1590d8; }
+
+    .dirbuster-wordmark .wm-icon { stroke: #1d7aaa; }
+    .dirbuster-wordmark text { fill: #1d7aaa; font-size: 24px; }
+
+    .remnux-wordmark .wm-icon { stroke: #18a34a; }
+    .remnux-wordmark text { fill: #18a34a; }
+
+    .knowbe4-wordmark .wm-icon { stroke: #f28c24; }
+    .knowbe4-wordmark text { fill: #f28c24; font-size: 24px; }
+
+    .metasploit-wordmark .wm-icon { stroke: #2f7df6; }
+    .metasploit-wordmark text { fill: #2f7df6; font-size: 22px; }
+
+    .wordmark-card .tool-logo-name {
+      margin: 0 !important;
+      min-height: 1.2rem !important;
+      color: #e4f8ff !important;
+      font-size: 0.76rem !important;
+      font-weight: 800 !important;
+      line-height: 1.2 !important;
+      letter-spacing: 0.05em !important;
+      text-align: center !important;
+      text-transform: uppercase !important;
+    }
+
+    @media (max-width: 980px) {
+      .wordmark-tool-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+      }
+
+      .wordmark-frame {
+        width: 180px !important;
+      }
+
+      .tool-wordmark {
+        width: 165px !important;
+      }
+    }
+
+    @media (max-width: 520px) {
+      .wordmark-tool-grid {
+        grid-template-columns: 1fr !important;
+      }
+
+      .wordmark-frame {
+        width: 190px !important;
+      }
+
+      .tool-wordmark {
+        width: 172px !important;
+      }
+    }
+
+
+    /* =========================================================
+       OFFICIAL SECURITY TOOL LOGOS
+       8 exact cards, wide wordmark-oriented frames, crisp SVG where available.
+       ========================================================= */
+
+    .official-logo-grid {
+      grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+      gap: 0.9rem !important;
+    }
+
+    .official-logo-card {
+      min-height: 178px !important;
+      padding: 1rem 0.8rem !important;
+      display: flex !important;
+      flex-direction: column !important;
+      align-items: center !important;
+      justify-content: center !important;
+      gap: 0.78rem !important;
+      background: #091827 !important;
+      border-color: rgba(141, 234, 255, 0.12) !important;
+      box-shadow: 0 12px 28px rgba(0,0,0,0.22) !important;
+    }
+
+    .official-logo-card:hover {
+      background: #0d2235 !important;
+      border-color: rgba(141, 234, 255, 0.24) !important;
+      box-shadow: 0 16px 32px rgba(0,0,0,0.28) !important;
+    }
+
+    .official-logo-frame {
+      width: 196px !important;
+      height: 82px !important;
+      min-width: 196px !important;
+      min-height: 82px !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      padding: 10px 13px !important;
+      margin: 0 auto !important;
+      overflow: hidden !important;
+      background: #f5f8fa !important;
+      border: 4px solid #06101b !important;
+      outline: 1px solid rgba(141,234,255,0.13) !important;
+      border-radius: 8px !important;
+      clip-path: none !important;
+      box-shadow: none !important;
+    }
+
+    .official-logo-img {
+      display: block !important;
+      width: auto !important;
+      height: auto !important;
+      max-width: 174px !important;
+      max-height: 60px !important;
+      object-fit: contain !important;
+      object-position: center !important;
+      image-rendering: auto !important;
+      transform: none !important;
+      background: transparent !important;
+    }
+
+    /* Keep actual wordmarks large and readable. */
+    .logo-wazuh,
+    .logo-wireshark,
+    .logo-burp,
+    .logo-nmap,
+    .logo-knowbe4,
+    .logo-metasploit {
+      max-width: 174px !important;
+      max-height: 58px !important;
+    }
+
+    .logo-dirbuster {
+      max-width: 92px !important;
+      max-height: 62px !important;
+    }
+
+    .logo-remnux {
+      max-width: 170px !important;
+      max-height: 56px !important;
+    }
+
+    .official-logo-fallback {
+      display: none;
+      align-items: center;
+      justify-content: center;
+      color: #0b2031;
+      font-family: "Arial Narrow", "Segoe UI", Arial, sans-serif;
+      font-size: 1.15rem;
+      font-weight: 900;
+      letter-spacing: 0.02em;
+    }
+
+    .official-logo-card .tool-logo-name {
+      margin: 0 !important;
+      min-height: 1.2rem !important;
+      color: #e4f8ff !important;
+      font-size: 0.76rem !important;
+      font-weight: 800 !important;
+      line-height: 1.2 !important;
+      letter-spacing: 0.05em !important;
+      text-align: center !important;
+      text-transform: uppercase !important;
+    }
+
+    @media (max-width: 1050px) {
+      .official-logo-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+      }
+
+      .official-logo-frame {
+        width: 215px !important;
+      }
+
+      .official-logo-img {
+        max-width: 190px !important;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .official-logo-grid {
+        grid-template-columns: 1fr !important;
+      }
+
+      .official-logo-frame {
+        width: min(230px, 82vw) !important;
+      }
+
+      .official-logo-img {
+        max-width: min(200px, 72vw) !important;
+      }
+    }
+
+
+    /* Burp Suite + Metasploit logo correction */
+    .official-logo-card .logo-burp {
+      width: 172px !important;
+      max-width: 172px !important;
+      height: auto !important;
+      max-height: 58px !important;
+      object-fit: contain !important;
+    }
+
+    .official-logo-card .logo-metasploit {
+      width: 174px !important;
+      max-width: 174px !important;
+      height: auto !important;
+      max-height: 55px !important;
+      object-fit: contain !important;
+    }
+
+
+    /* Exact PortSwigger Burp Suite wordmark */
+    .official-logo-card .logo-burp {
+      width: 178px !important;
+      height: auto !important;
+      max-width: 178px !important;
+      max-height: 62px !important;
+      object-fit: contain !important;
+      object-position: center !important;
+      image-rendering: auto !important;
+    }
+
+    .official-logo-card:has(.logo-burp) .official-logo-frame {
+      width: 205px !important;
+      min-width: 205px !important;
+      height: 84px !important;
+      min-height: 84px !important;
+      padding: 9px 12px !important;
+    }
+
+
+    /* =========================================================
+       BURP SUITE: reliable vector mark + readable lockup
+       ========================================================= */
+
+    .burp-fixed-frame {
+      width: 205px !important;
+      min-width: 205px !important;
+      height: 84px !important;
+      min-height: 84px !important;
+      padding: 8px 12px !important;
+    }
+
+    .burp-brand-lockup {
+      width: 178px;
+      height: 58px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+    }
+
+    .burp-brand-mark {
+      display: block !important;
+      width: 54px !important;
+      height: 54px !important;
+      min-width: 54px !important;
+      min-height: 54px !important;
+      max-width: 54px !important;
+      max-height: 54px !important;
+      object-fit: contain !important;
+      image-rendering: auto !important;
+      /* Simple Icons ships monochrome SVG; this maps it to Burp's #FF6633. */
+      filter: invert(49%) sepia(93%) saturate(2780%) hue-rotate(340deg) brightness(101%) contrast(102%);
+    }
+
+    .burp-brand-text {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: center;
+      line-height: 0.88;
+      font-family: "Arial Narrow", "Segoe UI", Arial, sans-serif;
+      font-size: 1.18rem;
+      font-weight: 900;
+      letter-spacing: 0.06em;
+      color: #ff6633;
+      white-space: nowrap;
+    }
+
+    .burp-brand-text span:last-child {
+      color: #263746;
+    }
+
+</style>
+</head>
+
+<body class="">
+  <div class="cyber-grid"></div>
+<div class="cyber-aura"></div>
+  <div class="cyber-aura-2"></div>
+
+
+  <div id="staging-gate" class="staging-gate fade-out" style="display: none;">
+    <div class="ambient-orb one"></div>
+    <div class="ambient-orb two"></div>
+    <div class="ambient-orb three"></div>
+    <div class="ambient-orb four"></div>
+
+    <div class="staging-gate-card">
+      <div class="staging-badge">Staging Preview</div>
+
+      <h2>Staging access node</h2>
+
+      <p>
+        This is the preview build of the site. Enter the password to access the staging environment.
+      </p>
+
+      <div class="staging-gate-form">
+        <input type="password" id="staging-password" placeholder="Password" aria-label="Password" onkeydown="if (event.key === 'Enter') checkStagingPassword()">
+        <button type="button" onclick="checkStagingPassword()">Enter</button>
+      </div>
+
+      <p id="staging-error">Access denied. That password isn’t right.</p>
+      <p class="staging-note">This environment is for testing changes before they go live.</p>
+    </div>
+  </div>
+
+  <div id="staging-content" style="display: block;" class="revealed">
+<header>
+    <div class="container">
+      <nav>
+        <a class="logo" href="#top">
+          CYBER<span>//</span>PORTFOLIO
+        </a>
+
+        <ul class="nav-links">
+          <li><a href="#about">About</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#project">Featured Experience</a></li>
+          <li><a href="#tryhackme">TryHackMe</a></li>
+          <li><a href="#certifications">Certifications</a></li>
+          <li><a href="#repository">Repository</a></li>
+          <li><a href="#contact">Contact</a></li>
+          <li><a href="#resume">Resume</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+
+    <div class="container">
+      <div class="hero">
+        <div class="noir-cityscape" aria-hidden="true">
+          <span class="city-building city-building-1"></span>
+          <span class="city-building city-building-2"></span>
+          <span class="city-building city-building-3"></span>
+          <span class="city-building city-building-4"></span>
+          <span class="city-building city-building-5"></span>
+          <span class="city-building city-building-6"></span>
+        </div>
+        <div class="deco-sunburst" aria-hidden="true"></div>
+
+        <div>
+          <div class="eyebrow"></div>
+
+          <h1>
+            Building skills to
+            <span class="accent">detect, analyze &amp; defend.</span>
+          </h1>
+
+          <p class="hero-copy">
+            Hello! My name is Jack Peduzzi. I'm a cybersecurity professional focused on
+            security operations, SIEM analysis, network security, incident
+            response, and system hardening. This portfolio documents the
+            hands-on work I have done in the past and what I am learning now.
+          </p>
+
+          <div class="hero-actions">
+            <a class="button" href="https://github.com/jpeduzzii/cybersecurity-portfolio" target="_blank" rel="noopener noreferrer">
+              View GitHub Repository
+            </a>
+
+            <a class="button secondary" href="#project">
+              Featured Project
+            </a>
+          </div>
+        </div>
+
+        <div class="terminal">
+          <div class="terminal-header">
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+          </div>
+
+          <div class="terminal-body">
+            <p><span class="prompt">$</span> whoami</p>
+            <p>jack_peduzzi</p>
+
+            <br>
+
+            <p><span class="prompt">$</span> cat focus.txt</p>
+            <p>SOC Operations / Blue Team</p>
+            <p>SIEM Analysis</p>
+            <p>Incident Response</p>
+            <p>Network Security / Analysis</p>
+
+            <br>
+
+            <p><span class="prompt">$</span> certification --status</p>
+            <p>
+              CompTIA Security+<br>PCEP-03-02</p>
+
+            <br>
+
+            <p class="terminal-muted">status: online</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <section id="about">
+      <div class="container">
+
+        <div class="section-label">
+          01 / About
+        </div>
+
+        <h2 class="section-title">
+          Security-minded. Hands-on. Always learning.
+        </h2>
+
+        <div class="about-grid">
+
+          <div class="about-text">
+            <p>As a current Cybersecurity analyst working for TekSystems, I have been able to showcase the skills that I built throughout college. On this portfolio, I have uploaded some of the labs I have completed while in training. Additionally, other projects that were completed during my time in school have also been uploaded.&nbsp;</p>
+
+            <p>I worked as the Blue Team Lead for the Center for Intelligence, Research, and Training (CIRAT) at Mercyhurst University. In this role, I led seven different analysts by overseeing the operational and information security environment in the lab. I've written critical documentation, triaged alerts, led meetings, and developed employee training modules.</p>
+
+            <p>During my Junior year of school, I was an Information Security Intern at CNB Bank. In this role, I focused heavily on sensitive data remediation, investigating phishing emails, meeting with upper management, and shadowed other employees.</p>
+
+            <p>
+              My goal is to continue strengthening my detection, incident
+              response, network analysis, system hardening, and defensive
+              security skills to make way for an eventual role in Blue Teaming.</p>
+          </div>
+
+          <div class="stats">
+            <div class="stat">
+              <strong>Security+</strong>
+              <span>CompTIA certified</span>
+            </div>
+
+            <div class="stat">
+              <strong>9+ Months</strong>
+              <span>Hands-on SIEM experience with Wazuh</span>
+            </div>
+
+            <div class="stat">
+              <strong>3.84 GPA</strong>
+              <span>Cybersecurity degree</span>
+            </div>
+
+            <div class="stat">
+              <strong>Magna Cum Laude</strong>
+              <span>Graduation Distinction</span>
+            </div>
+          <div class="stat">
+            <strong>Honors Scholar</strong>
+            <span>Mercyhurst University</span>
+          </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+<section id="skills">
+      <div class="container">
+
+        <div class="section-label">
+          02 / Skills
+        </div>
+
+        <h2 class="section-title">
+          Skills and expertise.
+        </h2>
+
+        <p class="section-intro">
+          My technical background spans many different domains, including: Blue Teaming and Red Teaming, Network Monitoring, Digital Forensics, Auditing, and Intelligence Tools.</p>
+
+        <div class="skills-grid">
+
+          <article class="skill-card security-tools-card">
+            <div class="skill-card-heading">
+              <div>
+                <div class="skill-card-kicker">Core toolkit</div>
+                <h3>Security Tools</h3>
+              </div>
+              <span class="skill-card-count">8 tools</span>
+            </div>
+
+            
+            
+            
+            
+            
+            <div class="tool-logo-grid official-logo-grid">
+
+              <span class="tag tool-logo-card official-logo-card">
+                <span class="official-logo-frame">
+                  <img src="https://wazuh.com/brand-assets/Wazuh-Logo.svg" alt="Wazuh official logo" class="official-logo-img logo-wazuh" loading="eager" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-flex';">
+                  <span class="official-logo-fallback">Wazuh</span>
+                </span>
+                <span class="tool-logo-name">Wazuh</span>
+              </span>
+
+              <span class="tag tool-logo-card official-logo-card">
+                <span class="official-logo-frame">
+                  <img src="https://gitlab.com/wireshark/wireshark/-/raw/master/resources/wslogo.svg" alt="Wireshark official logo" class="official-logo-img logo-wireshark" loading="eager" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-flex';">
+                  <span class="official-logo-fallback">Wireshark</span>
+                </span>
+                <span class="tool-logo-name">Wireshark</span>
+              </span>
+
+              <span class="tag tool-logo-card official-logo-card burp-fixed-card">
+                <span class="official-logo-frame burp-fixed-frame">
+                  <span class="burp-brand-lockup">
+                    <img src="https://cdn.jsdelivr.net/npm/simple-icons@v16/icons/burpsuite.svg" alt="Burp Suite logo" class="burp-brand-mark" loading="eager">
+                    <span class="burp-brand-text">
+                      <span>BURP</span>
+                      <span>SUITE</span>
+                    </span>
+                  </span>
+                </span>
+                <span class="tool-logo-name">Burp Suite</span>
+              </span>
+
+              <span class="tag tool-logo-card official-logo-card">
+                <span class="official-logo-frame">
+                  <img src="https://nmap.org/images/sitelogo-nmap.svg" alt="Nmap official logo" class="official-logo-img logo-nmap" loading="eager" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-flex';">
+                  <span class="official-logo-fallback">Nmap</span>
+                </span>
+                <span class="tool-logo-name">Nmap</span>
+              </span>
+
+              <span class="tag tool-logo-card official-logo-card">
+                <span class="official-logo-frame">
+                  <img src="https://www.kali.org/tools/dirbuster/images/dirbuster-logo.svg" alt="DirBuster official logo" class="official-logo-img logo-dirbuster" loading="eager" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-flex';">
+                  <span class="official-logo-fallback">DirBuster</span>
+                </span>
+                <span class="tool-logo-name">DirBuster</span>
+              </span>
+
+              <span class="tag tool-logo-card official-logo-card">
+                <span class="official-logo-frame">
+                  <img src="https://remnux.org/img/remnux-logo.png" alt="REMnux official logo" class="official-logo-img logo-remnux" loading="eager" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-flex';">
+                  <span class="official-logo-fallback">REMnux</span>
+                </span>
+                <span class="tool-logo-name">REMnux</span>
+              </span>
+
+              <span class="tag tool-logo-card official-logo-card">
+                <span class="official-logo-frame">
+                  <img src="https://www.knowbe4.com/hs-fs/hubfs/knowbe4-logo-black-orange-rgb-1.png?height=142&amp;name=knowbe4-logo-black-orange-rgb-1.png&amp;width=400" alt="KnowBe4 official logo" class="official-logo-img logo-knowbe4" loading="eager" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-flex';">
+                  <span class="official-logo-fallback">KnowBe4</span>
+                </span>
+                <span class="tool-logo-name">KnowBe4</span>
+              </span>
+
+              <span class="tag tool-logo-card official-logo-card">
+                <span class="official-logo-frame">
+                  <img src="https://upload.wikimedia.org/wikipedia/commons/4/4f/Metasploit_logo_and_wordmark.svg" alt="Metasploit official logo" class="official-logo-img logo-metasploit" loading="eager" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-flex';">
+                  <span class="official-logo-fallback">Metasploit</span>
+                </span>
+                <span class="tool-logo-name">Metasploit</span>
+              </span>
+
+            </div>
+
+          </article>
+
+          <article class="skill-card">
+            <h3>Operating Systems</h3>
+            <div class="tags">
+              <span class="tag">Windows</span>
+              <span class="tag">macOS</span>
+              <span class="tag">Linux</span>
+              <span class="tag">Kali</span>
+              <span class="tag">Ubuntu</span>
+              <span class="tag">Linux Lite</span>
+            </div>
+          </article>
+
+          <article class="skill-card">
+            <h3>Programming</h3>
+            <div class="tags">
+              <span class="tag">Python</span>
+              <span class="tag">SQL</span>
+              <span class="tag">XML</span>
+              <span class="tag">R</span>
+            </div>
+          </article>
+
+          <article class="skill-card">
+            <h3>Digital Forensics</h3>
+            <div class="tags">
+              <span class="tag">Autopsy</span>
+              <span class="tag">FTK Imager</span>
+            </div>
+          </article>
+
+          <article class="skill-card">
+            <h3>Office Suite</h3>
+            <div class="tags">
+              <span class="tag">Word</span>
+              <span class="tag">PowerPoint</span>
+              <span class="tag">Excel</span>
+              <span class="tag">Outlook</span>
+              <span class="tag">SharePoint</span>
+            </div>
+          </article>
+
+          <article class="skill-card">
+            <h3>Soft Skills</h3>
+            <div class="tags">
+              <span class="tag">Leadership</span>
+              <span class="tag">Management</span>
+              <span class="tag">Teamwork</span>
+              <span class="tag">Collaboration</span>
+              <span class="tag">Writing</span>
+            </div>
+          </article>
+
+          <article class="skill-card">
+            <h3>Intelligence Tools</h3>
+            <div class="tags">
+              <span class="tag">Babel Street</span>
+              <span class="tag">Recorded Future</span>
+              <span class="tag">OSINT</span>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+<section id="project">
+      <div class="container">
+
+        <div class="section-label">
+          03 / Featured Work
+        </div>
+
+        <h2 class="section-title">
+          Featured Experience.
+        </h2>
+
+        <article class="featured">
+          <div class="featured-media">
+            <img src="https://images.unsplash.com/photo-1506399558188-acca6f8cbf41?auto=format&amp;fit=crop&amp;fm=jpg&amp;ixlib=rb-4.1.0&amp;q=78&amp;w=2000" alt="Server racks inside a data center" loading="lazy" referrerpolicy="no-referrer">
+            <div class="featured-media-label">SOC // Infrastructure // Monitoring</div>
+          </div>
+          <div class="featured-badge">
+            Blue Team
+          </div>
+
+          <h3>
+            Wazuh SIEM &amp; Security Monitoring
+          </h3>
+
+          <p>My strongest hands-on areas is working with Wazuh for over 9 months. I've spent this time building experience with SIEM monitoring,
+            reviewing security events, investigating alerts, and developing
+            the analytical mindset required for SOC and incident-response work. I also have experience developing incident response plans, playbooks, and business continuity plans.</p>
+
+          <p>
+            This work has helped me connect network activity, endpoint events,
+            vulnerabilities, and system behavior instead of looking at
+            security tools in isolation.
+          </p>
+
+          <div class="project-details">
+            <span class="tag">Wazuh</span>
+            <span class="tag">SIEM</span>
+            <span class="tag">Alert Analysis</span>
+            <span class="tag">Incident Response</span>
+            <span class="tag">Security Monitoring</span>
+            <span class="tag">Blue Team</span>
+          </div>
+
+          <a class="button" href="https://github.com/jpeduzzii/cybersecurity-portfolio/tree/main/soc-tools" target="_blank" rel="noopener noreferrer">
+            Open SOC Work
+          </a>
+        </article>
+
+      </div>
+    </section>
+
+<section id="tryhackme">
+      <div class="container">
+
+        <div class="section-label">
+          04 / TryHackMe
+        </div>
+
+        <h2 class="section-title">
+          Hands-on labs beyond the classroom.
+        </h2>
+
+        <p class="section-intro">
+          I use TryHackMe to keep building practical security skills through guided labs,
+          challenges, and hands-on environments.
+        </p>
+
+        <div class="tryhackme-panel">
+          <div class="tryhackme-copy">
+            <div class="tryhackme-brand-row">
+              <div class="tryhackme-mark" aria-hidden="true">THM</div>
+              <div>
+                <span class="tryhackme-label">TryHackMe Profile</span>
+                <h3>jtpeduzzi</h3>
+              </div>
+            </div>
+
+            <p>I've used TryHackMe throughout my college education and now. It is a great resource for learning new concepts and sharpening my skills.</p>
+
+            <div class="tryhackme-actions">
+              <a class="button" href="https://tryhackme.com/p/jtpeduzzi" target="_blank" rel="noopener noreferrer">
+                View TryHackMe Profile
+              </a>
+            </div>
+          </div>
+
+          <div class="tryhackme-badge-wrap">
+            <div class="tryhackme-badge-label">Live profile badge</div>
+            <img class="tryhackme-badge" src="https://tryhackme-badges.s3.amazonaws.com/jtpeduzzi.png" alt="TryHackMe profile badge for jtpeduzzi" loading="lazy" onerror="this.closest('.tryhackme-badge-wrap').classList.add('badge-unavailable')">
+            <div class="tryhackme-badge-fallback">
+              <strong>jtpeduzzi</strong>
+              <span>TryHackMe</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+<section id="certifications">
+      <div class="container">
+
+        <div class="section-label">
+          05 / Certifications
+        </div>
+
+        <h2 class="section-title">
+          Certifications.
+        </h2>
+
+        <div class="cert-showcase">
+          <div class="cert">
+            <div class="cert-main">
+              <img class="cert-badge-img" src="https://images.credly.com/images/80d8a06a-c384-42bf-ad36-db81bce5adce/blob" alt="CompTIA Security+ Certified badge" loading="lazy">
+
+              <div class="cert-copy">
+                <h3>CompTIA Security+</h3>
+                <p>Certified on April 14th, 2026</p>
+                <div class="cert-status">Certified</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+<section id="certificate-files">
+      <div class="container">
+
+        <div class="section-label">
+          06 / Certificate Files
+        </div>
+
+        <h2 class="section-title">
+          View my credentials.
+        </h2>
+
+        <p class="section-intro">
+          This section is for copies of my certification documents and credential files.
+        </p>
+
+        <div class="certificate-files-grid">
+
+          <article class="certificate-file-card">
+            <div>
+              <div class="certificate-file-icon">PDF</div>
+              <h3>CompTIA Security+</h3>
+              <p>
+                Certificate document for my CompTIA Security+ certification.
+              </p>
+            </div>
+
+            <a class="certificate-file-link" href="certifications/security-plus.pdf" target="_blank" rel="noopener noreferrer">
+              Open certificate →
+            </a>
+          </article>
+
+          <article class="certificate-file-card">
+            <div>
+              <div class="certificate-file-icon">PDF</div>
+              <h3>PCEP-03-02</h3>
+              <p>
+                Certificate document for my Python entry-level certification.
+              </p>
+            </div>
+
+            <a class="certificate-file-link" href="certifications/pcep.pdf" target="_blank" rel="noopener noreferrer">
+              Open certificate →
+            </a>
+          </article>
+
+          <article class="certificate-file-card certificate-file-placeholder">
+            <div>
+              <div class="certificate-file-icon">+</div>
+              <h3>Add another certification</h3>
+              <p>
+                Add another PDF to <code>site/certifications/</code> and copy one of these cards when you earn another credential.
+              </p>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+<section id="repository">
+      <div class="container">
+
+        <div class="section-label">
+          07 / Repository
+        </div>
+
+        <h2 class="section-title">
+          Explore my work.
+        </h2>
+
+        <p class="section-intro">
+          My GitHub repository is organized by cybersecurity domain so that
+          labs, documentation, write-ups, and projects are easy to explore.
+        </p>
+
+        <div class="repo-grid">
+
+          <a class="repo-card" href="https://github.com/jpeduzzii/cybersecurity-portfolio/tree/main/soc-tools" target="_blank" rel="noopener noreferrer">
+            <div>
+              <h3>SOC Tools</h3>
+              <p>
+                SIEM, detection, monitoring, and security operations work.
+              </p>
+            </div>
+            <span class="repo-link">Open folder →</span>
+          </a>
+
+          <a class="repo-card" href="https://github.com/jpeduzzii/cybersecurity-portfolio/tree/main/grc" target="_blank" rel="noopener noreferrer">
+            <div>
+              <h3>GRC</h3>
+              <p>
+                Governance, risk, compliance, controls, and framework work.
+              </p>
+            </div>
+            <span class="repo-link">Open folder →</span>
+          </a>
+
+          <a class="repo-card" href="https://github.com/jpeduzzii/cybersecurity-portfolio/tree/main/red-teaming" target="_blank" rel="noopener noreferrer">
+            <div>
+              <h3>Red Teaming</h3>
+              <p>
+                Reconnaissance, enumeration, assessment, and offensive labs.
+              </p>
+            </div>
+            <span class="repo-link">Open folder →</span>
+          </a>
+
+          <a class="repo-card" href="https://github.com/jpeduzzii/cybersecurity-portfolio/tree/main/tls-audits" target="_blank" rel="noopener noreferrer">
+            <div>
+              <h3>TLS Audits</h3>
+              <p>
+                TLS configuration, certificate analysis, and security reviews.
+              </p>
+            </div>
+            <span class="repo-link">Open folder →</span>
+          </a>
+
+          <a class="repo-card" href="https://github.com/jpeduzzii/cybersecurity-portfolio/tree/main/malware-analysis" target="_blank" rel="noopener noreferrer">
+            <div>
+              <h3>Malware Analysis</h3>
+              <p>
+                Developing malware-analysis knowledge and documentation.
+              </p>
+            </div>
+            <span class="repo-link">Open folder →</span>
+          </a>
+
+          <a class="repo-card" href="https://github.com/jpeduzzii/cybersecurity-portfolio/tree/main/research-and-writeups" target="_blank" rel="noopener noreferrer">
+            <div>
+              <h3>Research &amp; Write-Ups</h3>
+              <p>
+                Technical research, cybersecurity analysis, and documentation.
+              </p>
+            </div>
+            <span class="repo-link">Open folder →</span>
+          </a>
+
+          <a class="repo-card" href="https://github.com/jpeduzzii/cybersecurity-portfolio/tree/main/certifications-and-skills" target="_blank" rel="noopener noreferrer">
+            <div>
+              <h3>Certifications &amp; Skills</h3>
+              <p>
+                Certification progress and hands-on cybersecurity skill tracking.
+              </p>
+            </div>
+            <span class="repo-link">Open folder →</span>
+          </a>
+
+          <a class="repo-card" href="https://github.com/jpeduzzii/cybersecurity-portfolio/tree/main/presentations" target="_blank" rel="noopener noreferrer">
+            <div>
+              <h3>Presentations</h3>
+              <p>
+                Cybersecurity presentations and supporting materials.
+              </p>
+            </div>
+            <span class="repo-link">Open folder →</span>
+          </a>
+
+          <a class="repo-card" href="https://github.com/jpeduzzii/cybersecurity-portfolio" target="_blank" rel="noopener noreferrer">
+            <div>
+              <h3>Full Repository</h3>
+              <p>
+                View the complete cybersecurity portfolio on GitHub.
+              </p>
+            </div>
+            <span class="repo-link">View GitHub →</span>
+          </a>
+
+        </div>
+      </div>
+    </section>
+
+<section id="contact">
+      <div class="container">
+
+        <div class="section-label">
+          08 / Contact
+        </div>
+
+        <h2 class="section-title">
+          Let's connect.
+        </h2>
+
+        <p class="section-intro">
+          Interested in my work, a cybersecurity opportunity, or just want to connect?
+          These are the best places to reach me.
+        </p>
+
+        <div class="contact-grid">
+
+          <a class="contact-card" href="https://github.com/jpeduzzii" target="_blank" rel="noopener noreferrer">
+            <span class="contact-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M9 19c-4 .8-4-2-5-2.5M14.5 22v-3.5c0-1 .1-1.4-.5-2 2.7-.3 5.5-1.3 5.5-6A4.7 4.7 0 0 0 18.2 7c.1-.3.6-1.7-.1-3.5 0 0-1.1-.4-3.6 1.3a12.5 12.5 0 0 0-6.5 0C5.5 3.1 4.4 3.5 4.4 3.5 3.7 5.3 4.2 6.7 4.3 7A4.7 4.7 0 0 0 3 10.5c0 4.7 2.8 5.7 5.5 6-.6.5-.6 1.1-.5 2V22"></path></svg>
+            </span>
+            <div>
+              <span class="contact-kicker">Code &amp; Projects</span>
+              <h3>GitHub</h3>
+              <p>github.com/jpeduzzii</p>
+            </div>
+            <span class="contact-arrow">↗</span>
+          </a>
+
+          <a class="contact-card" href="https://tryhackme.com/p/jtpeduzzi" target="_blank" rel="noopener noreferrer">
+            <span class="contact-icon contact-icon-thm" aria-hidden="true">THM</span>
+            <div>
+              <span class="contact-kicker">Hands-on Labs</span>
+              <h3>TryHackMe</h3>
+              <p>tryhackme.com/p/jtpeduzzi</p>
+            </div>
+            <span class="contact-arrow">↗</span>
+          </a>
+
+          <div class="contact-card contact-email-card">
+            <span class="contact-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"></rect><path d="m4 7 8 6 8-6"></path></svg>
+            </span>
+            <div>
+              <span class="contact-kicker">Direct Contact</span>
+              <h3>Email</h3>
+              <a id="contact-email" class="editable-contact-link" href="mailto:peduzzijack@gmail.com" data-contact-email="true">peduzzijack@gmail.com</a>
+            </div>
+          </div>
+
+        </div>
+
+        <p class="contact-edit-note">
+          Staging note: use <strong>Edit Live View</strong> to replace the placeholder email address.
+          Exporting the HTML will automatically turn it into a working email link.
+        </p>
+
+      </div>
+    </section>
+
+<section id="resume">
+      <div class="container">
+
+        <div class="section-label">
+          09 / Resume
+        </div>
+
+        <h2 class="section-title">
+          Resume.
+        </h2>
+
+        <p class="section-intro">
+          A quick look at my education, experience, certifications, and technical background.
+        </p>
+
+        <div class="resume-panel">
+          <div class="resume-header">
+            <div>
+              <h3>Jack Peduzzi — Resume</h3>
+              <p>PDF resume</p>
+            </div>
+
+            <div class="resume-actions">
+              <a class="button secondary" href="resume.pdf" target="_blank" rel="noopener noreferrer">
+                Open Resume File
+              </a>
+
+              <a class="button" href="resume.pdf" download="">
+                Download Resume File
+              </a>
+            </div>
+          </div>
+
+          <div class="resume-preview">
+            <iframe src="resume.pdf#view=FitH" title="Jack Peduzzi Resume" loading="lazy">
+            </iframe>
+          </div>
+
+          <p class="resume-fallback">
+            Put your resume PDF in the same <code>site</code> folder as this page and name it <code>resume.pdf</code>.
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+<footer>
+    <div class="container">
+      <p>
+        Built with plain HTML &amp; CSS • Hosted with GitHub Pages
+      </p>
+
+      <p>
+        <a href="https://github.com/jpeduzzii/cybersecurity-portfolio" target="_blank" rel="noopener noreferrer">
+          github.com/jpeduzzii/cybersecurity-portfolio
+        </a>
+      </p>
+    </div>
+  </footer>
+  </main></div>
+
+  <div id="visual-editor-toolbar" class="visual-editor-toolbar visible" data-editor-ui="true">
+    <button id="toggle-edit-mode" type="button" class="primary">Edit Page</button>
+    <button id="download-edited-html" type="button">Export HTML</button>
+  </div>
+
+  <div id="visual-editor-hint" class="visual-editor-hint" data-editor-ui="true">
+    Live edit mode enabled
+  </div>
+
+  <script>
+    function enterStagingSite() {
+      const gate = document.getElementById('staging-gate');
+      const content = document.getElementById('staging-content');
+
+      content.style.display = 'block';
+
+      requestAnimationFrame(() => {
+        content.classList.add('revealed');
+        gate.classList.add('fade-out');
+      });
+
+      setTimeout(() => {
+        gate.style.display = 'none';
+      }, 650);
+    }
+
+    function checkStagingPassword() {
+      const entered = document.getElementById('staging-password').value;
+      const error = document.getElementById('staging-error');
+
+      if (entered === "Cyber123") {
+        sessionStorage.setItem('stagingAccess', 'granted');
+        enterStagingSite();
+      } else {
+        error.style.display = 'block';
+      }
+    }
+  
+    // Visual editor controls
+    const editorToolbar = document.getElementById('visual-editor-toolbar');
+    const editButton = document.getElementById('toggle-edit-mode');
+    const saveButton = document.getElementById('download-edited-html');
+    const editorHint = document.getElementById('visual-editor-hint');
+    let visualEditMode = false;
+
+    function getEditableElements() {
+      return document.querySelectorAll(
+        '#staging-content h1, #staging-content h2, #staging-content h3, ' +
+        '#staging-content h4, #staging-content p, #staging-content li, ' +
+        '#staging-content .eyebrow, #staging-content .section-label, ' +
+        '#staging-content .tag, #staging-content .badge, ' +
+        '#staging-content .editable-contact-link'
+      );
+    }
+
+    function addTagDeleteButtons() {
+      document.querySelectorAll('#staging-content .tag').forEach((tag) => {
+        if (tag.querySelector('.tag-delete-button')) return;
+
+        const button = document.createElement('button');
+        button.type = 'button';
+        button.className = 'tag-delete-button';
+        button.setAttribute('aria-label', 'Delete this skill');
+        button.setAttribute('title', 'Delete this skill');
+        button.setAttribute('data-editor-ui', 'true');
+        button.textContent = '×';
+
+        button.addEventListener('click', (event) => {
+          event.preventDefault();
+          event.stopPropagation();
+          tag.remove();
+        });
+
+        tag.appendChild(button);
+      });
+    }
+
+    function removeTagDeleteButtons() {
+      document.querySelectorAll('.tag-delete-button').forEach((button) => {
+        button.remove();
+      });
+    }
+
+    function setVisualEditMode(enabled) {
+      visualEditMode = enabled;
+      document.body.classList.toggle('visual-editing', enabled);
+
+      getEditableElements().forEach((el) => {
+        if (enabled) {
+          el.setAttribute('contenteditable', 'true');
+          el.setAttribute('spellcheck', 'true');
+        } else {
+          el.removeAttribute('contenteditable');
+          el.removeAttribute('spellcheck');
+        }
+      });
+
+      if (enabled) {
+        addTagDeleteButtons();
+      } else {
+        removeTagDeleteButtons();
+      }
+
+      editButton.textContent = enabled ? 'Done Editing' : 'Edit Page';
+      editButton.classList.toggle('primary', !enabled);
+      editorHint.classList.toggle('visible', enabled);
+    }
+
+    editButton.addEventListener('click', () => {
+      setVisualEditMode(!visualEditMode);
+    });
+
+    function syncContactEmail(root = document) {
+      const emailLink = root.querySelector('#contact-email');
+      if (!emailLink) return;
+
+      const email = emailLink.textContent.trim();
+
+      if (email && email !== 'add-your-email@example.com' && email.includes('@')) {
+        emailLink.setAttribute('href', `mailto:${email}`);
+        emailLink.removeAttribute('title');
+      } else {
+        emailLink.setAttribute('href', '#');
+      }
+    }
+
+    saveButton.addEventListener('click', () => {
+      syncContactEmail(document);
+
+      const clone = document.documentElement.cloneNode(true);
+      syncContactEmail(clone);
+
+      clone.querySelectorAll('[contenteditable]').forEach((el) => {
+        el.removeAttribute('contenteditable');
+        el.removeAttribute('spellcheck');
+      });
+
+      clone.querySelectorAll('.tag-delete-button').forEach((button) => {
+        button.remove();
+      });
+
+      const clonedBody = clone.querySelector('body');
+      if (clonedBody) clonedBody.classList.remove('visual-editing');
+
+      const clonedHint = clone.querySelector('#visual-editor-hint');
+      if (clonedHint) clonedHint.classList.remove('visible');
+
+      const clonedEditButton = clone.querySelector('#toggle-edit-mode');
+      if (clonedEditButton) {
+        clonedEditButton.textContent = 'Edit Page';
+        clonedEditButton.classList.add('primary');
+      }
+
+      const exportedHtml = '<!DOCTYPE html>\n' + clone.outerHTML;
+      const blob = new Blob([exportedHtml], { type: 'text/html;charset=utf-8' });
+      const url = URL.createObjectURL(blob);
+      const link = document.createElement('a');
+
+      link.href = url;
+      link.download = 'index.html';
+      document.body.appendChild(link);
+      link.click();
+      link.remove();
+      setTimeout(() => URL.revokeObjectURL(url), 1000);
+    });
+
+    function showEditorToolbar() {
+      editorToolbar.classList.add('visible');
+    }
+
+    const originalEnterStagingSite = enterStagingSite;
+    enterStagingSite = function() {
+      originalEnterStagingSite();
+      setTimeout(showEditorToolbar, 650);
+    };
+
+
+    const contactEmailLink = document.getElementById('contact-email');
+    if (contactEmailLink) {
+      contactEmailLink.addEventListener('click', (event) => {
+        syncContactEmail(document);
+
+        if (contactEmailLink.getAttribute('href') === '#') {
+          event.preventDefault();
+        }
+      });
+
+      contactEmailLink.addEventListener('blur', () => {
+        syncContactEmail(document);
+      });
+    }
+
+</script>
+
+
+
+
+</body></html>
