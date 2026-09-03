@@ -7,7 +7,7 @@ Last updated: 2026-08-31
 | Certification     | Status        | Target/Completion Date | Evidence                        |
 | ----------------- | ------------- | ---------------------- | ------------------------------- |
 | CompTIA Security+ | **Completed** | 2026-08-08             | CompTIA Security+ Certification |
-| CompTIA CySA+     | Not Started   | 2027-Q1                | -                               |
+| CompTIA CySA+     | Not Started   | 2027-Q1                |                                 |
 
 ## Labs and Hands-On Practice
 
