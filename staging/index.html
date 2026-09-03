@@ -4156,6 +4156,1860 @@
       }
     }
 
+
+    /* =========================================================
+       NOIR DECO — COLOR DEPTH PASS
+       Keeps the original blue/cyan identity, but adds richer steel,
+       midnight, ice-blue, and restrained violet-blue accents.
+       ========================================================= */
+
+    :root {
+      --night-black: #010308;
+      --midnight: #030812;
+      --deep-navy: #07111f;
+      --steel-blue: #10253b;
+      --steel-blue-2: #17344f;
+      --ice-blue: #c9f8ff;
+      --cyan-bright: #00d8ff;
+      --cyan-soft: #72f0ff;
+      --blue-electric: #2f7df6;
+      --blue-violet: #5367c8;
+      --window-cool: #d8fbff;
+      --window-blue: #8ae8ff;
+    }
+
+    body {
+      background:
+        radial-gradient(circle at 18% 16%, rgba(47,125,246,0.11), transparent 22%),
+        radial-gradient(circle at 82% 14%, rgba(83,103,200,0.08), transparent 24%),
+        linear-gradient(180deg, #010308 0%, #030812 32%, #07111f 68%, #010308 100%) !important;
+    }
+
+    body::before {
+      opacity: 0.16 !important;
+      background:
+        linear-gradient(90deg, transparent 49.75%, rgba(114,240,255,0.055) 50%, transparent 50.25%),
+        linear-gradient(180deg, rgba(255,255,255,0.015), transparent 35%) !important;
+      background-size: 116px 100%, 100% 100% !important;
+    }
+
+    header {
+      background: rgba(1,3,8,0.95) !important;
+      border-bottom-color: rgba(114,240,255,0.13) !important;
+    }
+
+    .logo span,
+    .eyebrow,
+    .section-label,
+    .repo-link,
+    .certificate-file-link,
+    .editable-contact-link,
+    .prompt {
+      color: var(--cyan-soft) !important;
+    }
+
+    h1 .accent {
+      color: var(--cyan-bright) !important;
+      text-shadow:
+        0 0 12px rgba(0,216,255,0.10),
+        0 0 30px rgba(47,125,246,0.07) !important;
+    }
+
+    /* Richer skyline color separation */
+    .noir-cityscape {
+      opacity: 0.84 !important;
+      filter: saturate(1.08);
+    }
+
+    .city-building {
+      background:
+        repeating-linear-gradient(
+          180deg,
+          transparent 0 18px,
+          rgba(201,248,255,0.22) 18px 22px,
+          transparent 22px 36px
+        ),
+        linear-gradient(90deg, #040913, #10253b 48%, #03070e) !important;
+      border-left-color: rgba(114,240,255,0.11) !important;
+      box-shadow:
+        -18px 18px 30px rgba(0,0,0,0.36),
+        inset 1px 0 0 rgba(138,232,255,0.035) !important;
+    }
+
+    .city-building:nth-child(2),
+    .city-building:nth-child(5) {
+      background:
+        repeating-linear-gradient(
+          180deg,
+          transparent 0 20px,
+          rgba(138,232,255,0.20) 20px 24px,
+          transparent 24px 39px
+        ),
+        linear-gradient(90deg, #060b15, #17344f 50%, #040810) !important;
+    }
+
+    .city-building:nth-child(3) {
+      background:
+        repeating-linear-gradient(
+          180deg,
+          transparent 0 21px,
+          rgba(201,248,255,0.24) 21px 25px,
+          transparent 25px 41px
+        ),
+        linear-gradient(90deg, #050a12, #1a3955 46%, #040810) !important;
+      box-shadow:
+        -22px 18px 34px rgba(0,0,0,0.38),
+        0 0 34px rgba(47,125,246,0.035) !important;
+    }
+
+    .city-building::before {
+      background:
+        repeating-linear-gradient(
+          90deg,
+          transparent 0 12px,
+          rgba(216,251,255,0.13) 12px 15px,
+          transparent 15px 30px
+        ) !important;
+    }
+
+    .city-building:nth-child(4)::before,
+    .city-building:nth-child(6)::before {
+      background:
+        repeating-linear-gradient(
+          90deg,
+          transparent 0 13px,
+          rgba(138,232,255,0.11) 13px 16px,
+          transparent 16px 31px
+        ) !important;
+    }
+
+    .deco-sunburst {
+      opacity: 0.20 !important;
+      background:
+        repeating-conic-gradient(
+          from 0deg,
+          rgba(114,240,255,0.40) 0deg 0.7deg,
+          transparent 0.7deg 11deg
+        ) !important;
+      filter: drop-shadow(0 0 24px rgba(47,125,246,0.04));
+    }
+
+    /* Panels: more tonal separation without getting neon */
+    .terminal,
+    .skill-card,
+    .repo-card,
+    .stat,
+    .cert,
+    .resume-panel,
+    .featured,
+    .tryhackme-copy,
+    .tryhackme-badge-wrap,
+    .contact-card,
+    .certificate-file-card,
+    .staging-gate-card {
+      background:
+        linear-gradient(180deg, rgba(14,31,49,0.96), rgba(3,8,18,0.98)) !important;
+      border-color: rgba(114,240,255,0.15) !important;
+    }
+
+    .skill-card:nth-child(even),
+    .repo-card:nth-child(even),
+    .contact-card:nth-child(even) {
+      background:
+        linear-gradient(180deg, rgba(18,38,59,0.94), rgba(4,9,19,0.98)) !important;
+    }
+
+    .skill-card:hover,
+    .repo-card:hover,
+    .stat:hover,
+    .contact-card:hover {
+      border-color: rgba(0,216,255,0.31) !important;
+      background:
+        linear-gradient(180deg, rgba(19,43,66,0.98), rgba(4,10,21,0.99)) !important;
+      box-shadow:
+        0 20px 38px rgba(0,0,0,0.34),
+        0 0 24px rgba(47,125,246,0.055) !important;
+    }
+
+    /* Skill chips use a few shades, still within the same color family */
+    .tag {
+      background: rgba(0,194,255,0.065) !important;
+      border-color: rgba(114,240,255,0.14) !important;
+      color: #dffaff !important;
+    }
+
+    .tag:nth-child(3n+2) {
+      background: rgba(47,125,246,0.08) !important;
+      border-color: rgba(83,103,200,0.15) !important;
+      color: #d9e6ff !important;
+    }
+
+    .tag:nth-child(3n) {
+      background: rgba(114,240,255,0.045) !important;
+      color: #e7fbff !important;
+    }
+
+    /* Security logos feel like illuminated signs */
+    .tool-logo-card {
+      background:
+        linear-gradient(180deg, rgba(17,37,57,0.96), rgba(3,8,17,0.99)) !important;
+    }
+
+    .tool-logo-card:nth-child(2n) {
+      background:
+        linear-gradient(180deg, rgba(20,42,65,0.96), rgba(4,9,19,0.99)) !important;
+    }
+
+    .tool-logo-card:hover {
+      border-color: rgba(0,216,255,0.30) !important;
+      box-shadow: 0 0 24px rgba(47,125,246,0.055) !important;
+    }
+
+    .tool-logo-frame {
+      background:
+        linear-gradient(180deg, #f6fdff, #e4f4f8) !important;
+      outline-color: rgba(114,240,255,0.16) !important;
+    }
+
+    /* Featured project gets the strongest controlled color moment */
+    .featured {
+      background:
+        linear-gradient(180deg, rgba(13,31,50,0.98), rgba(3,8,17,0.99)) !important;
+      border-color: rgba(0,216,255,0.19) !important;
+    }
+
+    .featured-media {
+      filter: saturate(0.72) contrast(1.10) brightness(0.72) hue-rotate(-4deg) !important;
+    }
+
+    .featured-media::before {
+      background:
+        linear-gradient(180deg, rgba(3,8,17,0.02) 15%, rgba(3,8,17,0.95) 100%) !important;
+    }
+
+    .featured-badge {
+      background: var(--cyan-bright) !important;
+      color: #010308 !important;
+      box-shadow: 0 0 18px rgba(0,216,255,0.08) !important;
+    }
+
+    /* TryHackMe: keep its red identity subtle, integrated with blue */
+    .tryhackme-mark {
+      background:
+        linear-gradient(180deg, rgba(255,80,96,0.10), rgba(8,14,24,0.80)) !important;
+      border-color: rgba(255,105,120,0.22) !important;
+      color: #ff9aa7 !important;
+      box-shadow: 0 0 18px rgba(255,80,96,0.035);
+    }
+
+    .tryhackme-badge-wrap {
+      background:
+        linear-gradient(180deg, rgba(10,25,40,0.98), rgba(3,8,17,0.99)) !important;
+    }
+
+    /* Security+ badge section: brighter, prestigious, but still blue */
+    .cert {
+      background:
+        linear-gradient(180deg, rgba(16,36,57,0.96), rgba(4,9,18,0.99)) !important;
+    }
+
+    .cert-badge-img {
+      outline-color: rgba(114,240,255,0.16) !important;
+      box-shadow:
+        0 0 0 8px rgba(2,5,11,0.75),
+        0 0 24px rgba(47,125,246,0.05) !important;
+    }
+
+    .cert-status {
+      background: rgba(0,216,255,0.07) !important;
+      border-color: rgba(114,240,255,0.15) !important;
+      color: var(--cyan-soft) !important;
+    }
+
+    /* Contact icons each get a tiny tonal variation */
+    .contact-card:nth-child(1) .contact-icon {
+      color: var(--cyan-soft) !important;
+    }
+
+    .contact-card:nth-child(2) .contact-icon {
+      color: #9fb0ff !important;
+      border-color: rgba(83,103,200,0.16) !important;
+      background: rgba(83,103,200,0.05) !important;
+    }
+
+    .contact-card:nth-child(3) .contact-icon {
+      color: #bdeeff !important;
+    }
+
+    /* Buttons: primary is bright cyan, secondary stays dark */
+    .button:not(.secondary),
+    .text-link.primary {
+      background: linear-gradient(180deg, #00d8ff, #00a9d8) !important;
+      border-color: rgba(114,240,255,0.28) !important;
+      color: #010308 !important;
+      box-shadow:
+        inset 0 1px 0 rgba(255,255,255,0.22),
+        0 0 18px rgba(0,216,255,0.07) !important;
+    }
+
+    .button:not(.secondary):hover,
+    .text-link.primary:hover {
+      background: linear-gradient(180deg, #22e2ff, #00b7e8) !important;
+      box-shadow: 0 0 22px rgba(0,216,255,0.10) !important;
+    }
+
+    .button.secondary,
+    .text-link:not(.primary) {
+      background:
+        linear-gradient(180deg, rgba(13,30,48,0.88), rgba(4,9,18,0.96)) !important;
+      border-color: rgba(114,240,255,0.16) !important;
+      color: #edf9ff !important;
+    }
+
+    /* Password screen becomes a stronger cinematic entrance */
+    .staging-gate {
+      background:
+        radial-gradient(circle at 50% 15%, rgba(47,125,246,0.11), transparent 25%),
+        linear-gradient(180deg, #010308 0%, #030812 100%) !important;
+    }
+
+    .staging-gate-card {
+      background:
+        linear-gradient(165deg, rgba(15,34,54,0.94), rgba(2,6,13,0.99)) !important;
+      border-color: rgba(114,240,255,0.17) !important;
+      box-shadow:
+        0 28px 70px rgba(0,0,0,0.48),
+        0 0 36px rgba(47,125,246,0.045) !important;
+    }
+
+    .staging-gate-form input {
+      background: rgba(1,3,8,0.88) !important;
+      border-color: rgba(114,240,255,0.15) !important;
+    }
+
+    .staging-gate-form input:focus {
+      border-color: rgba(0,216,255,0.38) !important;
+      box-shadow: 0 0 0 3px rgba(0,216,255,0.055) !important;
+    }
+
+    ::selection {
+      background: rgba(0,216,255,0.24);
+      color: #f7fdff;
+    }
+
+
+    /* =========================================================
+       CLEAN BLACK / BLUE VARIETY PASS
+       Clearer contrast between black, navy, steel-blue and cyan.
+       Deliberately flatter and less gradient-heavy.
+       ========================================================= */
+
+    :root {
+      --clean-black: #010205;
+      --clean-black-2: #03060a;
+      --clean-navy: #06101b;
+      --clean-navy-2: #091827;
+      --clean-steel: #0d2235;
+      --clean-steel-2: #12314a;
+      --clean-cyan: #00cfff;
+      --clean-ice: #8deaff;
+      --clean-line: rgba(141, 234, 255, 0.16);
+    }
+
+    body {
+      background: var(--clean-black) !important;
+    }
+
+    body::before {
+      opacity: 0.045 !important;
+      background:
+        linear-gradient(rgba(141,234,255,0.045) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(141,234,255,0.045) 1px, transparent 1px) !important;
+      background-size: 72px 72px !important;
+    }
+
+    header {
+      background: rgba(1, 2, 5, 0.96) !important;
+      border-bottom-color: rgba(141,234,255,0.10) !important;
+    }
+
+    /* Give sections distinct, flat tonal bands instead of all sharing one look */
+    #about,
+    #project,
+    #certificate-files,
+    #contact {
+      background: var(--clean-black) !important;
+    }
+
+    #skills,
+    #certifications,
+    #repository {
+      background: var(--clean-black-2) !important;
+    }
+
+    #tryhackme,
+    #resume {
+      background: var(--clean-navy) !important;
+    }
+
+    section::after {
+      background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(141,234,255,0.14),
+        transparent
+      ) !important;
+    }
+
+    /* Hero: deep black foreground + cooler blue skyline */
+    .hero {
+      background: transparent !important;
+    }
+
+    .deco-sunburst {
+      opacity: 0.12 !important;
+    }
+
+    .noir-cityscape {
+      opacity: 0.78 !important;
+    }
+
+    .city-building {
+      background:
+        repeating-linear-gradient(
+          180deg,
+          transparent 0 18px,
+          rgba(141,234,255,0.18) 18px 21px,
+          transparent 21px 36px
+        ),
+        #091827 !important;
+      border-left-color: rgba(141,234,255,0.08) !important;
+      box-shadow: -18px 18px 28px rgba(0,0,0,0.34) !important;
+    }
+
+    .city-building:nth-child(2),
+    .city-building:nth-child(5) {
+      background:
+        repeating-linear-gradient(
+          180deg,
+          transparent 0 20px,
+          rgba(141,234,255,0.16) 20px 23px,
+          transparent 23px 39px
+        ),
+        #0d2235 !important;
+    }
+
+    .city-building:nth-child(3) {
+      background:
+        repeating-linear-gradient(
+          180deg,
+          transparent 0 21px,
+          rgba(201,248,255,0.20) 21px 24px,
+          transparent 24px 41px
+        ),
+        #12314a !important;
+    }
+
+    .city-building:nth-child(4),
+    .city-building:nth-child(6) {
+      background:
+        repeating-linear-gradient(
+          180deg,
+          transparent 0 19px,
+          rgba(141,234,255,0.13) 19px 22px,
+          transparent 22px 38px
+        ),
+        #06101b !important;
+    }
+
+    /* Primary panels are darker; secondary panels are visibly bluer */
+    .terminal,
+    .featured,
+    .cert,
+    .resume-panel,
+    .tryhackme-copy,
+    .tryhackme-badge-wrap,
+    .staging-gate-card {
+      background: var(--clean-navy) !important;
+      border-color: rgba(141,234,255,0.14) !important;
+      box-shadow: 0 18px 40px rgba(0,0,0,0.28) !important;
+    }
+
+    .skill-card,
+    .repo-card,
+    .stat,
+    .contact-card,
+    .certificate-file-card {
+      background: var(--clean-black-2) !important;
+      border-color: rgba(141,234,255,0.11) !important;
+      box-shadow: 0 12px 28px rgba(0,0,0,0.22) !important;
+    }
+
+    .skill-card:nth-child(even),
+    .repo-card:nth-child(3n+2),
+    .stat:nth-child(even),
+    .contact-card:nth-child(even),
+    .certificate-file-card:nth-child(even) {
+      background: var(--clean-navy-2) !important;
+    }
+
+    .skill-card:nth-child(3n),
+    .repo-card:nth-child(3n),
+    .contact-card:nth-child(3n) {
+      background: var(--clean-steel) !important;
+    }
+
+    .skill-card:hover,
+    .repo-card:hover,
+    .stat:hover,
+    .contact-card:hover,
+    .certificate-file-card:hover {
+      background: var(--clean-steel) !important;
+      border-color: rgba(141,234,255,0.26) !important;
+      box-shadow: 0 16px 32px rgba(0,0,0,0.28) !important;
+    }
+
+    /* Security tools: clean 4x2 grid with four distinct dark-blue tones */
+    .tool-logo-grid {
+      grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+      gap: 0.8rem !important;
+    }
+
+    .tool-logo-card {
+      min-height: 148px !important;
+      background: var(--clean-black-2) !important;
+      border-color: rgba(141,234,255,0.11) !important;
+      box-shadow: none !important;
+    }
+
+    .tool-logo-card:nth-child(4n+2) {
+      background: var(--clean-navy) !important;
+    }
+
+    .tool-logo-card:nth-child(4n+3) {
+      background: var(--clean-navy-2) !important;
+    }
+
+    .tool-logo-card:nth-child(4n) {
+      background: var(--clean-steel) !important;
+    }
+
+    .tool-logo-card:hover {
+      background: var(--clean-steel-2) !important;
+      border-color: rgba(141,234,255,0.28) !important;
+      transform: translateY(-2px) !important;
+      box-shadow: none !important;
+    }
+
+    .tool-logo-frame {
+      background: #eef7fb !important;
+      border-color: #06101b !important;
+      outline-color: rgba(141,234,255,0.12) !important;
+    }
+
+    .tool-logo-name {
+      color: #e4f8ff !important;
+    }
+
+    /* Keep chips clean and mostly uniform; variety comes from panels, not clutter */
+    .tag {
+      background: rgba(0,207,255,0.055) !important;
+      border-color: rgba(141,234,255,0.12) !important;
+      color: #dff8ff !important;
+      box-shadow: none !important;
+    }
+
+    .tag:nth-child(3n+2),
+    .tag:nth-child(3n) {
+      background: rgba(0,207,255,0.055) !important;
+      border-color: rgba(141,234,255,0.12) !important;
+      color: #dff8ff !important;
+    }
+
+    /* Accent usage: bright cyan is reserved for important elements */
+    h1 .accent,
+    .featured-badge,
+    .logo span {
+      color: var(--clean-cyan) !important;
+    }
+
+    .section-label,
+    .eyebrow,
+    .prompt,
+    .repo-link,
+    .certificate-file-link,
+    .editable-contact-link {
+      color: var(--clean-ice) !important;
+    }
+
+    .featured-badge {
+      background: var(--clean-cyan) !important;
+      color: var(--clean-black) !important;
+    }
+
+    /* Buttons: one strong cyan primary; dark secondary */
+    .button:not(.secondary),
+    .text-link.primary {
+      background: var(--clean-cyan) !important;
+      color: var(--clean-black) !important;
+      border-color: var(--clean-cyan) !important;
+      box-shadow: none !important;
+    }
+
+    .button:not(.secondary):hover,
+    .text-link.primary:hover {
+      background: #35ddff !important;
+      box-shadow: none !important;
+    }
+
+    .button.secondary,
+    .text-link:not(.primary) {
+      background: var(--clean-black-2) !important;
+      color: #edfaff !important;
+      border-color: rgba(141,234,255,0.16) !important;
+      box-shadow: none !important;
+    }
+
+    .button.secondary:hover,
+    .text-link:not(.primary):hover {
+      background: var(--clean-navy-2) !important;
+      border-color: rgba(141,234,255,0.30) !important;
+    }
+
+    /* TryHackMe keeps its own small red identifier without fighting the palette */
+    .tryhackme-mark {
+      background: #12080b !important;
+      border-color: rgba(255,110,124,0.18) !important;
+      color: #ff9aa7 !important;
+      box-shadow: none !important;
+    }
+
+    /* Certification feels brighter than surrounding areas */
+    .cert {
+      background: var(--clean-navy-2) !important;
+    }
+
+    .cert-badge-img {
+      box-shadow:
+        0 0 0 7px var(--clean-black),
+        0 0 0 8px rgba(141,234,255,0.12) !important;
+    }
+
+    /* Contact icons get restrained differentiation */
+    .contact-card:nth-child(1) .contact-icon {
+      color: #8deaff !important;
+      background: #06101b !important;
+    }
+
+    .contact-card:nth-child(2) .contact-icon {
+      color: #b3c8ff !important;
+      background: #0a1020 !important;
+      border-color: rgba(118,140,220,0.13) !important;
+    }
+
+    .contact-card:nth-child(3) .contact-icon {
+      color: #d6f7ff !important;
+      background: #091827 !important;
+    }
+
+    /* Password screen: very black, one blue card */
+    .staging-gate {
+      background: var(--clean-black) !important;
+    }
+
+    .staging-gate-card {
+      background: var(--clean-navy) !important;
+    }
+
+    .ambient-orb {
+      opacity: 0.08 !important;
+    }
+
+    @media (max-width: 900px) {
+      .tool-logo-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .tool-logo-grid {
+        grid-template-columns: 1fr !important;
+      }
+    }
+
+
+    /* Metasploit wordmark fit */
+    .metasploit-tool .tool-logo-frame {
+      padding: 0.55rem !important;
+    }
+
+    .metasploit-tool .tool-logo-frame img {
+      max-width: 100% !important;
+      max-height: 54px !important;
+      object-fit: contain !important;
+    }
+
+
+    /* =========================================================
+       TOOL PAIRING + MATCHED STAT COLORS
+       Pairs:
+       1-2 Wazuh/Wireshark
+       3-4 Burp Suite/Nmap
+       5-6 DirBuster/REMnux
+       7-8 KnowBe4/Metasploit
+       ========================================================= */
+
+    /* Match all achievement/stat blocks */
+    .stats .stat,
+    .stats .stat:nth-child(even),
+    .stats .stat:nth-child(odd),
+    .stats .stat:nth-child(3n),
+    .stats .stat:nth-child(3n+2) {
+      background: #08131f !important;
+      border-color: rgba(141,234,255,0.12) !important;
+    }
+
+    .stats .stat:hover,
+    .stats .stat:nth-child(even):hover,
+    .stats .stat:nth-child(odd):hover {
+      background: #0c1b2a !important;
+      border-color: rgba(141,234,255,0.24) !important;
+    }
+
+    /* Pair the tool cards visually */
+    .tool-logo-card:nth-child(1),
+    .tool-logo-card:nth-child(2) {
+      background: #050d16 !important;
+    }
+
+    .tool-logo-card:nth-child(3),
+    .tool-logo-card:nth-child(4) {
+      background: #08131f !important;
+    }
+
+    .tool-logo-card:nth-child(5),
+    .tool-logo-card:nth-child(6) {
+      background: #0b1825 !important;
+    }
+
+    .tool-logo-card:nth-child(7),
+    .tool-logo-card:nth-child(8) {
+      background: #0e1d2d !important;
+    }
+
+    .tool-logo-card:nth-child(1):hover,
+    .tool-logo-card:nth-child(2):hover {
+      background: #0c1a27 !important;
+    }
+
+    .tool-logo-card:nth-child(3):hover,
+    .tool-logo-card:nth-child(4):hover {
+      background: #0f2030 !important;
+    }
+
+    .tool-logo-card:nth-child(5):hover,
+    .tool-logo-card:nth-child(6):hover {
+      background: #122536 !important;
+    }
+
+    .tool-logo-card:nth-child(7):hover,
+    .tool-logo-card:nth-child(8):hover {
+      background: #15293b !important;
+    }
+
+    .tool-logo-card {
+      border-color: rgba(141,234,255,0.12) !important;
+    }
+
+    .tool-logo-grid {
+      grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+    }
+
+    /* Burp logo fix */
+    .burp-tool .tool-logo-frame,
+    .metasploit-tool .tool-logo-frame {
+      padding: 0.58rem !important;
+    }
+
+    .burp-tool .tool-logo-frame img {
+      max-width: 100% !important;
+      max-height: 52px !important;
+      object-fit: contain !important;
+    }
+
+    .metasploit-tool .tool-logo-frame img {
+      max-width: 100% !important;
+      max-height: 52px !important;
+      object-fit: contain !important;
+    }
+
+    @media (max-width: 900px) {
+      .tool-logo-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .tool-logo-grid {
+        grid-template-columns: 1fr !important;
+      }
+    }
+
+
+    /* Restore stat/achievement blocks to the original darker navy look */
+    .stats .stat,
+    .stats .stat:nth-child(even),
+    .stats .stat:nth-child(odd),
+    .stats .stat:nth-child(3n),
+    .stats .stat:nth-child(3n+2) {
+      background: linear-gradient(180deg, rgba(6,16,27,0.98), rgba(3,8,18,0.99)) !important;
+      border-color: rgba(114,240,255,0.14) !important;
+      box-shadow: 0 12px 28px rgba(0,0,0,0.22) !important;
+    }
+
+    .stats .stat:hover,
+    .stats .stat:nth-child(even):hover,
+    .stats .stat:nth-child(odd):hover {
+      background: linear-gradient(180deg, rgba(10,24,39,0.98), rgba(4,10,21,0.99)) !important;
+      border-color: rgba(114,240,255,0.24) !important;
+      box-shadow: 0 16px 32px rgba(0,0,0,0.28) !important;
+    }
+
+    .stats .stat strong {
+      color: #72f0ff !important;
+    }
+
+    .stats .stat span {
+      color: #9ab3cf !important;
+    }
+
+
+    /* System Profile window controls: red, yellow, green */
+    .terminal-header .dot:nth-child(1) {
+      background: #ff5f57 !important;
+      border-color: rgba(0,0,0,0.18) !important;
+      opacity: 1 !important;
+      box-shadow: 0 0 8px rgba(255,95,87,0.22) !important;
+    }
+
+    .terminal-header .dot:nth-child(2) {
+      background: #febc2e !important;
+      border-color: rgba(0,0,0,0.18) !important;
+      opacity: 1 !important;
+      box-shadow: 0 0 8px rgba(254,188,46,0.20) !important;
+    }
+
+    .terminal-header .dot:nth-child(3) {
+      background: #28c840 !important;
+      border-color: rgba(0,0,0,0.18) !important;
+      opacity: 1 !important;
+      box-shadow: 0 0 8px rgba(40,200,64,0.20) !important;
+    }
+
+
+    /* =========================================================
+       SECURITY TOOL ICON FIX
+       One consistent icon source + guaranteed fallbacks.
+       ========================================================= */
+
+    .fixed-tool-icons {
+      grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+      gap: 0.8rem !important;
+    }
+
+    .fixed-tool-icons .tool-logo-card {
+      min-height: 150px !important;
+      padding: 1rem 0.8rem !important;
+      border-color: rgba(141,234,255,0.12) !important;
+    }
+
+    /* Matching colors by pair */
+    .fixed-tool-icons [data-tool-pair="monitoring"] {
+      background: #050d16 !important;
+    }
+
+    .fixed-tool-icons [data-tool-pair="testing"] {
+      background: #08131f !important;
+    }
+
+    .fixed-tool-icons [data-tool-pair="analysis"] {
+      background: #0b1825 !important;
+    }
+
+    .fixed-tool-icons [data-tool-pair="awareness"] {
+      background: #0e1d2d !important;
+    }
+
+    .fixed-tool-icons .tool-logo-frame {
+      position: relative !important;
+      width: 78px !important;
+      height: 78px !important;
+      display: grid !important;
+      place-items: center !important;
+      margin: 0 auto !important;
+      padding: 0.75rem !important;
+      overflow: hidden !important;
+      background: #f3f8fb !important;
+      border: 4px solid #06101b !important;
+      outline: 1px solid rgba(141,234,255,0.13) !important;
+      border-radius: 9px !important;
+      box-shadow: none !important;
+      clip-path: none !important;
+    }
+
+    .fixed-tool-icons .tool-logo-frame img {
+      position: relative !important;
+      z-index: 2 !important;
+      display: block !important;
+      width: 54px !important;
+      height: 54px !important;
+      max-width: 54px !important;
+      max-height: 54px !important;
+      object-fit: contain !important;
+      border-radius: 5px;
+    }
+
+    .fixed-tool-icons .tool-logo-fallback {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      display: grid;
+      place-items: center;
+      color: #0a2032;
+      font-family: "Arial Narrow", "Segoe UI", sans-serif;
+      font-size: 0.88rem;
+      font-weight: 900;
+      letter-spacing: 0.03em;
+    }
+
+    .fixed-tool-icons .tool-logo-frame:not(.fallback-visible) img + * {
+      display: none;
+    }
+
+    .fixed-tool-icons .dirbuster-fallback {
+      position: static !important;
+      width: 52px;
+      height: 52px;
+      color: #0a2032;
+    }
+
+    .fixed-tool-icons .dirbuster-fallback svg {
+      width: 52px;
+      height: 52px;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 4;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .fixed-tool-icons .tool-logo-name {
+      margin-top: 0.8rem !important;
+      color: #e4f8ff !important;
+      font-family: "Arial Narrow", "Segoe UI", sans-serif !important;
+      font-size: 0.74rem !important;
+      font-weight: 800 !important;
+      letter-spacing: 0.07em !important;
+      text-transform: uppercase !important;
+      text-align: center !important;
+    }
+
+    .fixed-tool-icons .tool-logo-card:hover {
+      border-color: rgba(141,234,255,0.28) !important;
+      transform: translateY(-2px) !important;
+      box-shadow: none !important;
+    }
+
+    @media (max-width: 900px) {
+      .fixed-tool-icons {
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .fixed-tool-icons {
+        grid-template-columns: 1fr !important;
+      }
+    }
+
+
+    /* Make every repository card use the exact same visual treatment */
+    .repo-grid .repo-card,
+    .repo-grid .repo-card:nth-child(odd),
+    .repo-grid .repo-card:nth-child(even),
+    .repo-grid .repo-card:nth-child(3n),
+    .repo-grid .repo-card:nth-child(3n+2) {
+      background: #0e2235 !important;
+      border-color: rgba(141, 234, 255, 0.13) !important;
+      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.22) !important;
+    }
+
+    .repo-grid .repo-card:hover,
+    .repo-grid .repo-card:nth-child(odd):hover,
+    .repo-grid .repo-card:nth-child(even):hover,
+    .repo-grid .repo-card:nth-child(3n):hover,
+    .repo-grid .repo-card:nth-child(3n+2):hover {
+      background: #132c42 !important;
+      border-color: rgba(141, 234, 255, 0.27) !important;
+      box-shadow: 0 16px 32px rgba(0, 0, 0, 0.28) !important;
+    }
+
+
+    /* =========================================================
+       RESTORED SKILLS + CONSISTENT TOOL ICON SIZING
+       ========================================================= */
+
+    .security-tools-card {
+      grid-column: 1 / -1 !important;
+    }
+
+    .fixed-tool-icons {
+      grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+      gap: 0.85rem !important;
+    }
+
+    .fixed-tool-icons .tool-logo-card {
+      min-height: 152px !important;
+      padding: 1rem 0.8rem !important;
+      display: flex !important;
+      flex-direction: column !important;
+      align-items: center !important;
+      justify-content: center !important;
+      gap: 0.72rem !important;
+    }
+
+    .fixed-tool-icons .tool-logo-frame {
+      position: relative !important;
+      width: 82px !important;
+      height: 82px !important;
+      min-width: 82px !important;
+      min-height: 82px !important;
+      display: grid !important;
+      place-items: center !important;
+      padding: 0 !important;
+      margin: 0 auto !important;
+      overflow: hidden !important;
+      background: #f4f8fa !important;
+      border: 4px solid #06101b !important;
+      outline: 1px solid rgba(141,234,255,0.13) !important;
+      border-radius: 8px !important;
+      clip-path: none !important;
+      box-shadow: none !important;
+    }
+
+    .fixed-tool-icons .tool-logo-frame img {
+      position: relative !important;
+      z-index: 2 !important;
+      display: block !important;
+      width: 50px !important;
+      height: 50px !important;
+      min-width: 50px !important;
+      min-height: 50px !important;
+      max-width: 50px !important;
+      max-height: 50px !important;
+      object-fit: contain !important;
+      object-position: center !important;
+      margin: 0 !important;
+      padding: 0 !important;
+      border-radius: 4px !important;
+      transform: none !important;
+    }
+
+    /* Burp's mark is naturally narrower, so enlarge it slightly. */
+    .fixed-tool-icons img[alt="Burp Suite icon"] {
+      width: 56px !important;
+      height: 56px !important;
+      min-width: 56px !important;
+      min-height: 56px !important;
+      max-width: 56px !important;
+      max-height: 56px !important;
+    }
+
+    .fixed-tool-icons .tool-logo-fallback {
+      position: absolute !important;
+      inset: 0 !important;
+      z-index: 1 !important;
+      display: grid !important;
+      place-items: center !important;
+      color: #0a2032 !important;
+      font-family: "Arial Narrow", "Segoe UI", sans-serif !important;
+      font-size: 0.88rem !important;
+      font-weight: 900 !important;
+    }
+
+    .fixed-tool-icons .dirbuster-fallback svg {
+      width: 48px !important;
+      height: 48px !important;
+      fill: none !important;
+      stroke: currentColor !important;
+      stroke-width: 4 !important;
+      stroke-linecap: round !important;
+      stroke-linejoin: round !important;
+    }
+
+    .fixed-tool-icons .tool-logo-name {
+      margin: 0 !important;
+      min-height: 1.2rem !important;
+      color: #e4f8ff !important;
+      font-size: 0.74rem !important;
+      font-weight: 800 !important;
+      line-height: 1.2 !important;
+      letter-spacing: 0.06em !important;
+      text-align: center !important;
+      text-transform: uppercase !important;
+    }
+
+    /* Keep each pair together visually. */
+    .fixed-tool-icons [data-tool-pair="monitoring"] {
+      background: #050d16 !important;
+    }
+
+    .fixed-tool-icons [data-tool-pair="testing"] {
+      background: #08131f !important;
+    }
+
+    .fixed-tool-icons [data-tool-pair="analysis"] {
+      background: #0b1825 !important;
+    }
+
+    .fixed-tool-icons [data-tool-pair="awareness"] {
+      background: #0e1d2d !important;
+    }
+
+    @media (max-width: 900px) {
+      .fixed-tool-icons {
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .fixed-tool-icons {
+        grid-template-columns: 1fr !important;
+      }
+    }
+
+
+    /* =========================================================
+       UNIFIED BLOCK COLORS + CRISP VECTOR TOOL ICONS
+       ========================================================= */
+
+    /* Make the main content blocks the same color so the page looks cleaner. */
+    .skill-card,
+    .skill-card:nth-child(even),
+    .skill-card:nth-child(odd),
+    .repo-card,
+    .repo-card:nth-child(even),
+    .repo-card:nth-child(odd),
+    .stat,
+    .stat:nth-child(even),
+    .stat:nth-child(odd),
+    .contact-card,
+    .contact-card:nth-child(even),
+    .contact-card:nth-child(odd),
+    .certificate-file-card,
+    .certificate-file-card:nth-child(even),
+    .certificate-file-card:nth-child(odd),
+    .tool-logo-card,
+    .tool-logo-card:nth-child(even),
+    .tool-logo-card:nth-child(odd) {
+      background: #091827 !important;
+      border-color: rgba(141,234,255,0.12) !important;
+      box-shadow: 0 12px 28px rgba(0,0,0,0.22) !important;
+    }
+
+    .skill-card:hover,
+    .repo-card:hover,
+    .stat:hover,
+    .contact-card:hover,
+    .certificate-file-card:hover,
+    .tool-logo-card:hover {
+      background: #0d2235 !important;
+      border-color: rgba(141,234,255,0.24) !important;
+      box-shadow: 0 16px 32px rgba(0,0,0,0.28) !important;
+    }
+
+    /* Keep the security tool area visually unified as well. */
+    .fixed-tool-icons [data-tool-pair="monitoring"],
+    .fixed-tool-icons [data-tool-pair="testing"],
+    .fixed-tool-icons [data-tool-pair="analysis"],
+    .fixed-tool-icons [data-tool-pair="awareness"] {
+      background: #091827 !important;
+    }
+
+    .fixed-tool-icons {
+      grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+      gap: 0.85rem !important;
+    }
+
+    .fixed-tool-icons .tool-logo-card {
+      min-height: 158px !important;
+      padding: 1rem 0.8rem !important;
+      display: flex !important;
+      flex-direction: column !important;
+      align-items: center !important;
+      justify-content: center !important;
+      gap: 0.8rem !important;
+    }
+
+    .fixed-tool-icons .tool-logo-frame {
+      width: 90px !important;
+      height: 90px !important;
+      min-width: 90px !important;
+      min-height: 90px !important;
+      display: grid !important;
+      place-items: center !important;
+      padding: 0 !important;
+      margin: 0 auto !important;
+      overflow: hidden !important;
+      background: #f4f8fa !important;
+      border: 4px solid #06101b !important;
+      outline: 1px solid rgba(141,234,255,0.13) !important;
+      border-radius: 8px !important;
+      clip-path: none !important;
+      box-shadow: none !important;
+    }
+
+    .fixed-tool-icons .tool-svg {
+      width: 58px !important;
+      height: 58px !important;
+      display: block !important;
+      overflow: visible;
+      fill: none;
+      stroke-width: 4;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      shape-rendering: geometricPrecision;
+      vector-effect: non-scaling-stroke;
+    }
+
+    .fixed-tool-icons .wazuh-svg { stroke: #0b5fff; }
+    .fixed-tool-icons .wireshark-svg { stroke: #167ac6; }
+    .fixed-tool-icons .burp-svg { stroke: #ff6633; }
+    .fixed-tool-icons .nmap-svg { stroke: #24b0ff; }
+    .fixed-tool-icons .dirbuster-svg { stroke: #0f7ab8; }
+    .fixed-tool-icons .remnux-svg { stroke: #13a54a; }
+    .fixed-tool-icons .knowbe4-svg { stroke: #f58b1f; }
+    .fixed-tool-icons .metasploit-svg { stroke: #2d7de0; }
+
+    .fixed-tool-icons .tool-logo-name {
+      margin: 0 !important;
+      min-height: 1.2rem !important;
+      color: #e4f8ff !important;
+      font-size: 0.76rem !important;
+      font-weight: 800 !important;
+      line-height: 1.2 !important;
+      letter-spacing: 0.05em !important;
+      text-align: center !important;
+      text-transform: uppercase !important;
+    }
+
+    @media (max-width: 900px) {
+      .fixed-tool-icons {
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .fixed-tool-icons {
+        grid-template-columns: 1fr !important;
+      }
+    }
+
+
+    /* =========================================================
+       ACTUAL SECURITY TOOL LOGOS
+       Crisp logo assets with consistent sizing and fallback text.
+       ========================================================= */
+
+    .actual-tool-logos {
+      grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+      gap: 0.85rem !important;
+    }
+
+    .actual-tool-logos .tool-logo-card {
+      min-height: 160px !important;
+      padding: 1rem 0.85rem !important;
+      display: flex !important;
+      flex-direction: column !important;
+      align-items: center !important;
+      justify-content: center !important;
+      gap: 0.8rem !important;
+      background: #091827 !important;
+      border-color: rgba(141,234,255,0.12) !important;
+    }
+
+    .actual-tool-logos .tool-logo-frame {
+      position: relative !important;
+      width: 96px !important;
+      height: 96px !important;
+      min-width: 96px !important;
+      min-height: 96px !important;
+      display: grid !important;
+      place-items: center !important;
+      margin: 0 auto !important;
+      padding: 10px !important;
+      overflow: hidden !important;
+      background: #f4f8fa !important;
+      border: 4px solid #06101b !important;
+      outline: 1px solid rgba(141,234,255,0.13) !important;
+      border-radius: 8px !important;
+      clip-path: none !important;
+      box-shadow: none !important;
+    }
+
+    .actual-tool-logos .tool-logo-frame img {
+      position: relative !important;
+      z-index: 2 !important;
+      display: block !important;
+      width: 64px !important;
+      height: 64px !important;
+      max-width: 64px !important;
+      max-height: 64px !important;
+      object-fit: contain !important;
+      object-position: center !important;
+      image-rendering: auto !important;
+      border-radius: 0 !important;
+      background: transparent !important;
+    }
+
+    /* Wordmarks / wider logos get a little more room */
+    .actual-tool-logos .remnux-tool .tool-logo-frame img,
+    .actual-tool-logos .metasploit-tool .tool-logo-frame img,
+    .actual-tool-logos .knowbe4-tool .tool-logo-frame img {
+      width: 72px !important;
+      max-width: 72px !important;
+      height: 40px !important;
+      max-height: 40px !important;
+    }
+
+    .actual-tool-logos .burp-tool .tool-logo-frame img,
+    .actual-tool-logos .dirbuster-tool .tool-logo-frame img {
+      width: 68px !important;
+      max-width: 68px !important;
+      height: 68px !important;
+      max-height: 68px !important;
+    }
+
+    .actual-tool-logos .nmap-tool .tool-logo-frame img {
+      width: 70px !important;
+      max-width: 70px !important;
+      height: 70px !important;
+      max-height: 70px !important;
+    }
+
+    .actual-tool-logos .tool-logo-fallback {
+      position: absolute !important;
+      inset: 0 !important;
+      z-index: 1 !important;
+      display: grid !important;
+      place-items: center !important;
+      color: #0a2032 !important;
+      font-family: "Arial Narrow", "Segoe UI", sans-serif !important;
+      font-size: 0.88rem !important;
+      font-weight: 900 !important;
+      letter-spacing: 0.03em !important;
+    }
+
+    .actual-tool-logos .tool-logo-frame.fallback-visible img {
+      display: none !important;
+    }
+
+    .actual-tool-logos .tool-logo-frame:not(.fallback-visible) .tool-logo-fallback {
+      display: none !important;
+    }
+
+    .actual-tool-logos .tool-logo-name {
+      margin: 0 !important;
+      min-height: 1.2rem !important;
+      color: #e4f8ff !important;
+      font-size: 0.76rem !important;
+      font-weight: 800 !important;
+      line-height: 1.2 !important;
+      letter-spacing: 0.05em !important;
+      text-align: center !important;
+      text-transform: uppercase !important;
+    }
+
+    @media (max-width: 900px) {
+      .actual-tool-logos {
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .actual-tool-logos {
+        grid-template-columns: 1fr !important;
+      }
+    }
+
+
+    /* =========================================================
+       NO-MISSING TOOL LOGOS
+       Uses one dependable image source and a visible fallback for every tile.
+       ========================================================= */
+
+    .no-missing-logos .tool-logo-frame {
+      width: 100px !important;
+      height: 100px !important;
+      min-width: 100px !important;
+      min-height: 100px !important;
+      padding: 12px !important;
+      display: grid !important;
+      place-items: center !important;
+      background: #f4f8fa !important;
+      border: 4px solid #06101b !important;
+      border-radius: 8px !important;
+      outline: 1px solid rgba(141,234,255,0.13) !important;
+      overflow: hidden !important;
+      box-shadow: none !important;
+    }
+
+    .no-missing-logos .tool-logo-frame img {
+      width: 72px !important;
+      height: 72px !important;
+      max-width: 72px !important;
+      max-height: 72px !important;
+      display: block !important;
+      object-fit: contain !important;
+      object-position: center !important;
+      image-rendering: auto !important;
+      border-radius: 8px !important;
+    }
+
+    .no-missing-logos .tool-logo-fallback {
+      position: absolute !important;
+      inset: 0 !important;
+      z-index: 1 !important;
+      display: grid !important;
+      place-items: center !important;
+      color: #0a2032 !important;
+      font-family: "Arial Narrow", "Segoe UI", sans-serif !important;
+      font-size: 1rem !important;
+      font-weight: 900 !important;
+      letter-spacing: 0.03em !important;
+    }
+
+    .no-missing-logos .tool-logo-frame img {
+      position: relative !important;
+      z-index: 2 !important;
+    }
+
+    .no-missing-logos .tool-logo-frame:not(.fallback-visible) .tool-logo-fallback:not(.dirbuster-logo) {
+      display: none !important;
+    }
+
+    .no-missing-logos .tool-logo-frame.fallback-visible img {
+      display: none !important;
+    }
+
+    .no-missing-logos .dirbuster-frame {
+      position: relative !important;
+    }
+
+    .no-missing-logos .dirbuster-logo {
+      position: static !important;
+      width: 70px !important;
+      height: 70px !important;
+      color: #1478ad !important;
+    }
+
+    .no-missing-logos .dirbuster-logo svg {
+      width: 70px !important;
+      height: 70px !important;
+      fill: none !important;
+      stroke: currentColor !important;
+      stroke-width: 4 !important;
+      stroke-linecap: round !important;
+      stroke-linejoin: round !important;
+    }
+
+    .no-missing-logos .tool-logo-card {
+      min-height: 170px !important;
+      background: #091827 !important;
+    }
+
+    .no-missing-logos .tool-logo-name {
+      margin-top: 0.8rem !important;
+      font-size: 0.78rem !important;
+      font-weight: 800 !important;
+      letter-spacing: 0.05em !important;
+      color: #e4f8ff !important;
+    }
+
+
+    /* =========================================================
+       8 STRETCHED, NON-PIXELATED TOOL WORDMARKS
+       Vector-only logos so they stay crisp.
+       ========================================================= */
+
+    .security-tools-card {
+      grid-column: 1 / -1 !important;
+    }
+
+    .wordmark-tool-grid {
+      grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+      gap: 0.9rem !important;
+    }
+
+    .wordmark-card {
+      min-height: 168px !important;
+      padding: 1rem 0.8rem !important;
+      display: flex !important;
+      flex-direction: column !important;
+      align-items: center !important;
+      justify-content: center !important;
+      gap: 0.8rem !important;
+      background: #091827 !important;
+      border-color: rgba(141,234,255,0.12) !important;
+      box-shadow: 0 12px 28px rgba(0,0,0,0.22) !important;
+    }
+
+    .wordmark-card:hover {
+      background: #0d2235 !important;
+      border-color: rgba(141,234,255,0.24) !important;
+      box-shadow: 0 16px 32px rgba(0,0,0,0.28) !important;
+    }
+
+    .wordmark-frame {
+      width: 162px !important;
+      height: 62px !important;
+      min-width: 162px !important;
+      min-height: 62px !important;
+      display: grid !important;
+      place-items: center !important;
+      padding: 0 !important;
+      margin: 0 auto !important;
+      background: #f4f8fa !important;
+      border: 4px solid #06101b !important;
+      outline: 1px solid rgba(141,234,255,0.13) !important;
+      border-radius: 8px !important;
+      box-shadow: none !important;
+      overflow: hidden !important;
+      clip-path: none !important;
+    }
+
+    .tool-wordmark {
+      width: 148px !important;
+      height: 48px !important;
+      display: block !important;
+      overflow: visible;
+    }
+
+    .tool-wordmark .wm-icon {
+      fill: none;
+      stroke-width: 4;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      vector-effect: non-scaling-stroke;
+      shape-rendering: geometricPrecision;
+    }
+
+    .tool-wordmark text {
+      font-family: "Arial Narrow", "Segoe UI", Arial, sans-serif;
+      font-size: 27px;
+      font-weight: 800;
+      letter-spacing: 0.3px;
+      dominant-baseline: middle;
+    }
+
+    .burp-wordmark text:nth-of-type(1),
+    .burp-wordmark text:nth-of-type(2) {
+      font-size: 20px;
+      font-weight: 800;
+    }
+
+    /* Individual brand styling */
+    .wazuh-wordmark .wm-icon { stroke: #0055d4; }
+    .wazuh-wordmark text { fill: #0055d4; }
+
+    .wireshark-wordmark .wm-icon { stroke: #1b79ba; }
+    .wireshark-wordmark text { fill: #1b79ba; font-size: 24px; }
+
+    .burp-wordmark .wm-icon { stroke: #ff6633; }
+    .burp-wordmark circle { fill: #ff6633; stroke: #ff6633; }
+    .burp-wordmark text { fill: #ff6633; }
+
+    .nmap-wordmark .wm-icon { stroke: #1590d8; }
+    .nmap-wordmark text { fill: #1590d8; }
+
+    .dirbuster-wordmark .wm-icon { stroke: #1d7aaa; }
+    .dirbuster-wordmark text { fill: #1d7aaa; font-size: 24px; }
+
+    .remnux-wordmark .wm-icon { stroke: #18a34a; }
+    .remnux-wordmark text { fill: #18a34a; }
+
+    .knowbe4-wordmark .wm-icon { stroke: #f28c24; }
+    .knowbe4-wordmark text { fill: #f28c24; font-size: 24px; }
+
+    .metasploit-wordmark .wm-icon { stroke: #2f7df6; }
+    .metasploit-wordmark text { fill: #2f7df6; font-size: 22px; }
+
+    .wordmark-card .tool-logo-name {
+      margin: 0 !important;
+      min-height: 1.2rem !important;
+      color: #e4f8ff !important;
+      font-size: 0.76rem !important;
+      font-weight: 800 !important;
+      line-height: 1.2 !important;
+      letter-spacing: 0.05em !important;
+      text-align: center !important;
+      text-transform: uppercase !important;
+    }
+
+    @media (max-width: 980px) {
+      .wordmark-tool-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+      }
+
+      .wordmark-frame {
+        width: 180px !important;
+      }
+
+      .tool-wordmark {
+        width: 165px !important;
+      }
+    }
+
+    @media (max-width: 520px) {
+      .wordmark-tool-grid {
+        grid-template-columns: 1fr !important;
+      }
+
+      .wordmark-frame {
+        width: 190px !important;
+      }
+
+      .tool-wordmark {
+        width: 172px !important;
+      }
+    }
+
+
+    /* =========================================================
+       OFFICIAL SECURITY TOOL LOGOS
+       8 exact cards, wide wordmark-oriented frames, crisp SVG where available.
+       ========================================================= */
+
+    .official-logo-grid {
+      grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+      gap: 0.9rem !important;
+    }
+
+    .official-logo-card {
+      min-height: 178px !important;
+      padding: 1rem 0.8rem !important;
+      display: flex !important;
+      flex-direction: column !important;
+      align-items: center !important;
+      justify-content: center !important;
+      gap: 0.78rem !important;
+      background: #091827 !important;
+      border-color: rgba(141, 234, 255, 0.12) !important;
+      box-shadow: 0 12px 28px rgba(0,0,0,0.22) !important;
+    }
+
+    .official-logo-card:hover {
+      background: #0d2235 !important;
+      border-color: rgba(141, 234, 255, 0.24) !important;
+      box-shadow: 0 16px 32px rgba(0,0,0,0.28) !important;
+    }
+
+    .official-logo-frame {
+      width: 196px !important;
+      height: 82px !important;
+      min-width: 196px !important;
+      min-height: 82px !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      padding: 10px 13px !important;
+      margin: 0 auto !important;
+      overflow: hidden !important;
+      background: #f5f8fa !important;
+      border: 4px solid #06101b !important;
+      outline: 1px solid rgba(141,234,255,0.13) !important;
+      border-radius: 8px !important;
+      clip-path: none !important;
+      box-shadow: none !important;
+    }
+
+    .official-logo-img {
+      display: block !important;
+      width: auto !important;
+      height: auto !important;
+      max-width: 174px !important;
+      max-height: 60px !important;
+      object-fit: contain !important;
+      object-position: center !important;
+      image-rendering: auto !important;
+      transform: none !important;
+      background: transparent !important;
+    }
+
+    /* Keep actual wordmarks large and readable. */
+    .logo-wazuh,
+    .logo-wireshark,
+    .logo-burp,
+    .logo-nmap,
+    .logo-knowbe4,
+    .logo-metasploit {
+      max-width: 174px !important;
+      max-height: 58px !important;
+    }
+
+    .logo-dirbuster {
+      max-width: 92px !important;
+      max-height: 62px !important;
+    }
+
+    .logo-remnux {
+      max-width: 170px !important;
+      max-height: 56px !important;
+    }
+
+    .official-logo-fallback {
+      display: none;
+      align-items: center;
+      justify-content: center;
+      color: #0b2031;
+      font-family: "Arial Narrow", "Segoe UI", Arial, sans-serif;
+      font-size: 1.15rem;
+      font-weight: 900;
+      letter-spacing: 0.02em;
+    }
+
+    .official-logo-card .tool-logo-name {
+      margin: 0 !important;
+      min-height: 1.2rem !important;
+      color: #e4f8ff !important;
+      font-size: 0.76rem !important;
+      font-weight: 800 !important;
+      line-height: 1.2 !important;
+      letter-spacing: 0.05em !important;
+      text-align: center !important;
+      text-transform: uppercase !important;
+    }
+
+    @media (max-width: 1050px) {
+      .official-logo-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+      }
+
+      .official-logo-frame {
+        width: 215px !important;
+      }
+
+      .official-logo-img {
+        max-width: 190px !important;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .official-logo-grid {
+        grid-template-columns: 1fr !important;
+      }
+
+      .official-logo-frame {
+        width: min(230px, 82vw) !important;
+      }
+
+      .official-logo-img {
+        max-width: min(200px, 72vw) !important;
+      }
+    }
+
+
+    /* Burp Suite + Metasploit logo correction */
+    .official-logo-card .logo-burp {
+      width: 172px !important;
+      max-width: 172px !important;
+      height: auto !important;
+      max-height: 58px !important;
+      object-fit: contain !important;
+    }
+
+    .official-logo-card .logo-metasploit {
+      width: 174px !important;
+      max-width: 174px !important;
+      height: auto !important;
+      max-height: 55px !important;
+      object-fit: contain !important;
+    }
+
+
+    /* Exact PortSwigger Burp Suite wordmark */
+    .official-logo-card .logo-burp {
+      width: 178px !important;
+      height: auto !important;
+      max-width: 178px !important;
+      max-height: 62px !important;
+      object-fit: contain !important;
+      object-position: center !important;
+      image-rendering: auto !important;
+    }
+
+    .official-logo-card:has(.logo-burp) .official-logo-frame {
+      width: 205px !important;
+      min-width: 205px !important;
+      height: 84px !important;
+      min-height: 84px !important;
+      padding: 9px 12px !important;
+    }
+
+
+    /* =========================================================
+       BURP SUITE: reliable vector mark + readable lockup
+       ========================================================= */
+
+    .burp-fixed-frame {
+      width: 205px !important;
+      min-width: 205px !important;
+      height: 84px !important;
+      min-height: 84px !important;
+      padding: 8px 12px !important;
+    }
+
+    .burp-brand-lockup {
+      width: 178px;
+      height: 58px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+    }
+
+    .burp-brand-mark {
+      display: block !important;
+      width: 54px !important;
+      height: 54px !important;
+      min-width: 54px !important;
+      min-height: 54px !important;
+      max-width: 54px !important;
+      max-height: 54px !important;
+      object-fit: contain !important;
+      image-rendering: auto !important;
+      /* Simple Icons ships monochrome SVG; this maps it to Burp's #FF6633. */
+      filter: invert(49%) sepia(93%) saturate(2780%) hue-rotate(340deg) brightness(101%) contrast(102%);
+    }
+
+    .burp-brand-text {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: center;
+      line-height: 0.88;
+      font-family: "Arial Narrow", "Segoe UI", Arial, sans-serif;
+      font-size: 1.18rem;
+      font-weight: 900;
+      letter-spacing: 0.06em;
+      color: #ff6633;
+      white-space: nowrap;
+    }
+
+    .burp-brand-text span:last-child {
+      color: #263746;
+    }
+
 </style>
 </head>
 
@@ -4165,7 +6019,7 @@
   <div class="cyber-aura-2"></div>
 
 
-  <div id="staging-gate" class="staging-gate fade-out" style="display: none;">
+  <div id="staging-gate" class="staging-gate">
     <div class="ambient-orb one"></div>
     <div class="ambient-orb two"></div>
     <div class="ambient-orb three"></div>
@@ -4190,7 +6044,7 @@
     </div>
   </div>
 
-  <div id="staging-content" style="display: block;" class="revealed">
+  <div id="staging-content" style="display:none;">
 <header>
     <div class="container">
       <nav>
@@ -4201,12 +6055,12 @@
         <ul class="nav-links">
           <li><a href="#about">About</a></li>
           <li><a href="#skills">Skills</a></li>
+          <li><a href="#project">Featured Experience</a></li>
           <li><a href="#tryhackme">TryHackMe</a></li>
           <li><a href="#certifications">Certifications</a></li>
-          <li><a href="#resume">Resume</a></li>
-          <li><a href="#project">Featured Project</a></li>
           <li><a href="#repository">Repository</a></li>
           <li><a href="#contact">Contact</a></li>
+          <li><a href="#resume">Resume</a></li>
         </ul>
       </nav>
     </div>
@@ -4344,7 +6198,7 @@
       </div>
     </section>
 
-    <section id="skills">
+<section id="skills">
       <div class="container">
 
         <div class="section-label">
@@ -4369,59 +6223,126 @@
                 <div class="skill-card-kicker">Core toolkit</div>
                 <h3>Security Tools</h3>
               </div>
-              <span class="skill-card-count">7 tools</span>
+              <span class="skill-card-count">8 tools</span>
             </div>
 
-            <div class="tool-logo-grid">
-              <span class="tag tool-logo-card">
-                <span class="tool-logo-frame">
-                  <img src="https://wazuh.com/brand-assets/Wazuh-Logo.svg" alt="Wazuh logo" loading="lazy">
+            
+            
+            
+            
+            
+            <div class="tool-logo-grid official-logo-grid">
+
+              <span class="tag tool-logo-card official-logo-card">
+                <span class="official-logo-frame">
+                  <img
+                    src="https://wazuh.com/brand-assets/Wazuh-Logo.svg"
+                    alt="Wazuh official logo"
+                    class="official-logo-img logo-wazuh"
+                    loading="eager"
+                    onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-flex';">
+                  <span class="official-logo-fallback">Wazuh</span>
                 </span>
                 <span class="tool-logo-name">Wazuh</span>
               </span>
 
-              <span class="tag tool-logo-card">
-                <span class="tool-logo-frame">
-                  <img src="https://gitlab.com/wireshark/wireshark/-/raw/master/resources/wslogo.svg" alt="Wireshark logo" loading="lazy">
+              <span class="tag tool-logo-card official-logo-card">
+                <span class="official-logo-frame">
+                  <img
+                    src="https://gitlab.com/wireshark/wireshark/-/raw/master/resources/wslogo.svg"
+                    alt="Wireshark official logo"
+                    class="official-logo-img logo-wireshark"
+                    loading="eager"
+                    onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-flex';">
+                  <span class="official-logo-fallback">Wireshark</span>
                 </span>
                 <span class="tool-logo-name">Wireshark</span>
               </span>
 
-              <span class="tag tool-logo-card">
-                <span class="tool-logo-frame">
-                  <img src="https://portswigger.net/content/images/logos/burpsuite-logo-colour.svg" alt="Burp Suite logo" loading="lazy">
+              <span class="tag tool-logo-card official-logo-card burp-fixed-card">
+                <span class="official-logo-frame burp-fixed-frame">
+                  <span class="burp-brand-lockup">
+                    <img
+                      src="https://cdn.jsdelivr.net/npm/simple-icons@v16/icons/burpsuite.svg"
+                      alt="Burp Suite logo"
+                      class="burp-brand-mark"
+                      loading="eager">
+                    <span class="burp-brand-text">
+                      <span>BURP</span>
+                      <span>SUITE</span>
+                    </span>
+                  </span>
                 </span>
                 <span class="tool-logo-name">Burp Suite</span>
               </span>
 
-              <span class="tag tool-logo-card">
-                <span class="tool-logo-frame">
-                  <img src="https://nmap.org/images/nmap-logo-256x256.png" alt="Nmap logo" loading="lazy">
+              <span class="tag tool-logo-card official-logo-card">
+                <span class="official-logo-frame">
+                  <img
+                    src="https://nmap.org/images/sitelogo-nmap.svg"
+                    alt="Nmap official logo"
+                    class="official-logo-img logo-nmap"
+                    loading="eager"
+                    onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-flex';">
+                  <span class="official-logo-fallback">Nmap</span>
                 </span>
                 <span class="tool-logo-name">Nmap</span>
               </span>
 
-              <span class="tag tool-logo-card">
-                <span class="tool-logo-frame">
-                  <img src="https://a.fsdn.com/allura/p/dirbuster/icon?1367419690" alt="DirBuster logo" loading="lazy">
+              <span class="tag tool-logo-card official-logo-card">
+                <span class="official-logo-frame">
+                  <img
+                    src="https://www.kali.org/tools/dirbuster/images/dirbuster-logo.svg"
+                    alt="DirBuster official logo"
+                    class="official-logo-img logo-dirbuster"
+                    loading="eager"
+                    onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-flex';">
+                  <span class="official-logo-fallback">DirBuster</span>
                 </span>
                 <span class="tool-logo-name">DirBuster</span>
               </span>
 
-              <span class="tag tool-logo-card">
-                <span class="tool-logo-frame">
-                  <img src="https://remnux.org/img/remnux-logo.png" alt="REMnux logo" loading="lazy">
+              <span class="tag tool-logo-card official-logo-card">
+                <span class="official-logo-frame">
+                  <img
+                    src="https://remnux.org/img/remnux-logo.png"
+                    alt="REMnux official logo"
+                    class="official-logo-img logo-remnux"
+                    loading="eager"
+                    onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-flex';">
+                  <span class="official-logo-fallback">REMnux</span>
                 </span>
                 <span class="tool-logo-name">REMnux</span>
               </span>
 
-              <span class="tag tool-logo-card">
-                <span class="tool-logo-frame">
-                  <img src="https://www.knowbe4.com/hs-fs/hubfs/knowbe4-logo-black-orange-rgb-1.png?height=142&amp;width=400" alt="KnowBe4 logo" loading="lazy">
+              <span class="tag tool-logo-card official-logo-card">
+                <span class="official-logo-frame">
+                  <img
+                    src="https://www.knowbe4.com/hs-fs/hubfs/knowbe4-logo-black-orange-rgb-1.png?height=142&amp;name=knowbe4-logo-black-orange-rgb-1.png&amp;width=400"
+                    alt="KnowBe4 official logo"
+                    class="official-logo-img logo-knowbe4"
+                    loading="eager"
+                    onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-flex';">
+                  <span class="official-logo-fallback">KnowBe4</span>
                 </span>
                 <span class="tool-logo-name">KnowBe4</span>
               </span>
+
+              <span class="tag tool-logo-card official-logo-card">
+                <span class="official-logo-frame">
+                  <img
+                    src="https://upload.wikimedia.org/wikipedia/commons/4/4f/Metasploit_logo_and_wordmark.svg"
+                    alt="Metasploit official logo"
+                    class="official-logo-img logo-metasploit"
+                    loading="eager"
+                    onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-flex';">
+                  <span class="official-logo-fallback">Metasploit</span>
+                </span>
+                <span class="tool-logo-name">Metasploit</span>
+              </span>
+
             </div>
+
           </article>
 
           <article class="skill-card">
@@ -4489,60 +6410,11 @@
       </div>
     </section>
 
-    
-    <section id="tryhackme">
-      <div class="container">
-
-        <div class="section-label">
-          03 / TryHackMe
-        </div>
-
-        <h2 class="section-title">
-          Hands-on labs beyond the classroom.
-        </h2>
-
-        <p class="section-intro">
-          I use TryHackMe to keep building practical security skills through guided labs,
-          challenges, and hands-on environments.
-        </p>
-
-        <div class="tryhackme-panel">
-          <div class="tryhackme-copy">
-            <div class="tryhackme-brand-row">
-              <div class="tryhackme-mark" aria-hidden="true">THM</div>
-              <div>
-                <span class="tryhackme-label">TryHackMe Profile</span>
-                <h3>jtpeduzzi</h3>
-              </div>
-            </div>
-
-            <p>I've used TryHackMe throughout my college education and now! It is a great resource for learning new concepts and sharpening my skills.</p>
-
-            <div class="tryhackme-actions">
-              <a class="button" href="https://tryhackme.com/p/jtpeduzzi" target="_blank" rel="noopener noreferrer">
-                View TryHackMe Profile
-              </a>
-            </div>
-          </div>
-
-          <div class="tryhackme-badge-wrap">
-            <div class="tryhackme-badge-label">Live profile badge</div>
-            <img class="tryhackme-badge" src="https://tryhackme-badges.s3.amazonaws.com/jtpeduzzi.png" alt="TryHackMe profile badge for jtpeduzzi" loading="lazy" onerror="this.closest('.tryhackme-badge-wrap').classList.add('badge-unavailable')">
-            <div class="tryhackme-badge-fallback">
-              <strong>jtpeduzzi</strong>
-              <span>TryHackMe</span>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </section>
-
 <section id="project">
       <div class="container">
 
         <div class="section-label">
-          04 / Featured Work
+          03 / Featured Work
         </div>
 
         <h2 class="section-title">
@@ -4589,7 +6461,55 @@
       </div>
     </section>
 
-    <section id="certifications">
+<section id="tryhackme">
+      <div class="container">
+
+        <div class="section-label">
+          04 / TryHackMe
+        </div>
+
+        <h2 class="section-title">
+          Hands-on labs beyond the classroom.
+        </h2>
+
+        <p class="section-intro">
+          I use TryHackMe to keep building practical security skills through guided labs,
+          challenges, and hands-on environments.
+        </p>
+
+        <div class="tryhackme-panel">
+          <div class="tryhackme-copy">
+            <div class="tryhackme-brand-row">
+              <div class="tryhackme-mark" aria-hidden="true">THM</div>
+              <div>
+                <span class="tryhackme-label">TryHackMe Profile</span>
+                <h3>jtpeduzzi</h3>
+              </div>
+            </div>
+
+            <p>I've used TryHackMe throughout my college education and now! It is a great resource for learning new concepts and sharpening my skills.</p>
+
+            <div class="tryhackme-actions">
+              <a class="button" href="https://tryhackme.com/p/jtpeduzzi" target="_blank" rel="noopener noreferrer">
+                View TryHackMe Profile
+              </a>
+            </div>
+          </div>
+
+          <div class="tryhackme-badge-wrap">
+            <div class="tryhackme-badge-label">Live profile badge</div>
+            <img class="tryhackme-badge" src="https://tryhackme-badges.s3.amazonaws.com/jtpeduzzi.png" alt="TryHackMe profile badge for jtpeduzzi" loading="lazy" onerror="this.closest('.tryhackme-badge-wrap').classList.add('badge-unavailable')">
+            <div class="tryhackme-badge-fallback">
+              <strong>jtpeduzzi</strong>
+              <span>TryHackMe</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+<section id="certifications">
       <div class="container">
 
         <div class="section-label">
@@ -4617,9 +6537,7 @@
       </div>
     </section>
 
-    
-    
-    <section id="certificate-files">
+<section id="certificate-files">
       <div class="container">
 
         <div class="section-label">
@@ -4678,57 +6596,11 @@
       </div>
     </section>
 
-<section id="resume">
-      <div class="container">
-
-        <div class="section-label">
-          07 / Resume
-        </div>
-
-        <h2 class="section-title">
-          Resume.
-        </h2>
-
-        <p class="section-intro">
-          A quick look at my education, experience, certifications, and technical background.
-        </p>
-
-        <div class="resume-panel">
-          <div class="resume-header">
-            <div>
-              <h3>Jack Peduzzi — Resume</h3>
-              <p>PDF resume</p>
-            </div>
-
-            <div class="resume-actions">
-              <a class="button secondary" href="resume.pdf" target="_blank" rel="noopener noreferrer">
-                Open Resume File
-              </a>
-
-              <a class="button" href="resume.pdf" download="">
-                Download Resume File
-              </a>
-            </div>
-          </div>
-
-          <div class="resume-preview">
-            <iframe src="resume.pdf#view=FitH" title="Jack Peduzzi Resume" loading="lazy">
-            </iframe>
-          </div>
-
-          <p class="resume-fallback">
-            Put your resume PDF in the same <code>site</code> folder as this page and name it <code>resume.pdf</code>.
-          </p>
-        </div>
-
-      </div>
-    </section>
-
 <section id="repository">
       <div class="container">
 
         <div class="section-label">
-          08 / Repository
+          07 / Repository
         </div>
 
         <h2 class="section-title">
@@ -4836,14 +6708,11 @@
       </div>
     </section>
 
-  </main>
-
-  
-    <section id="contact">
+<section id="contact">
       <div class="container">
 
         <div class="section-label">
-          09 / Contact
+          08 / Contact
         </div>
 
         <h2 class="section-title">
@@ -4900,6 +6769,52 @@
       </div>
     </section>
 
+<section id="resume">
+      <div class="container">
+
+        <div class="section-label">
+          09 / Resume
+        </div>
+
+        <h2 class="section-title">
+          Resume.
+        </h2>
+
+        <p class="section-intro">
+          A quick look at my education, experience, certifications, and technical background.
+        </p>
+
+        <div class="resume-panel">
+          <div class="resume-header">
+            <div>
+              <h3>Jack Peduzzi — Resume</h3>
+              <p>PDF resume</p>
+            </div>
+
+            <div class="resume-actions">
+              <a class="button secondary" href="resume.pdf" target="_blank" rel="noopener noreferrer">
+                Open Resume File
+              </a>
+
+              <a class="button" href="resume.pdf" download="">
+                Download Resume File
+              </a>
+            </div>
+          </div>
+
+          <div class="resume-preview">
+            <iframe src="resume.pdf#view=FitH" title="Jack Peduzzi Resume" loading="lazy">
+            </iframe>
+          </div>
+
+          <p class="resume-fallback">
+            Put your resume PDF in the same <code>site</code> folder as this page and name it <code>resume.pdf</code>.
+          </p>
+        </div>
+
+      </div>
+    </section>
+
 <footer>
     <div class="container">
       <p>
@@ -4915,7 +6830,7 @@
   </footer>
   </div>
 
-  <div id="visual-editor-toolbar" class="visual-editor-toolbar visible" data-editor-ui="true">
+  <div id="visual-editor-toolbar" class="visual-editor-toolbar" data-editor-ui="true">
     <button id="toggle-edit-mode" type="button" class="primary">Edit Page</button>
     <button id="download-edited-html" type="button">Export HTML</button>
   </div>
