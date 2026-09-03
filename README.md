@@ -1,4 +1,4 @@
-# Your Name — Cybersecurity Portfolio
+# Jack Peduzzi's Cybersecurity Portfolio
 ## About Me
 Hello, my name is Jack Peduzzi. I am a recent graduate of Mercyhurst University. I have a degree in Cybersecurity with a minor in Data Science. I am a Security+ certified cybersecurity professional with hands-on experience in SIEM monitoring, threat detection, and information security with proven leadership experience managing analyst teams and improving security operations.
 ## Goals
