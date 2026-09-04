@@ -10,21 +10,21 @@ Hello, my name is Jack Peduzzi. I am a recent graduate of Mercyhurst University.
 |---|---|
 | Networking & Security Fundamentals | Wireshark, Snort |
 | Linux & Windows Administration | AD DS, Linux management |
-| SOC Tools & SIEM | Wazuh, Documentation, ... |
-| Cryptography & PKI | OpenSSL, TLS, ... |
-| GRC | NIST CSF, CMMC, Auditing ... |
-| Data Analytics | Tableau, SQL, R ... |
+| SOC Tools & SIEM | Wazuh, Documentation|
+| Cryptography & PKI | OpenSSL, TLS|
+| GRC | NIST CSF, CMMC, Auditing |
+| Data Analytics | Tableau, SQL, R|
 ## What's In This Repository
-| Folder | What You'll Find |
+| Folder |
 |---|---|
-| [soc-tools](./soc-tools) | ... |
-| [malware-analysis](./malware-analysis) | ... |
-| [grc](./grc) | ... |
-| [research-and-writeups](./research-and-writeups) | ... |
-| [presentations](./presentations) | ... |
-| [templates](./templates) | ... |
-| [certifications-and-skills](./certifications-and-skills) | ... |
-| [tls-audits](./tls-audits) | ... |
+| [soc-tools](./soc-tools)
+| [malware-analysis](./malware-analysis) 
+| [grc](./grc)
+| [research-and-writeups](./research-and-writeups)
+| [presentations](./presentations)
+| [templates](./templates)
+| [certifications-and-skills](./certifications-and-skills) 
+| [tls-audits](./tls-audits)
 ## Website
 Live version of this portfolio: https://jpeduzzii.github.io/cybersecurity-portfolio/
 ## Contact
