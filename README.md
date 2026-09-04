@@ -8,12 +8,12 @@ Hello, my name is Jack Peduzzi. I am a recent graduate of Mercyhurst University.
 ## Skills at a Glance
 | Category | Tools / Concepts |
 |---|---|
-| Networking & Security Fundamentals | ... |
-| Linux & Windows Administration | ... |
-| SOC Tools & SIEM | Splunk, Sentinel, ... |
+| Networking & Security Fundamentals | Wireshark, Snort |
+| Linux & Windows Administration | AD DS, Linux management |
+| SOC Tools & SIEM | Wazuh, Documentation, ... |
 | Cryptography & PKI | OpenSSL, TLS, ... |
-| GRC | NIST CSF, ISO 27001, ... |
-| Data Analytics | Power BI, ... |
+| GRC | NIST CSF, CMMC, Auditing ... |
+| Data Analytics | Tableau, SQL, R ... |
 ## What's In This Repository
 | Folder | What You'll Find |
 |---|---|
