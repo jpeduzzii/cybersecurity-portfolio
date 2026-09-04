@@ -15,16 +15,16 @@ Hello, my name is Jack Peduzzi. I am a recent graduate of Mercyhurst University.
 | GRC | NIST CSF, CMMC, Auditing |
 | Data Analytics | Tableau, SQL, R|
 ## What's In This Repository
-| Folder |
+| Folder | What You'll Find |
 |---|---|
-| [soc-tools](./soc-tools)
-| [malware-analysis](./malware-analysis) 
-| [grc](./grc)
-| [research-and-writeups](./research-and-writeups)
-| [presentations](./presentations)
-| [templates](./templates)
-| [certifications-and-skills](./certifications-and-skills) 
-| [tls-audits](./tls-audits)
+| [soc-tools](./soc-tools) | SOC WORK |
+| [malware-analysis](./malware-analysis) | Malware Analysis |
+| [grc](./grc) | Auditing |
+| [research-and-writeups](./research-and-writeups) | Researching and documentation |
+| [presentations](./presentations) | Presentations |
+| [templates](./templates) | Templates |
+| [certifications-and-skills](./certifications-and-skills) | Sec+ and PCEP |
+| [tls-audits](./tls-audits) | TLS Lab |
 ## Website
 Live version of this portfolio: https://jpeduzzii.github.io/cybersecurity-portfolio/
 ## Contact
