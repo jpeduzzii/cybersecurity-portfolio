@@ -6,7 +6,6 @@ Hello, my name is Jack Peduzzi. I am a recent graduate of Mercyhurst University.
 6-12 months (a role, a certification, a specialization).
 - Cysa+
 - Additional Blue Teaming experience
-- 
 ## Skills at a Glance
 | Category | Tools / Concepts |
 |---|---|
@@ -28,7 +27,6 @@ Hello, my name is Jack Peduzzi. I am a recent graduate of Mercyhurst University.
 | [certifications-and-skills](./certifications-and-skills) | ... |
 | [tls-audits](./tls-audits) | ... |
 ## Website
-Live version of this portfolio: https://jpeduzzii.github.io/cybersecurity-
-portfolio/
+Live version of this portfolio: https://jpeduzzii.github.io/cybersecurity-portfolio/
 ## Contact
 Email: peduzzijack@gmail.com LinkedIn: https://www.linkedin.com/in/jack-peduzzi-22b913267/.
