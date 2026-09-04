@@ -6179,6 +6179,152 @@
       }
     }
 
+
+    /* =========================================================
+       ABOUT / WORK EXPERIENCE
+       Resume-style experience section with the existing noir/cyan identity.
+       ========================================================= */
+
+    .experience-intro {
+      max-width: 820px;
+      margin-bottom: 1.4rem;
+    }
+
+    .experience-list {
+      display: grid;
+      gap: 1rem;
+    }
+
+    .experience-card {
+      position: relative;
+      padding: 1.35rem 1.45rem 1.4rem;
+      background: #091827;
+      border: 1px solid rgba(141,234,255,0.12);
+      box-shadow: 0 12px 28px rgba(0,0,0,0.22);
+      overflow: hidden;
+    }
+
+    .experience-card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 4px;
+      height: 100%;
+      background: #72f0ff;
+      opacity: 0.78;
+    }
+
+    .experience-card::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 82px;
+      height: 82px;
+      pointer-events: none;
+      border-top: 1px solid rgba(114,240,255,0.11);
+      border-right: 1px solid rgba(114,240,255,0.11);
+      transform: skewX(-18deg) translateX(18px);
+      transform-origin: top right;
+    }
+
+    .experience-card:hover {
+      background: #0d2235;
+      border-color: rgba(141,234,255,0.24);
+      box-shadow: 0 16px 34px rgba(0,0,0,0.29);
+    }
+
+    .experience-card-top {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 1.25rem;
+      margin-bottom: 1rem;
+      padding-bottom: 0.9rem;
+      border-bottom: 1px solid rgba(141,234,255,0.10);
+    }
+
+    .experience-org {
+      margin-bottom: 0.35rem;
+      color: #72f0ff;
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 0.075em;
+      line-height: 1.45;
+      text-transform: uppercase;
+    }
+
+    .experience-card h3 {
+      margin: 0;
+      color: #edf7ff;
+      font-size: clamp(1.3rem, 2vw, 1.65rem);
+      line-height: 1.2;
+    }
+
+    .experience-date {
+      flex: 0 0 auto;
+      margin-top: 0.1rem;
+      padding: 0.42rem 0.68rem;
+      color: #bcd2e8;
+      background: #06111e;
+      border: 1px solid rgba(141,234,255,0.13);
+      font-family: "Arial Narrow", "Segoe UI", sans-serif;
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    .experience-bullets {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      display: grid;
+      gap: 0.72rem;
+    }
+
+    .experience-bullets li {
+      position: relative;
+      margin: 0;
+      padding-left: 1.25rem;
+      color: #b6c8dc;
+      line-height: 1.62;
+    }
+
+    .experience-bullets li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0.72em;
+      width: 6px;
+      height: 6px;
+      background: #72f0ff;
+      transform: rotate(45deg);
+      box-shadow: 0 0 8px rgba(114,240,255,0.18);
+    }
+
+    .experience-bullets strong {
+      color: #edf7ff;
+      font-weight: 800;
+    }
+
+    @media (max-width: 760px) {
+      .experience-card {
+        padding: 1.15rem 1.1rem 1.2rem;
+      }
+
+      .experience-card-top {
+        flex-direction: column;
+        gap: 0.7rem;
+      }
+
+      .experience-date {
+        white-space: normal;
+      }
+    }
+
 </style>
 </head>
 
@@ -6317,51 +6463,70 @@
         </div>
 
         <h2 class="section-title">
-          Security-minded. Hands-on. Always learning.
+          Work Experience
         </h2>
 
-        <div class="about-grid">
+        <p class="section-intro experience-intro">
+          Hands-on cybersecurity experience spanning blue team operations,
+          information security, auditing, documentation, and team leadership.
+        </p>
 
-          <div class="about-text">
-            <p>As a current Cybersecurity analyst working for TekSystems, I have been able to showcase the skills that I built throughout college.</p>
+        <div class="experience-list">
 
-            <p>I worked as the Blue Team Lead for the Center for Intelligence, Research, and Training (CIRAT) at Mercyhurst University. In this role, I led seven different analysts by overseeing the operational and information security environment in the lab space. I've written critical documentation, triaged alerts, led meetings, and developed employee training modules.</p>
-
-            <p>During my Junior year of school, I was an Information Security Intern at CNB Bank. In this role, I focused heavily on sensitive data remediation, investigating phishing emails, meeting with upper management, and shadowed other employees.</p>
-
-            <p>
-              My goal is to continue strengthening my detection, incident
-              response, network analysis, system hardening, and defensive
-              security skills while building a portfolio that demonstrates
-              what I can actually do.
-            </p>
-          </div>
-
-          <div class="stats">
-            <div class="stat">
-              <strong>Security+</strong>
-              <span>CompTIA certified</span>
+          <article class="experience-card">
+            <div class="experience-card-top">
+              <div>
+                <div class="experience-org">Center for Intelligence Research and Training (CIRAT)</div>
+                <h3>Blue Team Lead</h3>
+              </div>
+              <div class="experience-date">August 2025 – May 2026</div>
             </div>
 
-            <div class="stat">
-              <strong>9+ Months</strong>
-              <span>Hands-on SIEM experience with Wazuh</span>
+            <ul class="experience-bullets">
+              <li><strong>Led</strong> a group of seven (7) analysts defending the CIRAT environment and responding to security events.</li>
+              <li>Protected sensitive information on the CIRAT network by monitoring <strong>system and network activity logs</strong>.</li>
+              <li>Employed strict <strong>Information Security</strong> and <strong>Operational Security</strong> procedures.</li>
+              <li>Utilized <strong>Wazuh</strong> to monitor system activity, created alerting rules, and investigated security and operational events.</li>
+              <li>Configured and tested integrations between Wazuh and external threat intelligence platforms including <strong>MISP</strong> and <strong>VirusTotal</strong> to improve alert visibility and event investigation capabilities.</li>
+              <li>Reviewed and refined critical documentation including playbooks, business continuity plans, and incident responses.</li>
+              <li>Created in-depth employee <strong>training</strong> modules to help <strong>bolster</strong> Information Security and Operational Security.</li>
+              <li>Voiced concerns during team-lead meetings each week.</li>
+            </ul>
+          </article>
+
+          <article class="experience-card">
+            <div class="experience-card-top">
+              <div>
+                <div class="experience-org">CNB Bank</div>
+                <h3>Information Security Intern</h3>
+              </div>
+              <div class="experience-date">June 2025 – August 2025</div>
             </div>
 
-            <div class="stat">
-              <strong>3.84 GPA</strong>
-              <span>Cybersecurity degree</span>
+            <ul class="experience-bullets">
+              <li>Supported <strong>phishing</strong> detection and response efforts, improving identification of malicious emails.</li>
+              <li>Significantly <strong>decreased</strong> the presence of unencrypted sensitive data through comprehensive remediation initiatives.</li>
+              <li><strong>Communicated</strong> technical information to employees with varying levels of technical experience.</li>
+              <li>Engaged in business meetings with other cybersecurity employees.</li>
+            </ul>
+          </article>
+
+          <article class="experience-card">
+            <div class="experience-card-top">
+              <div>
+                <div class="experience-org">Center for Intelligence Research Analysis and Training (CIRAT)</div>
+                <h3>Internal Auditor</h3>
+              </div>
+              <div class="experience-date">January 2025 – May 2025</div>
             </div>
 
-            <div class="stat">
-              <strong>Magna Cum Laude</strong>
-              <span>Graduation Distinction</span>
-            </div>
-          <div class="stat">
-            <strong>Honors Scholar</strong>
-            <span>Mercyhurst University</span>
-          </div>
-          </div>
+            <ul class="experience-bullets">
+              <li>Conducted internal audits to ensure compliance with <strong>CMMC</strong> security standards.</li>
+              <li><strong>Audited</strong> critical documentation pertaining to lab procedures and operations.</li>
+              <li>Assessed cybersecurity risks and <strong>collaborated</strong> with teams to mitigate vulnerabilities.</li>
+              <li>Wrote and <strong>standardized</strong> documentation on creating a lab auditing program.</li>
+            </ul>
+          </article>
 
         </div>
       </div>
