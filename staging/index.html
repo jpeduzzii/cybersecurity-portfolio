@@ -6010,6 +6010,175 @@
       color: #263746;
     }
 
+
+    /* =========================================================
+       PORTFOLIO QR CODE — BOTTOM SECTION
+       ========================================================= */
+
+    .portfolio-qr-section {
+      padding: 3rem 0 2.4rem;
+    }
+
+    .portfolio-qr-card {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      align-items: center;
+      gap: 2rem;
+      padding: 1.6rem 1.8rem;
+      background: #091827;
+      border: 1px solid rgba(141,234,255,0.12);
+      box-shadow: 0 12px 28px rgba(0,0,0,0.22);
+    }
+
+    .portfolio-qr-card .section-title {
+      margin-bottom: 0.65rem;
+    }
+
+    .portfolio-qr-card .section-intro {
+      margin-bottom: 0;
+    }
+
+    .portfolio-qr-link {
+      display: block;
+      padding: 10px;
+      background: #ffffff;
+      border: 4px solid #06101b;
+      outline: 1px solid rgba(141,234,255,0.18);
+      transition: transform 160ms ease, border-color 160ms ease;
+    }
+
+    .portfolio-qr-link:hover {
+      transform: translateY(-3px);
+      border-color: #72f0ff;
+    }
+
+    .portfolio-qr-image {
+      display: block;
+      width: 180px;
+      height: 180px;
+      image-rendering: pixelated;
+    }
+
+    @media (max-width: 720px) {
+      .portfolio-qr-card {
+        grid-template-columns: 1fr;
+      }
+
+      .portfolio-qr-link {
+        justify-self: start;
+      }
+    }
+
+
+    /* PCEP certification card */
+    .pcep-cert {
+      margin-top: 1rem;
+    }
+
+    .pcep-cert-badge {
+      object-fit: contain !important;
+      image-rendering: auto !important;
+    }
+
+
+    /* Center the PCEP certification card content */
+    .pcep-cert {
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      text-align: center !important;
+    }
+
+    .pcep-cert .cert-main {
+      width: 100% !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      gap: 1.4rem !important;
+    }
+
+    .pcep-cert .cert-copy {
+      display: flex !important;
+      flex-direction: column !important;
+      align-items: center !important;
+      justify-content: center !important;
+      text-align: center !important;
+    }
+
+    .pcep-cert .cert-copy h3,
+    .pcep-cert .cert-copy p {
+      text-align: center !important;
+    }
+
+    .pcep-cert .cert-status {
+      margin-left: auto !important;
+      margin-right: auto !important;
+    }
+
+
+    /* =========================================================
+       PCEP POSITION FIX
+       PCEP is now a separate card and its badge/text group is centered.
+       ========================================================= */
+
+    .cert-showcase {
+      display: grid !important;
+      gap: 1rem !important;
+    }
+
+    .pcep-cert {
+      width: 100% !important;
+      margin: 0 !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      text-align: left !important;
+    }
+
+    .pcep-cert .cert-main {
+      width: auto !important;
+      max-width: 900px !important;
+      margin-left: auto !important;
+      margin-right: auto !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      gap: 1.4rem !important;
+    }
+
+    .pcep-cert .cert-copy {
+      display: block !important;
+      text-align: left !important;
+    }
+
+    .pcep-cert .cert-copy h3,
+    .pcep-cert .cert-copy p {
+      text-align: left !important;
+    }
+
+    .pcep-cert .cert-status {
+      margin-left: 0 !important;
+      margin-right: 0 !important;
+    }
+
+    @media (max-width: 650px) {
+      .pcep-cert .cert-main {
+        flex-direction: column !important;
+        text-align: center !important;
+      }
+
+      .pcep-cert .cert-copy,
+      .pcep-cert .cert-copy h3,
+      .pcep-cert .cert-copy p {
+        text-align: center !important;
+      }
+
+      .pcep-cert .cert-status {
+        margin-left: auto !important;
+        margin-right: auto !important;
+      }
+    }
+
 </style>
 </head>
 
@@ -6019,7 +6188,7 @@
   <div class="cyber-aura-2"></div>
 
 
-  <div id="staging-gate" class="staging-gate fade-out" style="display: none;">
+  <div id="staging-gate" class="staging-gate">
     <div class="ambient-orb one"></div>
     <div class="ambient-orb two"></div>
     <div class="ambient-orb three"></div>
@@ -6044,7 +6213,7 @@
     </div>
   </div>
 
-  <div id="staging-content" style="display: block;" class="revealed">
+  <div id="staging-content" style="display:none;">
 <header>
     <div class="container">
       <nav>
@@ -6154,16 +6323,18 @@
         <div class="about-grid">
 
           <div class="about-text">
-            <p>As a current Cybersecurity analyst working for TekSystems, I have been able to showcase the skills that I built throughout college. On this portfolio, I have uploaded some of the labs I have completed while in training. Additionally, other projects that were completed during my time in school have also been uploaded.&nbsp;</p>
+            <p>As a current Cybersecurity analyst working for TekSystems, I have been able to showcase the skills that I built throughout college.</p>
 
-            <p>I worked as the Blue Team Lead for the Center for Intelligence, Research, and Training (CIRAT) at Mercyhurst University. In this role, I led seven different analysts by overseeing the operational and information security environment in the lab. I've written critical documentation, triaged alerts, led meetings, and developed employee training modules.</p>
+            <p>I worked as the Blue Team Lead for the Center for Intelligence, Research, and Training (CIRAT) at Mercyhurst University. In this role, I led seven different analysts by overseeing the operational and information security environment in the lab space. I've written critical documentation, triaged alerts, led meetings, and developed employee training modules.</p>
 
             <p>During my Junior year of school, I was an Information Security Intern at CNB Bank. In this role, I focused heavily on sensitive data remediation, investigating phishing emails, meeting with upper management, and shadowed other employees.</p>
 
             <p>
               My goal is to continue strengthening my detection, incident
               response, network analysis, system hardening, and defensive
-              security skills to make way for an eventual role in Blue Teaming.</p>
+              security skills while building a portfolio that demonstrates
+              what I can actually do.
+            </p>
           </div>
 
           <div class="stats">
@@ -6208,7 +6379,10 @@
         </h2>
 
         <p class="section-intro">
-          My technical background spans many different domains, including: Blue Teaming and Red Teaming, Network Monitoring, Digital Forensics, Auditing, and Intelligence Tools.</p>
+          My technical background spans security tools, operating systems,
+          programming, digital forensics, intelligence platforms, productivity
+          tools, and collaborative leadership.
+        </p>
 
         <div class="skills-grid">
 
@@ -6230,7 +6404,12 @@
 
               <span class="tag tool-logo-card official-logo-card">
                 <span class="official-logo-frame">
-                  <img src="https://wazuh.com/brand-assets/Wazuh-Logo.svg" alt="Wazuh official logo" class="official-logo-img logo-wazuh" loading="eager" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-flex';">
+                  <img
+                    src="https://wazuh.com/brand-assets/Wazuh-Logo.svg"
+                    alt="Wazuh official logo"
+                    class="official-logo-img logo-wazuh"
+                    loading="eager"
+                    onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-flex';">
                   <span class="official-logo-fallback">Wazuh</span>
                 </span>
                 <span class="tool-logo-name">Wazuh</span>
@@ -6238,7 +6417,12 @@
 
               <span class="tag tool-logo-card official-logo-card">
                 <span class="official-logo-frame">
-                  <img src="https://gitlab.com/wireshark/wireshark/-/raw/master/resources/wslogo.svg" alt="Wireshark official logo" class="official-logo-img logo-wireshark" loading="eager" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-flex';">
+                  <img
+                    src="https://gitlab.com/wireshark/wireshark/-/raw/master/resources/wslogo.svg"
+                    alt="Wireshark official logo"
+                    class="official-logo-img logo-wireshark"
+                    loading="eager"
+                    onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-flex';">
                   <span class="official-logo-fallback">Wireshark</span>
                 </span>
                 <span class="tool-logo-name">Wireshark</span>
@@ -6247,7 +6431,11 @@
               <span class="tag tool-logo-card official-logo-card burp-fixed-card">
                 <span class="official-logo-frame burp-fixed-frame">
                   <span class="burp-brand-lockup">
-                    <img src="https://cdn.jsdelivr.net/npm/simple-icons@v16/icons/burpsuite.svg" alt="Burp Suite logo" class="burp-brand-mark" loading="eager">
+                    <img
+                      src="https://cdn.jsdelivr.net/npm/simple-icons@v16/icons/burpsuite.svg"
+                      alt="Burp Suite logo"
+                      class="burp-brand-mark"
+                      loading="eager">
                     <span class="burp-brand-text">
                       <span>BURP</span>
                       <span>SUITE</span>
@@ -6259,7 +6447,12 @@
 
               <span class="tag tool-logo-card official-logo-card">
                 <span class="official-logo-frame">
-                  <img src="https://nmap.org/images/sitelogo-nmap.svg" alt="Nmap official logo" class="official-logo-img logo-nmap" loading="eager" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-flex';">
+                  <img
+                    src="https://nmap.org/images/sitelogo-nmap.svg"
+                    alt="Nmap official logo"
+                    class="official-logo-img logo-nmap"
+                    loading="eager"
+                    onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-flex';">
                   <span class="official-logo-fallback">Nmap</span>
                 </span>
                 <span class="tool-logo-name">Nmap</span>
@@ -6267,7 +6460,12 @@
 
               <span class="tag tool-logo-card official-logo-card">
                 <span class="official-logo-frame">
-                  <img src="https://www.kali.org/tools/dirbuster/images/dirbuster-logo.svg" alt="DirBuster official logo" class="official-logo-img logo-dirbuster" loading="eager" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-flex';">
+                  <img
+                    src="https://www.kali.org/tools/dirbuster/images/dirbuster-logo.svg"
+                    alt="DirBuster official logo"
+                    class="official-logo-img logo-dirbuster"
+                    loading="eager"
+                    onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-flex';">
                   <span class="official-logo-fallback">DirBuster</span>
                 </span>
                 <span class="tool-logo-name">DirBuster</span>
@@ -6275,7 +6473,12 @@
 
               <span class="tag tool-logo-card official-logo-card">
                 <span class="official-logo-frame">
-                  <img src="https://remnux.org/img/remnux-logo.png" alt="REMnux official logo" class="official-logo-img logo-remnux" loading="eager" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-flex';">
+                  <img
+                    src="https://remnux.org/img/remnux-logo.png"
+                    alt="REMnux official logo"
+                    class="official-logo-img logo-remnux"
+                    loading="eager"
+                    onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-flex';">
                   <span class="official-logo-fallback">REMnux</span>
                 </span>
                 <span class="tool-logo-name">REMnux</span>
@@ -6283,7 +6486,12 @@
 
               <span class="tag tool-logo-card official-logo-card">
                 <span class="official-logo-frame">
-                  <img src="https://www.knowbe4.com/hs-fs/hubfs/knowbe4-logo-black-orange-rgb-1.png?height=142&amp;name=knowbe4-logo-black-orange-rgb-1.png&amp;width=400" alt="KnowBe4 official logo" class="official-logo-img logo-knowbe4" loading="eager" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-flex';">
+                  <img
+                    src="https://www.knowbe4.com/hs-fs/hubfs/knowbe4-logo-black-orange-rgb-1.png?height=142&amp;name=knowbe4-logo-black-orange-rgb-1.png&amp;width=400"
+                    alt="KnowBe4 official logo"
+                    class="official-logo-img logo-knowbe4"
+                    loading="eager"
+                    onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-flex';">
                   <span class="official-logo-fallback">KnowBe4</span>
                 </span>
                 <span class="tool-logo-name">KnowBe4</span>
@@ -6291,7 +6499,12 @@
 
               <span class="tag tool-logo-card official-logo-card">
                 <span class="official-logo-frame">
-                  <img src="https://upload.wikimedia.org/wikipedia/commons/4/4f/Metasploit_logo_and_wordmark.svg" alt="Metasploit official logo" class="official-logo-img logo-metasploit" loading="eager" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-flex';">
+                  <img
+                    src="https://upload.wikimedia.org/wikipedia/commons/4/4f/Metasploit_logo_and_wordmark.svg"
+                    alt="Metasploit official logo"
+                    class="official-logo-img logo-metasploit"
+                    loading="eager"
+                    onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-flex';">
                   <span class="official-logo-fallback">Metasploit</span>
                 </span>
                 <span class="tool-logo-name">Metasploit</span>
@@ -6443,7 +6656,7 @@
               </div>
             </div>
 
-            <p>I've used TryHackMe throughout my college education and now. It is a great resource for learning new concepts and sharpening my skills.</p>
+            <p>I've used TryHackMe throughout my college education and now! It is a great resource for learning new concepts and sharpening my skills.</p>
 
             <div class="tryhackme-actions">
               <a class="button" href="https://tryhackme.com/p/jtpeduzzi" target="_blank" rel="noopener noreferrer">
@@ -6477,9 +6690,14 @@
         </h2>
 
         <div class="cert-showcase">
+
           <div class="cert">
             <div class="cert-main">
-              <img class="cert-badge-img" src="https://images.credly.com/images/80d8a06a-c384-42bf-ad36-db81bce5adce/blob" alt="CompTIA Security+ Certified badge" loading="lazy">
+              <img
+                class="cert-badge-img"
+                src="https://images.credly.com/images/80d8a06a-c384-42bf-ad36-db81bce5adce/blob"
+                alt="CompTIA Security+ Certified badge"
+                loading="lazy">
 
               <div class="cert-copy">
                 <h3>CompTIA Security+</h3>
@@ -6488,6 +6706,23 @@
               </div>
             </div>
           </div>
+
+          <div class="cert pcep-cert">
+            <div class="cert-main">
+              <img
+                class="cert-badge-img pcep-cert-badge"
+                src="https://images.credly.com/images/b790eb12-ecb3-4b94-89be-61aa40c92e7c/image.png"
+                alt="PCEP Certified Entry-Level Python Programmer badge"
+                loading="lazy">
+
+              <div class="cert-copy">
+                <h3>PCEP – Certified Entry-Level Python Programmer</h3>
+                <p>Issued by Python Institute</p>
+                <div class="cert-status">Certified</div>
+              </div>
+            </div>
+          </div>
+
         </div>
 
       </div>
@@ -6771,6 +7006,33 @@
       </div>
     </section>
 
+
+<section id="portfolio-qr" class="portfolio-qr-section">
+  <div class="container">
+    <div class="portfolio-qr-card">
+      <div class="portfolio-qr-copy">
+        <div class="section-label">10 / Portfolio QR</div>
+        <h2 class="section-title">Scan to view my portfolio.</h2>
+        <p class="section-intro">
+          Scan this code to open jpeduzzii.github.io/cybersecurity-portfolio.
+        </p>
+      </div>
+
+      <a
+        class="portfolio-qr-link"
+        href="https://jpeduzzii.github.io/cybersecurity-portfolio"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Open Jack Peduzzi's cybersecurity portfolio">
+        <img
+          class="portfolio-qr-image"
+          src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAkwAAAJMAQAAAAAgH8RuAAAEVElEQVR4nO2dQZLjIAxFv6ayxzfo+x8rN4ATaBYCSThe2c4UPf6qroQm+BUsVAL0waK4ydqfu0gAUUQRRRRRRBFFFFFEEUUUUf8IJW4b/A8AWq8GRmUT+yk/8qVeEUXUA1Cv/l2qfQugTWCfpYo3bJvVo6h8PHJ3r4gi6jmol5cE3a2kKJqoOyMgwxl11Ov8yN29Ioqo56Ben1XmegJIUQGkVAW0bVIURaVUKSrhet/oFVFEPQd14IMW3QRQK+wnpdInpV/sFVFEPQcVPqi7QqloW68ZbihjsirzI3f3iiiinof63P8E5EcBoGgvmBX9fORbvSKKqP8f1ePggWKtSd+BQcw/8yz045E1B0gUUYujoNkqUFRV7VNrb9Bb1l62tijxp6pa1xwgUUQtjgof7OUKAChqHtd9zRywdjf0z9yMPkgUUecsO1q4WwqL7mjxTBmOOcXQNQdIFFGLo4YPIhwwFzw+utO5t+af6INEEXXW9nsyplXrGfnQoaVf0bOHvTzyF6sOkCiifglqbHjaelB+VN8j71DUpNpWRtoalQ0pbbH2AIkialFULP3yVqdvv0zz0goAB1s0XA8SRdR5mzXblhMckU6GQsbCn47ZqY75p0yy7TUHSBRRi6O6D9riznTaKApbD7bNTyq5Ps2OVLhWLS0Y1xwgUUT9EpTnGt5drgbTqrXxr+lkajxpkraUs1h7gEQRtShqTsR76iHnLDwBUUf9WAyCuQmiiLps+/zgcMlQwiRhzK4l6INEEXXZQqhWEfuiswHhfZOT5kr6IFFEnbI858QsVHPfzKK1nJsAwivpg0QRdQXVF3d17MM06QVXpr3TDmjWi9Yv9ooooh6A8nvV1FRnERH9QicArkyLXzcTqmnbmB8kiqgLFvlBi25zobootEtDLfxZurDojFpzgEQRtTgqbYQmfVqWou2Wgf5UL1TuyRBF1BWbtGomhlFbBoYybdxoAQDQtmmWqEU0XHOARBG1OGq627DfIwrARWjjmJIr1tD9dENSrN3dK6KIeg5qvsuiYpqI1lST2hwctOdclCiiztou5z6J0Dz7kO64cKcDEJkL+iBRRJ21vRIm1U8upuF6ux0b+iBRRF0x96/P+ww9LEagrBH7kKIkfZAook7blJvYXZ6GSaRthVCppTb0QaKIuoiKRd88I43bYyxLaBo2jHvVppe/LD1AoohaFZV0MmalxgsHS0XXyUhuM/IU49f7e0UUUc9BHbyH11446P+6RM3b6KwsHe8iXHOARBG1OOrjnu2Szsv7sYgSqcDp4ZQ65HqQKKJuRGkdd8jYItEOLjWxmkjcp8tnftcAiSJqGdTBe3jj3ASAoV6TcbipN7AVounW7u8VUUQ9ERUzzyay9VA4Yhz0LbJhmouWfsiXcZAooi7YiIPzK+bj4lA7NGFCbtsIbWJHJ/wF2YyDRBF1weTgDbznrK05QKKIIooooogiiiiiiCKKKKIO7S9EtdmiLOlItwAAAABJRU5ErkJggg=="
+          alt="QR code for Jack Peduzzi's cybersecurity portfolio">
+      </a>
+    </div>
+  </div>
+</section>
+
 <footer>
     <div class="container">
       <p>
@@ -6784,9 +7046,9 @@
       </p>
     </div>
   </footer>
-  </main></div>
+  </div>
 
-  <div id="visual-editor-toolbar" class="visual-editor-toolbar visible" data-editor-ui="true">
+  <div id="visual-editor-toolbar" class="visual-editor-toolbar" data-editor-ui="true">
     <button id="toggle-edit-mode" type="button" class="primary">Edit Page</button>
     <button id="download-edited-html" type="button">Export HTML</button>
   </div>
@@ -6979,7 +7241,6 @@
     }
 
 </script>
-
 
 
 
