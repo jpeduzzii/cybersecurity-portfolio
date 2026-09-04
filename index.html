@@ -7863,6 +7863,92 @@
       }
     }
 
+
+    /* =========================================================
+       PRODUCTION CLEANUP + UNIFIED PAGE COLOR
+       ========================================================= */
+
+    html,
+    body {
+      background: #02060b !important;
+    }
+
+    main,
+    main > .container,
+    section,
+    .personal-section,
+    .resume-request-section {
+      background-color: #02060b !important;
+    }
+
+    /* Prevent older section-specific gradients/colors from showing through. */
+    section,
+    section:nth-child(odd),
+    section:nth-child(even),
+    #about,
+    #skills,
+    #project,
+    #tryhackme,
+    #certifications,
+    #certificate-files,
+    #repository,
+    #contact,
+    #personal,
+    #resume-request {
+      background: #02060b !important;
+      background-image: none !important;
+    }
+
+    /* One consistent card color across the entire site. */
+    .experience-card,
+    .skill-card,
+    .featured,
+    .cert,
+    .certificate-file-card,
+    .repo-card,
+    .contact-card,
+    .personal-bottom-card,
+    .resume-request-card,
+    .terminal,
+    .tryhackme-copy,
+    .tryhackme-badge-wrap,
+    .stat {
+      background: #071320 !important;
+      background-image: none !important;
+      border-color: rgba(114,240,255,0.12) !important;
+    }
+
+    .experience-card:hover,
+    .skill-card:hover,
+    .featured:hover,
+    .cert:hover,
+    .certificate-file-card:hover,
+    .repo-card:hover,
+    .contact-card:hover,
+    .personal-bottom-card:hover,
+    .resume-request-card:hover,
+    .terminal:hover,
+    .tryhackme-copy:hover,
+    .tryhackme-badge-wrap:hover,
+    .stat:hover {
+      background: #0a1b2b !important;
+      background-image: none !important;
+      border-color: rgba(167,139,250,0.24) !important;
+    }
+
+    /* The hero keeps its skyline artwork, but uses the same base page tone. */
+    .hero {
+      background-color: #02060b !important;
+    }
+
+    /* Production build: editor/staging UI is intentionally gone. */
+    .staging-gate,
+    .visual-editor-toolbar,
+    .visual-editor-hint,
+    .tag-delete-button {
+      display: none !important;
+    }
+
 </style>
 </head>
 
@@ -7872,32 +7958,7 @@
   <div class="cyber-aura-2"></div>
 
 
-  <div id="staging-gate" class="staging-gate fade-out" style="display: none;">
-    <div class="ambient-orb one"></div>
-    <div class="ambient-orb two"></div>
-    <div class="ambient-orb three"></div>
-    <div class="ambient-orb four"></div>
-
-    <div class="staging-gate-card">
-      <div class="staging-badge">Staging Preview</div>
-
-      <h2>Staging access node</h2>
-
-      <p>
-        This is the preview build of the site. Enter the password to access the staging environment.
-      </p>
-
-      <div class="staging-gate-form">
-        <input type="password" id="staging-password" placeholder="Password" aria-label="Password" onkeydown="if (event.key === 'Enter') checkStagingPassword()">
-        <button type="button" onclick="checkStagingPassword()">Enter</button>
-      </div>
-
-      <p id="staging-error">Access denied. That password isn’t right.</p>
-      <p class="staging-note">This environment is for testing changes before they go live.</p>
-    </div>
-  </div>
-
-  <div id="staging-content" style="display: block;" class="revealed">
+  
 <header>
     <div class="container">
       <nav>
@@ -8109,7 +8170,12 @@
 
               <span class="tag tool-logo-card official-logo-card">
                 <span class="official-logo-frame">
-                  <img src="https://wazuh.com/brand-assets/Wazuh-Logo.svg" alt="Wazuh official logo" class="official-logo-img logo-wazuh" loading="eager" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-flex';">
+                  <img
+                    src="https://wazuh.com/brand-assets/Wazuh-Logo.svg"
+                    alt="Wazuh official logo"
+                    class="official-logo-img logo-wazuh"
+                    loading="eager"
+                    onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-flex';">
                   <span class="official-logo-fallback">Wazuh</span>
                 </span>
                 <span class="tool-logo-name">Wazuh</span>
@@ -8117,7 +8183,12 @@
 
               <span class="tag tool-logo-card official-logo-card">
                 <span class="official-logo-frame">
-                  <img src="https://gitlab.com/wireshark/wireshark/-/raw/master/resources/wslogo.svg" alt="Wireshark official logo" class="official-logo-img logo-wireshark" loading="eager" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-flex';">
+                  <img
+                    src="https://gitlab.com/wireshark/wireshark/-/raw/master/resources/wslogo.svg"
+                    alt="Wireshark official logo"
+                    class="official-logo-img logo-wireshark"
+                    loading="eager"
+                    onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-flex';">
                   <span class="official-logo-fallback">Wireshark</span>
                 </span>
                 <span class="tool-logo-name">Wireshark</span>
@@ -8126,7 +8197,11 @@
               <span class="tag tool-logo-card official-logo-card burp-fixed-card">
                 <span class="official-logo-frame burp-fixed-frame">
                   <span class="burp-brand-lockup">
-                    <img src="https://cdn.jsdelivr.net/npm/simple-icons@v16/icons/burpsuite.svg" alt="Burp Suite logo" class="burp-brand-mark" loading="eager">
+                    <img
+                      src="https://cdn.jsdelivr.net/npm/simple-icons@v16/icons/burpsuite.svg"
+                      alt="Burp Suite logo"
+                      class="burp-brand-mark"
+                      loading="eager">
                     <span class="burp-brand-text">
                       <span>BURP</span>
                       <span>SUITE</span>
@@ -8138,7 +8213,12 @@
 
               <span class="tag tool-logo-card official-logo-card">
                 <span class="official-logo-frame">
-                  <img src="https://nmap.org/images/sitelogo-nmap.svg" alt="Nmap official logo" class="official-logo-img logo-nmap" loading="eager" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-flex';">
+                  <img
+                    src="https://nmap.org/images/sitelogo-nmap.svg"
+                    alt="Nmap official logo"
+                    class="official-logo-img logo-nmap"
+                    loading="eager"
+                    onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-flex';">
                   <span class="official-logo-fallback">Nmap</span>
                 </span>
                 <span class="tool-logo-name">Nmap</span>
@@ -8146,7 +8226,12 @@
 
               <span class="tag tool-logo-card official-logo-card">
                 <span class="official-logo-frame">
-                  <img src="https://www.kali.org/tools/dirbuster/images/dirbuster-logo.svg" alt="DirBuster official logo" class="official-logo-img logo-dirbuster" loading="eager" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-flex';">
+                  <img
+                    src="https://www.kali.org/tools/dirbuster/images/dirbuster-logo.svg"
+                    alt="DirBuster official logo"
+                    class="official-logo-img logo-dirbuster"
+                    loading="eager"
+                    onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-flex';">
                   <span class="official-logo-fallback">DirBuster</span>
                 </span>
                 <span class="tool-logo-name">DirBuster</span>
@@ -8154,7 +8239,12 @@
 
               <span class="tag tool-logo-card official-logo-card">
                 <span class="official-logo-frame">
-                  <img src="https://remnux.org/img/remnux-logo.png" alt="REMnux official logo" class="official-logo-img logo-remnux" loading="eager" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-flex';">
+                  <img
+                    src="https://remnux.org/img/remnux-logo.png"
+                    alt="REMnux official logo"
+                    class="official-logo-img logo-remnux"
+                    loading="eager"
+                    onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-flex';">
                   <span class="official-logo-fallback">REMnux</span>
                 </span>
                 <span class="tool-logo-name">REMnux</span>
@@ -8162,7 +8252,12 @@
 
               <span class="tag tool-logo-card official-logo-card">
                 <span class="official-logo-frame">
-                  <img src="https://www.knowbe4.com/hs-fs/hubfs/knowbe4-logo-black-orange-rgb-1.png?height=142&amp;name=knowbe4-logo-black-orange-rgb-1.png&amp;width=400" alt="KnowBe4 official logo" class="official-logo-img logo-knowbe4" loading="eager" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-flex';">
+                  <img
+                    src="https://www.knowbe4.com/hs-fs/hubfs/knowbe4-logo-black-orange-rgb-1.png?height=142&amp;name=knowbe4-logo-black-orange-rgb-1.png&amp;width=400"
+                    alt="KnowBe4 official logo"
+                    class="official-logo-img logo-knowbe4"
+                    loading="eager"
+                    onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-flex';">
                   <span class="official-logo-fallback">KnowBe4</span>
                 </span>
                 <span class="tool-logo-name">KnowBe4</span>
@@ -8170,7 +8265,12 @@
 
               <span class="tag tool-logo-card official-logo-card">
                 <span class="official-logo-frame">
-                  <img src="https://upload.wikimedia.org/wikipedia/commons/4/4f/Metasploit_logo_and_wordmark.svg" alt="Metasploit official logo" class="official-logo-img logo-metasploit" loading="eager" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-flex';">
+                  <img
+                    src="https://upload.wikimedia.org/wikipedia/commons/4/4f/Metasploit_logo_and_wordmark.svg"
+                    alt="Metasploit official logo"
+                    class="official-logo-img logo-metasploit"
+                    loading="eager"
+                    onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-flex';">
                   <span class="official-logo-fallback">Metasploit</span>
                 </span>
                 <span class="tool-logo-name">Metasploit</span>
@@ -8359,7 +8459,11 @@
 
           <div class="cert">
             <div class="cert-main">
-              <img class="cert-badge-img" src="https://images.credly.com/images/80d8a06a-c384-42bf-ad36-db81bce5adce/blob" alt="CompTIA Security+ Certified badge" loading="lazy">
+              <img
+                class="cert-badge-img"
+                src="https://images.credly.com/images/80d8a06a-c384-42bf-ad36-db81bce5adce/blob"
+                alt="CompTIA Security+ Certified badge"
+                loading="lazy">
 
               <div class="cert-copy">
                 <h3>CompTIA Security+</h3>
@@ -8371,7 +8475,11 @@
 
           <div class="cert pcep-cert">
             <div class="cert-main">
-              <img class="cert-badge-img pcep-cert-badge" src="https://images.credly.com/images/b790eb12-ecb3-4b94-89be-61aa40c92e7c/image.png" alt="PCEP Certified Entry-Level Python Programmer badge" loading="lazy">
+              <img
+                class="cert-badge-img pcep-cert-badge"
+                src="https://images.credly.com/images/b790eb12-ecb3-4b94-89be-61aa40c92e7c/image.png"
+                alt="PCEP Certified Entry-Level Python Programmer badge"
+                loading="lazy">
 
               <div class="cert-copy">
                 <h3>PCEP – Certified Entry-Level Python Programmer</h3>
@@ -8639,18 +8747,35 @@
         <button class="qr-mini-close" id="qr-mini-close" type="button" aria-label="Close QR code">×</button>
       </div>
 
-      <a class="qr-mini-code" href="https://jpeduzzii.github.io/cybersecurity-portfolio" target="_blank" rel="noopener noreferrer" aria-label="Open cybersecurity portfolio">
-        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAkwAAAJMAQAAAAAgH8RuAAAEVElEQVR4nO2dQZLjIAxFv6ayxzfo+x8rN4ATaBYCSThe2c4UPf6qroQm+BUsVAL0waK4ydqfu0gAUUQRRRRRRBFFFFFEEUUUUf8IJW4b/A8AWq8GRmUT+yk/8qVeEUXUA1Cv/l2qfQugTWCfpYo3bJvVo6h8PHJ3r4gi6jmol5cE3a2kKJqoOyMgwxl11Ov8yN29Ioqo56Ben1XmegJIUQGkVAW0bVIURaVUKSrhet/oFVFEPQd14IMW3QRQK+wnpdInpV/sFVFEPQcVPqi7QqloW68ZbihjsirzI3f3iiiinof63P8E5EcBoGgvmBX9fORbvSKKqP8f1ePggWKtSd+BQcw/8yz045E1B0gUUYujoNkqUFRV7VNrb9Bb1l62tijxp6pa1xwgUUQtjgof7OUKAChqHtd9zRywdjf0z9yMPkgUUecsO1q4WwqL7mjxTBmOOcXQNQdIFFGLo4YPIhwwFzw+utO5t+af6INEEXXW9nsyplXrGfnQoaVf0bOHvTzyF6sOkCiifglqbHjaelB+VN8j71DUpNpWRtoalQ0pbbH2AIkialFULP3yVqdvv0zz0goAB1s0XA8SRdR5mzXblhMckU6GQsbCn47ZqY75p0yy7TUHSBRRi6O6D9riznTaKApbD7bNTyq5Ps2OVLhWLS0Y1xwgUUT9EpTnGt5drgbTqrXxr+lkajxpkraUs1h7gEQRtShqTsR76iHnLDwBUUf9WAyCuQmiiLps+/zgcMlQwiRhzK4l6INEEXXZQqhWEfuiswHhfZOT5kr6IFFEnbI858QsVHPfzKK1nJsAwivpg0QRdQXVF3d17MM06QVXpr3TDmjWi9Yv9ooooh6A8nvV1FRnERH9QicArkyLXzcTqmnbmB8kiqgLFvlBi25zobootEtDLfxZurDojFpzgEQRtTgqbYQmfVqWou2Wgf5UL1TuyRBF1BWbtGomhlFbBoYybdxoAQDQtmmWqEU0XHOARBG1OGq627DfIwrARWjjmJIr1tD9dENSrN3dK6KIeg5qvsuiYpqI1lST2hwctOdclCiiztou5z6J0Dz7kO64cKcDEJkL+iBRRJ21vRIm1U8upuF6ux0b+iBRRF0x96/P+ww9LEagrBH7kKIkfZAook7blJvYXZ6GSaRthVCppTb0QaKIuoiKRd88I43bYyxLaBo2jHvVppe/LD1AoohaFZV0MmalxgsHS0XXyUhuM/IU49f7e0UUUc9BHbyH11446P+6RM3b6KwsHe8iXHOARBG1OOrjnu2Szsv7sYgSqcDp4ZQ65HqQKKJuRGkdd8jYItEOLjWxmkjcp8tnftcAiSJqGdTBe3jj3ASAoV6TcbipN7AVounW7u8VUUQ9ERUzzyay9VA4Yhz0LbJhmouWfsiXcZAooi7YiIPzK+bj4lA7NGFCbtsIbWJHJ/wF2YyDRBF1weTgDbznrK05QKKIIooooogiiiiiiCKKKKIO7S9EtdmiLOlItwAAAABJRU5ErkJggg==" alt="QR code for jpeduzzii.github.io/cybersecurity-portfolio">
+      <a
+        class="qr-mini-code"
+        href="https://jpeduzzii.github.io/cybersecurity-portfolio"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Open cybersecurity portfolio">
+        <img
+          src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAkwAAAJMAQAAAAAgH8RuAAAEVElEQVR4nO2dQZLjIAxFv6ayxzfo+x8rN4ATaBYCSThe2c4UPf6qroQm+BUsVAL0waK4ydqfu0gAUUQRRRRRRBFFFFFEEUUUUf8IJW4b/A8AWq8GRmUT+yk/8qVeEUXUA1Cv/l2qfQugTWCfpYo3bJvVo6h8PHJ3r4gi6jmol5cE3a2kKJqoOyMgwxl11Ov8yN29Ioqo56Ben1XmegJIUQGkVAW0bVIURaVUKSrhet/oFVFEPQd14IMW3QRQK+wnpdInpV/sFVFEPQcVPqi7QqloW68ZbihjsirzI3f3iiiinof63P8E5EcBoGgvmBX9fORbvSKKqP8f1ePggWKtSd+BQcw/8yz045E1B0gUUYujoNkqUFRV7VNrb9Bb1l62tijxp6pa1xwgUUQtjgof7OUKAChqHtd9zRywdjf0z9yMPkgUUecsO1q4WwqL7mjxTBmOOcXQNQdIFFGLo4YPIhwwFzw+utO5t+af6INEEXXW9nsyplXrGfnQoaVf0bOHvTzyF6sOkCiifglqbHjaelB+VN8j71DUpNpWRtoalQ0pbbH2AIkialFULP3yVqdvv0zz0goAB1s0XA8SRdR5mzXblhMckU6GQsbCn47ZqY75p0yy7TUHSBRRi6O6D9riznTaKApbD7bNTyq5Ps2OVLhWLS0Y1xwgUUT9EpTnGt5drgbTqrXxr+lkajxpkraUs1h7gEQRtShqTsR76iHnLDwBUUf9WAyCuQmiiLps+/zgcMlQwiRhzK4l6INEEXXZQqhWEfuiswHhfZOT5kr6IFFEnbI858QsVHPfzKK1nJsAwivpg0QRdQXVF3d17MM06QVXpr3TDmjWi9Yv9ooooh6A8nvV1FRnERH9QicArkyLXzcTqmnbmB8kiqgLFvlBi25zobootEtDLfxZurDojFpzgEQRtTgqbYQmfVqWou2Wgf5UL1TuyRBF1BWbtGomhlFbBoYybdxoAQDQtmmWqEU0XHOARBG1OGq627DfIwrARWjjmJIr1tD9dENSrN3dK6KIeg5qvsuiYpqI1lST2hwctOdclCiiztou5z6J0Dz7kO64cKcDEJkL+iBRRJ21vRIm1U8upuF6ux0b+iBRRF0x96/P+ww9LEagrBH7kKIkfZAook7blJvYXZ6GSaRthVCppTb0QaKIuoiKRd88I43bYyxLaBo2jHvVppe/LD1AoohaFZV0MmalxgsHS0XXyUhuM/IU49f7e0UUUc9BHbyH11446P+6RM3b6KwsHe8iXHOARBG1OOrjnu2Szsv7sYgSqcDp4ZQ65HqQKKJuRGkdd8jYItEOLjWxmkjcp8tnftcAiSJqGdTBe3jj3ASAoV6TcbipN7AVounW7u8VUUQ9ERUzzyay9VA4Yhz0LbJhmouWfsiXcZAooi7YiIPzK+bj4lA7NGFCbtsIbWJHJ/wF2YyDRBF1weTgDbznrK05QKKIIooooogiiiiiiCKKKKIO7S9EtdmiLOlItwAAAABJRU5ErkJggg=="
+          alt="QR code for jpeduzzii.github.io/cybersecurity-portfolio">
       </a>
 
       <div class="qr-mini-url">jpeduzzii.github.io/<br>cybersecurity-portfolio</div>
 
-      <a class="qr-mini-open" href="https://jpeduzzii.github.io/cybersecurity-portfolio" target="_blank" rel="noopener noreferrer">
+      <a
+        class="qr-mini-open"
+        href="https://jpeduzzii.github.io/cybersecurity-portfolio"
+        target="_blank"
+        rel="noopener noreferrer">
         Open Portfolio
       </a>
     </div>
 
-    <button class="qr-fab" id="qr-fab" type="button" aria-label="Show portfolio QR code" aria-expanded="false" aria-controls="qr-mini-panel">
+    <button
+      class="qr-fab"
+      id="qr-fab"
+      type="button"
+      aria-label="Show portfolio QR code"
+      aria-expanded="false"
+      aria-controls="qr-mini-panel">
       <svg viewBox="0 0 64 64" aria-hidden="true">
         <rect x="7" y="7" width="18" height="18" rx="1"></rect>
         <rect x="12" y="12" width="8" height="8"></rect>
@@ -8681,9 +8806,13 @@
 
           <h3>Outside of Cybersecurity</h3>
 
-          <p class="editable-placeholder">Outside of work, I enjoy a variety of different things. I love traveling and my favorite destination has always been Ireland. I have been to Ireland four times in my life. I studied abroad in Dungarvan, County Waterford from March 2025 to May 2025.&nbsp;</p>
+          <p class="editable-placeholder">
+            Add something personal here — interests, travel, hobbies, background, or anything else you want visitors to know.
+          </p>
 
-          <p class="editable-placeholder">I'm a collector of many things including depression-era glassware, video game consoles, and more.<br>I also love to play sports such as hockey, tennis, and bowling.</p>
+          <p class="editable-placeholder">
+            You can replace this text using Edit Page whenever you're ready.
+          </p>
         </div>
 
       </div>
@@ -8730,206 +8859,28 @@
       </p>
     </div>
   </footer>
-  </main></div>
 
-  <div id="visual-editor-toolbar" class="visual-editor-toolbar visible" data-editor-ui="true">
-    <button id="toggle-edit-mode" type="button" class="primary">Edit Page</button>
-    <button id="download-edited-html" type="button">Export HTML</button>
-  </div>
-
-  <div id="visual-editor-hint" class="visual-editor-hint" data-editor-ui="true">
-    Live edit mode enabled
-  </div>
-
-  <script>
-    function enterStagingSite() {
-      const gate = document.getElementById('staging-gate');
-      const content = document.getElementById('staging-content');
-
-      content.style.display = 'block';
-
-      requestAnimationFrame(() => {
-        content.classList.add('revealed');
-        gate.classList.add('fade-out');
-      });
-
-      setTimeout(() => {
-        gate.style.display = 'none';
-      }, 650);
-    }
-
-    function checkStagingPassword() {
-      const entered = document.getElementById('staging-password').value;
-      const error = document.getElementById('staging-error');
-
-      if (entered === "Cyber123") {
-        sessionStorage.setItem('stagingAccess', 'granted');
-        enterStagingSite();
-      } else {
-        error.style.display = 'block';
-      }
-    }
   
-    // Visual editor controls
-    const editorToolbar = document.getElementById('visual-editor-toolbar');
-    const editButton = document.getElementById('toggle-edit-mode');
-    const saveButton = document.getElementById('download-edited-html');
-    const editorHint = document.getElementById('visual-editor-hint');
-    let visualEditMode = false;
 
-    function getEditableElements() {
-      return document.querySelectorAll(
-        '#staging-content h1, #staging-content h2, #staging-content h3, ' +
-        '#staging-content h4, #staging-content p, #staging-content li, ' +
-        '#staging-content .eyebrow, #staging-content .section-label, ' +
-        '#staging-content .tag, #staging-content .badge, ' +
-        '#staging-content .editable-contact-link'
-      );
-    }
+  
 
-    function addTagDeleteButtons() {
-      document.querySelectorAll('#staging-content .tag').forEach((tag) => {
-        if (tag.querySelector('.tag-delete-button')) return;
 
-        const button = document.createElement('button');
-        button.type = 'button';
-        button.className = 'tag-delete-button';
-        button.setAttribute('aria-label', 'Delete this skill');
-        button.setAttribute('title', 'Delete this skill');
-        button.setAttribute('data-editor-ui', 'true');
-        button.textContent = '×';
 
-        button.addEventListener('click', (event) => {
-          event.preventDefault();
-          event.stopPropagation();
-          tag.remove();
-        });
 
-        tag.appendChild(button);
-      });
-    }
-
-    function removeTagDeleteButtons() {
-      document.querySelectorAll('.tag-delete-button').forEach((button) => {
-        button.remove();
-      });
-    }
-
-    function setVisualEditMode(enabled) {
-      visualEditMode = enabled;
-      document.body.classList.toggle('visual-editing', enabled);
-
-      getEditableElements().forEach((el) => {
-        if (enabled) {
-          el.setAttribute('contenteditable', 'true');
-          el.setAttribute('spellcheck', 'true');
-        } else {
-          el.removeAttribute('contenteditable');
-          el.removeAttribute('spellcheck');
-        }
-      });
-
-      if (enabled) {
-        addTagDeleteButtons();
-      } else {
-        removeTagDeleteButtons();
-      }
-
-      editButton.textContent = enabled ? 'Done Editing' : 'Edit Page';
-      editButton.classList.toggle('primary', !enabled);
-      editorHint.classList.toggle('visible', enabled);
-    }
-
-    editButton.addEventListener('click', () => {
-      setVisualEditMode(!visualEditMode);
-    });
-
-    function syncContactEmail(root = document) {
-      const emailLink = root.querySelector('#contact-email');
+  
+  <script>
+    (() => {
+      const emailLink = document.getElementById('contact-email');
       if (!emailLink) return;
 
       const email = emailLink.textContent.trim();
-
       if (email && email !== 'add-your-email@example.com' && email.includes('@')) {
         emailLink.setAttribute('href', `mailto:${email}`);
-        emailLink.removeAttribute('title');
-      } else {
-        emailLink.setAttribute('href', '#');
       }
-    }
+    })();
+  </script>
 
-    saveButton.addEventListener('click', () => {
-      syncContactEmail(document);
-
-      const clone = document.documentElement.cloneNode(true);
-      syncContactEmail(clone);
-
-      clone.querySelectorAll('[contenteditable]').forEach((el) => {
-        el.removeAttribute('contenteditable');
-        el.removeAttribute('spellcheck');
-      });
-
-      clone.querySelectorAll('.tag-delete-button').forEach((button) => {
-        button.remove();
-      });
-
-      const clonedBody = clone.querySelector('body');
-      if (clonedBody) clonedBody.classList.remove('visual-editing');
-
-      const clonedHint = clone.querySelector('#visual-editor-hint');
-      if (clonedHint) clonedHint.classList.remove('visible');
-
-      const clonedEditButton = clone.querySelector('#toggle-edit-mode');
-      if (clonedEditButton) {
-        clonedEditButton.textContent = 'Edit Page';
-        clonedEditButton.classList.add('primary');
-      }
-
-      const exportedHtml = '<!DOCTYPE html>\n' + clone.outerHTML;
-      const blob = new Blob([exportedHtml], { type: 'text/html;charset=utf-8' });
-      const url = URL.createObjectURL(blob);
-      const link = document.createElement('a');
-
-      link.href = url;
-      link.download = 'index.html';
-      document.body.appendChild(link);
-      link.click();
-      link.remove();
-      setTimeout(() => URL.revokeObjectURL(url), 1000);
-    });
-
-    function showEditorToolbar() {
-      editorToolbar.classList.add('visible');
-    }
-
-    const originalEnterStagingSite = enterStagingSite;
-    enterStagingSite = function() {
-      originalEnterStagingSite();
-      setTimeout(showEditorToolbar, 650);
-    };
-
-
-    const contactEmailLink = document.getElementById('contact-email');
-    if (contactEmailLink) {
-      contactEmailLink.addEventListener('click', (event) => {
-        syncContactEmail(document);
-
-        if (contactEmailLink.getAttribute('href') === '#') {
-          event.preventDefault();
-        }
-      });
-
-      contactEmailLink.addEventListener('blur', () => {
-        syncContactEmail(document);
-      });
-    }
-
-</script>
-
-
-
-
-  <script>
+<script>
     (() => {
       const button = document.getElementById('qr-fab');
       const panel = document.getElementById('qr-mini-panel');
@@ -8963,6 +8914,5 @@
       });
     })();
   </script>
-
 
 </body></html>
