@@ -1,38 +1,58 @@
-Lab 1: Vulnerability Assessment
+## Meridian Trust Bank Security Lab
 
-In the vulnerability assessment lab, I learned how to take a large vulnerability scan and turn it into useful information instead of just trusting the scanner output.
+This lab combined vulnerability assessment, digital forensics, incident response, and detection engineering into one end-to-end security investigation.
 
-I learned how to:
+### What I Did
 
-Review and prioritize vulnerabilities by CVSS score, KEV status, host role, and real-world risk.
-Validate whether scanner findings are actually true by checking software versions and configurations.
-Identify false positives instead of assuming every scanner finding is correct.
-Recognize that a lower-CVSS vulnerability can be more important if it is actively exploited in the wild.
-Use the CISA KEV catalog to improve prioritization.
-Recommend specific fixes instead of simply saying “patch it.”
-Suggest compensating controls when a vulnerability cannot be fixed immediately.
-Think about scan cadence, especially for internet-facing systems.
-Understand that vulnerability management is a process, not just a one-time scan.
-See how delayed patching and infrequent scanning can allow a known vulnerability to remain exploitable.
+I began by reviewing vulnerability scan results across multiple Meridian Trust Bank systems. I validated scanner findings against actual software versions and system configurations, identified false positives, and reprioritized vulnerabilities using CVSS severity, asset exposure, and CISA KEV status.
 
-The biggest lesson I learned was that a scanner gives me findings, but I have to determine which findings actually matter and what should be fixed first.
+I then investigated the compromise of `MTB-WEB01` by analyzing firewall logs, Apache logs, authentication logs, system logs, file-system timelines, recovered artifacts, and network activity.
 
-Lab 2: Digital Forensics / Incident Response
+From that evidence, I reconstructed the attacker’s activity from initial reconnaissance through:
 
-In the forensics and incident response lab, I learned how to reconstruct an attack from logs, files, authentication records, network traffic, and system activity.
+* Exploitation of a public-facing Apache vulnerability
+* Deployment of a web shell
+* Privilege escalation to root using PwnKit
+* Creation of a UID 0 backdoor account
+* SSH key persistence
+* Cron-based persistence
+* Command-and-control beaconing
+* Lateral movement to `MTB-FILE01`
+* Systemd-based persistence on the second host
+* Local data staging and suspected exfiltration activity
 
-I learned how to:
+### Detection and Threat Analysis
 
-Build an incident timeline and determine when the attacker first appeared, gained access, escalated privileges, established persistence, moved laterally, and triggered an alert.
-Identify the attacker’s path from reconnaissance → exploitation → webshell → root access → persistence → lateral movement → data staging/C2.
-Analyze Linux authentication and system logs to identify pkexec privilege escalation, UID 0 backdoor accounts, malicious SSH keys, cron persistence, and systemd persistence.
-Recognize malicious processes such as apache-worker and syslog-forward.
-Understand why behavior-based detections are stronger than simple IP or hash detections.
-Map attacker activity to MITRE ATT&CK tactics and techniques.
-Build detection rules for persistence, webshell activity, exploitation, and lateral SSH movement.
-Use the Pyramid of Pain to understand why attacker behavior is more valuable to detect than just hashes and IP addresses.
-Identify gaps in detection coverage.
-Build an eradication plan and recovery plan.
-Understand the importance of credential and SSH key blast radius.
-See how suspicious activity can exist in logs for hours without being acted on if proper alerting is missing.
+I mapped the attacker’s behavior to the MITRE ATT&CK framework and created a consolidated IOC list containing malicious IP addresses, file paths, hashes, accounts, SSH keys, and persistence mechanisms.
 
+I also used the Pyramid of Pain to distinguish between low-value indicators such as hashes and IP addresses and higher-value behavioral detections.
+
+I developed detection logic for:
+
+* Suspicious cron and systemd persistence
+* Web shell activity
+* Exploitation of public-facing applications
+* Suspicious server-to-server SSH activity
+
+### Incident Response
+
+I created eradication and recovery plans covering:
+
+* Removal of malicious files and persistence mechanisms
+* Removal of unauthorized accounts and SSH keys
+* Rotation of compromised credentials
+* Patching of exploited vulnerabilities
+* Hardening of Apache configuration
+* Validation of clean backups
+* Safe restoration of compromised systems
+* Heightened post-incident monitoring
+
+### Key Takeaways
+
+This lab demonstrated how vulnerability management and incident response connect in practice. A vulnerability scanner can identify potential weaknesses, but those findings must be validated, prioritized, remediated, and monitored effectively.
+
+It also reinforced the importance of behavior-based detections, proper credential management, network segmentation, patching cadence, centralized logging, and timely alerting.
+
+Overall, the lab gave me hands-on experience moving through the full security lifecycle:
+
+**Identify → Validate → Prioritize → Detect → Investigate → Contain → Eradicate → Recover → Improve**
