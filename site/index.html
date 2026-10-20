@@ -8689,6 +8689,288 @@
       }
     }
 
+
+    /* =========================================================
+       SUMMIT FEDERAL BANK CAPSTONE
+       Matches the normal Art Deco / amethyst portfolio styling.
+       ========================================================= */
+
+    #project .capstone-featured {
+      margin-top: 1.6rem;
+      background:
+        linear-gradient(145deg, rgba(255,255,255,0.018), transparent 34%),
+        #071320 !important;
+    }
+
+    .capstone-heading-row {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 1.25rem;
+      margin-bottom: 0.8rem;
+    }
+
+    .capstone-heading-row h3 {
+      margin-bottom: 0;
+    }
+
+    .capstone-status {
+      flex: 0 0 auto;
+      padding: 0.45rem 0.75rem;
+      border: 1px solid rgba(167,139,250,0.22);
+      background: #06111e;
+      color: #c8b9f7;
+      font-size: 0.75rem;
+      font-weight: 800;
+      letter-spacing: 0.10em;
+      text-transform: uppercase;
+      clip-path: polygon(7px 0, 100% 0, 100% calc(100% - 7px), calc(100% - 7px) 100%, 0 100%, 0 7px);
+    }
+
+    .capstone-kicker {
+      max-width: 860px !important;
+      margin-bottom: 1.35rem !important;
+      color: #d9d0bf !important;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 1rem;
+    }
+
+    .capstone-summary-box {
+      position: relative;
+      z-index: 2;
+      margin: 0 0 1.5rem;
+      padding: 1.25rem 1.35rem;
+      border: 1px solid rgba(167,139,250,0.16);
+      background:
+        linear-gradient(180deg, rgba(167,139,250,0.035), transparent),
+        #050b12;
+      box-shadow: inset 0 0 0 1px rgba(255,255,255,0.012);
+    }
+
+    .capstone-summary-label {
+      margin-bottom: 0.65rem;
+      color: #b7a5f1;
+      font-size: 0.76rem;
+      font-weight: 800;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+    }
+
+    .capstone-summary-text {
+      max-width: none !important;
+      margin: 0 !important;
+      color: #c8bca9 !important;
+      line-height: 1.75;
+    }
+
+    .capstone-stats {
+      position: relative;
+      z-index: 2;
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 0.8rem;
+      margin: 0 0 1.45rem;
+    }
+
+    .capstone-stat {
+      padding: 1rem;
+      background: #06111e;
+      border: 1px solid rgba(167,139,250,0.14);
+      clip-path: polygon(8px 0, 100% 0, 100% calc(100% - 8px), calc(100% - 8px) 100%, 0 100%, 0 8px);
+    }
+
+    .capstone-stat strong {
+      display: block;
+      margin-bottom: 0.25rem;
+      color: #d3c5fb;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 1.2rem;
+    }
+
+    .capstone-stat span {
+      color: #9eacbc;
+      font-size: 0.78rem;
+      line-height: 1.35;
+    }
+
+    .capstone-tags {
+      margin-bottom: 0 !important;
+    }
+
+    @media (max-width: 850px) {
+      .capstone-stats {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 560px) {
+      .capstone-heading-row {
+        flex-direction: column;
+      }
+
+      .capstone-status {
+        align-self: flex-start;
+      }
+
+      .capstone-stats {
+        grid-template-columns: 1fr;
+      }
+    }
+
+
+    .capstone-actions {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-top: 1.35rem;
+    }
+
+    .capstone-actions .button {
+      min-width: 190px;
+    }
+
+
+    /* =========================================================
+       BUILT-IN SITE EDITOR
+       Edit visible text in the browser, then export a fresh
+       index.html that keeps the editor for future changes.
+       ========================================================= */
+
+    .site-editor-toolbar {
+      position: fixed;
+      left: 18px;
+      bottom: 18px;
+      z-index: 20000;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px;
+      border: 1px solid rgba(167,139,250,0.26);
+      background: rgba(5, 9, 15, 0.94);
+      box-shadow: 0 16px 42px rgba(0,0,0,0.42);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 10px 100%, 0 calc(100% - 10px));
+    }
+
+    .site-editor-toolbar button {
+      min-height: 40px;
+      padding: 0.64rem 0.82rem;
+      border: 1px solid rgba(167,139,250,0.20);
+      background: #06111e;
+      color: #e7defd;
+      font: inherit;
+      font-size: 0.80rem;
+      font-weight: 800;
+      letter-spacing: 0.04em;
+      cursor: pointer;
+    }
+
+    .site-editor-toolbar button:hover {
+      border-color: rgba(202,187,250,0.56);
+      color: #fff;
+    }
+
+    .site-editor-toolbar .site-editor-primary {
+      border-color: rgba(167,139,250,0.62);
+      background: #4f397f;
+      color: #fff;
+    }
+
+    .site-editor-toolbar .site-editor-primary.active {
+      background: #1f6f69;
+      border-color: rgba(52,150,141,0.62);
+    }
+
+    .site-editor-hint {
+      position: fixed;
+      left: 50%;
+      bottom: 24px;
+      z-index: 19999;
+      display: none;
+      transform: translateX(-50%);
+      max-width: min(560px, calc(100vw - 260px));
+      padding: 0.62rem 0.85rem;
+      border: 1px solid rgba(167,139,250,0.22);
+      background: rgba(5,9,15,0.94);
+      color: #c8b9f7;
+      font-size: 0.78rem;
+      text-align: center;
+      pointer-events: none;
+      box-shadow: 0 12px 32px rgba(0,0,0,0.35);
+    }
+
+    .site-editor-hint.visible {
+      display: block;
+    }
+
+    .site-editor-toast {
+      position: fixed;
+      left: 18px;
+      bottom: 78px;
+      z-index: 20001;
+      display: none;
+      max-width: 330px;
+      padding: 0.72rem 0.86rem;
+      border: 1px solid rgba(52,150,141,0.35);
+      background: rgba(5,9,15,0.96);
+      color: #d9f4ef;
+      font-size: 0.78rem;
+      box-shadow: 0 12px 30px rgba(0,0,0,0.38);
+    }
+
+    .site-editor-toast.visible {
+      display: block;
+    }
+
+    body.site-editing [contenteditable="true"] {
+      cursor: text !important;
+      outline: 1px dashed rgba(167,139,250,0.34);
+      outline-offset: 4px;
+      border-radius: 2px;
+      transition:
+        outline-color 0.15s ease,
+        background 0.15s ease;
+    }
+
+    body.site-editing [contenteditable="true"]:hover,
+    body.site-editing [contenteditable="true"]:focus {
+      outline-color: rgba(216,204,255,0.78);
+      background: rgba(141,114,217,0.075);
+    }
+
+    body.site-editing a[contenteditable="true"],
+    body.site-editing .button[contenteditable="true"] {
+      cursor: text !important;
+    }
+
+    /* Editor controls themselves are never editable. */
+    [data-editor-ui="true"],
+    [data-editor-ui="true"] * {
+      contenteditable: false !important;
+    }
+
+    @media (max-width: 760px) {
+      .site-editor-toolbar {
+        left: 10px;
+        bottom: 10px;
+      }
+
+      .site-editor-hint {
+        display: none !important;
+      }
+
+      .site-editor-toast {
+        left: 10px;
+        bottom: 68px;
+        max-width: calc(100vw - 20px);
+      }
+    }
+
 </style>
 </head>
 
@@ -8709,7 +8991,7 @@
         <ul class="nav-links">
           <li><a href="#about">Experience</a></li>
           <li><a href="#skills">Skills</a></li>
-          <li><a href="#project">Featured Experience</a></li>
+          <li><a href="#project">Featured Work</a></li>
           <li><a href="#tryhackme">TryHackMe</a></li>
           <li><a href="#certifications">Certifications</a></li>
           <li><a href="#repository">Repository</a></li>
@@ -8754,7 +9036,7 @@
             </a>
 
             <a class="button secondary" href="#project">
-              Featured Project
+              Featured Work
             </a>
           </div>
         </div>
@@ -9139,6 +9421,78 @@
           </a>
         </article>
 
+        <article class="featured capstone-featured">
+          <div class="capstone-heading-row">
+            <div>
+              <div class="featured-badge">Capstone Project</div>
+              <h3>Summit Federal Bank</h3>
+            </div>
+            <div class="capstone-status">Team Capstone</div>
+          </div>
+
+          <p class="capstone-kicker">
+            Building, defending, and recovering a simulated bank environment against a live attack.
+          </p>
+
+          <div class="capstone-summary-box">
+            <div class="capstone-summary-label">Capstone Summary</div>
+            <p class="capstone-summary-text">
+              As part of a team capstone, we built and hardened a simulated banking environment,
+              then defended it during a live attack and recovered the environment afterward. The
+              infrastructure included a domain controller and file server, an internal certificate
+              authority, a TLS-enabled web host, Azure Bastion access, isolated subnets, host
+              firewalls, and controls aligned to PCI DSS. During the attack, our monitoring detected
+              the compromise within 40 seconds. We blocked test malware, identified and removed
+              unauthorized persistence, preserved evidence before the Security log was erased, and
+              verified that all 101 synthetic customer records remained intact. The project reinforced
+              the importance of cloud management-plane security, centralized logging, break-glass
+              account protection, evidence preservation, tested backups, and coordinated incident
+              response.
+            </p>
+          </div>
+
+          <div class="capstone-stats" aria-label="Capstone highlights">
+            <div class="capstone-stat">
+              <strong>40 sec</strong>
+              <span>Intrusion detection</span>
+            </div>
+            <div class="capstone-stat">
+              <strong>0 of 101</strong>
+              <span>Customer records modified</span>
+            </div>
+            <div class="capstone-stat">
+              <strong>120 → 23</strong>
+              <span>Inbound firewall rules</span>
+            </div>
+            <div class="capstone-stat">
+              <strong>2 of 2</strong>
+              <span>Persistence mechanisms found</span>
+            </div>
+          </div>
+
+          <div class="project-details capstone-tags">
+            <span class="tag">Windows Server</span>
+            <span class="tag">Active Directory</span>
+            <span class="tag">Azure</span>
+            <span class="tag">PCI DSS</span>
+            <span class="tag">System Hardening</span>
+            <span class="tag">Incident Response</span>
+            <span class="tag">Digital Forensics</span>
+            <span class="tag">Backup &amp; Recovery</span>
+          </div>
+
+          <div class="capstone-actions">
+            <a
+              class="button secondary"
+              href="presentations/Summit%20Federal%20Bank%20Capstone.pptx"
+              target="_blank"
+              rel="noopener"
+            >
+              Viewing the Capstone
+            </a>
+          </div>
+        </article>
+
       </div>
     </section>
 
@@ -9481,6 +9835,17 @@
 
 
 
+  <div id="site-editor-toolbar" class="site-editor-toolbar" data-editor-ui="true" aria-label="Site editor controls">
+    <button id="site-editor-toggle" type="button" class="site-editor-primary">Edit Page</button>
+    <button id="site-editor-export" type="button">Export HTML</button>
+  </div>
+
+  <div id="site-editor-hint" class="site-editor-hint" data-editor-ui="true" aria-live="polite">
+    Edit mode: click text and type. Links will not open while editing.
+  </div>
+
+  <div id="site-editor-toast" class="site-editor-toast" data-editor-ui="true" aria-live="polite"></div>
+
   <div class="qr-fab-wrap" id="qr-fab-wrap">
     <div class="qr-mini-panel" id="qr-mini-panel" role="dialog" aria-label="Portfolio QR code" aria-hidden="true">
       <div class="qr-mini-ornament" aria-hidden="true"></div>
@@ -9661,6 +10026,166 @@
       document.addEventListener('keydown', (event) => {
         if (event.key === 'Escape') {
           setOpen(false);
+        }
+      });
+    })();
+  </script>
+
+
+  <script>
+    (() => {
+      const toggleButton = document.getElementById('site-editor-toggle');
+      const exportButton = document.getElementById('site-editor-export');
+      const hint = document.getElementById('site-editor-hint');
+      const toast = document.getElementById('site-editor-toast');
+
+      if (!toggleButton || !exportButton) return;
+
+      let editing = false;
+      let toastTimer = null;
+
+      const editableSelector = [
+        'h1',
+        'h2',
+        'h3',
+        'h4',
+        'p',
+        'li',
+        '.eyebrow',
+        '.section-label',
+        '.featured-badge',
+        '.cert-status',
+        '.certification-goal-status',
+        '.capstone-status',
+        '.capstone-summary-label',
+        '.capstone-summary-text',
+        '.capstone-kicker',
+        '.experience-org',
+        '.experience-date',
+        '.contact-kicker',
+        '.repo-link',
+        '.certificate-file-link',
+        '.tag',
+        '.button'
+      ].join(',');
+
+      function showToast(message) {
+        if (!toast) return;
+        toast.textContent = message;
+        toast.classList.add('visible');
+        window.clearTimeout(toastTimer);
+        toastTimer = window.setTimeout(() => {
+          toast.classList.remove('visible');
+        }, 2800);
+      }
+
+      function editableElements(root = document) {
+        return Array.from(root.querySelectorAll(editableSelector)).filter((el) => {
+          return !el.closest('[data-editor-ui="true"]');
+        });
+      }
+
+      function setEditing(enabled) {
+        editing = enabled;
+        document.body.classList.toggle('site-editing', enabled);
+
+        editableElements().forEach((el) => {
+          if (enabled) {
+            el.setAttribute('contenteditable', 'true');
+            el.setAttribute('spellcheck', 'true');
+          } else {
+            el.removeAttribute('contenteditable');
+            el.removeAttribute('spellcheck');
+          }
+        });
+
+        toggleButton.textContent = enabled ? 'Done Editing' : 'Edit Page';
+        toggleButton.classList.toggle('active', enabled);
+        hint?.classList.toggle('visible', enabled);
+
+        if (enabled) {
+          showToast('Edit mode is on. Click text anywhere on the page and type.');
+        } else {
+          showToast('Editing finished. Export HTML when you are ready to save it.');
+        }
+      }
+
+      // Prevent links/buttons from navigating while their text is being edited.
+      document.addEventListener('click', (event) => {
+        if (!editing) return;
+
+        const editable = event.target.closest('[contenteditable="true"]');
+        if (!editable) return;
+
+        const interactive = editable.closest('a, button');
+        if (interactive && !interactive.closest('[data-editor-ui="true"]')) {
+          event.preventDefault();
+          event.stopPropagation();
+        }
+      }, true);
+
+      toggleButton.addEventListener('click', () => {
+        setEditing(!editing);
+      });
+
+      function syncEmail(root) {
+        const email = root.querySelector('#contact-email');
+        if (!email) return;
+
+        const value = email.textContent.trim();
+        if (value && value.includes('@')) {
+          email.setAttribute('href', `mailto:${value}`);
+        }
+      }
+
+      function cleanExportedDocument(clone) {
+        clone.querySelectorAll('[contenteditable]').forEach((el) => {
+          el.removeAttribute('contenteditable');
+          el.removeAttribute('spellcheck');
+        });
+
+        const body = clone.querySelector('body');
+        body?.classList.remove('site-editing');
+
+        const toggle = clone.querySelector('#site-editor-toggle');
+        if (toggle) {
+          toggle.textContent = 'Edit Page';
+          toggle.classList.remove('active');
+        }
+
+        clone.querySelector('#site-editor-hint')?.classList.remove('visible');
+        clone.querySelector('#site-editor-toast')?.classList.remove('visible');
+
+        syncEmail(clone);
+      }
+
+      exportButton.addEventListener('click', () => {
+        // Turn off editing in the live page first so the exported copy is clean.
+        if (editing) setEditing(false);
+        syncEmail(document);
+
+        const clone = document.documentElement.cloneNode(true);
+        cleanExportedDocument(clone);
+
+        const exported = '<!DOCTYPE html>\n' + clone.outerHTML;
+        const blob = new Blob([exported], { type: 'text/html;charset=utf-8' });
+        const url = URL.createObjectURL(blob);
+        const link = document.createElement('a');
+
+        link.href = url;
+        link.download = 'index.html';
+        document.body.appendChild(link);
+        link.click();
+        link.remove();
+
+        window.setTimeout(() => URL.revokeObjectURL(url), 1200);
+        showToast('Downloaded index.html. Replace site/index.html with it and push to GitHub.');
+      });
+
+      // Escape exits edit mode.
+      document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape' && editing) {
+          setEditing(false);
         }
       });
     })();
