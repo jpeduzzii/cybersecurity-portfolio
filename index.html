@@ -8971,6 +8971,207 @@
       }
     }
 
+
+    /* =========================================================
+       BOOTCAMP REFLECTIONS
+       Editable 3 / 5 / 7 reflection section.
+       ========================================================= */
+
+    #bootcamp-reflections {
+      overflow: hidden;
+    }
+
+    .bootcamp-block {
+      position: relative;
+      margin-top: 1.3rem;
+      padding: 1.45rem;
+      border: 1px solid rgba(167,139,250,0.16);
+      background:
+        linear-gradient(145deg, rgba(255,255,255,0.018), transparent 35%),
+        #071320;
+      box-shadow:
+        inset 0 1px 0 rgba(255,255,255,0.018),
+        0 18px 44px rgba(0,0,0,0.18);
+      clip-path: polygon(
+        0 0,
+        calc(100% - 14px) 0,
+        100% 14px,
+        100% 100%,
+        14px 100%,
+        0 calc(100% - 14px)
+      );
+    }
+
+    .bootcamp-block + .bootcamp-block {
+      margin-top: 1.05rem;
+    }
+
+    .bootcamp-block-heading {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 1.25rem;
+      margin-bottom: 1.15rem;
+      padding-bottom: 0.85rem;
+      border-bottom: 1px solid rgba(167,139,250,0.12);
+    }
+
+    .bootcamp-block-heading > div {
+      display: flex;
+      align-items: baseline;
+      gap: 0.8rem;
+    }
+
+    .bootcamp-count {
+      color: #9f87e3;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 1.7rem;
+      line-height: 1;
+      letter-spacing: 0.02em;
+    }
+
+    .bootcamp-block-heading h3 {
+      margin: 0;
+      color: #f1ecdf;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 1.12rem;
+      letter-spacing: 0.01em;
+    }
+
+    .bootcamp-block-heading > p {
+      margin: 0 !important;
+      color: #8f9dac !important;
+      font-size: 0.8rem;
+      text-align: right;
+    }
+
+    .bootcamp-quote-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.8rem;
+    }
+
+    .bootcamp-quote-card {
+      position: relative;
+      min-height: 150px;
+      padding: 1.15rem 1.15rem 1.05rem;
+      background: #050b12;
+      border: 1px solid rgba(167,139,250,0.14);
+      clip-path: polygon(
+        8px 0,
+        100% 0,
+        100% calc(100% - 8px),
+        calc(100% - 8px) 100%,
+        0 100%,
+        0 8px
+      );
+    }
+
+    .bootcamp-quote-card::before {
+      content: "“";
+      position: absolute;
+      right: 0.75rem;
+      bottom: -0.55rem;
+      color: rgba(167,139,250,0.08);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 6rem;
+      line-height: 1;
+      pointer-events: none;
+    }
+
+    .bootcamp-item-number {
+      display: block;
+      margin-bottom: 0.85rem;
+      color: #8f77d3;
+      font-size: 0.68rem;
+      font-weight: 800;
+      letter-spacing: 0.18em;
+    }
+
+    .bootcamp-quote-text {
+      position: relative;
+      z-index: 1;
+      margin: 0 !important;
+      color: #d6cdbc !important;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 1rem;
+      line-height: 1.65;
+    }
+
+    .bootcamp-concept-grid {
+      counter-reset: bootcamp-concept;
+      list-style: none;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.7rem;
+      margin: 0;
+      padding: 0;
+    }
+
+    .bootcamp-concept-grid li {
+      counter-increment: bootcamp-concept;
+      position: relative;
+      min-height: 64px;
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      padding: 0.85rem 0.95rem;
+      background: #050b12;
+      border: 1px solid rgba(167,139,250,0.12);
+      color: #c8bca9;
+    }
+
+    .bootcamp-concept-grid li::before {
+      content: counter(bootcamp-concept, decimal-leading-zero);
+      flex: 0 0 auto;
+      color: #9f87e3;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 0.9rem;
+      font-weight: 700;
+    }
+
+    .bootcamp-concept-grid li span {
+      line-height: 1.4;
+    }
+
+    .bootcamp-seven li:last-child {
+      grid-column: 1 / -1;
+    }
+
+    body.site-editing .bootcamp-quote-text,
+    body.site-editing .bootcamp-concept-grid li {
+      outline-color: rgba(216,204,255,0.55) !important;
+    }
+
+    @media (max-width: 850px) {
+      .bootcamp-quote-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .bootcamp-concept-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .bootcamp-seven li:last-child {
+        grid-column: auto;
+      }
+    }
+
+    @media (max-width: 620px) {
+      .bootcamp-block {
+        padding: 1.1rem;
+      }
+
+      .bootcamp-block-heading {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .bootcamp-block-heading > p {
+        text-align: left;
+      }
+    }
+
 </style>
 </head>
 
@@ -8992,6 +9193,7 @@
           <li><a href="#about">Experience</a></li>
           <li><a href="#skills">Skills</a></li>
           <li><a href="#project">Featured Work</a></li>
+          <li><a href="#bootcamp-reflections">Bootcamp</a></li>
           <li><a href="#tryhackme">TryHackMe</a></li>
           <li><a href="#certifications">Certifications</a></li>
           <li><a href="#repository">Repository</a></li>
@@ -9437,7 +9639,7 @@
           </div>
 
           <div class="capstone-actions">
-            <a class="button" href="https://github.com/jpeduzzii/cybersecurity-portfolio/blob/main/presentations/Summit%20Federal%20Bank%20Capstone.pdf" target="_blank" rel="noopener">
+            <a class="button" href="presentations/Summit%20Federal%20Bank%20Capstone.pptx" target="_blank" rel="noopener">
               View Capstone
             </a>
           </div>
@@ -9446,11 +9648,94 @@
       </div>
     </section>
 
+<section id="bootcamp-reflections">
+      <div class="container">
+
+        <div class="section-label">
+          <span class="deco-marker" aria-hidden="true"></span>04 / Bootcamp Reflections
+        </div>
+
+        <h2 class="section-title">
+          What stayed with me.
+        </h2>
+
+        <p class="section-intro">
+          A running collection of the ideas, quotes, and technical concepts from my 12-week bootcamp
+          that stood out the most.</p>
+
+        <div class="bootcamp-block">
+          <div class="bootcamp-block-heading">
+            <div>
+              <span class="bootcamp-count">03</span>
+              <h3>Top Quotes I Remember</h3>
+            </div>
+            <p>Short lines from the course that stuck with me.</p>
+          </div>
+
+          <div class="bootcamp-quote-grid">
+            <article class="bootcamp-quote-card">
+              <span class="bootcamp-item-number">01</span>
+              <p class="bootcamp-quote-text">“The number one goal of cybersecurity is to protect human life”</p>
+            </article>
+
+            <article class="bootcamp-quote-card">
+              <span class="bootcamp-item-number">02</span>
+              <p class="bootcamp-quote-text">“It's not if you get hacked, it's when.”</p>
+            </article>
+
+            <article class="bootcamp-quote-card">
+              <span class="bootcamp-item-number">03</span>
+              <p class="bootcamp-quote-text">“Proactively plan, effectively execute”</p>
+            </article>
+          </div>
+        </div>
+
+        <div class="bootcamp-block">
+          <div class="bootcamp-block-heading">
+            <div>
+              <span class="bootcamp-count">05</span>
+              <h3>Technical Concepts That Interested Me</h3>
+            </div>
+            <p>Topics I want to keep exploring or working with.</p>
+          </div>
+
+          <ol class="bootcamp-concept-grid bootcamp-five">
+            <li><span>SIEM</span></li>
+            <li><span>Linux Hardening</span></li>
+            <li><span>Hypervisors</span></li>
+            <li>Dashboard Visuals</li>
+            <li><span>AI and Prompt Engineering</span></li>
+          </ol>
+        </div>
+
+        <div class="bootcamp-block">
+          <div class="bootcamp-block-heading">
+            <div>
+              <span class="bootcamp-count">07</span>
+              <h3>Complex Concepts I Didn't Know Before</h3>
+            </div>
+            <p>Ideas that expanded what I understood about cybersecurity.</p>
+          </div>
+
+          <ol class="bootcamp-concept-grid bootcamp-seven">
+            <li><span>Hypervisors</span></li>
+            <li><span>PowerBI</span></li>
+            <li><span>Artificial Intelligence and prompting</span></li>
+            <li><span>Cloud Architecture</span></li>
+            <li>Microsoft Azure</li>
+            <li><span>Virtualization</span></li>
+            <li>Firewall Configurations</li>
+          </ol>
+        </div>
+
+      </div>
+    </section>
+
 <section id="tryhackme">
       <div class="container">
 
         <div class="section-label">
-          <span class="deco-marker" aria-hidden="true"></span>04 / TryHackMe
+          <span class="deco-marker" aria-hidden="true"></span>05 / TryHackMe
         </div>
 
         <h2 class="section-title">
@@ -9498,7 +9783,7 @@
       <div class="container">
 
         <div class="section-label">
-          <span class="deco-marker" aria-hidden="true"></span>05 / Certifications
+          <span class="deco-marker" aria-hidden="true"></span>06 / Certifications
         </div>
 
         <h2 class="section-title">
@@ -9540,7 +9825,7 @@
       <div class="container">
 
         <div class="section-label">
-          <span class="deco-marker" aria-hidden="true"></span>06 / Certificate Files
+          <span class="deco-marker" aria-hidden="true"></span>07 / Certificate Files
         </div>
 
         <h2 class="section-title">
@@ -9602,7 +9887,7 @@
       <div class="container">
 
         <div class="section-label">
-          <span class="deco-marker" aria-hidden="true"></span>07 / Repository
+          <span class="deco-marker" aria-hidden="true"></span>08 / Repository
         </div>
 
         <h2 class="section-title">
@@ -9714,7 +9999,7 @@
       <div class="container">
 
         <div class="section-label">
-          <span class="deco-marker" aria-hidden="true"></span>08 / Contact
+          <span class="deco-marker" aria-hidden="true"></span>09 / Contact
         </div>
 
         <h2 class="section-title">
